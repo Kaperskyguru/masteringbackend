@@ -1,14 +1,13 @@
 <template>
   <div>
-    <banner />
-    <Posts />
+    <Nav />
+    <Nuxt />
+    <Footer />
   </div>
 </template>
 
 <script>
-export default {
-  layout: 'index',
-}
+export default {}
 </script>
 
 <style></style>
