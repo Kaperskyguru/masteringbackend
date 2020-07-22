@@ -17,16 +17,12 @@ export const mutations = {
 }
 
 export const actions = {
-  getPosts({ commit }) {
-    fetch(`${baseURl}/get_posts`)
-      .then((res) => res.json())
-      .then((res) => {
-        const { posts } = res
-        if (posts) {
-          commit('setPosts', posts)
-        }
-      })
-      .catch((error) => console.log(error))
+  async getPosts({ commit }) {
+    const response = await fetch(`${baseURl}/get_posts`)
+    const data = await response.json()
+    if (data.posts) {
+      commit('setPosts', data.posts)
+    }
   },
 
   getLatestPosts({ commit }, page = 1, perPage = 3) {
