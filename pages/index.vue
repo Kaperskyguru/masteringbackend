@@ -9,9 +9,11 @@
 export default {
   layout: 'index',
 
-  async fetch({ store }) {
-    await store.dispatch('post/getPosts')
-  },
+  middleware: 'loadData',
+
+  // async fetch({ store }) {
+  //   await store.dispatch('post/getPosts')
+  // },
 
   // async asyncData({ store }) {
   //   await store.dispatch('post/getPosts')

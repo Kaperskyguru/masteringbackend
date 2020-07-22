@@ -5,18 +5,15 @@
         <div class="row">
           <Title>
             <template slot="title">Latest Backend Dev. Articles</template>
-            <template slot="subtitle"
-              >Latest Backend Dev. Articles curated daily by the
-              community.</template
-            >
+            <template slot="subtitle">
+              Latest Backend Dev. Articles curated daily by the community.
+            </template>
           </Title>
         </div>
         <!-- first card -->
         <div class="row mt-5">
           <div class="card-deck">
-            <Post />
-            <Post />
-            <Post />
+            <Post v-for="post in posts" :key="post.id" />
           </div>
         </div>
       </div>
@@ -29,7 +26,16 @@
 </template>
 
 <script>
-export default {}
+import { mapState } from 'vuex'
+export default {
+  computed: {
+    ...mapState({
+      posts: (state) => {
+        return state.post.posts
+      },
+    }),
+  },
+}
 </script>
 
 <style></style>

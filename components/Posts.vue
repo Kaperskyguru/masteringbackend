@@ -23,8 +23,6 @@
           <div class="row mt-5">
             <div class="card-deck">
               <Post v-for="post in posts" :key="post.id" :post="post" />
-              <!-- <Post />
-              <Post /> -->
             </div>
           </div>
         </div>

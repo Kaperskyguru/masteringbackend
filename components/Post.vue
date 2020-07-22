@@ -30,9 +30,6 @@ export default {
       for (const image of this.post.attachments) {
         urls.push(image.images.medium.url)
         break
-        // const { images } = image
-        // const { thumbnail } = images
-        // urls.push(thumbnail.url)
       }
       return urls[0]
     },
