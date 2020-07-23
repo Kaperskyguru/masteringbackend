@@ -5,8 +5,6 @@ export default async function ({ store, from }) {
       await store.dispatch('post/getPosts')
       await store.dispatch('stream/getCompletedStreams')
       await store.dispatch('stream/getUpcomingStreams')
-    } catch (error) {
-      console.log(error)
-    }
+    } catch (error) {}
   }
 }

@@ -2,7 +2,7 @@
   <section>
     <div class="container-fluid">
       <div class="row">
-        <Youtube :video_id="upcomingStream.id.videoId" />
+        <Youtube :video="upcomingStream.id.videoId" />
       </div>
     </div>
     <section class="main">
