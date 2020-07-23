@@ -1,14 +1,18 @@
 <template>
   <div class="card">
     <div class="b-block">
-      <nuxt-link to="#">
+      <nuxt-link :to="{ path: '/posts/' + post.slug, query: { id: post.id } }">
         <img class="card-img-top" :src="image" :alt="post.title" />
       </nuxt-link>
     </div>
     <div class="card-body">
       <p class="subtitle is-6">{{ post.author.name }}</p>
 
-      <a class="title is-size-4-mobile" href="#">{{ post.title || '' }}</a>
+      <nuxt-link
+        class="title is-size-4-mobile"
+        :to="{ path: '/posts/' + post.slug, query: { id: post.id } }"
+        >{{ post.title || '' }}</nuxt-link
+      >
       <p class="p-1">
         <small class="text-muted">17 hours ago</small>
       </p>
