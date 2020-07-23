@@ -5,7 +5,15 @@ export const state = () => ({
   posts: [],
 })
 
-export const getters = {}
+export const getters = {
+  getPost: (state) => (id, slug) => {
+    return state.posts.find((post) => {
+      if (post.id === id && post.slug === slug) {
+        return post
+      }
+    })
+  },
+}
 
 export const mutations = {
   setPosts(state, posts) {

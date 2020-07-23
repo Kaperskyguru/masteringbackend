@@ -1,7 +1,7 @@
 <template>
   <span
     ><img
-      src="img/logoFavicon100.png"
+      src="/img/logoFavicon100.png"
       alt
       class="img-fluid"
       :class="{ size: small }"
