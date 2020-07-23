@@ -12,16 +12,16 @@
         <div class="col-md-2">
           <h5 class="footer-header mb-4">General</h5>
           <ul class="footer-link list-unstyled">
-            <li><nuxt-link to="article.html">Article</nuxt-link></li>
-            <li><nuxt-link to="#">Jobs</nuxt-link></li>
-            <li><nuxt-link to="#">Events</nuxt-link></li>
-            <li><nuxt-link to="#">Community</nuxt-link></li>
+            <li><nuxt-link to="/posts">Article</nuxt-link></li>
+            <li><nuxt-link to="/jobs">Jobs</nuxt-link></li>
+            <li><nuxt-link to="/events">Events</nuxt-link></li>
+            <li><nuxt-link to="/slack">Community</nuxt-link></li>
           </ul>
         </div>
         <div class="col-md-2">
           <h5 class="footer-header mb-4">Useful Links</h5>
           <ul class="footer-link list-unstyled">
-            <li><nuxt-link to="#">Code of COnduct</nuxt-link></li>
+            <li><nuxt-link to="#">Code of Conduct</nuxt-link></li>
             <li><nuxt-link to="#">Partnership</nuxt-link></li>
             <li><nuxt-link to="#">Laravel jobs on Jooble</nuxt-link></li>
             <li><nuxt-link to="#">Write for us</nuxt-link></li>
@@ -45,16 +45,16 @@
       </div>
       <div class="footer-bottom">
         <div class="row pt-5 mt-2">
-          <div class="col-md-9">
+          <div class="col-md-8">
             <ul>
-              <nuxt-link to="#">Terms and conditions</nuxt-link>
+              <nuxt-link to="#">Terms and Conditions</nuxt-link>
               |&nbsp;
               <nuxt-link to="#">Privacy</nuxt-link>
             </ul>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div id="copy">
-              © 2020 LaraChat - <nuxt-link to="#">By: T.Nation</nuxt-link>
+              ©{{ year }} Masteringbackend - By Backend Community
             </div>
           </div>
         </div>
@@ -64,7 +64,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    year() {
+      return new Date().getFullYear()
+    },
+  },
+}
 </script>
 
 <style></style>
