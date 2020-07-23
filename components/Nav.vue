@@ -21,11 +21,6 @@
           <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <nuxt-link class="nav-link" to="/join"
-                  >Slack Community</nuxt-link
-                >
-              </li>
-              <li class="nav-item">
                 <nuxt-link class="nav-link" to="/posts">Articles</nuxt-link>
               </li>
               <li class="nav-item">
