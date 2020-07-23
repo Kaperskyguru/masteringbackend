@@ -41,7 +41,7 @@
                 >
               </li>
               <li class="nav-item quote-btn">
-                <nuxt-link class="nav-link qbtn" to="/join"
+                <nuxt-link class="nav-link qbtn" to="/slack"
                   >Join Our Community</nuxt-link
                 >
               </li>
