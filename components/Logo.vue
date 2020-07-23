@@ -1,5 +1,13 @@
 <template>
-  <img src="img/larachat.png" alt class="img-fluid" :class="{ size: small }" />
+  <span
+    ><img
+      src="img/logoFavicon100.png"
+      alt
+      class="img-fluid"
+      :class="{ size: small }"
+    />
+    Mastering Backend</span
+  >
 </template>
 
 <script>
