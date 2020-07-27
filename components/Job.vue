@@ -3,9 +3,9 @@
     <div class="card-body">
       <div class="card-title title">
         <h3>
-          <a class="title is-size-4-mobile" href="#">
-            Senior Laravel PHP Backend Developer (Employment)
-          </a>
+          <a class="title is-size-4-mobile" href="#"
+            >Senior Laravel PHP Backend Developer (Employment)</a
+          >
         </h3>
       </div>
       <small>The Coding Company BV</small>
@@ -17,7 +17,7 @@
     </div>
     <div class="card-footer">
       <div class="actions">
-        <a class="btn btn3" href="#">Apply Now</a>
+        <a class="btn btn3" href>Apply Now</a>
       </div>
     </div>
   </div>
