@@ -1,0 +1,1 @@
+After using npm to install ws dependencies normally, delete this "ws": "./utils/browser/WebSocket" in node_modules/puppeteer/package.json and it will run normally
