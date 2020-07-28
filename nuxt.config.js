@@ -67,5 +67,16 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {},
+  build: {
+    extend(config, { isServer }) {
+      if (!isServer) {
+        config.node = {
+          fs: 'empty',
+        }
+      }
+
+      return config
+    },
+    externals: ['puppeteer'],
+  },
 }
