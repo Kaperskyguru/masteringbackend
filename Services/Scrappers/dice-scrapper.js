@@ -8,6 +8,7 @@ let browser
 let cardArr = []
 class DiveJobs {
   static async init() {
+    console.log('Loading Page ...')
     browser = await puppeteer.launch()
     page = await browser.newPage()
 
@@ -17,6 +18,7 @@ class DiveJobs {
 
   static async resolve() {
     await this.init()
+    console.log('Grabbing List of Job URLS ...')
     const jobURLs = await page.evaluate(() => {
       const cards = document.querySelectorAll('.search-card')
       cardArr = Array.from(cards)
@@ -25,13 +27,18 @@ class DiveJobs {
       cardArr.map((card) => {
         const cardTitle = card.querySelector('.card-title-link')
         const cardDesc = card.querySelector('.card-description')
+        const cardCompany = card.querySelector(
+          'a[data-cy="search-result-company-name"]'
+        )
+        const cardDate = card.querySelector('.posted-date')
         const { text } = cardTitle
         const { host } = cardTitle
+        const { protocol } = cardTitle
         const pathName = cardTitle.pathname
         const query = cardTitle.search
-        const titleURL = host + pathName + query
+        const titleURL = protocol + '//' + host + pathName + query
+        const company = cardCompany.textContent
 
-        //return card
         cardLinks.push({
           titleText: text,
           titleURLHost: host,
@@ -39,6 +46,8 @@ class DiveJobs {
           titleURLSearchQuery: query,
           titleURL: titleURL,
           titleDesc: cardDesc.innerHTML,
+          titleCompany: company,
+          titleDate: cardDate.textContent,
         })
       })
       return cardLinks
@@ -50,6 +59,7 @@ class DiveJobs {
   static async getDiveJobs() {
     const jobs = await this.resolve()
     await browser.close()
+
     return jobs
   }
 }

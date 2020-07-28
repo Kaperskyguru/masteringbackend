@@ -56,7 +56,9 @@ export default {
         ) {
           return state.stream.upcomingStream.items[0]
         }
-        return state.stream.streams.items[0]
+        if (state.stream.streams.length !== 0)
+          return state.stream.streams.items[0]
+        return {}
       },
     }),
   },

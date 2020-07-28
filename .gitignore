@@ -8,6 +8,8 @@ yarn-debug.log*
 yarn-error.log*
 yarn.lock
 
+index.html
+viewport.txt
 # Runtime data
 pids
 *.pid
