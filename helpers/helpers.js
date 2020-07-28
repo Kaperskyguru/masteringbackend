@@ -5,6 +5,8 @@ export function jobResolver(jobs) {
     resolvedJob.website = job.titleURLHost
     resolvedJob.description = job.titleDesc
     resolvedJob.url = job.titleURL
+    resolvedJob.company = job.titleCompany
+    resolvedJob.date = job.titleDate
     return resolvedJob
   })
   return resolvedJob

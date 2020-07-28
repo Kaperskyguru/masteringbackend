@@ -7,7 +7,9 @@ export const state = () => ({
 
 export const mutations = {
   STORE_JOBS(state, payload) {
-    state.jobs.push(payload)
+    payload.forEach((job) => {
+      state.jobs.push(job)
+    })
   },
 }
 

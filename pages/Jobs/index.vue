@@ -15,9 +15,9 @@
           <div class="card-group">
             <div class="row">
               <div class="col-md-8">
-                <Job />
-                <Job />
-                <Job />
+                <Job v-for="(job, i) in jobs" :key="i" :job="job" />
+                <!-- <Job />
+                <Job />-->
               </div>
 
               <div class="col-md-4 mt-3">
@@ -56,11 +56,32 @@
         </ul>
       </nav>
     </div>
+    <loading :show="show" />
   </section>
 </template>
 
 <script>
-export default {}
+import { mapState } from 'vuex'
+export default {
+  async fetch({ store }) {
+    try {
+      await store.dispatch('job/getDiveJobs')
+    } catch (error) {}
+  },
+
+  data() {
+    return {
+      show: false,
+    }
+  },
+  computed: {
+    ...mapState({
+      jobs: (state) => {
+        return state.job.jobs
+      },
+    }),
+  },
+}
 </script>
 
 <style></style>

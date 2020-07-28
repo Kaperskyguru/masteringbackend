@@ -15,10 +15,6 @@ export default {
 
   middleware: 'loadData',
 
-  created() {
-    this.$store.dispatch('job/getDiveJobs')
-  },
-
   // async fetch({ store }) {
   //   await store.dispatch('post/getPosts')
   // },

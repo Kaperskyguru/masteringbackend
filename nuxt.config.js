@@ -1,4 +1,5 @@
 export default {
+  devtools: true,
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
@@ -34,7 +35,10 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/localStorage', ssr: false },
+    { src: '~/plugins/vue-full-loading', ssr: false },
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -78,5 +82,12 @@ export default {
       return config
     },
     externals: ['puppeteer'],
+  },
+
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true,
+    },
   },
 }
