@@ -9,7 +9,7 @@ let cardArr = []
 class DiveJobs {
   static async init() {
     console.log('Loading Page ...')
-    browser = await puppeteer.launch()
+    browser = await puppeteer.launch({ args: ['--no-sandbox'] })
     page = await browser.newPage()
 
     await page.goto(jobUrl, { waitUntil: 'networkidle2' })
