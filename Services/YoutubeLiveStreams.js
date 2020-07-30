@@ -1,4 +1,3 @@
-// import axios from '@nuxtjs/axios'
 let baseURl = 'https://www.googleapis.com/youtube/v3/search?part=snippet'
 class YoutubeLiveStreams {
   constructor() {
@@ -19,12 +18,10 @@ class YoutubeLiveStreams {
   }
 
   async getUpcomingStreams() {
-    //scheduledStartTime
     baseURl += `&eventType=upcoming`
     try {
       const res = await fetch(baseURl)
       const data = await res.json()
-      // console.log(data)
       return data
     } catch (error) {}
   }

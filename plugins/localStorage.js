@@ -1,10 +1,9 @@
-import createPersistedState from 'vuex-persistedstate'
+import VuexPersistence from 'vuex-persist'
 
 export default ({ store }) => {
   window.onNuxtReady(() => {
-    createPersistedState({
-      //   key: "vuex",
-      //   paths: ["local"]
-    })(store)
+    new VuexPersistence({
+      /* your options */
+    }).plugin(store)
   })
 }
