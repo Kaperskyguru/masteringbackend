@@ -16,7 +16,7 @@
       <p class="p-1">
         <small class="text-muted">17 hours ago</small>
       </p>
-      <p class="p-1" v-html="post.excerpt"></p>
+      <p class="p-1" :html="post.excerpt"></p>
     </div>
   </div>
 </template>

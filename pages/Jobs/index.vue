@@ -77,10 +77,16 @@ export default {
   computed: {
     ...mapState({
       jobs: (state) => {
-        return state.job.jobs
+        return state.job.jobs.sort((first, second) => {
+          const dateA = new Date(first.date)
+          const dateB = new Date(second.date)
+          return dateB - dateA
+        })
       },
     }),
   },
+
+  mounted() {},
 }
 </script>
 
