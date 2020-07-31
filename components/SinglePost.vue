@@ -11,7 +11,7 @@
           }}</time>
         </small>
       </p>
-      <p class="card-text" v-html="post.content"></p>
+      <p class="card-text" :html="post.content"></p>
     </div>
   </div>
 </template>

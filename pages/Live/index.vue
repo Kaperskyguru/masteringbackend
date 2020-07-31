@@ -2,7 +2,7 @@
   <section>
     <div class="container-fluid">
       <div class="row">
-        <Youtube video=""/>
+        <Youtube video="" />
       </div>
     </div>
     <section class="main">

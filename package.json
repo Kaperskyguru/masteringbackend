@@ -20,6 +20,7 @@
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "eslint-plugin-vue": "^6.2.2",
+    "locutus": "^2.0.11",
     "net": "^1.0.2",
     "nuxt": "^2.14.0",
     "puppeteer": "^5.2.1",

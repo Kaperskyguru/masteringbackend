@@ -1,5 +1,4 @@
-const puppeteer = require('puppeteer')
-
+import puppeteer from 'puppeteer'
 const jobUrl = `https://www.dice.com/jobs?q=backend&countryCode=US&radius=30&radiusUnit=mi&page=1&pageSize=20&filters.postedDate=ONE&language=en`
 
 let page
@@ -8,7 +7,7 @@ let browser
 let cardArr = []
 class DiveJobs {
   static async init() {
-    console.log('Loading Page ...')
+    // console.log('Loading Page ...')
     browser = await puppeteer.launch({ args: ['--no-sandbox'] })
     page = await browser.newPage()
 
@@ -18,7 +17,7 @@ class DiveJobs {
 
   static async resolve() {
     await this.init()
-    console.log('Grabbing List of Job URLS ...')
+    // console.log('Grabbing List of Job URLS ...')
     const jobURLs = await page.evaluate(() => {
       const cards = document.querySelectorAll('.search-card')
       cardArr = Array.from(cards)
@@ -59,7 +58,7 @@ class DiveJobs {
   static async getDiveJobs() {
     const jobs = await this.resolve()
     await browser.close()
-
+    // console.log(jobs)
     return jobs
   }
 }

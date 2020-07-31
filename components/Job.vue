@@ -11,7 +11,9 @@
     </div>
     <div class="card-body">
       <small>{{ job.company }}</small>
-      <small style="float: right;">{{ job.date }} </small>
+      <small style="float: right;"
+        >{{ $moment.unix(job.date).utc().fromNow() }}
+      </small>
       <p class="mt-3">
         {{ job.description }}
       </p>
