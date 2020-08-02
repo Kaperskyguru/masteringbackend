@@ -1,5 +1,12 @@
 export default {
-  devtools: true,
+  vue: {
+    config: {
+      productionTip: process.env.NODE_ENV !== 'production',
+      devtools: process.env.NODE_ENV !== 'production',
+    },
+  },
+  devtools: process.env.NODE_ENV !== 'production',
+  dev: process.env.NODE_ENV !== 'production',
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
@@ -25,7 +32,9 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+
+    // script: [{ src: 'https://use.fontawesome.com/3889c7d65e.js' }],
   },
   /*
    ** Global CSS
@@ -60,7 +69,7 @@ export default {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
   ],
   /*
    ** Axios module configuration
@@ -73,21 +82,22 @@ export default {
    */
   build: {
     extend(config, { isServer }) {
+      config.externals = config.externals || {}
       if (!isServer) {
         config.node = {
           fs: 'empty',
         }
+
+        if (Array.isArray(config.externals)) {
+          config.externals.push({
+            puppeteer: require('puppeteer'),
+          })
+        } else {
+          config.externals.puppeteer = require('puppeteer')
+        }
       }
 
       return config
-    },
-    externals: ['puppeteer'],
-  },
-
-  vue: {
-    config: {
-      productionTip: false,
-      devtools: true,
     },
   },
 }

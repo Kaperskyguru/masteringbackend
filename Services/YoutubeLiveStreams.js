@@ -5,7 +5,7 @@ class YoutubeLiveStreams {
   }
 
   initialize() {
-    baseURl += `&channelId=${process.env.YOUTUBE_CHANNEL_ID}&type=video&key=${process.env.YOUTUBE_API_KEY}`
+    baseURl += `&channelId=${process.env.YOUTUBE_CHANNEL_ID}&SameSite=None&type=video&key=${process.env.YOUTUBE_API_KEY}`
   }
 
   async getCompletedStreams() {

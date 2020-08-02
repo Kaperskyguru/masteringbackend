@@ -12,7 +12,7 @@
         <div class="col-md-2">
           <h5 class="footer-header mb-4">General</h5>
           <ul class="footer-link list-unstyled">
-            <li><nuxt-link to="/posts">Article</nuxt-link></li>
+            <li><nuxt-link to="/posts">Articles</nuxt-link></li>
             <li><nuxt-link to="/jobs">Jobs</nuxt-link></li>
             <li><nuxt-link to="/events">Events</nuxt-link></li>
             <li><nuxt-link to="/slack">Community</nuxt-link></li>
@@ -23,23 +23,40 @@
           <ul class="footer-link list-unstyled">
             <li><nuxt-link to="#">Code of Conduct</nuxt-link></li>
             <li><nuxt-link to="#">Partnership</nuxt-link></li>
-            <li><nuxt-link to="#">Laravel jobs on Jooble</nuxt-link></li>
             <li><nuxt-link to="#">Write for us</nuxt-link></li>
           </ul>
         </div>
         <div class="col-md-2">
           <h5 class="footer-header mb-4">Ecosystem Links</h5>
           <ul class="footer-link list-unstyled">
-            <li><nuxt-link to="#">LaraJobs</nuxt-link></li>
-            <li><nuxt-link to="#">Laravel</nuxt-link></li>
+            <li><nuxt-link to="#">Parent Company</nuxt-link></li>
+            <li><nuxt-link to="#">My Portfolio</nuxt-link></li>
           </ul>
         </div>
         <div class="col-md-3">
           <h5 class="footer-header mb-4">Follow us</h5>
           <ul class="social d-flex list-unstyled">
-            <li><nuxt-link to="#" class="fa fa-facebook"></nuxt-link></li>
-            <li><nuxt-link to="#" class="fa fa-twitter"></nuxt-link></li>
-            <li><nuxt-link to="#" class="fa fa-linkedin"></nuxt-link></li>
+            <li>
+              <a href="https://bit.ly/solomoneseme" class="fa fa-youtube"></a>
+            </li>
+            <li>
+              <a
+                href="https://facebook.com/solomon.eseme"
+                class="fa fa-facebook"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/officialbackend"
+                class="fa fa-twitter"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/company/back-end-developers/"
+                class="fa fa-linkedin"
+              ></a>
+            </li>
           </ul>
         </div>
       </div>

@@ -12,13 +12,18 @@
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
-            aria-expanded="false"
+            :aria-expanded="show"
             aria-label="Toggle navigation"
+            @click="show = !show"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <div
+            id="navbarSupportedContent"
+            class="collapse navbar-collapse"
+            :class="{ show: show }"
+          >
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <nuxt-link class="nav-link" to="/posts">Articles</nuxt-link>
@@ -57,9 +62,14 @@
 export default {
   name: 'Nav',
 
-  mounted() {
-    'use strict'
+  data() {
+    return {
+      show: false,
+    }
+  },
 
+  mounted: () => {
+    'use strict'
     window.addEventListener('scroll', navToggel)
     const navigationBar = document.querySelector('.main-header')
     function navToggel() {

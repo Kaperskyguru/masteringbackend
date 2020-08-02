@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="link" class="theme-btn btn-style-one"><slot /></nuxt-link>
+  <NuxtLink :to="link" class="theme-btn btn-style-one"><slot /></NuxtLink>
 </template>
 
 <script>

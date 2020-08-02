@@ -2,7 +2,7 @@
   <section>
     <div class="container-fluid">
       <div class="row">
-        <Youtube video="" />
+        <Youtube :video="upcomingStream.id.videoId" />
       </div>
     </div>
     <section class="main">
@@ -47,11 +47,11 @@
 /* eslint-disable */
 import { mapState } from 'vuex'
 export default {
+  middleware: 'loadData',
   computed: {
     ...mapState({
       streams: (state) => state.stream.streams.items,
       upcomingStream: (state) => {
-        console.log(state.stream.upcomingStream, state.stream.streams)
         if (
           state.stream.upcomingStream.length !== 0 &&
           state.stream.upcomingStream.items.length !== 0
@@ -60,7 +60,9 @@ export default {
         }
         if (state.stream.streams.length !== 0)
           return state.stream.streams.items[0]
-        return {}
+        return {
+          id: 'g4ATjKC4HFg',
+        }
       },
     }),
   },

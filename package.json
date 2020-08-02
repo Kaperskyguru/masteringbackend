@@ -16,7 +16,6 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/moment": "^1.6.1",
-    "@nuxtjs/pwa": "^3.0.0-beta.20",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "eslint-plugin-vue": "^6.2.2",
@@ -26,7 +25,6 @@
     "puppeteer": "^5.2.1",
     "tls": "0.0.1",
     "vue-full-loading": "^1.2.1",
-    "vuex-persist": "^2.2.0",
     "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
