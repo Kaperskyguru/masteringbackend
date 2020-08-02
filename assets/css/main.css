@@ -92,9 +92,9 @@ body {
 }
 .container-title {
   font-weight: 300;
-  letter-spacing: -1px;
-  font-size: 50px;
-  margin: 0;
+  /* letter-spacing: -1px; */
+  font-size: 2.5rem;
+  /* margin: 0; */
 
   text-transform: uppercase;
 }
@@ -123,9 +123,9 @@ body {
 }
 .sub-title {
   font-weight: 300;
-  font-size: 20px;
+  font-size: 18px;
   color: #777;
-
+  text-align: center;
   padding: 0 10%;
 }
 .card-text {
@@ -173,9 +173,9 @@ body {
 .btn-style-one {
   position: relative;
   font-size: 16px;
-  line-height: 25px;
+  /* line-height: 25px; */
   color: #fff;
-  padding: 15px 50px;
+  padding: 10px 5px;
   font-weight: 700;
   background: #fa4c23;
   border-radius: 5px;
