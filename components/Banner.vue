@@ -5,7 +5,7 @@
         <h1 class="container-title">
           WELCOME TO BACKEND DEVELOPMENT COMMUNITY BLOG
         </h1>
-        <h2 class="sub-title text-white mt-5">
+        <h2 class="sub-title text-white mt-3">
           Chat and share with over
           <a href="#" style="text-decoration: underline;">
             <!-- <b>31,061</b> -->
@@ -15,11 +15,15 @@
           the biggest Backend Development virtual user group in the world. Come
           join the fun.
         </h2>
-        <div class="buttons mt-5">
-          <Button link="/jobs">Jobs</Button>
-          <Button link="/events">Events</Button>
-          <Button link="/posts">Articles</Button>
-          <Button link="/slack">Community</Button>
+        <div class="mt-4 row">
+          <!-- <div class="d-sm-none d-md-block"> -->
+          <Button class="col m-1" link="/jobs">Jobs</Button>
+          <!-- </div> -->
+          <Button class="col m-1 d-none d-sm-block" link="/events"
+            >Events</Button
+          >
+          <Button class="col m-1" link="/posts">Articles</Button>
+          <Button class="col m-1" link="/slack">Community</Button>
         </div>
       </div>
     </div>
