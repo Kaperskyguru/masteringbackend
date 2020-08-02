@@ -28,6 +28,7 @@ export const actions = {
   async getPosts({ commit }) {
     const response = await fetch(`${process.env.BASE_ENDPOINT_URL}/get_posts`)
     const data = await response.json()
+    // console.log(data)
     if (data.posts) {
       commit('setPosts', data.posts)
     }

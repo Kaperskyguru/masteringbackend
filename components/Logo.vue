@@ -1,13 +1,10 @@
 <template>
-  <span
-    ><img
-      src="/img/logoFavicon100.png"
-      alt
-      class="img-fluid"
-      :class="{ size: small }"
-    />
-    Mastering Backend</span
-  >
+  <img
+    src="/img/logo300.png"
+    alt="masteringbackend Logo"
+    class="img-fluid"
+    :class="{ size: small }"
+  />
 </template>
 
 <script>
@@ -27,7 +24,7 @@ export default {
 }
 
 .size {
-  max-height: 1.75rem;
+  max-height: 2.5rem;
 }
 
 @keyframes appear {

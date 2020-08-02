@@ -19,7 +19,7 @@
           <Button link="/jobs">Jobs</Button>
           <Button link="/events">Events</Button>
           <Button link="/posts">Articles</Button>
-          <Button link="/join">Community</Button>
+          <Button link="/slack">Community</Button>
         </div>
       </div>
     </div>

@@ -62,9 +62,13 @@
 
 <script>
 import { mapState } from 'vuex'
+// import DiveJobs from '~/Services/Scrappers/dice-scrapper'
+// import { jobResolver } from '~/helpers/helpers'
 export default {
-  async fetch({ store }) {
+  async asyncData({ store }) {
     try {
+      // const diveJobs = await DiveJobs.getDiveJobs()
+      // const jobs = jobResolver(diveJobs)
       await store.dispatch('job/getDiveJobs')
     } catch (error) {}
   },
@@ -77,7 +81,7 @@ export default {
   computed: {
     ...mapState({
       jobs: (state) => {
-        return state.job.jobs.sort((first, second) => {
+        return [...state.job.jobs].sort((first, second) => {
           const dateA = new Date(first.date)
           const dateB = new Date(second.date)
           return dateB - dateA
@@ -85,8 +89,6 @@ export default {
       },
     }),
   },
-
-  mounted() {},
 }
 </script>
 

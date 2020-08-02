@@ -21,6 +21,7 @@ export const mutations = {
 export const actions = {
   async getCompletedStreams({ commit }) {
     const data = await new YoutubeLiveStreams().getCompletedStreams()
+    // console.log(data)
     if (data.pageInfo.totalResults !== 0) {
       commit('setStreams', data)
     }

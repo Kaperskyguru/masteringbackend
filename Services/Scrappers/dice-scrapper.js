@@ -1,9 +1,8 @@
-import puppeteer from 'puppeteer'
+const puppeteer = require('puppeteer')
 const jobUrl = `https://www.dice.com/jobs?q=backend&countryCode=US&radius=30&radiusUnit=mi&page=1&pageSize=20&filters.postedDate=ONE&language=en`
 
 let page
 let browser
-// let jobURLs = []
 let cardArr = []
 class DiveJobs {
   static async init() {
