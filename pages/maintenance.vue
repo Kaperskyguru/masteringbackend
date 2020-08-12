@@ -23,6 +23,7 @@ export default {
   methods: {
     endCounter() {
       this.$store.commit('END_COUNTER')
+      process.env.MAINTENANCE_MODE = false
       this.$router.push({ path: '/' })
     },
   },
