@@ -78,13 +78,13 @@ body {
   margin-top: 1px;
 }
 
-/* .banner-section {
+.banner-section {
   background: #f29d12 url('/img/hero-bg.png') no-repeat center bottom;
   background-position: center;
   background-size: cover;
   width: 100%;
   height: 80vh;
-} */
+}
 
 .inner-padding-top {
   padding-top: 60px;
