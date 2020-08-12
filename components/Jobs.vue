@@ -13,7 +13,7 @@
           </div>
         </div>
 
-        <div class="row mb-1 mr-1 ml-1 mt-5">
+        <div class="row mb-1 mt-5">
           <div
             v-for="job in jobs"
             :key="job.id"
