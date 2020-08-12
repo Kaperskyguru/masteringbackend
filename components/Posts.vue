@@ -13,12 +13,12 @@
           </div>
         </div>
         <div class="row mb-1 mr-1 ml-1 mt-5">
-          <Post v-for="post in posts" :key="post.id" :post="post" />
+          <Post v-for="(post, i) in posts" :key="i" :post="post" />
         </div>
       </div>
     </div>
     <div class="col-md-12 col-sm-12-col-xs-12 text-center mb-5">
-      <Button link="/jobs" class="col p-3">More Articles</Button>
+      <Button link="/posts" class="col p-3">More Articles</Button>
     </div>
   </section>
 </template>

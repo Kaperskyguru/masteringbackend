@@ -1,12 +1,4 @@
 export default {
-  vue: {
-    config: {
-      productionTip: process.env.NODE_ENV !== 'production',
-      devtools: process.env.NODE_ENV !== 'production',
-    },
-  },
-  devtools: process.env.NODE_ENV !== 'production',
-  dev: process.env.NODE_ENV !== 'production',
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
@@ -60,7 +52,6 @@ export default {
     ],
 
     link: [
-      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'apple-touch-icon',
         sizes: '57x57',
@@ -135,6 +126,9 @@ export default {
 
     script: [{ src: 'https://use.fontawesome.com/3889c7d65e.js' }],
   },
+  router: {
+    middleware: 'maintenance',
+  },
   /*
    ** Global CSS
    */
@@ -146,6 +140,7 @@ export default {
   plugins: [
     { src: '~/plugins/localStorage', ssr: false },
     { src: '~/plugins/vue-full-loading', ssr: false },
+    { src: '~/plugins/countDown', ssr: false },
   ],
   /*
    ** Auto import components
