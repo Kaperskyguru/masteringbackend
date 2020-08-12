@@ -4,14 +4,13 @@ export default function ({ redirect, route, store }) {
 
   const { isCounterEnded } = store.state
 
-  if (isMaintenance === true && isProd === true && isCounterEnded === false) {
-    return redirect('/maintenance')
-  }
+  if (isProd) {
+    if (isMaintenance && !isCounterEnded) {
+      return redirect('/maintenance')
+    }
 
-  if (
-    (isCounterEnded === true || isMaintenance === false || isProd === false) &&
-    route.path === '/maintenance'
-  ) {
-    return redirect('/')
+    if ((isCounterEnded || !isMaintenance) && route.path === '/maintenance') {
+      return redirect('/')
+    }
   }
 }
