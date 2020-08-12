@@ -5,16 +5,15 @@
         <h1 class="container-title">
           WELCOME TO BACKEND DEVELOPMENT COMMUNITY BLOG
         </h1>
-        <h2 class="sub-title text-white mt-3">
+        <h3 class="sub-title text-white mt-md-5 mt-3 mb-md-5">
           Chat and share with over
           <a href="#" style="text-decoration: underline;">
-            <!-- <b>31,061</b> -->
             <b>a thousand</b>
           </a>
           backend engineers worldwide. We have live discussions. We're building
           the biggest Backend Development virtual user group in the world. Come
           join the fun.
-        </h2>
+        </h3>
         <div class="mt-4 row">
           <!-- <div class="d-sm-none d-md-block"> -->
           <Button class="col m-1" link="/jobs">Jobs</Button>
