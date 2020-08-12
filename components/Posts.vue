@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="col-md-12 col-sm-12-col-xs-12 text-center mb-5">
-      <Button link="/jobs" class="col p-3">More Articles</Button>
+      <Button link="/posts" class="col p-3">More Articles</Button>
     </div>
   </section>
 </template>
