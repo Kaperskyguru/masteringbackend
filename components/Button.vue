@@ -1,5 +1,7 @@
 <template>
-  <NuxtLink :to="link" class="btn-style-one text-center"><slot /></NuxtLink>
+  <NuxtLink :to="link" class="btn-style-one text-center qbtn"
+    ><slot
+  /></NuxtLink>
 </template>
 
 <script>

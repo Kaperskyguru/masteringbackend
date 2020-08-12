@@ -31,7 +31,23 @@ export default {
   computed: {
     ...mapState({
       posts: (state) => {
-        return state.post.posts
+        return [
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+          ...state.post.posts,
+        ].slice(0, 18)
       },
     }),
   },

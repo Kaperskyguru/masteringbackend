@@ -62,6 +62,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { sortJobs } from '~/helpers/helpers'
 // import DiveJobs from '~/Services/Scrappers/dice-scrapper'
 // import { jobResolver } from '~/helpers/helpers'
 export default {
@@ -81,11 +82,7 @@ export default {
   computed: {
     ...mapState({
       jobs: (state) => {
-        return [...state.job.jobs].sort((first, second) => {
-          const dateA = new Date(first.date)
-          const dateB = new Date(second.date)
-          return dateB - dateA
-        })
+        return sortJobs([...state.job.jobs])
       },
     }),
   },
