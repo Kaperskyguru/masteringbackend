@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer')
-const jobUrl = `https://www.dice.com/jobs?q=backend&countryCode=US&radius=30&radiusUnit=mi&page=1&pageSize=20&filters.postedDate=ONE&language=en`
+const jobUrl = `https://www.dice.com/jobs?q=backend&countryCode=US&radius=30&radiusUnit=mi&page=1&pageSize=20&filters.postedDate=ONE&filters.isRemote=true&language=en`
 
 let page
 let browser
@@ -7,11 +7,13 @@ let cardArr = []
 class DiveJobs {
   static async init() {
     // console.log('Loading Page ...')
+
     browser = await puppeteer.launch({ args: ['--no-sandbox'] })
     page = await browser.newPage()
-
-    await page.goto(jobUrl, { waitUntil: 'networkidle2' })
-    await page.waitForSelector('.search-card')
+    await Promise.race([
+      await page.goto(jobUrl, { waitUntil: 'networkidle2' }).catch(() => {}),
+      await page.waitForSelector('.search-card').catch(() => {}),
+    ])
   }
 
   static async resolve() {

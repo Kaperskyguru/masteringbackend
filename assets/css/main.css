@@ -79,7 +79,7 @@ body {
 }
 
 .banner-section {
-  background: #f29d12 url('/img/hero-bg.png') no-repeat center bottom;
+  background: #f29d12;
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -92,10 +92,7 @@ body {
 }
 .container-title {
   font-weight: 300;
-  /* letter-spacing: -1px; */
   font-size: 3rem;
-  /* margin: 0; */
-
   text-transform: uppercase;
 }
 
