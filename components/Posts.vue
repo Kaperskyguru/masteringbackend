@@ -12,7 +12,7 @@
             </h2>
           </div>
         </div>
-        <div class="row mb-1 mr-1 ml-1 mt-5">
+        <div class="row mb-1 mt-5">
           <Post v-for="(post, i) in posts" :key="i" :post="post" />
         </div>
       </div>
