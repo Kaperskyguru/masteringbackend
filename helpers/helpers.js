@@ -13,3 +13,11 @@ export function jobResolver(jobs) {
   })
   return resolvedJob
 }
+
+export function sortJobs(jobs) {
+  return jobs.sort((first, second) => {
+    const dateA = new Date(first.date)
+    const dateB = new Date(second.date)
+    return dateB - dateA
+  })
+}

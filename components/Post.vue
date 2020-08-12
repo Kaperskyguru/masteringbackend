@@ -43,7 +43,7 @@ export default {
         urls.push(image.images.thumbnail.url)
         break
       }
-      return urls[0]
+      return urls[0] ? urls[0] : '/img/default_banner.webp'
     },
   },
 }
