@@ -1,14 +1,16 @@
 <template>
-  <form class="form-slak" action="#">
+  <form class="form-slak" action="#" @submit.prevent="Submit()">
     <div class="form-inline" style="justify-content: space-around;">
       <label class="text-dark" for="text">
         <b>First Name</b>
       </label>
       <input
+        v-model="user.firstname"
         class="form-control"
         style="height: 40px; width: 70%;"
         type="text"
-        placeholder=""
+        placeholder="Enter your firstname"
+        required
       />
     </div>
 
@@ -17,10 +19,12 @@
         <b>Last Name</b>
       </label>
       <input
+        v-model="user.lastname"
         class="form-control"
         style="height: 40px; width: 70%;"
         type="text"
-        placeholder=""
+        placeholder="Enter your lastname"
+        required
       />
     </div>
     <div class="form-inline" style="justify-content: space-around;">
@@ -28,16 +32,20 @@
         <b>E-mail</b>
       </label>
       <input
+        v-model="user.email"
         class="form-control"
         style="height: 40px; width: 70%;"
-        type="text"
-        placeholder=""
+        type="email"
+        required
+        placeholder="Enter your email address"
       />
+      <span v-if="error" class="text-danger">Enter a valid email</span>
     </div>
 
     <div class="form-inline" style="justify-content: center;">
       <input
         id="newsletter"
+        v-model="newsletter"
         type="checkbox"
         class="form-control checkbox"
         name="newsletter"
@@ -57,9 +65,10 @@
     </div>
 
     <div class="field">
+      <div v-if="slack" class="text-danger" v-html="slack"></div>
       <div class="control text-center mt-4">
         <button class="btn2 btn-block" type="submit">
-          <a href="">Submit</a>
+          Submit
         </button>
       </div>
     </div>
@@ -67,8 +76,60 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'SlackForm',
+
+  data() {
+    return {
+      user: {
+        firstname: '',
+        lastname: '',
+      },
+      error: false,
+      newsletter: true,
+    }
+  },
+
+  computed: {
+    ...mapState({
+      slack(state) {
+        return state.slack
+      },
+    }),
+    fullName: function () {
+      return this.user.firstname + ' ' + this.user.lastname
+    },
+  },
+
+  methods: {
+    Submit() {
+      if (this.validateEmail(this.user.email)) {
+        if (this.newsletter) {
+          this.joinSlack()
+          this.suscribeNewsletter()
+        } else this.joinSlack()
+      } else this.error = true
+    },
+
+    joinSlack() {
+      const data = {}
+      data.fullName = this.fullName
+      data.email = this.user.email
+      this.$store.dispatch('JoinSlack', data)
+    },
+
+    suscribeNewsletter() {},
+
+    validateEmail(email) {
+      if (email) {
+        console.log(email)
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        return re.test(email)
+      }
+      return false
+    },
+  },
 }
 </script>
 

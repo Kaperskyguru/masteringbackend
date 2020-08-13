@@ -12,9 +12,7 @@
         </div>
         <!-- first card -->
         <div class="row mt-5">
-          <div class="card-deck">
-            <Post v-for="post in posts" :key="post.id" :post="post" />
-          </div>
+          <Post v-for="(post, i) in posts" :key="i" :post="post" />
         </div>
       </div>
     </div>

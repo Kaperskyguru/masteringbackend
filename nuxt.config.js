@@ -124,7 +124,10 @@ export default {
       { rel: 'manifest', href: '/favicon/manifest.json' },
     ],
 
-    script: [{ src: 'https://use.fontawesome.com/3889c7d65e.js' }],
+    script: [
+      { src: 'https://use.fontawesome.com/3889c7d65e.js' },
+      { src: '/mailscript.js', id: 'mcjs' },
+    ],
   },
   router: {
     middleware: 'maintenance',

@@ -13,29 +13,32 @@
         </div>
         <!-- first card -->
         <div class="row mt-5">
-          <div class="card-deck">
-            <EventPost />
-            <EventPost />
-            <EventPost />
-          </div>
+          <EventPost v-for="(event, i) in events" :key="i" :event="event" />
         </div>
       </div>
 
       <div class="col-md-12 col-sm-12-col-xs-12 text-center mb-5">
-        <p>
-          <a href="#" class="theme-btn btn-style-one">More Events</a>
-        </p>
+        <Button class="p-3">More Events</Button>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { sortAsc } from '~/helpers/helpers'
 export default {
   data() {
     return {
       path: '',
     }
+  },
+  computed: {
+    ...mapState({
+      events: (state) => {
+        return sortAsc([...state.event.events])
+      },
+    }),
   },
   beforeRouteEnter(to, from, next) {
     next((vm) => {

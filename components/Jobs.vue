@@ -33,13 +33,13 @@
 
 <script>
 import { mapState } from 'vuex'
-import { sortJobs } from '~/helpers/helpers'
+import { sortDesc } from '~/helpers/helpers'
 
 export default {
   computed: {
     ...mapState({
       jobs: (state) => {
-        return sortJobs([...state.job.jobs]).slice(0, 4)
+        return sortDesc([...state.job.jobs]).slice(0, 4)
       },
     }),
   },
