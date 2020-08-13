@@ -62,7 +62,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { sortJobs } from '~/helpers/helpers'
+import { sortDesc } from '~/helpers/helpers'
 // import DiveJobs from '~/Services/Scrappers/dice-scrapper'
 // import { jobResolver } from '~/helpers/helpers'
 export default {
@@ -82,7 +82,7 @@ export default {
   computed: {
     ...mapState({
       jobs: (state) => {
-        return sortJobs([...state.job.jobs])
+        return sortDesc([...state.job.jobs])
       },
     }),
   },

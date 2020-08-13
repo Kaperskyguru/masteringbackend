@@ -1,51 +1,64 @@
-import request from 'superagent'
+import request from 'request'
+class SlackInviter {
+  static invite({ email, fullName }) {
+    const channels = [
+      'C0181LSEQKA',
+      'C016X3N35RD',
+      'C0182HSQ481',
+      'C017AEHLN8M',
+    ]
 
-export default function invite({ org, token, email, channel }, fn) {
-  const data = { email, token }
+    const token =
+      process.env.SLACK_TOKEN ||
+      'xoxp-1250072469155-1249865936418-1292669497157-013342249854cafe69b6f89c3a93cf8a'
 
-  if (channel) {
-    data.channels = channel
-    data.ultra_restricted = 1
-    data.set_active = true
-  }
-
-  request
-    .post(`https://${org}.slack.com/api/users.admin.invite`)
-    .type('form')
-    .send(data)
-    .end(function (err, res) {
-      if (err) return fn(err)
-      if (res.status !== 200) {
-        fn(new Error(`Invalid response ${res.status}.`))
-        return
-      }
-
-      // If the account that owns the token is not admin, Slack will oddly
-      // return `200 OK`, and provide other information in the body. So we
-      // need to check for the correct account scope and call the callback
-      // with an error if it's not high enough.
-      const { ok, error: providedError, needed } = res.body
-      if (!ok) {
-        if (providedError === 'missing_scope' && needed === 'admin') {
-          fn(
-            new Error(
-              `Missing admin scope: The token you provided is for an account that is not an admin. You must provide a token from an admin account in order to invite users through the Slack API.`
-            )
-          )
-        } else if (providedError === 'already_invited') {
-          fn(
-            new Error(
-              'You have already been invited to Slack. Check for an email from feedback@slack.com.'
-            )
-          )
-        } else if (providedError === 'already_in_team') {
-          fn(new Error(`Sending you to Slack...`))
-        } else {
-          fn(new Error(providedError))
+    return new Promise(function (resolve, reject) {
+      request.post(
+        {
+          url: 'https://backend-community.slack.com/api/users.admin.invite',
+          form: {
+            channels: JSON.stringify(channels),
+            email: email,
+            token: token,
+            set_active: true,
+            real_name: fullName,
+          },
+        },
+        function (err, httpResponse, body) {
+          if (err) {
+            reject(err)
+          }
+          body = JSON.parse(body)
+          if (body.ok) {
+            const message =
+              'Success! Check &ldquo; ' +
+              email +
+              ' &rdquo; for an invite from Slack.'
+            resolve(message)
+          } else {
+            let { error } = body
+            if (
+              error === 'already_invited' ||
+              error === 'already_in_team' ||
+              error === 'already_in_team_invited_user'
+            ) {
+              const message =
+                'Success! You were already invited. Visit <a href="https://backend-community.slack.com">Backend Community </a>'
+              resolve(message)
+            } else if (error === 'invalid_email') {
+              error = 'The email you entered is an invalid email.'
+            } else if (error === 'invalid_auth') {
+              error =
+                'Something has gone wrong. Please contact a system administrator.'
+            } else if (error === 'internal_error') {
+              error = 'Please enter your name'
+            }
+            resolve(error)
+          }
         }
-        return
-      }
-
-      fn(null)
+      )
     })
+  }
 }
+
+export default SlackInviter

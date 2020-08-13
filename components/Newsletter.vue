@@ -8,17 +8,18 @@
         Get the latest Backend Dev. jobs, events and curated articles straight
         to your inbox, once a week
       </p>
-      <form method="post" action="#">
+      <form @submit.prevent="submit()">
         <input type="hidden" name="_token" value="#" />
         <div class="field">
           <div class="control">
             <input
+              v-model="email"
               class="input"
               name="email"
               type="text"
               placeholder="Enter your email"
               value=""
-              required=""
+              required
             />
           </div>
         </div>
@@ -35,7 +36,25 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      email: '',
+    }
+  },
+  methods: {
+    async submit() {
+      const url = `https://masteringbackend.us17.list-manage.com/subscribe/post`
+      await fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify([this.email]),
+      })
+
+      // console.log(await res.json())
+    },
+  },
+}
 </script>
 
 <style></style>

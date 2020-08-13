@@ -1,22 +1,21 @@
 <template>
-  <div class="card">
-    <img class="card-img-top" src="img/event1.jpeg" alt="Card image cap" />
-    <div class="card-body">
-      <p class="subtitle is-6">Nashville PHP</p>
+  <div class="col-md-4 col-sm-12 mb-4">
+    <div class="card">
+      <img
+        class="card-img-top"
+        :src="event.eventImage || 'img/default_banner.webp'"
+        :alt="event.eventText"
+      />
+      <div class="card-body">
+        <p class="subtitle is-6">{{ event.eventGroup }}</p>
 
-      <a class="title is-size-4-mobile" href="nashvilli-php.html">
-        Nashville PHP South Lunch
-      </a>
-      <p class="card-text">
-        <small class="text-muted"
-          ><time datetime="2020-07-05">5 minutes from now</time></small
-        >
-      </p>
-      <p class="card-text">
-        It's time for the Nashville PHP South Lunch! Come meet fellow devs, chat
-        about PHP and have a grand ol' time -- all while enjoying the delicacies
-        of the part...
-      </p>
+        <a class="title is-size-4-mobile" :href="event.eventURL">
+          {{ event.eventText }}
+        </a>
+        <p class="card-text">
+          <small>{{ event.date }}</small>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -24,6 +23,12 @@
 <script>
 export default {
   name: 'EventPost',
+  props: {
+    event: {
+      type: [Array, Object],
+      default: () => [],
+    },
+  },
 }
 </script>
 
