@@ -1,3 +1,5 @@
+import axios from 'axios'
+import { post } from 'superagent'
 export default {
   /*
    ** Nuxt rendering mode
@@ -124,10 +126,7 @@ export default {
       { rel: 'manifest', href: '/favicon/manifest.json' },
     ],
 
-    script: [
-      { src: 'https://use.fontawesome.com/3889c7d65e.js' },
-      { src: '/mailscript.js', id: 'mcjs' },
-    ],
+    script: [{ src: 'https://use.fontawesome.com/3889c7d65e.js' }],
   },
   router: {
     middleware: 'maintenance',
@@ -162,12 +161,57 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    '@nuxtjs/feed',
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // '@nuxtjs/pwa',
+    '@nuxtjs/sitemap',
   ],
+  feed: [
+    {
+      path: '/feed.xml', // The route to your feed.
+      async create(feed) {
+        feed.options = {
+          title: 'Mastering Backend Development',
+          link: 'https://masteringbackend.com/feed.xml',
+          description: 'This is Mastering Backend Development feeds!',
+        }
+
+        const response = await axios.get(
+          'https://adonis-blog.000webhostapp.com/api/get_posts/'
+        )
+        if (response.data) {
+          response.data.posts.forEach((post) => {
+            feed.addItem({
+              title: post.title,
+              id: `https://masteringbackend.com/posts/${post.slug}?id=${post.id}`,
+              link: `https://masteringbackend.com/posts/${post.slug}?id=${post.id}`,
+              content: post.content,
+            })
+
+            post.categories.forEach((category) => {
+              feed.addCategory(category.title)
+            })
+
+            feed.addContributor({
+              name: post.author.name,
+            })
+          })
+        }
+      },
+      cacheTime: 1000 * 60 * 15, // How long should the feed be cached
+      type: 'rss2', // Can be: rss2, atom1, json1
+    },
+  ],
+
+  sitemap: {
+    exclude: ['/maintenance'],
+    cacheTime: 1000 * 60 * 60 * 2,
+    trailingSlash: true,
+    gzip: true,
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

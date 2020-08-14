@@ -8,9 +8,7 @@ class SlackInviter {
       'C017AEHLN8M',
     ]
 
-    const token =
-      process.env.SLACK_TOKEN ||
-      'xoxp-1250072469155-1249865936418-1292669497157-013342249854cafe69b6f89c3a93cf8a'
+    const token = process.env.SLACK_TOKEN
 
     return new Promise(function (resolve, reject) {
       request.post(
