@@ -15,8 +15,11 @@
   },
   "dependencies": {
     "@chenfengyuan/vue-countdown": "^1.1.5",
+    "@mailchimp/mailchimp_marketing": "^3.0.12",
     "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/moment": "^1.6.1",
+    "@nuxtjs/sitemap": "^2.4.0",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "eslint-plugin-vue": "^6.2.2",

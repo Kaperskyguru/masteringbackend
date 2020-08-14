@@ -1,5 +1,11 @@
 <template>
-  <form class="form-slak" action="#" @submit.prevent="Submit()">
+  <form
+    ref="form"
+    class="form-slak"
+    action="https://masteringbackend.us17.list-manage.com/subscribe/post-json?u=39ffc375608455a6fe549290a&amp;id=e42cd7d4b3&c=?&ref=https://masteringbackend.com/slack&redirect=https://masteringbackend.com/slack"
+    method="post"
+    @submit.prevent="Submit()"
+  >
     <div class="form-inline" style="justify-content: space-around;">
       <label class="text-dark" for="text">
         <b>First Name</b>
@@ -9,6 +15,7 @@
         class="form-control"
         style="height: 40px; width: 70%;"
         type="text"
+        name="FNAME"
         placeholder="Enter your firstname"
         required
       />
@@ -23,6 +30,7 @@
         class="form-control"
         style="height: 40px; width: 70%;"
         type="text"
+        name="LNAME"
         placeholder="Enter your lastname"
         required
       />
@@ -36,6 +44,7 @@
         class="form-control"
         style="height: 40px; width: 70%;"
         type="email"
+        name="EMAIL"
         required
         placeholder="Enter your email address"
       />
@@ -77,6 +86,7 @@
 
 <script>
 import { mapState } from 'vuex'
+// import MailChimp from '~/Services/MailChimp'
 export default {
   name: 'SlackForm',
 
@@ -103,11 +113,11 @@ export default {
   },
 
   methods: {
-    Submit() {
+    async Submit() {
       if (this.validateEmail(this.user.email)) {
         if (this.newsletter) {
-          this.joinSlack()
-          this.suscribeNewsletter()
+          // this.joinSlack()
+          await this.suscribeNewsletter()
         } else this.joinSlack()
       } else this.error = true
     },
@@ -119,11 +129,13 @@ export default {
       this.$store.dispatch('JoinSlack', data)
     },
 
-    suscribeNewsletter() {},
+    suscribeNewsletter() {
+      // await Mailchimp.sub(this.user)
+      this.$refs.form.submit()
+    },
 
     validateEmail(email) {
       if (email) {
-        console.log(email)
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         return re.test(email)
       }
