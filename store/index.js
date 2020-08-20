@@ -1,7 +1,7 @@
 import SlackInviter from '~/Services/SlackInvite'
 
 export const state = () => ({
-  isCounterEnded: false,
+  isCounterEnded: true,
   slack: '',
 })
 
