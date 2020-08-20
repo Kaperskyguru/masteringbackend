@@ -1,5 +1,8 @@
 import DiveJobs from '~/Services/Scrappers/dice-scrapper'
+// import Worker from '../jobs.worker'
 import { jobResolver } from '~/helpers/helpers'
+
+// const SwActions = new Worker()
 
 export const state = () => ({
   jobs: [],
@@ -23,6 +26,11 @@ export const actions = {
     const diveJobs = await DiveJobs.getDiveJobs()
     const jobs = jobResolver(diveJobs)
     commit('STORE_JOBS', jobs)
+    // SwActions.postMessage('getDiveJobs')
   },
   getIndeedJobs() {},
 }
+
+// SwActions.onmessage = (e) => {
+//   this.commit(e.data.type, e.data.payload)
+// }
