@@ -32,7 +32,8 @@
     "tls": "0.0.1",
     "vue": "^2.6.11",
     "vue-full-loading": "^1.2.1",
-    "vuex-persistedstate": "^3.0.1"
+    "vuex-persistedstate": "^3.0.1",
+    "worker-threads-pool": "^2.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
@@ -47,7 +48,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.0.1",
     "prettier": "^2.0.5",
-    "vue-jest": "^3.0.4"
+    "vue-jest": "^3.0.4",
+    "worker-loader": "^3.0.1"
   },
   "browser": {
     "fs": false,

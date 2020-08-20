@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { post } from 'superagent'
 export default {
   /*
    ** Nuxt rendering mode
@@ -143,6 +142,7 @@ export default {
     { src: '~/plugins/localStorage', ssr: false },
     { src: '~/plugins/vue-full-loading', ssr: false },
     { src: '~/plugins/countDown', ssr: false },
+    { src: '~/plugins/webWorker.js', ssr: false },
   ],
   /*
    ** Auto import components
@@ -222,7 +222,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-    extend(config, { isServer }) {
+    extend(config, { isServer, isClient }) {
       config.externals = config.externals || {}
       if (!isServer) {
         config.node = {
@@ -236,6 +236,14 @@ export default {
         } else {
           config.externals.puppeteer = require('puppeteer')
         }
+      }
+
+      if (isClient) {
+        config.module.rules.push({
+          test: /\.worker\.js$/,
+          use: { loader: 'worker-loader' },
+          exclude: /(node_modules)/,
+        })
       }
 
       return config
