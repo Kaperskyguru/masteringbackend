@@ -28,6 +28,9 @@
 import { mapState } from 'vuex'
 import { sortAsc } from '~/helpers/helpers'
 export default {
+  async asyncData({ store }) {
+    if (process.server) await store.dispatch('event/getMeetupEvents')
+  },
   data() {
     return {
       path: '',

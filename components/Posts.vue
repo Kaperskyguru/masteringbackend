@@ -13,7 +13,13 @@
           </div>
         </div>
         <div class="row mb-1 mt-5">
+          <!-- <Post v-for="(post, i) in posts" :key="i" :post="post" /> -->
+          <!-- <span v-if="apiStateLoaded"> -->
           <Post v-for="(post, i) in posts" :key="i" :post="post" />
+          <!-- </span> -->
+          <!-- <span v-if="apiStateError">
+            Loading Post {{ this.$store.state.post.postState }}
+          </span> -->
         </div>
       </div>
     </div>
@@ -25,27 +31,25 @@
 
 <script>
 import { mapState } from 'vuex'
-
+import ENUM from '@/enums'
 export default {
   computed: {
     ...mapState({
       posts: (state) => {
-        return [
-          ...state.post.posts,
-          ...state.post.posts,
-          ...state.post.posts,
-          ...state.post.posts,
-          ...state.post.posts,
-          ...state.post.posts,
-          ...state.post.posts,
-          ...state.post.posts,
-          ...state.post.posts,
-          ...state.post.posts,
-          ...state.post.posts,
-          ...state.post.posts,
-          ...state.post.posts,
-          ...state.post.posts,
-        ].slice(0, 12)
+        // console.log(state.post.posts)
+        return [...state.post.posts].slice(0, 12)
+      },
+      apiStateLoaded: (state) => {
+        return state.post.postState === ENUM.LOADED
+      },
+      apiStateLoading: (state) => {
+        return (
+          state.post.postState === ENUM.LOADING ||
+          state.post.postState === ENUM.INIT
+        )
+      },
+      apiStateError: (state) => {
+        return state.post.postState === ENUM.ERROR
       },
     }),
   },

@@ -23,7 +23,7 @@ export const actions = {
 
   async nuxtServerInit({ dispatch }) {
     // const Pool = require('worker-threads-pool')
-
+    // console.log(Pool)
     // const pool = new Pool({ max: 5 })
 
     // for (let i = 0; i < 100; i++) {
@@ -35,12 +35,19 @@ export const actions = {
     //     })
     //   })
     // }
-    await Promise.all([
-      await dispatch('post/getPosts'),
-      await dispatch('stream/getCompletedStreams'),
-      await dispatch('stream/getUpcomingStreams'),
-      await dispatch('job/getDiveJobs'),
-      await dispatch('event/getMeetupEvents'),
-    ])
+    try {
+      await dispatch('post/getPosts')
+      await dispatch('stream/getCompletedStreams')
+      await dispatch('stream/getUpcomingStreams')
+      await dispatch('job/getDiveJobs')
+    } catch (error) {}
+
+    // await Promise.all([
+    //   await dispatch('post/getPosts'),
+    //   // await dispatch('stream/getCompletedStreams'),
+    //   // await dispatch('stream/getUpcomingStreams'),
+    //   // await dispatch('job/getDiveJobs'),
+    //   // await dispatch('event/getMeetupEvents'),
+    // ])
   },
 }

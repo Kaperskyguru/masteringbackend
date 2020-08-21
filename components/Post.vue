@@ -19,7 +19,7 @@
         <p class="p-1">
           <small class="text-muted">17 hours ago</small>
         </p>
-        <p class="p-1" :html="post.excerpt"></p>
+        <p v-html="post.excerpt"></p>
       </div>
     </div>
   </div>
@@ -39,9 +39,11 @@ export default {
   computed: {
     image() {
       const urls = []
-      for (const image of this.post.attachments) {
-        urls.push(image.images.thumbnail.url)
-        break
+      if (this.post) {
+        for (const image of this.post.attachments) {
+          urls.push(image.images.thumbnail.url)
+          break
+        }
       }
       return urls[0] ? urls[0] : '/img/default_banner.webp'
     },
