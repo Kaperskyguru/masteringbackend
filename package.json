@@ -32,8 +32,7 @@
     "tls": "0.0.1",
     "vue": "^2.6.11",
     "vue-full-loading": "^1.2.1",
-    "vuex-persistedstate": "^3.0.1",
-    "worker-threads-pool": "^2.0.0"
+    "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",

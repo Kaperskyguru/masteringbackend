@@ -11,7 +11,7 @@
           }}</time>
         </small>
       </p>
-      <p class="card-text" :html="post.content"></p>
+      <p class="card-text" v-html="post.content"></p>
     </div>
   </div>
 </template>
@@ -28,11 +28,13 @@ export default {
   computed: {
     image() {
       const urls = []
-      for (const image of this.post.attachments) {
-        urls.push(image.images.full.url)
-        break
+      if (this.post) {
+        for (const image of this.post.attachments) {
+          urls.push(image.images.full.url)
+          break
+        }
       }
-      return urls[0]
+      return urls[0] ? urls[0] : '/img/default_banner.webp'
     },
   },
 }
