@@ -2,6 +2,7 @@
 // const baseURl = 'https://adonis-blog.000webhostapp.com/api'
 
 import ENUM from '@/enums'
+// const WebActions = new Worker('@/posts.worker.js', { type: 'module' })
 
 export const state = () => ({
   postState: ENUM.INIT,
@@ -16,13 +17,16 @@ export const getters = {
       }
     })
   },
+
+  getPostsByAuthor: (state) => (author) => {
+    return state.posts.filter((post) => post.author.slug === author)
+  },
 }
 
 export const mutations = {
   setPosts(state, posts) {
     state.posts = posts
     state.postState = ENUM.LOADED
-    console.log(state.postState)
   },
   setPost(state, post) {
     state.post = post
@@ -46,6 +50,7 @@ export const actions = {
   },
 
   getLatestPosts({ commit }, page = 1, perPage = 3) {
+    console.log(process.env.BASE_ENDPOINT_URL)
     fetch(`${process.env.BASE_ENDPOINT_URL}/get_recent_posts/`)
       .then((res) => res.json())
       .then((res) => {
@@ -57,3 +62,7 @@ export const actions = {
       .catch()
   },
 }
+
+// WebActions.onmessage = (e) => {
+//   state.commit(e.data.type, e.data.payload)
+// }

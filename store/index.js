@@ -40,14 +40,7 @@ export const actions = {
       await dispatch('stream/getCompletedStreams')
       await dispatch('stream/getUpcomingStreams')
       await dispatch('job/getDiveJobs')
+      await dispatch('event/getMeetupEvents')
     } catch (error) {}
-
-    // await Promise.all([
-    //   await dispatch('post/getPosts'),
-    //   // await dispatch('stream/getCompletedStreams'),
-    //   // await dispatch('stream/getUpcomingStreams'),
-    //   // await dispatch('job/getDiveJobs'),
-    //   // await dispatch('event/getMeetupEvents'),
-    // ])
   },
 }

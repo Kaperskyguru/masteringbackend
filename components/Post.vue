@@ -9,7 +9,9 @@
         </nuxt-link>
       </div>
       <div class="card-body">
-        <p class="subtitle is-6">{{ post.author.name }}</p>
+        <nuxt-link :to="{ path: '/authors/' + post.author.slug }"
+          ><p class="subtitle is-6">{{ post.author.name }}</p></nuxt-link
+        >
 
         <nuxt-link
           class="title is-size-4-mobile"

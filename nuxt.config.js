@@ -212,6 +212,8 @@ export default {
     trailingSlash: true,
     gzip: true,
   },
+
+  loading: { color: '#f29d12' },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -245,7 +247,7 @@ export default {
           exclude: /(node_modules)/,
         })
       }
-
+      config.output.globalObject = 'this'
       return config
     },
   },
