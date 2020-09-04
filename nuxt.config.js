@@ -1,8 +1,12 @@
 import axios from 'axios'
 require('dotenv').config()
 export default {
-  publicRuntimeConfig: {},
-  privateRuntimeConfig: {},
+  env: {
+    SLACK_TOKEN: process.env.SLACK_TOKEN,
+    SLACK_INVITE_LINK_CODE:
+      process.env.SLACK_INVITE_LINK_CODE ||
+      'zt-gycntdhj-Y~q3Sd4VLPsQVNb_HHYuzw',
+  },
 
   /*
    ** Nuxt rendering mode
