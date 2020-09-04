@@ -16,8 +16,6 @@
             <div class="row">
               <div class="col-md-8">
                 <Job v-for="(job, i) in jobs" :key="i" :job="job" />
-                <!-- <Job />
-                <Job />-->
               </div>
 
               <div class="col-md-4 mt-3">
@@ -63,17 +61,7 @@
 <script>
 import { mapState } from 'vuex'
 import { sortDesc } from '~/helpers/helpers'
-// import DiveJobs from '~/Services/Scrappers/dice-scrapper'
-// import { jobResolver } from '~/helpers/helpers'
 export default {
-  async asyncData({ store }) {
-    try {
-      // const diveJobs = await DiveJobs.getDiveJobs()
-      // const jobs = jobResolver(diveJobs)
-      await store.dispatch('job/getDiveJobs')
-    } catch (error) {}
-  },
-
   data() {
     return {
       show: false,

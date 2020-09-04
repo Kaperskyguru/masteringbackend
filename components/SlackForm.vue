@@ -1,11 +1,5 @@
 <template>
-  <form
-    ref="form"
-    class="form-slak"
-    action="https://masteringbackend.us17.list-manage.com/subscribe/post-json?u=39ffc375608455a6fe549290a&amp;id=e42cd7d4b3&c=?&ref=https://masteringbackend.com/slack&redirect=https://masteringbackend.com/slack"
-    method="post"
-    @submit.prevent="Submit()"
-  >
+  <!-- <form ref="form" class="form-slak" @submit.prevent="Submit()">
     <div class="form-inline" style="justify-content: space-around;">
       <label class="text-dark" for="text">
         <b>First Name</b>
@@ -81,7 +75,14 @@
         </button>
       </div>
     </div>
-  </form>
+  </form> -->
+
+  <a
+    class="form-slack"
+    style="color: red !important;"
+    href="https://join.slack.com/t/backend-community/shared_invite/zt-gycntdhj-Y~q3Sd4VLPsQVNb_HHYuzw"
+    >Click here to join Slack</a
+  >
 </template>
 
 <script>
@@ -116,7 +117,7 @@ export default {
     Submit() {
       if (this.validateEmail(this.user.email)) {
         if (this.newsletter) {
-          // this.joinSlack()
+          this.joinSlack()
           // await this.suscribeNewsletter()
         } else this.joinSlack()
       } else this.error = true

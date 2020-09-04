@@ -48,10 +48,6 @@ export default {
       vm.path = to.fullPath
     })
   },
-
-  // created() {
-  //   console.log(new Date(strtotime('10 hours ago') * 1000).getHours(), 'jhjk')
-  // },
 }
 </script>
 
