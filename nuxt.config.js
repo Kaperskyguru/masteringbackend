@@ -1,5 +1,9 @@
 import axios from 'axios'
+require('dotenv').config()
 export default {
+  publicRuntimeConfig: {},
+  privateRuntimeConfig: {},
+
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
@@ -156,6 +160,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/moment',
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Nuxt.js modules

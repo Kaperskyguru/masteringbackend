@@ -1,3 +1,4 @@
+require('dotenv').config()
 let baseURl = 'https://www.googleapis.com/youtube/v3/search?part=snippet'
 class YoutubeLiveStreams {
   constructor() {
@@ -14,7 +15,9 @@ class YoutubeLiveStreams {
       const res = await fetch(baseURl)
       const data = await res.json()
       return data
-    } catch (error) {}
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   async getUpcomingStreams() {
@@ -23,7 +26,9 @@ class YoutubeLiveStreams {
       const res = await fetch(baseURl)
       const data = await res.json()
       return data
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 export default YoutubeLiveStreams

@@ -1,3 +1,4 @@
+require('dotenv').config()
 const BASEURL =
   process.env.DEVTO_BASE_URL || 'https://dev.to/api/articles?tag=backend'
 class DevtoPost {

@@ -1,4 +1,5 @@
 import request from 'request'
+require('dotenv').config()
 class SlackInviter {
   static invite({ email, fullName }) {
     const channels = [
@@ -34,6 +35,7 @@ class SlackInviter {
             resolve(message)
           } else {
             let { error } = body
+            console.log(body)
             if (
               error === 'already_invited' ||
               error === 'already_in_team' ||
@@ -44,14 +46,10 @@ class SlackInviter {
               resolve(message)
             } else if (error === 'invalid_email') {
               error = 'The email you entered is an invalid email.'
-            } else if (error === 'invalid_auth') {
-              error =
-                'Something has gone wrong. Please contact a system administrator.'
             } else if (error === 'internal_error') {
               error = 'Please enter your name'
             } else {
-              error =
-                'Something has gone wrong. Please contact a system administrator.'
+              error = `Something has gone wrong. Please contact a system administrator. <br /> <a class="form-slack" style="color: red !important;" href="https://join.slack.com/t/backend-community/shared_invite/${process.env.SLACK_INVITE_LINK_CODE}">Click here to join Slack</a>`
             }
             resolve(error)
           }
