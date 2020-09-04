@@ -12,6 +12,7 @@ export default {
     MAINTENANCE_MODE: process.env.MAINTENANCE_MODE,
     MAILCHIMP_KEY: process.env.MAILCHIMP_KEY,
     MAILCHIMP_SERVER: process.env.MAILCHIMP_SERVER,
+    GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
   },
 
   /*
@@ -171,6 +172,12 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/moment',
     '@nuxtjs/dotenv',
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: process.env.GOOGLE_ANALYTICS_ID,
+      },
+    ],
   ],
   /*
    ** Nuxt.js modules
