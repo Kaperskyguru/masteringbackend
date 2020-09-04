@@ -1,5 +1,6 @@
 import mailchimp from '@mailchimp/mailchimp_marketing'
 import request from 'request'
+require('dotenv').config()
 
 class Mailchimp {
   _init() {
