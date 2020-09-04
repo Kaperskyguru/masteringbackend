@@ -1,8 +1,11 @@
+// import LogRocketPosts from '~/Services/LogRocketPosts'
+
 export default function ({ from }) {
   const isInitialPageLoad = !from
   if (isInitialPageLoad) {
     try {
-      // await store.dispatch('post/getPosts')
+      // await store.dispatch('post/getWorldPosts')
+      // await new LogRocketPosts().getPosts()
       // await store.dispatch('stream/getCompletedStreams')
       // await store.dispatch('stream/getUpcomingStreams')
       // if (isServer) {

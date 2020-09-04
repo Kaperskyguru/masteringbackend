@@ -28,10 +28,12 @@
     "nuxt": "^2.14.0",
     "puppeteer": "^5.2.1",
     "request": "^2.88.2",
+    "rss-to-json": "^1.1.1",
     "superagent": "^6.0.0",
     "tls": "0.0.1",
     "vue": "^2.6.11",
     "vue-full-loading": "^1.2.1",
+    "vue-worker": "^1.2.1",
     "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {

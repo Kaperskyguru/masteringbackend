@@ -2,6 +2,7 @@
   <div>
     <banner />
     <Posts />
+    <WorldPosts />
     <Jobs />
   </div>
 </template>

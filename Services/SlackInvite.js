@@ -9,7 +9,7 @@ class SlackInviter {
     ]
 
     const token = process.env.SLACK_TOKEN
-
+    console.log(token)
     return new Promise(function (resolve, reject) {
       request.post(
         {
@@ -50,6 +50,9 @@ class SlackInviter {
                 'Something has gone wrong. Please contact a system administrator.'
             } else if (error === 'internal_error') {
               error = 'Please enter your name'
+            } else {
+              error =
+                'Something has gone wrong. Please contact a system administrator.'
             }
             resolve(error)
           }

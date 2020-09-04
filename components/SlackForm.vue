@@ -113,11 +113,11 @@ export default {
   },
 
   methods: {
-    async Submit() {
+    Submit() {
       if (this.validateEmail(this.user.email)) {
         if (this.newsletter) {
           // this.joinSlack()
-          await this.suscribeNewsletter()
+          // await this.suscribeNewsletter()
         } else this.joinSlack()
       } else this.error = true
     },
