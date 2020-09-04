@@ -9,7 +9,6 @@ class SlackInviter {
     ]
 
     const token = process.env.SLACK_TOKEN
-    console.log(token)
     return new Promise(function (resolve, reject) {
       request.post(
         {

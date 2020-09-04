@@ -36,7 +36,11 @@ export const mutations = {
   },
 
   setWorldPost(state, posts) {
-    state.worldPosts = posts.map((post) => {
+    const postData = []
+    for (const i in posts) {
+      postData.push(posts[i])
+    }
+    state.worldPosts = postData.map((post) => {
       const resolvedPost = {}
       resolvedPost.title = post.title
       resolvedPost.content = post.description
@@ -65,19 +69,21 @@ export const actions = {
     }
   },
 
-  async getWorldPosts({ commit }) {
-    const posts = await new DevtoPost().getPosts()
+  async getLogRocketPosts({ commit }) {
     const data = await new LogRocketPosts().getPosts()
     const logRocketPosts = JSON.parse(data).items
-    const postData = []
-    for (const i in logRocketPosts) {
-      postData.push(logRocketPosts[i])
-    }
-    for (const i in posts) {
-      postData.push(posts[i])
-    }
-    if (postData) {
-      commit('setWorldPost', postData)
+    // for (const i in logRocketPosts) {
+    //   postData.push(logRocketPosts[i])
+    // }
+    commit('setWorldPost', logRocketPosts)
+  },
+  async getWorldPosts({ commit }) {
+    const posts = await new DevtoPost().getPosts()
+    // for (const i in posts) {
+    //   postData.push(posts[i])
+    // }
+    if (posts) {
+      commit('setWorldPost', posts)
     }
   },
 

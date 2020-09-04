@@ -47,7 +47,7 @@
 /* eslint-disable */
 import { mapState } from 'vuex'
 export default {
-  middleware: 'loadData',
+  // middleware: 'loadData',
   computed: {
     ...mapState({
       streams: (state) => state.stream.streams.items,

@@ -22,26 +22,11 @@ export const actions = {
   },
 
   async nuxtServerInit({ dispatch }) {
-    // const Pool = require('worker-threads-pool')
-    // console.log(Pool)
-    // const pool = new Pool({ max: 5 })
-
-    // for (let i = 0; i < 100; i++) {
-    //   pool.acquire('~/jobs.worker.js', function (err, worker) {
-    //     if (err) throw err
-    //     console.log(`started worker ${i} (pool size: ${pool.size})`)
-    //     worker.on('exit', function () {
-    //       console.log(`worker ${i} exited (pool size: ${pool.size})`)
-    //     })
-    //   })
-    // }
     try {
-      await dispatch('post/getPosts')
-      await dispatch('post/getWorldPosts')
-      await dispatch('stream/getCompletedStreams')
-      await dispatch('stream/getUpcomingStreams')
+      // await dispatch('post/getPosts')
+      // await dispatch('stream/getCompletedStreams')
+      // await dispatch('stream/getUpcomingStreams')
       await dispatch('job/getDiveJobs')
-      await dispatch('event/getMeetupEvents')
     } catch (error) {}
   },
 }
