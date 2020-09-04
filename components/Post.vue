@@ -21,7 +21,7 @@
         <p class="p-1">
           <small class="text-muted">17 hours ago</small>
         </p>
-        <p v-html="post.excerpt"></p>
+        <p v-html="getPostExcerpt(post.excerpt, 50)"></p>
       </div>
     </div>
   </div>
@@ -48,6 +48,14 @@ export default {
         }
       }
       return urls[0] ? urls[0] : '/img/default_banner.webp'
+    },
+  },
+
+  methods: {
+    getPostExcerpt(str, limit) {
+      if (str.length > 0) {
+        return str.substring(0, limit) + ' [...]'
+      }
     },
   },
 }

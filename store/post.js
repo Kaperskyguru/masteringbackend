@@ -2,11 +2,14 @@
 // const baseURl = 'https://adonis-blog.000webhostapp.com/api'
 
 import ENUM from '@/enums'
+import DevtoPost from '~/Services/DevtoPosts'
+import LogRocketPosts from '~/Services/LogRocketPosts'
 // const WebActions = new Worker('@/posts.worker.js', { type: 'module' })
 
 export const state = () => ({
   postState: ENUM.INIT,
   posts: [],
+  worldPosts: [],
 })
 
 export const getters = {
@@ -32,6 +35,19 @@ export const mutations = {
     state.post = post
   },
 
+  setWorldPost(state, posts) {
+    state.worldPosts = posts.map((post) => {
+      const resolvedPost = {}
+      resolvedPost.title = post.title
+      resolvedPost.content = post.description
+      resolvedPost.url = post.url
+      resolvedPost.date = post.published_at || post.created
+      resolvedPost.image = post.social_image || post.image
+      resolvedPost.from = new URL(post.url).host
+      return resolvedPost
+    })
+  },
+
   setPostState(state, postState) {
     state.postState = postState
   },
@@ -49,17 +65,32 @@ export const actions = {
     }
   },
 
+  async getWorldPosts({ commit }) {
+    const posts = await new DevtoPost().getPosts()
+    const data = await new LogRocketPosts().getPosts()
+    const logRocketPosts = JSON.parse(data).items
+    const postData = []
+    for (const i in logRocketPosts) {
+      postData.push(logRocketPosts[i])
+    }
+    for (const i in posts) {
+      postData.push(posts[i])
+    }
+    if (postData) {
+      commit('setWorldPost', postData)
+    }
+  },
+
   getLatestPosts({ commit }, page = 1, perPage = 3) {
-    console.log(process.env.BASE_ENDPOINT_URL)
-    fetch(`${process.env.BASE_ENDPOINT_URL}/get_recent_posts/`)
-      .then((res) => res.json())
-      .then((res) => {
-        const { posts } = res
-        if (posts) {
-          commit('setLatestPosts', posts)
-        }
-      })
-      .catch()
+    // fetch(`${process.env.BASE_ENDPOINT_URL}/get_recent_posts/`)
+    //   .then((res) => res.json())
+    //   .then((res) => {
+    //     const { posts } = res
+    //     if (posts) {
+    //       commit('setLatestPosts', posts)
+    //     }
+    //   })
+    //   .catch()
   },
 }
 

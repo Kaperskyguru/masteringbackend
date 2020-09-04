@@ -37,6 +37,7 @@ export const actions = {
     // }
     try {
       await dispatch('post/getPosts')
+      await dispatch('post/getWorldPosts')
       await dispatch('stream/getCompletedStreams')
       await dispatch('stream/getUpcomingStreams')
       await dispatch('job/getDiveJobs')
