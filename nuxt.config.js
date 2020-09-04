@@ -6,6 +6,12 @@ export default {
     SLACK_INVITE_LINK_CODE:
       process.env.SLACK_INVITE_LINK_CODE ||
       'zt-gycntdhj-Y~q3Sd4VLPsQVNb_HHYuzw',
+    YOUTUBE_API_KEY: process.env.YOUTUBE_API_KEY,
+    YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID,
+    BASE_ENDPOINT_URL: process.env.BASE_ENDPOINT_URL,
+    MAINTENANCE_MODE: process.env.MAINTENANCE_MODE,
+    MAILCHIMP_KEY: process.env.MAILCHIMP_KEY,
+    MAILCHIMP_SERVER: process.env.MAILCHIMP_SERVER,
   },
 
   /*

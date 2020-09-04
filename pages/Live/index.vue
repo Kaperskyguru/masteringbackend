@@ -48,6 +48,10 @@
 import { mapState } from 'vuex'
 export default {
   // middleware: 'loadData',
+  async fetch({ store }) {
+    await store.dispatch('stream/getCompletedStreams')
+    await store.dispatch('stream/getUpcomingStreams')
+  },
   computed: {
     ...mapState({
       streams: (state) => state.stream.streams.items,
