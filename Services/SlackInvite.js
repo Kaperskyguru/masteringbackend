@@ -35,7 +35,7 @@ class SlackInviter {
             resolve(message)
           } else {
             let { error } = body
-            console.log(body)
+            console.log(body, token, process.env.SLACK_INVITE_LINK_CODE)
             if (
               error === 'already_invited' ||
               error === 'already_in_team' ||
