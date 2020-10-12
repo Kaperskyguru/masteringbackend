@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 * {
   border: none;
   outline: none;
@@ -378,4 +379,58 @@ body {
 
 .form-inline label {
   margin-bottom: 1rem;
+}
+
+/* pre {
+  padding: 20px;
+  line-height: 22px;
+  font-size: 14px;
+  font-family: Menlo, Consolas, Monaco, monospace;
+  white-space: pre;
+  resize: vertical !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -ms-word-break: normal;
+  word-break: normal;
+  -webkit-overflow-scrolling: touch;
+  background-color: #eee;
+} */
+
+pre {
+  /* white-space: pre; */
+  /* resize: vertical !important; */
+  overflow-x: auto;
+  overflow-y: hidden !important;
+  background-color: #ededed !important;
+  /* border: 1px solid #999; */
+  display: block;
+  color: #4d4d4c;
+  padding: 0.5em;
+}
+
+code {
+  font-style: italic;
+  font-size: 90%;
+  color: #bd4147;
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  padding: 0.2rem 0.4rem;
+  background-color: #f7f7f9;
+  border-radius: 0.25rem;
+}
+
+.card h2,
+.card h4 {
+  font-size: 1.5rem;
+}
+
+.card-text a {
+  color: #bd4147;
 }

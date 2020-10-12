@@ -148,7 +148,10 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/main.css'],
+  css: [
+    '~/assets/css/main.css',
+    { src: '~/node_modules/highlight.js/styles/hopscotch.css', lang: 'css' },
+  ],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -190,7 +193,12 @@ export default {
     '@nuxtjs/axios',
     // '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
+    '@nuxtjs/markdownit',
   ],
+  markdownit: {
+    injected: true,
+    use: ['markdown-it-highlightjs'],
+  },
   feed: [
     {
       path: '/feed.xml', // The route to your feed.
