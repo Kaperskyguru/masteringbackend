@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer')
-const eventUrl = `https://www.meetup.com/find/?keywords=backend` //&dateRange=this-week`
+const eventUrl = `https://www.meetup.com/find/?keywords=backend&dateRange=this-week`
 
 let page
 let browser
@@ -9,7 +9,16 @@ class MeetupEvent {
     // console.log('Loading Page ...')
 
     browser = await puppeteer.launch({
-      args: ['--no-sandbox'],
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-accelerated-2d-canvas',
+        '--no-first-run',
+        '--no-zygote',
+        '--single-process', // <- this one doesn't works in Windows
+        '--disable-gpu',
+      ],
     })
     page = await browser.newPage()
     await Promise.race([

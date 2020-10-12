@@ -21,6 +21,10 @@ export const getters = {
     })
   },
 
+  getPosts: (state) => () => {
+    return state.posts
+  },
+
   getPostsByAuthor: (state) => (author) => {
     return state.posts.filter((post) => post.author.slug === author)
   },
