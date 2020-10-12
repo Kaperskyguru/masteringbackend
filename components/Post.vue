@@ -21,9 +21,11 @@
           >{{ post.title || '' }}</nuxt-link
         >
         <p class="p-1">
-          <small class="text-muted">17 hours ago</small>
+          <small class="text-muted">{{
+            $moment(post.date).format('MMMM Do YYYY')
+          }}</small>
         </p>
-        <p v-html="getPostExcerpt(post.excerpt, 50)"></p>
+        <p v-html="getPostExcerpt(post.excerpt, 100)"></p>
       </div>
     </div>
   </div>

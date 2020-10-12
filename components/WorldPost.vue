@@ -15,7 +15,9 @@
           post.title || ''
         }}</a>
         <p class="p-1">
-          <small class="text-muted">{{ post.date }}</small>
+          <small class="text-muted">{{
+            $moment(post.date).format('MMMM Do YYYY')
+          }}</small>
         </p>
         <p v-html="getPostExcerpt(post.content, 100)"></p>
       </div>

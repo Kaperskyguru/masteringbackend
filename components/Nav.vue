@@ -41,9 +41,7 @@
                 <nuxt-link class="nav-link" to="/projects">Projects</nuxt-link>
               </li>
               <li class="nav-item quote-btn">
-                <nuxt-link class="nav-link qbtn" to="/create"
-                  >Post a Job</nuxt-link
-                >
+                <nuxt-link class="nav-link qbtn" to="#">Post a Job</nuxt-link>
               </li>
               <li class="nav-item quote-btn">
                 <nuxt-link class="nav-link qbtn" to="/slack"

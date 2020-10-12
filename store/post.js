@@ -4,12 +4,12 @@
 import ENUM from '@/enums'
 import DevtoPost from '~/Services/DevtoPosts'
 import LogRocketPosts from '~/Services/LogRocketPosts'
-// const WebActions = new Worker('@/posts.worker.js', { type: 'module' })
 
 export const state = () => ({
   postState: ENUM.INIT,
   posts: [],
   worldPosts: [],
+  post: [],
 })
 
 export const getters = {
@@ -67,6 +67,21 @@ export const actions = {
     } else {
       commit('setPostState', ENUM.ERROR)
     }
+    return data.post
+  },
+
+  async getPost({ commit }, slug) {
+    commit('setPostState', ENUM.ERROR)
+    const response = await fetch(
+      `${process.env.BASE_ENDPOINT_URL}/get_post/?slug=${slug}`
+    )
+    const data = await response.json()
+    if (data.post) {
+      commit('setPost', data.post)
+    } else {
+      commit('setPostState', ENUM.ERROR)
+    }
+    return data.post
   },
 
   async getLogRocketPosts({ commit }) {
