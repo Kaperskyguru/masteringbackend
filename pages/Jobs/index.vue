@@ -62,6 +62,11 @@
 import { mapState } from 'vuex'
 import { sortDesc } from '~/helpers/helpers'
 export default {
+  async asyncData({ store }) {
+    const getJobs = store.getters['job/getJobs']
+    const jobs = getJobs()
+    if (!jobs.length) await store.dispatch('job/getDiveJobs')
+  },
   data() {
     return {
       show: false,

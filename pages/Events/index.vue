@@ -29,7 +29,11 @@ import { mapState } from 'vuex'
 import { sortAsc } from '~/helpers/helpers'
 export default {
   async asyncData({ store }) {
-    if (process.server) await store.dispatch('event/getMeetupEvents')
+    const getEvents = store.getters['event/getEvents']
+    const events = getEvents()
+    if (!events.length) {
+      await store.dispatch('event/getMeetupEvents')
+    }
   },
   data() {
     return {

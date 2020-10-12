@@ -32,6 +32,11 @@
 import { mapState } from 'vuex'
 import ENUM from '@/enums'
 export default {
+  async asyncData({ store }) {
+    const getPosts = store.getters['post/getPosts']
+    const posts = getPosts()
+    if (!posts) await store.dispatch('post/getPosts')
+  },
   computed: {
     ...mapState({
       posts: (state) => {

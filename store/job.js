@@ -1,12 +1,15 @@
 import DiveJobs from '~/Services/Scrappers/dice-scrapper'
-// import Worker from '../jobs.worker'
 import { jobResolver } from '~/helpers/helpers'
-
-// const SwActions = new Worker()
 
 export const state = () => ({
   jobs: [],
 })
+
+export const getters = {
+  getJobs: (state) => () => {
+    return state.jobs
+  },
+}
 
 export const mutations = {
   STORE_JOBS(state, payload) {
@@ -17,20 +20,13 @@ export const mutations = {
 }
 
 export const actions = {
-  getGithubJobs() {
-    jobResolver()
-  },
-  getLinkedinJobs() {},
-  getStackoverflowJobs() {},
+  async getGithubJobs() {},
+  async getLinkedinJobs() {},
+  async getStackoverflowJobs() {},
+  async getIndeedJobs() {},
   async getDiveJobs({ commit }) {
     const diveJobs = await DiveJobs.getDiveJobs()
     const jobs = jobResolver(diveJobs)
     commit('STORE_JOBS', jobs)
-    // SwActions.postMessage('getDiveJobs')
   },
-  getIndeedJobs() {},
 }
-
-// SwActions.onmessage = (e) => {
-//   this.commit(e.data.type, e.data.payload)
-// }
