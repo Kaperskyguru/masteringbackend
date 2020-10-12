@@ -7,17 +7,18 @@
         </a>
       </div>
       <div class="card-body">
-        <a :href="`https://${post.from}`"
-          ><p class="subtitle is-6">{{ post.from }}</p></a
-        >
+        <a :href="`https://${post.from}`" class="subtitle is-6">
+          {{ post.from }}
+        </a>
 
-        <a class="title is-size-4-mobile" :href="post.url">{{
-          post.title || ''
-        }}</a>
+        <a class="title is-size-4-mobile" :href="post.url">
+          {{ post.title || '' }}
+        </a>
+
         <p class="p-1">
-          <small class="text-muted">{{
-            $moment(post.date).format('MMMM Do YYYY')
-          }}</small>
+          <small class="text-muted">
+            {{ $moment(post.date).format('MMMM Do YYYY') }}
+          </small>
         </p>
         <p v-html="getPostExcerpt(post.content, 100)"></p>
       </div>

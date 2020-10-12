@@ -35,7 +35,7 @@ export default {
   async asyncData({ store }) {
     const getPosts = store.getters['post/getPosts']
     const posts = getPosts()
-    if (!posts) await store.dispatch('post/getPosts')
+    if (!posts.length) await store.dispatch('post/getPosts')
   },
   computed: {
     ...mapState({

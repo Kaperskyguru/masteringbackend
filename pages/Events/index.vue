@@ -31,7 +31,7 @@ export default {
   async asyncData({ store }) {
     const getEvents = store.getters['event/getEvents']
     const events = getEvents()
-    if (!events.length) {
+    if (!events) {
       await store.dispatch('event/getMeetupEvents')
     }
   },

@@ -63,27 +63,27 @@ export const mutations = {
 
 export const actions = {
   async getPosts({ commit }) {
-    commit('setPostState', ENUM.ERROR)
+    // commit('setPostState', ENUM.ERROR)
     const response = await fetch(`${process.env.BASE_ENDPOINT_URL}/get_posts`)
     const data = await response.json()
     if (data.posts) {
       commit('setPosts', data.posts)
-    } else {
-      commit('setPostState', ENUM.ERROR)
+      // } else {
+      // commit('setPostState', ENUM.ERROR)
     }
     return data.post
   },
 
   async getPost({ commit }, slug) {
-    commit('setPostState', ENUM.ERROR)
+    // commit('setPostState', ENUM.ERROR)
     const response = await fetch(
       `${process.env.BASE_ENDPOINT_URL}/get_post/?slug=${slug}`
     )
     const data = await response.json()
     if (data.post) {
       commit('setPost', data.post)
-    } else {
-      commit('setPostState', ENUM.ERROR)
+      // } else {
+      //   commit('setPostState', ENUM.ERROR)
     }
     return data.post
   },
@@ -91,34 +91,14 @@ export const actions = {
   async getLogRocketPosts({ commit }) {
     const data = await new LogRocketPosts().getPosts()
     const logRocketPosts = JSON.parse(data).items
-    // for (const i in logRocketPosts) {
-    //   postData.push(logRocketPosts[i])
-    // }
     commit('setWorldPost', logRocketPosts)
   },
   async getWorldPosts({ commit }) {
     const posts = await new DevtoPost().getPosts()
-    // for (const i in posts) {
-    //   postData.push(posts[i])
-    // }
     if (posts) {
       commit('setWorldPost', posts)
     }
   },
 
-  getLatestPosts({ commit }, page = 1, perPage = 3) {
-    // fetch(`${process.env.BASE_ENDPOINT_URL}/get_recent_posts/`)
-    //   .then((res) => res.json())
-    //   .then((res) => {
-    //     const { posts } = res
-    //     if (posts) {
-    //       commit('setLatestPosts', posts)
-    //     }
-    //   })
-    //   .catch()
-  },
+  getLatestPosts({ commit }, page = 1, perPage = 3) {},
 }
-
-// WebActions.onmessage = (e) => {
-//   state.commit(e.data.type, e.data.payload)
-// }
