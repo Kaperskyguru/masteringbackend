@@ -13,17 +13,11 @@
           </div>
         </div>
         <div class="row mb-1 mt-5">
-          <!-- <Post v-for="(post, i) in posts" :key="i" :post="post" /> -->
-          <!-- <span v-if="apiStateLoaded"> -->
           <WorldPost
             v-for="(post, i) in shuffle(posts)"
             :key="i"
             :post="post"
           />
-          <!-- </span> -->
-          <!-- <span v-if="apiStateError">
-            Loading Post {{ this.$store.state.post.postState }}
-          </span> -->
         </div>
       </div>
     </div>
@@ -40,7 +34,6 @@ export default {
   computed: {
     ...mapState({
       posts: (state) => {
-        // console.log(state.post.posts)
         return [...state.post.worldPosts].slice(0, 9)
       },
       apiStateLoaded: (state) => {

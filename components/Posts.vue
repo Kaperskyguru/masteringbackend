@@ -13,13 +13,7 @@
           </div>
         </div>
         <div class="row mb-1 mt-5">
-          <!-- <Post v-for="(post, i) in posts" :key="i" :post="post" /> -->
-          <!-- <span v-if="apiStateLoaded"> -->
           <Post v-for="(post, i) in posts" :key="i" :post="post" />
-          <!-- </span> -->
-          <!-- <span v-if="apiStateError">
-            Loading Post {{ this.$store.state.post.postState }}
-          </span> -->
         </div>
       </div>
     </div>

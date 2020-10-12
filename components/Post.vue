@@ -9,17 +9,21 @@
         </nuxt-link>
       </div>
       <div class="card-body">
-        <span
-          ><nuxt-link :to="{ path: '/authors/' + post.author.slug }"
-            ><p class="subtitle is-6">{{ post.author.name }}</p></nuxt-link
-          ></span
-        >
-
         <nuxt-link
-          class="title is-size-4-mobile"
-          :to="{ path: '/posts/' + post.slug, query: { id: post.id } }"
-          >{{ post.title || '' }}</nuxt-link
+          :to="{ path: '/authors/' + post.author.slug }"
+          class="subtitle is-6"
         >
+          {{ post.author.name }}
+        </nuxt-link>
+
+        <h6>
+          <nuxt-link
+            class="title is-size-4-mobile"
+            :to="{ path: '/posts/' + post.slug, query: { id: post.id } }"
+          >
+            {{ post.title || '' }}
+          </nuxt-link>
+        </h6>
         <p class="p-1">
           <small class="text-muted">{{
             $moment(post.date).format('MMMM Do YYYY')
