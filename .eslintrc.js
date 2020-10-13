@@ -17,7 +17,7 @@ module.exports = {
   plugins: ['prettier'],
   // add your custom rules here
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'off',
     'spaced-comment': 'off',
     'no-console': 'warn',
     'consistent-return': 'off',

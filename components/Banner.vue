@@ -7,7 +7,7 @@
         </h1>
         <h3 class="sub-title text-white mt-md-5 mt-3 mb-md-5">
           Chat and share with over
-          <a href="#" style="text-decoration: underline;">
+          <a href="#" style="text-decoration: underline">
             <b>a thousand</b>
           </a>
           backend engineers worldwide. We have live discussions. We're building

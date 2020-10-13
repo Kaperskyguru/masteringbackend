@@ -28,7 +28,7 @@
     </div>
     <div class="col-md-12 col-sm-12-col-xs-12 text-center mb-5">
       <nav aria-label="Page navigation example">
-        <ul class="pagination" style="justify-content: space-evenly;">
+        <ul class="pagination" style="justify-content: space-evenly">
           <div class="prev">
             <li class="page-item disabled">
               <a class="page-link" href="#" tabindex="-1">Previous</a>

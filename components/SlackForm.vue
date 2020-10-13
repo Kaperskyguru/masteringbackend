@@ -1,14 +1,14 @@
 <template>
   <div>
     <form ref="form" class="form-slak" @submit.prevent="Submit()">
-      <div class="form-inline" style="justify-content: space-around;">
+      <div class="form-inline" style="justify-content: space-around">
         <label class="text-dark" for="text">
           <b>First Name</b>
         </label>
         <input
           v-model="user.firstname"
           class="form-control"
-          style="height: 40px; width: 70%;"
+          style="height: 40px; width: 70%"
           type="text"
           name="FNAME"
           placeholder="Enter your firstname"
@@ -16,28 +16,28 @@
         />
       </div>
 
-      <div class="form-inline" style="justify-content: space-around;">
+      <div class="form-inline" style="justify-content: space-around">
         <label class="text-dark" for="text">
           <b>Last Name</b>
         </label>
         <input
           v-model="user.lastname"
           class="form-control"
-          style="height: 40px; width: 70%;"
+          style="height: 40px; width: 70%"
           type="text"
           name="LNAME"
           placeholder="Enter your lastname"
           required
         />
       </div>
-      <div class="form-inline" style="justify-content: space-around;">
+      <div class="form-inline" style="justify-content: space-around">
         <label class="text-dark" for="text">
           <b>E-mail</b>
         </label>
         <input
           v-model="user.email"
           class="form-control"
-          style="height: 40px; width: 70%;"
+          style="height: 40px; width: 70%"
           type="email"
           name="EMAIL"
           required
@@ -46,7 +46,7 @@
         <span v-if="error" class="text-danger">Enter a valid email</span>
       </div>
 
-      <div class="form-inline" style="justify-content: center;">
+      <div class="form-inline" style="justify-content: center">
         <input
           id="newsletter"
           v-model="newsletter"
@@ -62,7 +62,7 @@
 
         <small
           class="text-muted form-inline text-uppercase"
-          style="margin-left: 7rem;"
+          style="margin-left: 7rem"
           >By clicking Newsletter, you agree to receive our Weekly Mastering
           Backenc emails. You can unsubscribe anytime.</small
         >
@@ -71,9 +71,7 @@
       <div class="field">
         <div v-if="slack" class="text-danger" v-html="slack"></div>
         <div class="control text-center mt-4">
-          <button class="btn2 btn-block" type="submit">
-            Submit
-          </button>
+          <button class="btn2 btn-block" type="submit">Submit</button>
         </div>
       </div>
     </form>
