@@ -1,5 +1,5 @@
 import axios from 'axios'
-export default async function getPosts() {
+export const getPosts = async () => {
   const response = await axios.get(
     'https://adonis-blog.000webhostapp.com/api/get_posts/'
   )
@@ -8,3 +8,5 @@ export default async function getPosts() {
   }
   return []
 }
+
+export default { getPosts }

@@ -1,4 +1,4 @@
-import getPosts from './helpers/utils'
+import Utils from './helpers/utils'
 
 require('dotenv').config()
 export default {
@@ -194,12 +194,20 @@ export default {
     '@nuxtjs/axios',
     // '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    '@nuxtjs/markdownit',
+    // '@nuxtjs/markdownit',
+    [
+      'nuxt-highlightjs',
+      {
+        // Module Options
+        style: 'dracula',
+      },
+    ],
+    'vue-social-sharing/nuxt',
   ],
-  markdownit: {
-    injected: true,
-    use: ['markdown-it-highlightjs'],
-  },
+  // markdownit: {
+  //   injected: true,
+  //   use: ['markdown-it-highlightjs'],
+  // },
   feed: [
     {
       path: '/feed.xml', // The route to your feed.
@@ -210,7 +218,7 @@ export default {
           description: 'This is Mastering Backend Development feeds!',
         }
 
-        const posts = await getPosts()
+        const posts = await Utils.getPosts()
         posts.forEach((post) => {
           feed.addItem({
             title: post.title,
@@ -240,7 +248,7 @@ export default {
     trailingSlash: true,
     gzip: true,
     async routes() {
-      const posts = await getPosts()
+      const posts = await Utils.getPosts()
       return posts.map((post) => {
         return `posts/${post.slug}?id=${post.id}`
       })
