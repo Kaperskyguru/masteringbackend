@@ -12,7 +12,7 @@
           >
         </small>
       </p>
-      <p class="card-text" v-html="post.content"></p>
+      <p v-highlight class="card-text" v-html="post.content"></p>
     </div>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
   font-weight: 400;
   line-height: 1.8;
   color: #222222;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .card p {

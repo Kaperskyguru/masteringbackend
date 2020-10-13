@@ -403,8 +403,8 @@ body {
   background-color: #eee;
 } */
 
-pre {
-  /* white-space: pre; */
+.x {
+  white-space: pre;
   /* resize: vertical !important; */
   overflow-x: auto;
   overflow-y: hidden !important;
@@ -415,15 +415,20 @@ pre {
   padding: 0.5em;
 }
 
-code {
+pre > code {
+  display: block !important;
+}
+
+p > code {
   font-style: italic;
   font-size: 90%;
-  color: #bd4147;
+  color: #bd4147 !important;
   font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
-  padding: 0.2rem 0.4rem;
-  background-color: #f7f7f9;
+  padding: 0.2rem 0.4rem !important;
+  background-color: #f7f7f9 !important;
   border-radius: 0.25rem;
+  display: inline !important;
 }
 
 .card h2,
