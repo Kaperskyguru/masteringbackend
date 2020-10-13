@@ -11,7 +11,7 @@
 export default {
   layout: 'index',
   middleware: 'loadData',
-  async fetch({ store }) {
+  async asynData({ store }) {
     const getPosts = store.getters['post/getPosts']
     const posts = getPosts()
     if (!posts.length) {

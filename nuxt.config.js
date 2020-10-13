@@ -157,8 +157,8 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    // { src: '~/plugins/localStorage', ssr: false },
     { src: '~/plugins/vue-full-loading', ssr: false },
+    // { src: '~/plugins/localStorage', ssr: false },
     // { src: '~/plugins/countDown', ssr: false },
     // { src: '~/plugins/webWorker.js', ssr: false },
   ],
