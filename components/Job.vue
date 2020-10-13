@@ -11,20 +11,20 @@
     </div>
     <div class="card-body">
       <small>{{ job.company }}</small>
-      <small style="float: right;"
+      <small style="float: right"
         >{{ $moment.unix(job.date).utc().fromNow() }}
       </small>
       <p class="mt-3">
         {{ job.description }}
       </p>
     </div>
-    <div style="clear: both;"></div>
+    <div style="clear: both"></div>
     <div class="card-footer">
       <div class="actions">
         <a class="btn btn3" :href="job.url" target="_blank">Apply Now</a>
-        <small style="float: right;">Source: {{ job.website }}</small>
+        <small style="float: right">Source: {{ job.website }}</small>
       </div>
-      <div style="clear: both;"></div>
+      <div style="clear: both"></div>
     </div>
   </div>
 </template>

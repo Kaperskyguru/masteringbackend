@@ -4,9 +4,7 @@
       <div class="container inner-padding-top">
         <div class="row">
           <div class="col-md-12 col-sm-12-col-xs-12 text-center">
-            <h1 class="lead-title text-uppercase">
-              Latest Backend Dev. Jobs
-            </h1>
+            <h1 class="lead-title text-uppercase">Latest Backend Dev. Jobs</h1>
             <h2 class="article-subtitle">
               Latest Backend Dev. Jobs curated daily by the community.
             </h2>

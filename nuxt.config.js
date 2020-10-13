@@ -1,4 +1,5 @@
-import axios from 'axios'
+import getPosts from './helpers/utils'
+
 require('dotenv').config()
 export default {
   env: {
@@ -209,27 +210,23 @@ export default {
           description: 'This is Mastering Backend Development feeds!',
         }
 
-        const response = await axios.get(
-          'https://adonis-blog.000webhostapp.com/api/get_posts/'
-        )
-        if (response.data) {
-          response.data.posts.forEach((post) => {
-            feed.addItem({
-              title: post.title,
-              id: `https://masteringbackend.com/posts/${post.slug}?id=${post.id}`,
-              link: `https://masteringbackend.com/posts/${post.slug}?id=${post.id}`,
-              content: post.content,
-            })
-
-            post.categories.forEach((category) => {
-              feed.addCategory(category.title)
-            })
-
-            feed.addContributor({
-              name: post.author.name,
-            })
+        const posts = await getPosts()
+        posts.forEach((post) => {
+          feed.addItem({
+            title: post.title,
+            id: `https://masteringbackend.com/posts/${post.slug}?id=${post.id}`,
+            link: `https://masteringbackend.com/posts/${post.slug}?id=${post.id}`,
+            content: post.content,
           })
-        }
+
+          post.categories.forEach((category) => {
+            feed.addCategory(category.title)
+          })
+
+          feed.addContributor({
+            name: post.author.name,
+          })
+        })
       },
       cacheTime: 1000 * 60 * 15, // How long should the feed be cached
       type: 'rss2', // Can be: rss2, atom1, json1
@@ -237,10 +234,17 @@ export default {
   ],
 
   sitemap: {
+    // hostname: 'https://masteringbackend.com',
     exclude: ['/maintenance'],
     cacheTime: 1000 * 60 * 60 * 2,
     trailingSlash: true,
     gzip: true,
+    async routes() {
+      const posts = await getPosts()
+      return posts.map((post) => {
+        return `posts/${post.slug}?id=${post.id}`
+      })
+    },
   },
 
   loading: { color: '#f29d12' },

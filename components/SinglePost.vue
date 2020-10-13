@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="overflow: hidden;">
+  <div class="card" style="overflow: hidden">
     <img class="card-img-top" :src="image" alt="Card image cap" />
     <div class="card-body">
       <p class="title subtitle is-6">{{ post.title || '' }}</p>

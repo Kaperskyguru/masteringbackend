@@ -2,9 +2,7 @@
   <div class="card mt-3">
     <div class="card-body">
       <div class="card-title title">
-        <h3>
-          Questions
-        </h3>
+        <h3>Questions</h3>
       </div>
 
       <p class="card-text">
@@ -13,7 +11,7 @@
         for your issue.
       </p>
     </div>
-    <div class="card-footer d-flex" style="justify-content: space-between;">
+    <div class="card-footer d-flex" style="justify-content: space-between">
       <div class="actions">
         <a class="btn btn3" href="#">Join Slack Channel</a>
       </div>

@@ -7,7 +7,7 @@
       <a
         href="#"
         class="text-center"
-        style="color: #6f7d8c; font-size: 13px; font-weight: bold;"
+        style="color: #6f7d8c; font-size: 13px; font-weight: bold"
       >
         <!-- Want your job listed here? Why not submit a post to the job board? -->
         <slot name="subtitle" />

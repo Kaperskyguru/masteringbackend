@@ -1,8 +1,6 @@
 <template>
   <div class="card text-white mb-3">
-    <h5 class="card-header text-uppercase text-center">
-      Newsletter
-    </h5>
+    <h5 class="card-header text-uppercase text-center">Newsletter</h5>
     <div class="card-body">
       <p class="card-text">
         Get the latest Backend Dev. jobs, events and curated articles straight
