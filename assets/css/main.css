@@ -106,6 +106,13 @@ body {
 .card {
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
 }
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+
 .card-group > .card + .card {
   margin-left: 20;
 }
