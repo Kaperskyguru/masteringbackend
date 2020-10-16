@@ -15,6 +15,10 @@
         </small>
       </p>
       <div v-highlight class="card-text" v-html="post.content"></div>
+
+      <div class="social-share mb-4">
+        <vue-goodshare />
+      </div>
     </div>
     <Comments />
   </div>
