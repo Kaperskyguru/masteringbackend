@@ -160,6 +160,7 @@ export default {
   plugins: [
     { src: '~/plugins/vue-full-loading', ssr: false },
     '~/plugins/disqus',
+    { src: '~/plugins/goodshare.js', ssr: false },
     // { src: '~/plugins/localStorage', ssr: false },
     // { src: '~/plugins/countDown', ssr: false },
     // { src: '~/plugins/webWorker.js', ssr: false },
