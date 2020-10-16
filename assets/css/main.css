@@ -107,10 +107,11 @@ body {
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
 }
 
-.card img {
+.card figure img {
   max-width: 100%;
   height: auto;
   width: 100%;
+  background-size: cover;
 }
 
 .card-group > .card + .card {

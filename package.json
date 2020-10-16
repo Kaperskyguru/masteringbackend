@@ -36,6 +36,7 @@
     "superagent": "^6.1.0",
     "tls": "0.0.1",
     "vue": "^2.6.12",
+    "vue-disqus": "^4.0.1",
     "vue-full-loading": "^1.2.1",
     "vue-social-sharing": "^3.0.2",
     "vue-worker": "^1.2.1",

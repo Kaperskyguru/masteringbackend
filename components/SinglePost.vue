@@ -1,6 +1,8 @@
 <template>
-  <div class="card" style="overflow: hidden">
-    <img class="card-img-top" :src="image" alt="Card image cap" />
+  <div class="card">
+    <figure class="wp-block-image is-resized">
+      <img class="card-img-top" :src="image" alt="Card image cap" />
+    </figure>
     <div class="card-body">
       <p class="title subtitle is-6">{{ post.title || '' }}</p>
 
@@ -12,8 +14,9 @@
           >
         </small>
       </p>
-      <p v-highlight class="card-text" v-html="post.content"></p>
+      <div v-highlight class="card-text" v-html="post.content"></div>
     </div>
+    <Comments />
   </div>
 </template>
 
@@ -47,7 +50,7 @@ export default {
   font-weight: 400;
   line-height: 1.8;
   color: #222222;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .card p {
