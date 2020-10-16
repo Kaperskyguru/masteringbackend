@@ -4,15 +4,15 @@
     <section>
       <div class="padding-top grey-color">
         <div class="container inner-padding-top">
-          <div class="row">
-            <div class="card-group">
-              <div class="row">
-                <div class="col-md-8">
-                  <SinglePost :post="post" />
-                </div>
-                <div class="col-md-4">
-                  <Newsletter />
-                  <!-- <div class="card-deck">
+          <!-- <div class="row"> -->
+          <div class="card-group">
+            <div class="row">
+              <div class="col-md-8 mb-3">
+                <SinglePost :post="post" />
+              </div>
+              <div class="col-md-4">
+                <Newsletter />
+                <!-- <div class="card-deck">
                     <div class="card text-white mb-3">
                       <h5 class="card-header text-uppercase">
                         Community Partners
@@ -70,7 +70,7 @@
                       </div>
                     </div>
                   </div>-->
-                  <!-- <div class="card text-white mb-3">
+                <!-- <div class="card text-white mb-3">
                     <h5 class="card-header text-uppercase border-success">
                       Laravel/PHP Careers
                     </h5>
@@ -94,10 +94,10 @@
                       </form>
                     </div>
                   </div>-->
-                </div>
               </div>
             </div>
           </div>
+          <!-- </div> -->
         </div>
       </div>
     </section>
