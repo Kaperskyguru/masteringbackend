@@ -29,6 +29,7 @@
     "markdown-it-highlightjs": "^3.3.0",
     "net": "^1.0.2",
     "nuxt": "^2.14.6",
+    "nuxt-goodshare": "^2.0.0",
     "nuxt-highlightjs": "^1.0.1",
     "puppeteer": "^5.3.1",
     "request": "^2.88.2",

@@ -71,7 +71,7 @@ export const actions = {
       // } else {
       // commit('setPostState', ENUM.ERROR)
     }
-    return data.post
+    return data.posts
   },
 
   async getPost({ commit }, slug) {
