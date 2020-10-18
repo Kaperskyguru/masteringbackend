@@ -33,11 +33,18 @@
 // import { mapGetters } from 'vuex'
 // import ENUM from '@/enums'
 export default {
-  asyncData({ params, store }) {
+  async asyncData({ params, store }) {
     const getPosts = store.getters['post/getPostsByAuthor']
-    const posts = getPosts(params.slug)
+    let posts = getPosts(params.slug)
+    if (!posts.length) {
+      await store.dispatch('post/getPosts')
+      const getPosts = store.getters['post/getPostsByAuthor']
+      posts = getPosts(params.slug)
+    }
+
     return { posts }
   },
+
   data() {
     return {
       author: '',
