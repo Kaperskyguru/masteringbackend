@@ -223,11 +223,18 @@ export default {
 
         const posts = await Utils.getPosts()
         posts.forEach((post) => {
+          console.log(post.date)
           feed.addItem({
             title: post.title,
             id: `https://masteringbackend.com/posts/${post.slug}?id=${post.id}`,
             link: `https://masteringbackend.com/posts/${post.slug}?id=${post.id}`,
+            description: post.excerpt,
             content: post.content,
+            date: new Date(post.date),
+            author: {
+              name: post.author.name,
+              link: 'https://masteringbackend.com/authors/' + post.author.slug,
+            },
           })
 
           post.categories.forEach((category) => {
