@@ -35,14 +35,12 @@ export default {
   },
   computed: {
     image() {
-      const urls = []
       if (this.post) {
-        for (const image of this.post.attachments) {
-          urls.push(image.images.full.url)
-          break
+        if (this.post.thumbnail_images && this.post.thumbnail) {
+          return this.post.thumbnail_images.full.url
         }
       }
-      return urls[0] ? urls[0] : '/img/default_banner.webp'
+      return '/img/default_banner.webp'
     },
   },
 }
