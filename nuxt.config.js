@@ -223,7 +223,6 @@ export default {
 
         const posts = await Utils.getPosts()
         posts.forEach((post) => {
-          console.log(post.date)
           feed.addItem({
             title: post.title,
             id: `https://masteringbackend.com/posts/${post.slug}?id=${post.id}`,
