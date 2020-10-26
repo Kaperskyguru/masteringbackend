@@ -59,13 +59,16 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { sortDesc } from '~/helpers/helpers'
+// import { mapState } from 'vuex'
+// import { sortDesc } from '~/helpers/helpers'
 export default {
   async asyncData({ store }) {
+    console.log('ajasjash')
     const getJobs = store.getters['job/getJobs']
     const jobs = getJobs()
     if (!jobs.length) await store.dispatch('job/getDiveJobs')
+
+    return { jobs }
   },
   data() {
     return {
@@ -73,11 +76,11 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      jobs: (state) => {
-        return sortDesc([...state.job.jobs])
-      },
-    }),
+    // ...mapState({
+    //   jobs: (state) => {
+    //     return sortDesc([...state.job.jobs])
+    //   },
+    // }),
   },
 }
 </script>
