@@ -4,9 +4,7 @@ require('dotenv').config()
 export default {
   env: {
     SLACK_TOKEN: process.env.SLACK_TOKEN,
-    SLACK_INVITE_LINK_CODE:
-      process.env.SLACK_INVITE_LINK_CODE ||
-      'zt-gycntdhj-Y~q3Sd4VLPsQVNb_HHYuzw',
+    SLACK_INVITE_LINK_CODE: process.env.SLACK_INVITE_LINK_CODE,
     YOUTUBE_API_KEY: process.env.YOUTUBE_API_KEY,
     YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID,
     BASE_ENDPOINT_URL: process.env.BASE_ENDPOINT_URL,
@@ -16,11 +14,6 @@ export default {
     GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
   },
 
-  /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: 'universal',
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
@@ -160,8 +153,7 @@ export default {
   plugins: [
     { src: '~/plugins/vue-full-loading', ssr: false },
     '~/plugins/disqus',
-    // { src: '~/plugins/goodshare.js', ssr: false },
-    // { src: '~/plugins/localStorage', ssr: false },
+    { src: '~/plugins/localStorage', ssr: false },
     // { src: '~/plugins/countDown', ssr: false },
     // { src: '~/plugins/webWorker.js', ssr: false },
   ],
@@ -225,8 +217,8 @@ export default {
         posts.forEach((post) => {
           feed.addItem({
             title: post.title,
-            id: `https://masteringbackend.com/posts/${post.slug}?id=${post.id}`,
-            link: `https://masteringbackend.com/posts/${post.slug}?id=${post.id}`,
+            id: `https://masteringbackend.com/posts/${post.slug}`,
+            link: `https://masteringbackend.com/posts/${post.slug}`,
             description: post.excerpt,
             content: post.content,
             date: new Date(post.date),
@@ -259,7 +251,7 @@ export default {
     async routes() {
       const posts = await Utils.getPosts()
       return posts.map((post) => {
-        return `posts/${post.slug}?id=${post.id}`
+        return `posts/${post.slug}`
       })
     },
   },

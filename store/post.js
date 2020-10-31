@@ -13,9 +13,9 @@ export const state = () => ({
 })
 
 export const getters = {
-  getPost: (state) => (id, slug) => {
+  getPost: (state) => (slug) => {
     return state.posts.find((post) => {
-      if (post.id === id && post.slug === slug) {
+      if (post.slug === slug) {
         return post
       }
     })

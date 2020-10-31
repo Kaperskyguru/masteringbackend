@@ -2,9 +2,7 @@
   <div class="col-md-4 col-sm-12 mb-4">
     <div class="card">
       <div class="b-block">
-        <nuxt-link
-          :to="{ path: '/posts/' + post.slug, query: { id: post.id } }"
-        >
+        <nuxt-link :to="{ path: '/posts/' + post.slug }">
           <img class="card-img-top" :src="image" :alt="post.title" />
         </nuxt-link>
       </div>
@@ -19,7 +17,7 @@
         <h6>
           <nuxt-link
             class="title is-size-4-mobile"
-            :to="{ path: '/posts/' + post.slug, query: { id: post.id } }"
+            :to="{ path: '/posts/' + post.slug }"
           >
             {{ post.title || '' }}
           </nuxt-link>
