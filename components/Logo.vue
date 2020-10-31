@@ -2,7 +2,7 @@
   <img
     src="/img/logo300.png"
     alt="masteringbackend Logo"
-    class="img-fluid"
+    class="img-fluid NuxtLogo"
     :class="{ size: small }"
   />
 </template>
