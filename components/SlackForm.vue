@@ -1,14 +1,19 @@
 <template>
   <div>
-    <form ref="form" class="form-slak" @submit.prevent="Submit()">
-      <div class="form-inline" style="justify-content: space-around">
+    <form
+      ref="form"
+      method="post"
+      action="https://masteringbackend.us17.list-manage.com/subscribe/post?u=39ffc375608455a6fe549290a&amp;id=e42cd7d4b3"
+      class="form-slak"
+      @submit.prevent="Submit()"
+    >
+      <div class="form-group">
         <label class="text-dark" for="text">
           <b>First Name</b>
         </label>
         <input
           v-model="user.firstname"
           class="form-control"
-          style="height: 40px; width: 70%"
           type="text"
           name="FNAME"
           placeholder="Enter your firstname"
@@ -16,28 +21,26 @@
         />
       </div>
 
-      <div class="form-inline" style="justify-content: space-around">
+      <div class="form-group">
         <label class="text-dark" for="text">
           <b>Last Name</b>
         </label>
         <input
           v-model="user.lastname"
           class="form-control"
-          style="height: 40px; width: 70%"
           type="text"
           name="LNAME"
           placeholder="Enter your lastname"
           required
         />
       </div>
-      <div class="form-inline" style="justify-content: space-around">
+      <div class="form-group">
         <label class="text-dark" for="text">
           <b>E-mail</b>
         </label>
         <input
           v-model="user.email"
           class="form-control"
-          style="height: 40px; width: 70%"
           type="email"
           name="EMAIL"
           required
@@ -46,27 +49,23 @@
         <span v-if="error" class="text-danger">Enter a valid email</span>
       </div>
 
-      <div class="form-inline" style="justify-content: center">
-        <input
-          id="newsletter"
-          v-model="newsletter"
-          type="checkbox"
-          class="form-control checkbox"
-          name="newsletter"
-          value="1"
-          checked="checked"
-        />
-        <label class="text-dark" for="newsletter">
-          <b>Weekly Newsletter</b>
-        </label>
-
-        <small
-          class="text-muted form-inline text-uppercase"
-          style="margin-left: 7rem"
-          >By clicking Newsletter, you agree to receive our Weekly Mastering
-          Backenc emails. You can unsubscribe anytime.</small
-        >
+      <div class="form-group">
+        <div class="form-check">
+          <input
+            id="gridCheck"
+            class="form-check-input"
+            value="1"
+            type="checkbox"
+          />
+          <label class="form-check-label text-muted" for="gridCheck"
+            >Weekly Newsletter</label
+          >
+        </div>
       </div>
+      <small class="text-muted text-uppercase" style=""
+        >By clicking Newsletter, you agree to receive our Weekly Mastering
+        Backend emails. You can unsubscribe anytime.</small
+      >
 
       <div class="field">
         <div v-if="slack" class="text-danger" v-html="slack"></div>
@@ -111,7 +110,7 @@ export default {
       if (this.validateEmail(this.user.email)) {
         if (this.newsletter) {
           this.joinSlack()
-          // await this.suscribeNewsletter()
+          this.suscribeNewsletter()
         } else this.joinSlack()
       } else this.error = true
     },
@@ -124,7 +123,6 @@ export default {
     },
 
     suscribeNewsletter() {
-      // await Mailchimp.sub(this.user)
       this.$refs.form.submit()
     },
 

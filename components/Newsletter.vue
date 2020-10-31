@@ -1,29 +1,32 @@
 <template>
-  <div class="card text-white mb-3">
+  <div class="card text-white">
     <h5 class="card-header text-uppercase text-center">Newsletter</h5>
     <div class="card-body">
-      <p class="card-text">
+      <p class="text-muted">
         Get the latest Backend Dev. jobs, events and curated articles straight
         to your inbox, once a week
       </p>
-      <form @submit.prevent="submit()">
-        <input type="hidden" name="_token" value="#" />
-        <div class="field">
-          <div class="control">
-            <input
-              v-model="email"
-              class="input"
-              name="email"
-              type="text"
-              placeholder="Enter your email"
-              value=""
-              required
-            />
-          </div>
+      <form
+        ref="form"
+        method="post"
+        action="https://masteringbackend.us17.list-manage.com/subscribe/post?u=39ffc375608455a6fe549290a&amp;id=e42cd7d4b3"
+        class="form-slack"
+        @submit.prevent="submit"
+      >
+        <div class="field form-group">
+          <input
+            v-model="email"
+            class="input form-control"
+            name="EMAIL"
+            type="email"
+            placeholder="Enter your email"
+            required
+          />
+          <span v-if="error" class="text-danger">Enter a valid email</span>
         </div>
-        <div class="field">
-          <div class="control text-center mt-4">
-            <button class="button btn-success" type="submit">
+        <div class="form-group">
+          <div class="text-center">
+            <button class="btn btn-block btn-success" type="submit">
               Yes, I'm In!
             </button>
           </div>
@@ -37,22 +40,27 @@
 export default {
   data() {
     return {
+      error: false,
       email: '',
     }
   },
   methods: {
-    async submit() {
-      const url = `https://masteringbackend.us17.list-manage.com/subscribe/post`
-      await fetch(url, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: JSON.stringify([this.email]),
-      })
+    submit() {
+      if (this.validateEmail(this.email)) {
+        this.suscribeNewsletter()
+      } else this.error = true
+    },
 
-      // console.log(await res.json())
+    suscribeNewsletter() {
+      this.$refs.form.submit()
+    },
+    validateEmail(email) {
+      if (email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        return re.test(email)
+      }
+      return false
     },
   },
 }
 </script>
-
-<style></style>

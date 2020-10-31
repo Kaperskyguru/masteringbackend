@@ -7,7 +7,7 @@
         </a>
       </div>
       <div class="card-body">
-        <a :href="`https://${post.from}`" class="subtitle is-6">
+        <a :href="`https://${post.from}`" class="subtitle is-6 d-block mb-1">
           {{ post.from }}
         </a>
 

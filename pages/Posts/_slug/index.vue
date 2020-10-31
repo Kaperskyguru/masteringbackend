@@ -106,9 +106,9 @@
 
 <script>
 export default {
-  async asyncData({ params, query, store }) {
+  async asyncData({ params, store }) {
     const getPost = store.getters['post/getPost']
-    let post = getPost(query.id, params.slug)
+    let post = getPost(params.slug)
     if (!post) {
       post = await store.dispatch('post/getPost', params.slug)
     }
