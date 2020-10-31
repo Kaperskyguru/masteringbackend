@@ -54,7 +54,7 @@
           <input
             id="gridCheck"
             class="form-check-input"
-            value="1"
+            checked
             type="checkbox"
           />
           <label class="form-check-label text-muted" for="gridCheck"

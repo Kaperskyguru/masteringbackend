@@ -15,12 +15,8 @@
           join the fun.
         </h3>
         <div class="mt-4 row">
-          <!-- <div class="d-sm-none d-md-block"> -->
-          <Button class="col m-1" link="/jobs">Jobs</Button>
-          <!-- </div> -->
-          <Button class="col m-1 d-none d-sm-block" link="/events"
-            >Events</Button
-          >
+          <Button class="col m-1" link="#">Jobs</Button>
+          <Button class="col m-1 d-none d-sm-block" link="#">Events</Button>
           <Button class="col m-1" link="/posts">Articles</Button>
           <Button class="col m-1" link="/slack">Community</Button>
         </div>

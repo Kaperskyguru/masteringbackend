@@ -29,16 +29,16 @@
                 <nuxt-link class="nav-link" to="/posts">Articles</nuxt-link>
               </li>
               <li class="nav-item">
-                <nuxt-link class="nav-link" to="/jobs">Jobs</nuxt-link>
+                <nuxt-link class="nav-link" to="#">Jobs</nuxt-link>
               </li>
               <li class="nav-item">
-                <nuxt-link class="nav-link" to="/events">Events</nuxt-link>
+                <nuxt-link class="nav-link" to="#">Events</nuxt-link>
               </li>
               <li class="nav-item">
-                <nuxt-link class="nav-link" to="/live">LIve</nuxt-link>
+                <nuxt-link class="nav-link" to="/live">Live</nuxt-link>
               </li>
               <li class="nav-item">
-                <nuxt-link class="nav-link" to="/projects">Projects</nuxt-link>
+                <nuxt-link class="nav-link" to="#">Projects</nuxt-link>
               </li>
               <li class="nav-item quote-btn">
                 <nuxt-link class="nav-link qbtn" to="#">Post a Job</nuxt-link>
