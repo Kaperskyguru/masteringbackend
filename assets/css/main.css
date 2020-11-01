@@ -389,28 +389,6 @@ body {
   margin-bottom: 1rem;
 }
 
-/* pre {
-  padding: 20px;
-  line-height: 22px;
-  font-size: 14px;
-  font-family: Menlo, Consolas, Monaco, monospace;
-  white-space: pre;
-  resize: vertical !important;
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -ms-word-break: normal;
-  word-break: normal;
-  -webkit-overflow-scrolling: touch;
-  background-color: #eee;
-} */
-
 .x {
   white-space: pre;
   /* resize: vertical !important; */
@@ -425,6 +403,7 @@ body {
 
 pre > code {
   display: block !important;
+  /* color: #bd4147 !important; */
 }
 
 p > code {
@@ -434,7 +413,7 @@ p > code {
   font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
   padding: 0.2rem 0.4rem !important;
-  background-color: #f7f7f9 !important;
+  background-color: #bababb !important;
   border-radius: 0.25rem;
   display: inline !important;
 }

@@ -56,6 +56,19 @@ export default {
       },
     }),
   },
+  head() {
+    return {
+      title: 'Posts',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'weekly backend development articles curated by backend developers',
+        },
+      ],
+    }
+  },
 }
 </script>
 

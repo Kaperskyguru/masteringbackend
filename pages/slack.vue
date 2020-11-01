@@ -43,6 +43,18 @@ export default {
       path: '',
     }
   },
+  head() {
+    return {
+      title: 'Community',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Join the backend development community',
+        },
+      ],
+    }
+  },
   beforeRouteEnter(to, from, next) {
     next((vm) => {
       vm.path = to.fullPath

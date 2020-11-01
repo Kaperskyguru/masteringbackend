@@ -70,7 +70,18 @@ export default {
       },
     }),
   },
+
+  head() {
+    return {
+      title: 'Live Streams',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'weekly backend development videos curated by the community',
+        },
+      ],
+    }
+  },
 }
 </script>
-
-<style></style>

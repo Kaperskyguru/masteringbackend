@@ -47,6 +47,18 @@ export default {
       },
     }),
   },
+  head() {
+    return {
+      title: 'Events',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'weekly backend development events curated by the community',
+        },
+      ],
+    }
+  },
   beforeRouteEnter(to, from, next) {
     next((vm) => {
       vm.path = to.fullPath

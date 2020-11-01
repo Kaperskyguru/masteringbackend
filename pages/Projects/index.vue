@@ -46,6 +46,18 @@ export default {
       path: '',
     }
   },
+  head() {
+    return {
+      title: 'Projects',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Backend development projects curated by the community',
+        },
+      ],
+    }
+  },
   beforeRouteEnter(to, from, next) {
     next((vm) => {
       vm.path = to.fullPath
