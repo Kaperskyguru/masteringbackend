@@ -24,12 +24,11 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: 'Mastering Backend Development',
+    titleTemplate: '%s - Mastering Backend Development',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
 
-      { hid: 'name', name: 'title', content: 'Mastering Backend Development' },
       {
         hid: 'description',
         name: 'description',

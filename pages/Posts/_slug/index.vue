@@ -120,6 +120,46 @@ export default {
       path: '',
     }
   },
+  computed: {
+    image() {
+      if (this.post) {
+        if (this.post.thumbnail_images && this.post.thumbnail) {
+          return this.post.thumbnail_images.full.url
+        }
+      }
+      return '/img/default_banner.webp'
+    },
+  },
+  head() {
+    return {
+      title: `${this.post.title}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.post.excerpt}`,
+        },
+
+        { hid: 'og:title', property: 'og:title', content: this.post.title },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.post.excerpt,
+        },
+        { hid: 'og:image', property: 'og:image', content: this.image },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `/${this.post.slug}`,
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+      ],
+    }
+  },
   beforeRouteEnter(to, from, next) {
     next((vm) => {
       const url = to.fullPath.split('?')[0]

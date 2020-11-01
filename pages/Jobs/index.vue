@@ -82,6 +82,18 @@ export default {
     //   },
     // }),
   },
+  head() {
+    return {
+      title: 'Jobs',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'weekly backend development jobs curated by the community',
+        },
+      ],
+    }
+  },
 }
 </script>
 

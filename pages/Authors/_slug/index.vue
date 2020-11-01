@@ -50,6 +50,20 @@ export default {
       author: '',
     }
   },
+  head() {
+    return {
+      title: this.posts[0].author.name,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'latest backend development articles curated by ' +
+            this.posts[0].author.name,
+        },
+      ],
+    }
+  },
   // beforeRouteEnter(to, from, next) {
   //   next((vm) => {
   //     vm.author = to.params.slug
