@@ -1,8 +1,9 @@
 <template>
   <div class="card">
     <img
+      v-lazy-load
       class="card-img-top"
-      :src="stream.snippet.thumbnails.high.url"
+      :data-src="stream.snippet.thumbnails.high.url"
       alt="Card image cap"
     />
     <div class="card-body">

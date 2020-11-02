@@ -10,18 +10,27 @@
 <script>
 export default {
   layout: 'index',
-  middleware: 'loadData',
   async asynData({ store }) {
     const getPosts = store.getters['post/getPosts']
     const posts = getPosts()
-    if (posts.length === 0) {
+    if (!posts.length) {
       await store.dispatch('post/getPosts')
       await store.dispatch('post/getWorldPosts')
     }
   },
+
+  async fetch() {
+    const getPosts = this.$store.getters['post/getPosts']
+    const posts = getPosts()
+    if (!posts.length) {
+      await this.$store.dispatch('post/getPosts')
+      await this.$store.dispatch('post/getWorldPosts')
+    }
+  },
   head() {
     return {
-      title: 'Index',
+      title: 'Mastering Backend Development',
+      titleTemplate: null,
       meta: [
         {
           hid: 'description',

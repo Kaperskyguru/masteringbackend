@@ -1,7 +1,12 @@
 <template>
   <div class="card">
     <figure class="wp-block-image is-resized">
-      <img class="card-img-top" :src="image" alt="Card image cap" />
+      <img
+        v-lazy-load
+        :data-src="image"
+        class="card-img-top"
+        :alt="post.title"
+      />
     </figure>
     <div class="card-body">
       <p class="title subtitle is-6">{{ post.title || '' }}</p>
