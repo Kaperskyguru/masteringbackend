@@ -3,7 +3,12 @@
     <div class="card">
       <div class="b-block">
         <a :href="post.url">
-          <img class="card-img-top" :src="image" :alt="post.title" />
+          <img
+            v-lazy-load
+            class="card-img-top"
+            :data-src="image"
+            :alt="post.title"
+          />
         </a>
       </div>
       <div class="card-body">

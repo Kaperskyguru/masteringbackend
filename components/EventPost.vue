@@ -2,8 +2,9 @@
   <div class="col-md-4 col-sm-12 mb-4">
     <div class="card">
       <img
+        v-lazy-load
         class="card-img-top"
-        :src="event.eventImage || 'img/default_banner.webp'"
+        :data-src="event.eventImage || 'img/default_banner.webp'"
         :alt="event.eventText"
       />
       <div class="card-body">

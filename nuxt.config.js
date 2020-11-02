@@ -25,6 +25,10 @@ export default {
    */
   head: {
     titleTemplate: '%s - Mastering Backend Development',
+    htmlAttrs: {
+      lang: 'en',
+      amp: true,
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -151,7 +155,8 @@ export default {
    */
   plugins: [
     { src: '~/plugins/vue-full-loading', ssr: false },
-    '~/plugins/disqus',
+    // { src: '~/plugins/vue-lazyload', ssr: false },
+    { src: '~/plugins/disqus', ssr: false },
     // { src: '~/plugins/localStorage', ssr: false },
     // { src: '~/plugins/countDown', ssr: false },
     // { src: '~/plugins/webWorker.js', ssr: false },
@@ -181,12 +186,13 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    'nuxt-lazy-load',
     '@nuxtjs/feed',
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // '@nuxtjs/pwa',
+    '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
     // '@nuxtjs/markdownit',
     [

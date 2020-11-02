@@ -3,7 +3,12 @@
     <div class="card">
       <div class="b-block">
         <nuxt-link :to="{ path: '/posts/' + post.slug }">
-          <img class="card-img-top" :src="image" :alt="post.title" />
+          <img
+            v-lazy-load
+            :data-src="image"
+            class="card-img-top"
+            :alt="post.title"
+          />
         </nuxt-link>
       </div>
       <div class="card-body">

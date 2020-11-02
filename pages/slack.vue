@@ -45,7 +45,7 @@ export default {
   },
   head() {
     return {
-      title: 'Community',
+      title: 'Join our Community',
       meta: [
         {
           hid: 'description',
