@@ -1,7 +1,6 @@
 <template>
   <img
-    v-lazy-load
-    data-src="/img/logo300.png"
+    src="/img/logo300.png"
     alt="masteringbackend Logo"
     class="img-fluid NuxtLogo"
     :class="{ size: small }"

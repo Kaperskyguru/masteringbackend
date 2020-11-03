@@ -1,5 +1,5 @@
-import DiveJobs from '~/Services/Scrappers/dice-scrapper'
-import { jobResolver } from '~/helpers/helpers'
+// import DiveJobs from '~/Services/Scrappers/dice-scrapper'
+// import { jobResolver } from '~/helpers/helpers'
 
 export const state = () => ({
   jobs: [],
@@ -24,9 +24,9 @@ export const actions = {
   async getLinkedinJobs() {},
   async getStackoverflowJobs() {},
   async getIndeedJobs() {},
-  async getDiveJobs({ commit }) {
-    const diveJobs = await DiveJobs.getDiveJobs()
-    const jobs = jobResolver(diveJobs)
-    commit('STORE_JOBS', jobs)
+  async getDiveJobs() {
+    // const diveJobs = await DiveJobs.getDiveJobs()
+    // const jobs = jobResolver(diveJobs)
+    // commit('STORE_JOBS', jobs)
   },
 }

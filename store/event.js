@@ -1,4 +1,4 @@
-import MeetupEvents from '~/Services/Scrappers/event-scrapper'
+// import MeetupEvents from '~/Services/Scrappers/event-scrapper'
 
 export const state = () => ({
   events: [],
@@ -19,8 +19,8 @@ export const getters = {
 }
 
 export const actions = {
-  async getMeetupEvents({ commit }) {
-    const events = await MeetupEvents.getEvents()
-    commit('STORE_EVENTS', events)
+  async getMeetupEvents() {
+    // const events = await MeetupEvents.getEvents()
+    // commit('STORE_EVENTS', events)
   },
 }

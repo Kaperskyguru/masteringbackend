@@ -66,6 +66,23 @@ export default {
           content:
             'weekly backend development articles curated by backend developers',
         },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content:
+            'weekly backend development articles curated by the community',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'weekly backend development articles curated by the community',
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
       ],
     }
   },
