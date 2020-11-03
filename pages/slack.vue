@@ -52,6 +52,21 @@ export default {
           name: 'description',
           content: 'Join the backend development community',
         },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Join our Community',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Join the backend development community',
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
       ],
     }
   },

@@ -61,6 +61,25 @@ export default {
             'latest backend development articles curated by ' +
             this.posts[0].author.name,
         },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content:
+            'latest backend development articles curated by ' +
+            this.posts[0].author.name,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'latest backend development articles curated by ' +
+            this.posts[0].author.name,
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
       ],
     }
   },

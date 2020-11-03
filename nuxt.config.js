@@ -25,10 +25,6 @@ export default {
    */
   head: {
     titleTemplate: '%s - Mastering Backend Development',
-    htmlAttrs: {
-      lang: 'en',
-      amp: true,
-    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -39,7 +35,23 @@ export default {
         content:
           'The ultimate backend development blog for backend developers and engineers.',
       },
-
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content:
+          'The ultimate backend development blog for backend developers and engineers.',
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'The ultimate backend development blog for backend developers and engineers.',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: '/img/logo300.png',
+      },
       {
         hid: 'keywords',
         name: 'keywords',
@@ -259,6 +271,10 @@ export default {
         return `posts/${post.slug}`
       })
     },
+  },
+
+  serverMiddleware: {
+    '/api': '~/api',
   },
 
   loading: { color: '#f29d12' },

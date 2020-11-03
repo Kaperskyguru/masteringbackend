@@ -91,6 +91,21 @@ export default {
           name: 'description',
           content: 'weekly backend development jobs curated by the community',
         },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'weekly backend development jobs curated by the community',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'weekly backend development jobs curated by the community',
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
       ],
     }
   },
