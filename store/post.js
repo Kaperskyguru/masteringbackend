@@ -63,29 +63,35 @@ export const mutations = {
 
 export const actions = {
   async getPosts({ commit }) {
-    // commit('setPostState', ENUM.ERROR)
-    const response = await fetch(`${process.env.BASE_ENDPOINT_URL}/get_posts`)
-    const data = await response.json()
-    if (data.posts) {
-      commit('setPosts', data.posts)
-      // } else {
-      // commit('setPostState', ENUM.ERROR)
+    try {
+      const response = await fetch(`${process.env.BASE_ENDPOINT_URL}/get_posts`)
+      const data = await response.json()
+      if (data.posts) {
+        commit('setPosts', data.posts)
+        // } else {
+        // commit('setPostState', ENUM.ERROR)
+      }
+      return data.posts
+    } catch (error) {
+      commit('setPostState', ENUM.ERROR)
     }
-    return data.posts
   },
 
   async getPost({ commit }, slug) {
-    // commit('setPostState', ENUM.ERROR)
-    const response = await fetch(
-      `${process.env.BASE_ENDPOINT_URL}/get_post/?slug=${slug}`
-    )
-    const data = await response.json()
-    if (data.post) {
-      commit('setPost', data.post)
-      // } else {
-      //   commit('setPostState', ENUM.ERROR)
+    try {
+      const response = await fetch(
+        `${process.env.BASE_ENDPOINT_URL}/get_post/?slug=${slug}`
+      )
+      const data = await response.json()
+      if (data.post) {
+        commit('setPost', data.post)
+        // } else {
+        //   commit('setPostState', ENUM.ERROR)
+      }
+      return data.post
+    } catch (error) {
+      commit('setPostState', ENUM.ERROR)
     }
-    return data.post
   },
 
   async getLogRocketPosts({ commit }) {

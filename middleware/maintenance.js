@@ -1,5 +1,5 @@
 export default function ({ redirect, route, store }) {
-  const isProd = process.env.NODE_ENV === 'development'
+  const isProd = process.env.NODE_ENV === 'production'
 
   const isMaintenance = process.env.MAINTENANCE_MODE || false
 

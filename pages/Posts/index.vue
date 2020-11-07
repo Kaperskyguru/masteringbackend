@@ -11,7 +11,7 @@
           </Title>
         </div>
         <!-- first card -->
-        <div class="row mt-5">
+        <div v-if="posts.length !== 0" class="row mt-5">
           <!-- <span v-if="apiStateLoaded"> -->
           <Post v-for="(post, i) in posts" :key="i" :post="post" />
           <!-- </span> -->
@@ -19,9 +19,15 @@
           <!-- Loading Post -->
           <!-- </span> -->
         </div>
+        <div v-else class="row mt-5">
+          <p class="text-center">No post found</p>
+        </div>
       </div>
     </div>
-    <div class="col-md-12 col-sm-12-col-xs-12 text-center mb-5">
+    <div
+      v-if="posts.length !== 0"
+      class="col-md-12 col-sm-12-col-xs-12 text-center mb-5"
+    >
       <!-- Load more articles here -->
       <Button link="/posts">More Articles</Button>
     </div>
@@ -33,9 +39,11 @@ import { mapState } from 'vuex'
 import ENUM from '@/enums'
 export default {
   async asyncData({ store }) {
-    const getPosts = store.getters['post/getPosts']
-    const posts = getPosts()
-    if (!posts.length) await store.dispatch('post/getPosts')
+    try {
+      const getPosts = store.getters['post/getPosts']
+      const posts = getPosts()
+      if (!posts.length) await store.dispatch('post/getPosts')
+    } catch (error) {}
   },
   computed: {
     ...mapState({

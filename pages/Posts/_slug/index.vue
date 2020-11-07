@@ -7,8 +7,11 @@
           <!-- <div class="row"> -->
           <div class="card-group">
             <div class="row">
-              <div class="col-md-8 mb-3">
+              <div v-if="post" class="col-md-8 mb-3">
                 <SinglePost :post="post" />
+              </div>
+              <div v-else class="col-md-8 mb-3">
+                <p class="text-center">Post not found</p>
               </div>
               <div class="col-md-4">
                 <Newsletter />
@@ -107,13 +110,15 @@
 <script>
 export default {
   async asyncData({ params, store }) {
-    const getPost = store.getters['post/getPost']
-    let post = getPost(params.slug)
-    if (!post) {
-      post = await store.dispatch('post/getPost', params.slug)
-    }
+    try {
+      const getPost = store.getters['post/getPost']
+      let post = getPost(params.slug)
+      if (!post) {
+        post = await store.dispatch('post/getPost', params.slug)
+      }
 
-    return { post }
+      return { post }
+    } catch (error) {}
   },
   data() {
     return {
@@ -131,34 +136,35 @@ export default {
     },
   },
   head() {
-    return {
-      title: `${this.post.title}`,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: `${this.post.excerpt}`,
-        },
+    if (this.post)
+      return {
+        title: `${this.post.title}`,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: `${this.post.excerpt}`,
+          },
 
-        { hid: 'og:title', property: 'og:title', content: this.post.title },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: this.post.excerpt,
-        },
-        { hid: 'og:image', property: 'og:image', content: this.image },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: `/${this.post.slug}`,
-        },
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-      ],
-    }
+          { hid: 'og:title', property: 'og:title', content: this.post.title },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            content: this.post.excerpt,
+          },
+          { hid: 'og:image', property: 'og:image', content: this.image },
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: `/${this.post.slug}`,
+          },
+          {
+            hid: 'twitter:card',
+            name: 'twitter:card',
+            content: 'summary_large_image',
+          },
+        ],
+      }
   },
   beforeRouteEnter(to, from, next) {
     next((vm) => {
