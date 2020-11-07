@@ -1,12 +1,16 @@
 import axios from 'axios'
 export const getPosts = async () => {
-  const response = await axios.get(
-    'https://adonis-blog.000webhostapp.com/api/get_posts/'
-  )
-  if (response.data) {
-    return response.data.posts
+  try {
+    const response = await axios.get(
+      process.env.BASE_ENDPOINT_URL + '/get_posts/'
+    )
+    if (response.data) {
+      return response.data.posts
+    }
+    return []
+  } catch (error) {
+    return []
   }
-  return []
 }
 
 export default { getPosts }

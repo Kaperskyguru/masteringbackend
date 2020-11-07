@@ -17,7 +17,9 @@ export default {
       try {
         await store.dispatch('post/getPosts')
         await store.dispatch('post/getWorldPosts')
-      } catch (error) {}
+      } catch (error) {
+        console.log(error)
+      }
     }
   },
 
@@ -29,7 +31,9 @@ export default {
         await this.$store.dispatch('post/getPosts')
         await this.$store.dispatch('post/getWorldPosts')
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
   },
   async created() {
     // console.log(await this.$axios.get('/api/jobs'))
