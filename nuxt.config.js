@@ -170,7 +170,7 @@ export default {
     // { src: '~/plugins/vue-lazyload', ssr: false },
     { src: '~/plugins/disqus', ssr: false },
     // { src: '~/plugins/localStorage', ssr: false },
-    // { src: '~/plugins/countDown', ssr: false },
+    { src: '~/plugins/countDown', ssr: false },
     // { src: '~/plugins/webWorker.js', ssr: false },
   ],
   /*

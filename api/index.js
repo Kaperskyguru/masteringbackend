@@ -4,11 +4,11 @@ const express = require('express')
 const app = express()
 
 // Require API routes
-const users = require('./routes/users')
+const jobs = require('./routes/jobs')
 // const test = require('./routes/test')
 
 // Import API Routes
-app.use(users)
+app.use(jobs)
 // app.use(test)
 
 // Export express app
