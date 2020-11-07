@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-// const baseURl = 'https://adonis-blog.000webhostapp.com/api'
+// const baseURl = 'http://masteringbackend.solomoneseme.com/api'
 
 import ENUM from '@/enums'
 import DevtoPost from '~/Services/DevtoPosts'

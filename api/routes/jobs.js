@@ -1,4 +1,4 @@
-import DiceJobs from '../services/dice-scrapper'
+import DiceJobs from '../services/scrappers/dice-scrapper'
 const { Router } = require('express')
 
 const router = Router()
