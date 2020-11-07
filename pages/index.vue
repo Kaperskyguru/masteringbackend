@@ -14,22 +14,26 @@ export default {
     const getPosts = store.getters['post/getPosts']
     const posts = getPosts()
     if (!posts.length) {
-      await store.dispatch('post/getPosts')
-      await store.dispatch('post/getWorldPosts')
+      try {
+        await store.dispatch('post/getPosts')
+        await store.dispatch('post/getWorldPosts')
+      } catch (error) {}
     }
   },
 
   async fetch() {
-    const getPosts = this.$store.getters['post/getPosts']
-    const posts = getPosts()
-    if (!posts.length) {
-      await this.$store.dispatch('post/getPosts')
-      await this.$store.dispatch('post/getWorldPosts')
-    }
+    try {
+      const getPosts = this.$store.getters['post/getPosts']
+      const posts = getPosts()
+      if (!posts.length) {
+        await this.$store.dispatch('post/getPosts')
+        await this.$store.dispatch('post/getWorldPosts')
+      }
+    } catch (error) {}
   },
-  // async created() {
-  //   console.log(await this.$axios.get('/api/users'))
-  // },
+  async created() {
+    // console.log(await this.$axios.get('/api/jobs'))
+  },
   head() {
     return {
       title: 'Mastering Backend Development',
