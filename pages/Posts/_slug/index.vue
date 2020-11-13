@@ -7,8 +7,9 @@
           <!-- <div class="row"> -->
 
           <div class="row">
-            <div v-if="post" class="col-md-8 mb-3">
-              <SinglePost :post="post" />
+            <div class="col-md-8 mb-3">
+              <SinglePost :post="post" v-if="post" />
+              <p class="text-center" v-else>Post not found</p>
 
               <div class="mt-5 card p-3">
                 <h2>Comments</h2>
@@ -19,9 +20,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div v-else class="col-md-8 mb-3">
-              <p class="text-center">Post not found</p>
             </div>
             <div class="col-md-4">
               <Newsletter />

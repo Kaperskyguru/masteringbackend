@@ -1,6 +1,6 @@
 <template>
   <section class="bottom-header">
-    <div class="container">
+    <div class="container-fluid pl-md-5 pr-md-5">
       <ul class="navbar">
         <li class="nav-item"><a href="/">Home</a></li>
         <li v-for="(path, i) in computedPath" :key="i" class="nav-item active">

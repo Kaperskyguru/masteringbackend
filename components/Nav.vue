@@ -2,7 +2,7 @@
   <div class="full-width-header">
     <header class="main-header">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
+        <div class="container-fluid pl-md-5 pr-md-5">
           <a class="navbar-brand" href="/">
             <Logo />
           </a>
