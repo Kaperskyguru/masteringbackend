@@ -3,12 +3,22 @@
     <Breadcrumb :paths="path" />
     <section>
       <div class="padding-top grey-color">
-        <div class="container inner-padding-top">
+        <div class="container-fluid inner-padding-top pl-5 pr-5">
           <!-- <div class="row"> -->
           <div class="card-group">
             <div class="row">
               <div v-if="post" class="col-md-8 mb-3">
                 <SinglePost :post="post" />
+
+                <div class="mt-5 card p-3">
+                  <h2>Comments</h2>
+                  <div class="card-line"></div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <Comments />
+                    </div>
+                  </div>
+                </div>
               </div>
               <div v-else class="col-md-8 mb-3">
                 <p class="text-center">Post not found</p>
@@ -96,13 +106,13 @@
                         </div>
                       </form>
                     </div>
-                  </div>-->
+                  </div> -->
               </div>
             </div>
           </div>
-          <!-- </div> -->
         </div>
       </div>
+      <!-- </div> -->
     </section>
   </section>
 </template>

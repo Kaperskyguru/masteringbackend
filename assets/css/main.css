@@ -105,6 +105,7 @@ body {
 
 .card {
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .card figure img {
@@ -425,4 +426,10 @@ p > code {
 
 .card-text a {
   color: #bd4147;
+}
+
+.card-line {
+  border-bottom: solid 1px #eee;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
 }

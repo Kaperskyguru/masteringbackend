@@ -1,6 +1,6 @@
 <template>
   <div class="comment-box">
-    <div class="container">
+    <div class="justify-content-start">
       <Disqus />
     </div>
   </div>
