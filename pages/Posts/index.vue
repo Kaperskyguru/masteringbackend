@@ -43,6 +43,7 @@
           :prev-link-class="'page-link'"
           :next-link-class="'page-link'"
           :click-handler="getPaginatedPosts"
+          :value="$route.query.page ? Number($route.query.page) : 1"
         >
         </vue-paginate>
       </div>
