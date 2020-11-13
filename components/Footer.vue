@@ -1,11 +1,11 @@
 <template>
   <footer class="footer white-background pt-5">
-    <div class="container footer-section">
+    <div class="container-fluid footer-section pl-5 pr-5">
       <div class="row">
         <div class="col-md-3">
           <h2 class="footer-header mb-4 pr-5">
             <nuxt-link class="navbar-brand mr-auto" to="/">
-              <Logo :small="false" />
+              <Logo :small="true" />
             </nuxt-link>
           </h2>
         </div>

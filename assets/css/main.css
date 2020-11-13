@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap'); */
 * {
   border: none;
   outline: none;
@@ -405,6 +405,8 @@ body {
 pre > code {
   display: block !important;
   /* color: #bd4147 !important; */
+  margin-bottom: 1rem !important;
+  margin-top: 1rem;
 }
 
 p > code {

@@ -3,29 +3,29 @@
     <Breadcrumb :paths="path" />
     <section>
       <div class="padding-top grey-color">
-        <div class="container-fluid inner-padding-top pl-5 pr-5">
+        <div class="container-fluid inner-padding-top pl-md-5 pr-md-5">
           <!-- <div class="row"> -->
-          <div class="card-group">
-            <div class="row">
-              <div v-if="post" class="col-md-8 mb-3">
-                <SinglePost :post="post" />
 
-                <div class="mt-5 card p-3">
-                  <h2>Comments</h2>
-                  <div class="card-line"></div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <Comments />
-                    </div>
+          <div class="row">
+            <div v-if="post" class="col-md-8 mb-3">
+              <SinglePost :post="post" />
+
+              <div class="mt-5 card p-3">
+                <h2>Comments</h2>
+                <div class="card-line"></div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <Comments />
                   </div>
                 </div>
               </div>
-              <div v-else class="col-md-8 mb-3">
-                <p class="text-center">Post not found</p>
-              </div>
-              <div class="col-md-4">
-                <Newsletter />
-                <!-- <div class="card-deck">
+            </div>
+            <div v-else class="col-md-8 mb-3">
+              <p class="text-center">Post not found</p>
+            </div>
+            <div class="col-md-4">
+              <Newsletter />
+              <!-- <div class="card-deck">
                     <div class="card text-white mb-3">
                       <h5 class="card-header text-uppercase">
                         Community Partners
@@ -83,7 +83,7 @@
                       </div>
                     </div>
                   </div>-->
-                <!-- <div class="card text-white mb-3">
+              <!-- <div class="card text-white mb-3">
                     <h5 class="card-header text-uppercase border-success">
                       Laravel/PHP Careers
                     </h5>
@@ -107,11 +107,11 @@
                       </form>
                     </div>
                   </div> -->
-              </div>
             </div>
           </div>
         </div>
       </div>
+
       <!-- </div> -->
     </section>
   </section>
