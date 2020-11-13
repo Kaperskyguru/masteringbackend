@@ -10,13 +10,15 @@
 <script>
 export default {
   layout: 'index',
-  async asynData({ store }) {
+  async asyncData({ store }) {
     const getPosts = store.getters['post/getPosts']
     const posts = getPosts()
     if (!posts.length) {
       try {
-        await store.dispatch('post/getPosts')
-        await store.dispatch('post/getWorldPosts')
+        const query = {}
+        query.count = 9
+        query.page = 1
+        await store.dispatch('post/getPosts', query)
       } catch (error) {
         console.log(error)
       }
@@ -25,12 +27,7 @@ export default {
 
   async fetch() {
     try {
-      const getPosts = this.$store.getters['post/getPosts']
-      const posts = getPosts()
-      if (!posts.length) {
-        await this.$store.dispatch('post/getPosts')
-        await this.$store.dispatch('post/getWorldPosts')
-      }
+      await this.$store.dispatch('post/getWorldPosts')
     } catch (error) {
       console.log(error)
     }

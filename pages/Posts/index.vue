@@ -29,26 +29,59 @@
       class="col-md-12 col-sm-12-col-xs-12 text-center mb-5"
     >
       <!-- Load more articles here -->
-      <Button link="/posts">More Articles</Button>
+      <!-- <Button link="/posts">More Articles</Button> -->
+      <div class="text-center">
+        <vue-paginate
+          :page-count="post_count"
+          :page-range="5"
+          :margin-pages="2"
+          :prev-text="'Prev'"
+          :next-text="'Next'"
+          :container-class="'pagination pagination-lg justify-content-center'"
+          :page-class="'page-item'"
+          :page-link-class="'page-link'"
+          :prev-link-class="'page-link'"
+          :next-link-class="'page-link'"
+          :click-handler="getPaginatedPosts"
+        >
+        </vue-paginate>
+      </div>
     </div>
+    <Loading :show="show" :overlay="true" :label="'Page loading...'"></Loading>
   </section>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import ENUM from '@/enums'
+import Loading from '~/components/Loading'
 export default {
-  async asyncData({ store }) {
+  async asyncData({ store, query }) {
     try {
       const getPosts = store.getters['post/getPosts']
       const posts = getPosts()
-      if (!posts.length) await store.dispatch('post/getPosts')
+      if (!posts.length) {
+        const data = {}
+        data.page = query.page ? query.page : 1
+        await store.dispatch('post/getPosts', data)
+      }
     } catch (error) {}
+  },
+  components: {
+    Loading,
+  },
+  data() {
+    return {
+      show: false,
+    }
   },
   computed: {
     ...mapState({
       posts: (state) => {
-        return [...state.post.posts].slice(0, 18)
+        return [...state.post.posts]
+      },
+      post_count: (state) => {
+        return state.post.total_post_pages
       },
       apiStateLoaded: (state) => {
         return state.post.postState === ENUM.LOADED
@@ -63,6 +96,17 @@ export default {
         return state.post.postState === ENUM.ERROR
       },
     }),
+  },
+  methods: {
+    async getPaginatedPosts(page) {
+      this.show = true
+      this.$router.push('/posts?page=' + page)
+      const data = {}
+      data.page = page
+      data.count = 12
+      await this.$store.dispatch('post/getPosts', data)
+      this.show = false
+    },
   },
   head() {
     return {

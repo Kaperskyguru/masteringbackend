@@ -148,9 +148,10 @@ export default {
       },
       { rel: 'manifest', href: '/favicon/manifest.json' },
       {
-        rel:'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Merriweather&display=swap'
-      }
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css2?family=Merriweather&display=swap',
+      },
     ],
 
     script: [{ src: 'https://use.fontawesome.com/3889c7d65e.js' }],
@@ -170,8 +171,8 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    { src: '~/plugins/vue-full-loading', ssr: false },
-    // { src: '~/plugins/vue-lazyload', ssr: false },
+    // { src: '~/plugins/vue-full-loading', ssr: false },
+    { src: '~/plugins/vue-pagination', ssr: false },
     { src: '~/plugins/disqus', ssr: false },
     // { src: '~/plugins/localStorage', ssr: false },
     { src: '~/plugins/countDown', ssr: false },
@@ -281,7 +282,7 @@ export default {
     '/api': '~/api',
   },
 
-  loading: { color: '#f29d12' },
+  loading: { color: '#f29d12', height: '5px' },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

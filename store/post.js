@@ -10,6 +10,7 @@ export const state = () => ({
   posts: [],
   worldPosts: [],
   post: [],
+  total_post_pages: 0,
 })
 
 export const getters = {
@@ -31,8 +32,9 @@ export const getters = {
 }
 
 export const mutations = {
-  setPosts(state, posts) {
-    state.posts = posts
+  setPosts(state, data) {
+    state.posts = data.posts
+    state.total_post_pages = data.pages
     state.postState = ENUM.LOADED
   },
   setPost(state, post) {
@@ -62,14 +64,15 @@ export const mutations = {
 }
 
 export const actions = {
-  async getPosts({ commit }) {
+  async getPosts({ commit }, { page }) {
     try {
-      const response = await fetch(`${process.env.BASE_ENDPOINT_URL}/get_posts`)
+      const response = await fetch(
+        `${process.env.BASE_ENDPOINT_URL}/get_posts?page=${page}&count=9`
+      )
+
       const data = await response.json()
       if (data.posts) {
-        commit('setPosts', data.posts)
-        // } else {
-        // commit('setPostState', ENUM.ERROR)
+        commit('setPosts', data)
       }
       return data.posts
     } catch (error) {
