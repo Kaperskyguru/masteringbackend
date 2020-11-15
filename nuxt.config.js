@@ -148,7 +148,8 @@ export default {
       },
       { rel: 'manifest', href: '/favicon/manifest.json' },
       {
-        rel: 'preload',
+        rel: 'stylesheet',
+        // rel: 'preload',
         href:
           'https://fonts.googleapis.com/css2?family=Merriweather&display=swap',
       },

@@ -14,25 +14,25 @@
       <div class="card-body">
         <nuxt-link
           :to="{ path: '/authors/' + post.author.slug }"
-          class="subtitle is-6"
+          class="subtitle"
         >
           {{ post.author.name }}
         </nuxt-link>
 
-        <h6>
+        <h1 class="pt-1">
           <nuxt-link
             class="title is-size-4-mobile"
             :to="{ path: '/posts/' + post.slug }"
           >
             {{ post.title || '' }}
           </nuxt-link>
-        </h6>
-        <p class="p-1">
+        </h1>
+        <p>
           <small class="text-muted">{{
             $moment(post.date).format('MMMM Do YYYY')
           }}</small>
         </p>
-        <p v-html="getPostExcerpt(post.excerpt, 100)"></p>
+        <article v-html="getPostExcerpt(post.excerpt, 100)"></article>
       </div>
     </div>
   </div>

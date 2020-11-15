@@ -23,7 +23,7 @@
           <ul class="footer-link list-unstyled">
             <li><nuxt-link to="#">Code of Conduct</nuxt-link></li>
             <li><nuxt-link to="#">Partnership</nuxt-link></li>
-            <li><nuxt-link to="#">Write for us</nuxt-link></li>
+            <li><nuxt-link to="/write-for-us">Write for us</nuxt-link></li>
           </ul>
         </div>
         <div class="col-md-2">

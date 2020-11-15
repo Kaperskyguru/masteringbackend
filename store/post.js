@@ -127,7 +127,6 @@ export const actions = {
       if (data.posts) {
         commit('setCategoryPosts', data)
       }
-      console.log('Store', data.posts)
       return data.posts
     } catch (error) {
       commit('setPostState', ENUM.ERROR)

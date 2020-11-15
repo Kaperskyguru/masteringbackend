@@ -11,7 +11,7 @@
               </h1>
             </div>
           </div>
-          <div class="row mt-5">
+          <div class="row mt-5 writer">
             <div class="card-group">
               <div class="row">
                 <div class="col-md-7">
@@ -22,7 +22,7 @@
                     <div class="card-body">
                       <p>
                         We are Actively looking for collaborators to write some
-                        cool backend development, Cloud/DevOps engineering, and
+                        cool backend development, Cloud/DevOps engineering, or
                         Blockchain posts
                       </p>
 
@@ -96,7 +96,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .card-body p {
   margin-bottom: 2rem;
   font-size: 1.5rem;

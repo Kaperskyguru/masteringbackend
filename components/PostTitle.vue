@@ -50,13 +50,29 @@ export default {
 
 <style>
 .recent-post-title h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
   line-height: 1.45;
   font-family: Merriweather, roboto;
 }
 
 .recent-post-title time {
   font-size: 13px;
+}
+
+.recent-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: none;
+}
+.recent-img img {
+  /* background-size: cover; */
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  /* background-repeat: no-repeat; */
+  /* background-position: center center; */
+  z-index: 1;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card single">
     <figure class="block-image is-resized pl-3 pr-3 pt-3">
       <img
         v-lazy-load
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="card-body">
-      <p class="title subtitle">{{ post.title || '' }}</p>
+      <h1 class="title">{{ post.title || '' }}</h1>
       <article v-highlight class="card-text" v-html="post.content"></article>
       <div class="card-line"></div>
       <h2 class="p-2">Sharing is caring :)</h2>
@@ -89,7 +89,6 @@ export default {
   line-height: 1.8;
   color: #222222;
   font-size: 1.125rem;
-  /* overflow-x: hidden; */
 }
 
 .card-text h1,
@@ -143,7 +142,7 @@ export default {
   display: inline-block;
 }
 
-.card p {
+.single p {
   margin-bottom: 2rem;
 }
 </style>

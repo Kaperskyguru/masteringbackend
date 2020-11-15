@@ -1,5 +1,5 @@
 <template>
-  <div class="col-4 mb-3">
+  <div class="col-md-4 mb-3 col-sm-12">
     <div class="card similar-post">
       <div class="b-block">
         <nuxt-link :to="{ path: '/posts/' + post.slug }">
@@ -9,7 +9,7 @@
       <div class="card-body">
         <h6>
           <nuxt-link
-            class="title is-size-4-mobile"
+            class="post-title font-weight-bold"
             :to="{ path: '/posts/' + post.slug }"
           >
             {{ post.title || '' }}
@@ -46,5 +46,9 @@ export default {
   width: 100%;
   height: auto;
   max-height: 160px !important;
+}
+
+.similar-post .post-title {
+  font-size: 1.3rem;
 }
 </style>

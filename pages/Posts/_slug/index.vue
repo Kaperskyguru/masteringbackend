@@ -38,7 +38,7 @@
 
 <script>
 import { mapState } from 'vuex'
-
+import { sortDesc } from '~/helpers/helpers'
 export default {
   async fetch() {
     try {
@@ -87,7 +87,7 @@ export default {
   computed: {
     ...mapState({
       recent_posts: (state) => {
-        return [...state.post.recent_posts]
+        return sortDesc([...state.post.recent_posts].slice(0, 6))
       },
     }),
   },
@@ -133,20 +133,4 @@ export default {
 </script>
 
 <style>
-.recent-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: none;
-  border: none;
-}
-.recent-img img {
-  background-size: contain;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  z-index: 1;
-}
 </style>
