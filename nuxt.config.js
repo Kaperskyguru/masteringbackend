@@ -148,13 +148,13 @@ export default {
       },
       { rel: 'manifest', href: '/favicon/manifest.json' },
       {
-        rel: 'stylesheet',
+        rel: 'preload',
         href:
           'https://fonts.googleapis.com/css2?family=Merriweather&display=swap',
       },
     ],
 
-    script: [{ src: 'https://use.fontawesome.com/3889c7d65e.js' }],
+    script: [{ src: 'https://use.fontawesome.com/3889c7d65e.js', defer: true }],
   },
   router: {
     middleware: 'maintenance',

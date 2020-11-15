@@ -11,6 +11,8 @@ export const state = () => ({
   worldPosts: [],
   post: [],
   total_post_pages: 0,
+  recent_posts: [],
+  category_posts: [],
 })
 
 export const getters = {
@@ -26,6 +28,14 @@ export const getters = {
     return state.posts
   },
 
+  getRecentPosts: (state) => () => {
+    return state.recent_posts
+  },
+
+  getCategoryPosts: (state) => () => {
+    return state.category_posts
+  },
+
   getPostsByAuthor: (state) => (author) => {
     return state.posts.filter((post) => post.author.slug === author)
   },
@@ -37,8 +47,19 @@ export const mutations = {
     state.total_post_pages = data.pages
     state.postState = ENUM.LOADED
   },
+  setRecentPosts(state, data) {
+    state.recent_posts = data.posts
+    state.total_post_pages = data.pages
+    state.postState = ENUM.LOADED
+  },
   setPost(state, post) {
     state.post = post
+  },
+
+  setCategoryPosts(state, data) {
+    state.recent_posts = data.posts
+    state.total_post_pages = data.pages
+    state.postState = ENUM.LOADED
   },
 
   setWorldPost(state, posts) {
@@ -74,6 +95,39 @@ export const actions = {
       if (data.posts) {
         commit('setPosts', data)
       }
+      return data.posts
+    } catch (error) {
+      commit('setPostState', ENUM.ERROR)
+    }
+  },
+
+  async getRecentPosts({ commit }) {
+    try {
+      const response = await fetch(
+        `${process.env.BASE_ENDPOINT_URL}/get_posts?count=6`
+      )
+
+      const data = await response.json()
+      if (data.posts) {
+        commit('setRecentPosts', data)
+      }
+      return data.posts
+    } catch (error) {
+      commit('setPostState', ENUM.ERROR)
+    }
+  },
+
+  async getCategoryPosts({ commit }, slug) {
+    try {
+      const response = await fetch(
+        `${process.env.BASE_ENDPOINT_URL}/get_category_posts?slug=${slug}`
+      )
+
+      const data = await response.json()
+      if (data.posts) {
+        commit('setCategoryPosts', data)
+      }
+      console.log('Store', data.posts)
       return data.posts
     } catch (error) {
       commit('setPostState', ENUM.ERROR)

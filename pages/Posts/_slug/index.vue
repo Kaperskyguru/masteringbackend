@@ -4,145 +4,94 @@
     <section>
       <div class="padding-top grey-color">
         <div class="container-fluid inner-padding-top pl-md-5 pr-md-5">
-          <!-- <div class="row"> -->
-
           <div class="row">
             <div class="col-md-8 mb-3">
-              <SinglePost :post="post" v-if="post" />
-              <p class="text-center" v-else>Post not found</p>
+              <SinglePost v-if="post" :post="post" />
+              <p v-else class="text-center">Post not found</p>
+
+              <RelatedPosts :posts="categoryPosts" />
 
               <div class="mt-5 card p-3">
                 <h2>Comments</h2>
                 <div class="card-line"></div>
                 <div class="row">
                   <div class="col-md-12">
-                    <Comments />
+                    <Comments v-if="post" />
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
-              <Newsletter />
-              <!-- <div class="card-deck">
-                    <div class="card text-white mb-3">
-                      <h5 class="card-header text-uppercase">
-                        Community Partners
-                      </h5>
-                      <div class="card-body">
-                        <div class="img-div">
-                          <figure class="aside-img">
-                            <img
-                              class="img-fluid"
-                              src="/img/autonomous.png"
-                              alt=""
-                            />
-                          </figure>
-                        </div>
-                        <div class="img-div text-success">
-                          <figure class="aside-img">
-                            <a href="#" target="_blank" title="Koho">
-                              <img
-                                class="lazyload has-text-centered"
-                                src="#"
-                                data-src="#"
-                                alt="Koho"
-                              />
-                            </a>
-                          </figure>
-                        </div>
-                        <div class="img-div">
-                          <figure class="aside-img">
-                            <img
-                              class="img-fluid"
-                              src="/img/digitalocean-logo.png"
-                              alt=""
-                            />
-                          </figure>
-                        </div>
-
-                        <div class="img-div">
-                          <figure class="aside-img">
-                            <img
-                              class="img-fluid"
-                              src="/img/imgaside.png"
-                              alt=""
-                            />
-                          </figure>
-                        </div>
-                        <form method="post" action="#">
-                          <div class="field">
-                            <div class="control text-center mt-4">
-                              <button class="button btn2" type="submit">
-                                Become a partner
-                              </button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>-->
-              <!-- <div class="card text-white mb-3">
-                    <h5 class="card-header text-uppercase border-success">
-                      Laravel/PHP Careers
-                    </h5>
-
-                    <div class="card-body text-success">
-                      <h4 class="card-a text-center card-title">
-                        <a href="#">
-                          Want your job here? Contact Us.
-                        </a>
-                      </h4>
-                    </div>
-                    <div class="card-footer border-success">
-                      <form method="post" action="#">
-                        <div class="field">
-                          <div class="control text-center mt-4">
-                            <button class="button btn2" type="submit">
-                              Add a job?
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div> -->
+              <div class="card-deck">
+                <Newsletter />
+              </div>
+              <div class="card-deck mt-3">
+                <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- </div> -->
     </section>
   </section>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
+  async fetch() {
+    try {
+      const getRecentPosts = this.$store.getters['post/getRecentPosts']
+
+      const recentPosts = getRecentPosts()
+
+      if (!recentPosts.length) {
+        await this.$store.dispatch('post/getRecentPosts')
+      }
+    } catch (error) {
+      console.log(error, 'error')
+    }
+  },
   async asyncData({ params, store }) {
     try {
       const getPost = store.getters['post/getPost']
       let post = getPost(params.slug)
-      if (!post) {
+      if (post === undefined) {
         post = await store.dispatch('post/getPost', params.slug)
       }
 
-      return { post }
-    } catch (error) {}
+      const getCategoryPosts = store.getters['post/getCategoryPosts']
+      let categoryPosts = getCategoryPosts()
+      if (!categoryPosts.length) {
+        // const _this = this
+        // post.categories.forEach(async (category) => {
+        categoryPosts = await store.dispatch(
+          'post/getCategoryPosts',
+          post.categories[0].slug || 'backend'
+        )
+        // })
+      }
+
+      return { post, categoryPosts }
+    } catch (error) {
+      console.log(error, 'error')
+    }
   },
+
   data() {
     return {
       path: '',
     }
   },
   computed: {
-    image() {
-      if (this.post) {
-        if (this.post.thumbnail_images && this.post.thumbnail) {
-          return this.post.thumbnail_images.full.url
-        }
-      }
-      return '/img/default_banner.webp'
-    },
+    ...mapState({
+      recent_posts: (state) => {
+        return [...state.post.recent_posts]
+      },
+    }),
   },
+  async created() {},
   head() {
     if (this.post)
       return {
@@ -183,4 +132,21 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.recent-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+}
+.recent-img img {
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 1;
+}
+</style>
