@@ -9,6 +9,7 @@ class DiveJobs {
     // console.log('Loading Page ...')
 
     browser = await puppeteer.launch({
+      // headless: false,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -71,7 +72,10 @@ class DiveJobs {
     const jobs = await this.resolve()
     await browser.close()
     // console.log(jobs)
-    return jobs
+    const data = {}
+    data.jobs = jobs
+    data.total_jobs = jobs.length
+    return data
   }
 }
 

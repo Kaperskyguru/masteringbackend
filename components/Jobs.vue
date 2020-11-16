@@ -11,7 +11,7 @@
           </div>
         </div>
 
-        <div class="row mb-1 mt-5">
+        <div class="row mb-1 mt-5" v-if="jobs.length !== 0">
           <div
             v-for="job in jobs"
             :key="job.id"
@@ -20,6 +20,7 @@
             <Job :job="job" />
           </div>
         </div>
+        <div v-else class="row mb-1 mt-5">Loading</div>
       </div>
     </div>
     <div class="col-md-12 col-sm-12-col-xs-12 text-center mb-5">

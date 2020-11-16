@@ -26,6 +26,13 @@
                 <Newsletter />
               </div>
               <div class="card-deck mt-3">
+                <PostWidget
+                  title="Top 3 Must Reads"
+                  :show_date="false"
+                  :posts="sticky_posts"
+                />
+              </div>
+              <div class="card-deck mt-3">
                 <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
               </div>
             </div>
@@ -40,19 +47,6 @@
 import { mapState } from 'vuex'
 import { sortDesc } from '~/helpers/helpers'
 export default {
-  async fetch() {
-    try {
-      const getRecentPosts = this.$store.getters['post/getRecentPosts']
-
-      const recentPosts = getRecentPosts()
-
-      if (!recentPosts.length) {
-        await this.$store.dispatch('post/getRecentPosts')
-      }
-    } catch (error) {
-      console.log(error, 'error')
-    }
-  },
   async asyncData({ params, store }) {
     try {
       const getPost = store.getters['post/getPost']
@@ -89,9 +83,44 @@ export default {
       recent_posts: (state) => {
         return sortDesc([...state.post.recent_posts].slice(0, 6))
       },
+      sticky_posts: (state) => {
+        return [...state.post.sticky_posts]
+      },
     }),
   },
-  async created() {},
+  mounted() {
+    this.dispatchStickyPostsAction()
+    this.dispatchRecentPostsAction()
+  },
+  methods: {
+    async dispatchStickyPostsAction() {
+      try {
+        const getPosts = this.$store.getters['post/getStickyPosts']
+
+        const stickyPosts = getPosts()
+
+        if (!stickyPosts.length) {
+          await this.$store.dispatch('post/getStickyPosts')
+        }
+      } catch (error) {
+        console.log(error, 'error')
+      }
+    },
+
+    async dispatchRecentPostsAction() {
+      try {
+        const getRecentPosts = this.$store.getters['post/getRecentPosts']
+
+        const recentPosts = getRecentPosts()
+
+        if (!recentPosts.length) {
+          await this.$store.dispatch('post/getRecentPosts')
+        }
+      } catch (error) {
+        console.log(error, 'error')
+      }
+    },
+  },
   head() {
     if (this.post)
       return {

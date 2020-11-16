@@ -5,7 +5,7 @@
     </h5>
     <div class="card-body">
       <div class="p-2 mb-2" v-for="post in posts" :key="post.id">
-        <PostTitle :post="post" />
+        <PostTitle :post="post" :show_date="show_date" />
       </div>
       <!-- <div class="img-div text-success">
                       <figure class="aside-img">
@@ -57,6 +57,10 @@ export default {
     posts: {
       type: [Array, Object],
       default: () => [],
+    },
+    show_date: {
+      type: Boolean,
+      default: true,
     },
   },
 }

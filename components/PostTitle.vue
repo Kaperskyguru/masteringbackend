@@ -14,6 +14,7 @@
     </div>
     <div class="recent-post-title">
       <time
+        v-if="show_date"
         class="text-muted font-italic"
         :datetime="$moment(post.date).format('MMMM Do YYYY')"
         >{{ $moment(post.date).format('MMMM Do YYYY') }}</time
@@ -33,6 +34,10 @@ export default {
     post: {
       type: [Array, Object],
       default: () => [],
+    },
+    show_date: {
+      type: Boolean,
+      default: true,
     },
   },
   computed: {

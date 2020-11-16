@@ -7,8 +7,8 @@ const router = Router()
 let jobs = []
 
 /* GET jobs listing. */
-router.get('/jobs', function (req, res, next) {
-  jobs = DiceJobs.getDiveJobs()
+router.get('/jobs', async function (req, res, next) {
+  jobs = await DiceJobs.getDiveJobs()
   res.json(jobs)
 })
 

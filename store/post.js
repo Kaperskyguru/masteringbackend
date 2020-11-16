@@ -13,6 +13,7 @@ export const state = () => ({
   total_post_pages: 0,
   recent_posts: [],
   category_posts: [],
+  sticky_posts: [],
 })
 
 export const getters = {
@@ -39,6 +40,9 @@ export const getters = {
   getPostsByAuthor: (state) => (author) => {
     return state.posts.filter((post) => post.author.slug === author)
   },
+  getStickyPosts: (state) => () => {
+    return state.sticky_posts
+  },
 }
 
 export const mutations = {
@@ -50,6 +54,11 @@ export const mutations = {
   setRecentPosts(state, data) {
     state.recent_posts = data.posts
     state.total_post_pages = data.pages
+    state.postState = ENUM.LOADED
+  },
+  setStickyPosts(state, data) {
+    state.sticky_posts = data.posts
+    // state.total_post_pages = data.pages
     state.postState = ENUM.LOADED
   },
   setPost(state, post) {
@@ -111,6 +120,23 @@ export const actions = {
       if (data.posts) {
         commit('setRecentPosts', data)
       }
+      return data.posts
+    } catch (error) {
+      commit('setPostState', ENUM.ERROR)
+    }
+  },
+
+  async getStickyPosts({ commit }) {
+    try {
+      const response = await fetch(
+        `${process.env.BASE_ENDPOINT_URL}/get_sticky_posts?count=3`
+      )
+
+      const data = await response.json()
+      if (data.posts) {
+        commit('setStickyPosts', data)
+      }
+      console.log(data.posts)
       return data.posts
     } catch (error) {
       commit('setPostState', ENUM.ERROR)

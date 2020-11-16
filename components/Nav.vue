@@ -29,7 +29,7 @@
                 <nuxt-link class="nav-link" to="/posts">Articles</nuxt-link>
               </li>
               <li class="nav-item">
-                <nuxt-link class="nav-link" to="#">Jobs</nuxt-link>
+                <nuxt-link class="nav-link" to="/jobs">Jobs</nuxt-link>
               </li>
               <li class="nav-item">
                 <nuxt-link class="nav-link" to="#">Events</nuxt-link>
