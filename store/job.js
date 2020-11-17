@@ -29,8 +29,12 @@ export const actions = {
   async getStackoverflowJobs() {},
   async getIndeedJobs() {},
   async getDiveJobs({ commit }) {
-    const diveJobs = await this.$axios.get('/api/jobs')
-    // console.log(diveJobs.data)
-    if (diveJobs.data.total_jobs) commit('STORE_JOBS', diveJobs.data)
+    try {
+      const diveJobs = await this.$axios.get('/api/jobs')
+      // console.log(diveJobs.data)
+      if (diveJobs.data.total_jobs) commit('STORE_JOBS', diveJobs.data)
+    } catch (error) {
+      console.log(error)
+    }
   },
 }

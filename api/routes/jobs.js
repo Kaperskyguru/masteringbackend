@@ -1,4 +1,7 @@
 import DiceJobs from '../services/scrappers/dice-scrapper'
+import GithubJobs from '../services/scrappers/githubjobs-scrapper'
+import StackoverflowJobs from '../services/scrappers/stackoverflow-scrapper'
+import LinkedinJobs from '../services/scrappers/linkedin-scrapper'
 const { Router } = require('express')
 
 const router = Router()
@@ -9,6 +12,9 @@ let jobs = []
 /* GET jobs listing. */
 router.get('/jobs', async function (req, res, next) {
   jobs = await DiceJobs.getDiveJobs()
+  // jobs = await GithubJobs.getGithubJobs()
+  // jobs = await StackoverflowJobs.getJobs()
+  // jobs = await LinkedinJobs.getJobs()
   res.json(jobs)
 })
 

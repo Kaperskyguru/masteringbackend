@@ -1,11 +1,11 @@
 const puppeteer = require('puppeteer')
 import DB from '../../db'
-const jobUrl = `https://www.dice.com/jobs?q=backend&countryCode=US&radius=30&radiusUnit=mi&page=1&pageSize=20&filters.postedDate=ONE&filters.isRemote=true&language=en`
+const jobUrl = `https://stackoverflow.com/jobs?q=backend&sort=p`
 
 let page
 let browser
 let cardArr = []
-class DiveJobs {
+class StackoverflowJobs {
   static async init() {
     // console.log('Loading Page ...')
 
@@ -25,7 +25,7 @@ class DiveJobs {
     page = await browser.newPage()
     await Promise.race([
       await page.goto(jobUrl, { waitUntil: 'networkidle2' }).catch(() => {}),
-      await page.waitForSelector('.search-card').catch(() => {}),
+      await page.waitForSelector('.listResults').catch(() => {}),
     ])
   }
 
@@ -33,17 +33,17 @@ class DiveJobs {
     await this.init()
     // console.log('Grabbing List of Job URLS ...')
     const jobURLs = await page.evaluate(() => {
-      const cards = document.querySelectorAll('.search-card')
+      const cards = document.querySelectorAll('.-job')
       cardArr = Array.from(cards)
 
       const cardLinks = []
       cardArr.map((card) => {
-        const cardTitle = card.querySelector('.card-title-link')
-        const cardDesc = card.querySelector('.card-description')
-        const cardCompany = card.querySelector(
-          'a[data-cy="search-result-company-name"]'
-        )
-        const cardDate = card.querySelector('.posted-date')
+        const cardTitle = card.querySelector('.s-link')
+        const cardDesc = Array.from(card.querySelectorAll('.post-tag'))
+          .map((tag) => tag.text)
+          .join(', ')
+        const cardCompany = card.querySelector('span:not([class])')
+        const cardDate = card.querySelector('.fc-orange-400')
         const { text } = cardTitle
         const { host } = cardTitle
         const { protocol } = cardTitle
@@ -58,7 +58,7 @@ class DiveJobs {
           titleURLPathname: pathName,
           titleURLSearchQuery: query,
           titleURL: titleURL,
-          titleDesc: cardDesc.innerHTML,
+          titleDesc: cardDesc,
           titleCompany: company,
           titleDate: cardDate.textContent,
         })
@@ -69,7 +69,7 @@ class DiveJobs {
     return jobURLs
   }
 
-  static async getDiveJobs() {
+  static async getJobs() {
     const jobs = await this.resolve()
     await browser.close()
     // console.log(jobs)
@@ -95,7 +95,7 @@ class DiveJobs {
   }
 }
 
-export default DiveJobs
+export default StackoverflowJobs
 
 // const puppeteer = require('puppeteer')
 
