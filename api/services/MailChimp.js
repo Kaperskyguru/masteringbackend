@@ -1,41 +1,49 @@
-import mailchimp from '@mailchimp/mailchimp_marketing'
+import MailChimp3 from 'mailchimp-api-v3'
+const client = require('@mailchimp/mailchimp_marketing')
 import request from 'request'
 require('dotenv').config()
 
+let mailchimp
 class Mailchimp {
-  _init() {
-    mailchimp.setConfig({
+  constructor() {
+    client.setConfig({
       apiKey: process.env.MAILCHIMP_KEY,
-      server: process.env.MAILCHIMP_SERVER,
-    })
-  }
-
-  static async getLists() {
-    console.log(process.env.MAILCHIMP_KEY)
-    mailchimp.setConfig({
-      apiKey:
-        process.env.MAILCHIMP_KEY || 'ec270c4ae2626a98b5f85955799e6a33-us17',
       server: process.env.MAILCHIMP_SERVER || 'us17',
     })
-    const response = await mailchimp.lists.getAllLists()
-    console.log(response)
+    mailchimp = new MailChimp3(process.env.MAILCHIMP_KEY)
   }
 
-  static async subscribe({ firstname, lastname, email }) {
-    this._init()
-    const url = `https://us17.api.mailchimp.com/3.0/`
+  // _init() {
+  //   mailchimp.setConfig({
+  //     apiKey: process.env.MAILCHIMP_KEY,
+  //     server: process.env.MAILCHIMP_SERVER,
+  //   })
+  // MAILCHIMP_LIST_ID
+  // }
 
-    const data = []
-    data.LNAME = lastname || ''
-    data.FNAME = firstname || ''
-    data.EMAIL = email
+  async getLists() {
+    // console.log(process.env.MAILCHIMP_KEY, process.env.MAILCHIMP_SERVER)
+    // client.setConfig({
+    //   apiKey: process.env.MAILCHIMP_KEY,
+    //   server: process.env.MAILCHIMP_SERVER, //|| 'us17',
+    // })
+    const response = await client.lists.getListMergeFields(
+      process.env.MAILCHIMP_LIST_ID
+    )
+    console.log(response)
+    return response
+  }
 
-    const res = await fetch(url, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: data,
+  async subscribe(data) {
+    return await client.lists.addListMember(process.env.MAILCHIMP_LIST_ID, {
+      email_address: data.email,
+      status: 'subscribed',
+      merge_fields: {
+        FNAME: data.firstname ? data.firstname : '',
+        LNAME: data.lastname ? data.lastname : '',
+      },
+      tags: data.tags ? data.tags : [],
     })
-    console.log(await res)
   }
 
   static sub({ firstname, lastname, email }) {

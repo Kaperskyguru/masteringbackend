@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@chenfengyuan/vue-countdown": "^1.1.5",
-    "@mailchimp/mailchimp_marketing": "^3.0.21",
+    "@mailchimp/mailchimp_marketing": "^3.0.23",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/google-analytics": "^2.4.0",
@@ -28,6 +28,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "express": "^4.17.1",
     "locutus": "^2.0.14",
+    "mailchimp-api-v3": "^1.14.0",
     "markdown-it-highlightjs": "^3.3.0",
     "net": "^1.0.2",
     "nuxt": "^2.14.6",

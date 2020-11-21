@@ -1,12 +1,7 @@
 <template>
   <div class="card single">
     <figure class="block-image is-resized pl-3 pr-3 pt-3">
-      <img
-        v-lazy-load
-        :data-src="image"
-        class="card-img-top"
-        :alt="post.title"
-      />
+      <img data-not-lazy :src="image" class="card-img-top" :alt="post.title" />
     </figure>
 
     <div class="tags absolute">
@@ -45,6 +40,8 @@
       <h1 class="title">{{ post.title || '' }}</h1>
       <article v-highlight class="card-text" v-html="post.content"></article>
       <div class="card-line"></div>
+      <inline-newsletter />
+      <div class="card-line"></div>
       <h2 class="p-2">Sharing is caring :)</h2>
       <div class="social-share mb-4">
         <vue-goodshare />
@@ -61,7 +58,11 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import InlineNewsletter from './InlineNewsletter.vue'
+
 export default {
+  // components: { InlineNewsletter },
   name: 'SinglePost',
   props: {
     post: {
@@ -78,6 +79,46 @@ export default {
       }
       return '/img/default_banner.webp'
     },
+  },
+
+  methods: {
+    displayNewsletterLaravel() {
+      const newsletters = document.querySelectorAll('.newsletter-laravel')
+
+      newsletters.forEach((newsletter) => {
+        if (newsletter != null) {
+          const mountNode = document.createElement('div')
+          mountNode.id = 'mount-node'
+          newsletter.appendChild(mountNode)
+          const ToastComp = Vue.extend(InlineNewsletter)
+          new ToastComp({
+            propsData: {
+              title: 'Get free LARAVEL tips straight to your inbox!',
+              subtitle:
+                'Get my free 10 LARAVEL tips that make you more productive.',
+              tags: ['laravel tips'],
+            },
+          }).$mount('#mount-node')
+        }
+      })
+    },
+
+    displayNewsletterBackend() {
+      const newsletters = document.querySelectorAll('.article-newsletter')
+      newsletters.forEach((newsletter) => {
+        if (newsletter != null) {
+          const mountNode = document.createElement('div')
+          mountNode.id = 'mount-node'
+          newsletter.appendChild(mountNode)
+          const ToastComp = Vue.extend(InlineNewsletter)
+          new ToastComp().$mount('#mount-node')
+        }
+      })
+    },
+  },
+  mounted() {
+    this.displayNewsletterBackend()
+    this.displayNewsletterLaravel()
   },
 }
 </script>
@@ -97,8 +138,8 @@ export default {
 .card-text h4,
 .card-text h5,
 .card-text h6 {
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  padding-bottom: 0.8rem;
+  padding-top: 0.8rem;
 }
 
 .card-text ul {
