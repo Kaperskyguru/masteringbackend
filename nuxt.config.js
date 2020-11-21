@@ -215,6 +215,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
+    '@nuxtjs/redirect-module',
+
     [
       'nuxt-highlightjs',
       {
@@ -223,6 +225,14 @@ export default {
       },
     ],
     'vue-social-sharing/nuxt',
+  ],
+  redirect: [
+    // Redirect options here
+    {
+      from: '^/posts/introduction-to-backend-development?id=36',
+      to: '/posts/getting-started-with-backend-development',
+      statusCode: 301,
+    },
   ],
   feed: [
     {
