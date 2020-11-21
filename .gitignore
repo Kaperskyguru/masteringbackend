@@ -8,7 +8,6 @@ yarn-debug.log*
 yarn-error.log*
 yarn.lock
 
-app.html
 index.html
 viewport.txt
 # Runtime data
