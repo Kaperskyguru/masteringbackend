@@ -58,7 +58,6 @@ export const mutations = {
   },
   setStickyPosts(state, data) {
     state.sticky_posts = data.posts
-    // state.total_post_pages = data.pages
     state.postState = ENUM.LOADED
   },
   setPost(state, post) {
@@ -66,7 +65,7 @@ export const mutations = {
   },
 
   setCategoryPosts(state, data) {
-    state.recent_posts = data.posts
+    state.category_posts = data.posts
     state.total_post_pages = data.pages
     state.postState = ENUM.LOADED
   },
@@ -136,17 +135,16 @@ export const actions = {
       if (data.posts) {
         commit('setStickyPosts', data)
       }
-      console.log(data.posts)
       return data.posts
     } catch (error) {
       commit('setPostState', ENUM.ERROR)
     }
   },
 
-  async getCategoryPosts({ commit }, slug) {
+  async getCategoryPosts({ commit }, { page, slug }) {
     try {
       const response = await fetch(
-        `${process.env.BASE_ENDPOINT_URL}/get_category_posts?slug=${slug}`
+        `${process.env.BASE_ENDPOINT_URL}/get_category_posts?slug=${slug}&page=${page}`
       )
 
       const data = await response.json()
@@ -167,8 +165,6 @@ export const actions = {
       const data = await response.json()
       if (data.post) {
         commit('setPost', data.post)
-        // } else {
-        //   commit('setPostState', ENUM.ERROR)
       }
       return data.post
     } catch (error) {
