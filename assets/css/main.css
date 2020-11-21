@@ -80,7 +80,11 @@ body {
 }
 
 .banner-section {
-  background: #f29d12;
+  background-image: linear-gradient(
+      rgba(242, 157, 18, 0.5),
+      rgba(242, 157, 18, 0.5)
+    ),
+    url('/img/banner3.webp');
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -92,6 +96,7 @@ body {
   padding-bottom: 40px;
 }
 .container-title {
+  color: white;
   font-weight: 300;
   font-size: 3rem;
   text-transform: uppercase;

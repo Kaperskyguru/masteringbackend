@@ -1,5 +1,6 @@
 <template>
   <img
+    data-not-lazy
     src="/img/logo300.png"
     alt="masteringbackend Logo"
     class="img-fluid NuxtLogo"

@@ -127,6 +127,11 @@ export default {
         title: `${this.post.title}`,
         meta: [
           {
+            hid: 'keywords',
+            name: 'keywords',
+            content: '',
+          },
+          {
             hid: 'description',
             name: 'description',
             content: `${this.post.excerpt}`,

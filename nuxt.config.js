@@ -196,7 +196,10 @@ export default {
     [
       '@nuxtjs/google-analytics',
       {
-        id: process.env.GOOGLE_ANALYTICS_ID,
+        id:
+          process.env.NODE_ENV === 'development'
+            ? process.env.GOOGLE_ANALYTICS_ID
+            : '',
       },
     ],
   ],
@@ -212,7 +215,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    // '@nuxtjs/markdownit',
     [
       'nuxt-highlightjs',
       {
@@ -222,10 +224,6 @@ export default {
     ],
     'vue-social-sharing/nuxt',
   ],
-  // markdownit: {
-  //   injected: true,
-  //   use: ['markdown-it-highlightjs'],
-  // },
   feed: [
     {
       path: '/feed.xml', // The route to your feed.
