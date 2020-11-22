@@ -216,7 +216,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    '@nuxtjs/gtm',
+    // '@nuxtjs/gtm',
     '@nuxtjs/redirect-module',
 
     [
@@ -228,15 +228,16 @@ export default {
     ],
     'vue-social-sharing/nuxt',
   ],
-  gtm: {
-    id: 'GTM-W6VP4LG', // Used as fallback if no runtime config is provided
-  },
+  // gtm: {
+  //   enabled: true,
+  //   id: 'GTM-W6VP4LG', // Used as fallback if no runtime config is provided
+  // },
 
-  publicRuntimeConfig: {
-    gtm: {
-      id: process.env.GOOGLE_ANALYTICS_ID,
-    },
-  },
+  // publicRuntimeConfig: {
+  //   gtm: {
+  //     id: process.env.GOOGLE_ANALYTICS_ID,
+  //   },
+  // },
   redirect: [
     // Redirect options here
     {
