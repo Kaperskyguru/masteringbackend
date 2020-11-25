@@ -7,6 +7,8 @@ class SlackInviter {
       'C016X3N35RD',
       'C0182HSQ481',
       'C017AEHLN8M',
+      'C01EL0MAS4B',
+      'C017AENSHDK',
     ]
 
     const token = process.env.SLACK_TOKEN

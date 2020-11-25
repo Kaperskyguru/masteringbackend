@@ -1,6 +1,6 @@
 <template>
   <div class="card text-white">
-    <h5 class="card-header text-uppercase text-center">Newsletter</h5>
+    <h5 class="card-header text-uppercase">Newsletter</h5>
     <div class="card-body">
       <p class="text-muted">
         Get the latest Backend Dev. jobs, events and curated articles straight

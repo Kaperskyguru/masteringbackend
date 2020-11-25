@@ -9,7 +9,7 @@
               <SinglePost v-if="post" :post="post" />
               <p v-else class="text-center">Post not found</p>
 
-              <RelatedPosts :posts="categoryPosts" />
+              <RelatedPosts :posts="related_posts" />
 
               <div class="mt-5 card p-3">
                 <h2>Comments</h2>
@@ -55,19 +55,7 @@ export default {
         post = await store.dispatch('post/getPost', params.slug)
       }
 
-      const getCategoryPosts = store.getters['post/getCategoryPosts']
-      let categoryPosts = getCategoryPosts()
-      if (!categoryPosts.length) {
-        // const _this = this
-        // post.categories.forEach(async (category) => {
-        categoryPosts = await store.dispatch(
-          'post/getCategoryPosts',
-          post.categories[0].slug || 'backend'
-        )
-        // })
-      }
-
-      return { post, categoryPosts }
+      return { post }
     } catch (error) {
       console.log(error, 'error')
     }
@@ -85,12 +73,18 @@ export default {
       },
       sticky_posts: (state) => {
         return [...state.post.sticky_posts]
+          .slice(0, 3)
+          .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
+      },
+      related_posts: (state) => {
+        return [...state.post.related_posts].slice(0, 3)
       },
     }),
   },
   mounted() {
     this.dispatchStickyPostsAction()
     this.dispatchRecentPostsAction()
+    if (this.post) this.dispatchRelatedPostsAction(this.post.id)
   },
   methods: {
     async dispatchStickyPostsAction() {
@@ -116,6 +110,14 @@ export default {
         if (!recentPosts.length) {
           await this.$store.dispatch('post/getRecentPosts')
         }
+      } catch (error) {
+        console.log(error, 'error')
+      }
+    },
+
+    async dispatchRelatedPostsAction(id) {
+      try {
+        await this.$store.dispatch('post/getRelatedPosts', id)
       } catch (error) {
         console.log(error, 'error')
       }
@@ -162,6 +164,13 @@ export default {
       const url = to.fullPath.split('?')[0]
       vm.path = url
     })
+  },
+
+  // eslint-disable-next-line
+  beforeRouteUpdate(to, from, next) {
+    const url = to.fullPath.split('?')[0]
+    // console.log(url, to, from)
+    this.path = url
   },
 }
 </script>

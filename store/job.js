@@ -14,11 +14,10 @@ export const getters = {
 
 export const mutations = {
   STORE_JOBS(state, payload) {
-    const jobs = jobResolver(payload.jobs)
-    state.jobs = jobs
+    state.jobs = jobResolver(payload.jobs)
     state.total_jobs = payload.total_jobs
-    // payload.forEach((job) => {
-    //   state.jobs.push(job)
+    // payload.jobs.forEach((job) => {
+    //   console.log(job.date)
     // })
   },
 }
@@ -31,7 +30,6 @@ export const actions = {
   async getDiveJobs({ commit }) {
     try {
       const diveJobs = await this.$axios.get('/api/jobs')
-      // console.log(diveJobs.data)
       if (diveJobs.data.total_jobs) commit('STORE_JOBS', diveJobs.data)
     } catch (error) {
       console.log(error)

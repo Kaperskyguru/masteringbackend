@@ -63,6 +63,16 @@ class MeetupEvent {
     return eventURLs
   }
 
+  static async scrape() {
+    await this.resolve()
+    await browser.close()
+    // new DB().store(this.jobResolver(jobs))
+    return {
+      message: 'Scraped successfully',
+      status: 200,
+    }
+  }
+
   static async getEvents() {
     const events = await this.resolve()
     await browser.close()

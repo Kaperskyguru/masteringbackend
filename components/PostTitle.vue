@@ -66,18 +66,18 @@ export default {
 }
 
 .recent-img {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: none;
 }
 .recent-img img {
-  /* background-size: cover; */
-  width: 100%;
-  height: 100%;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  /* background-repeat: no-repeat; */
-  /* background-position: center center; */
+  background-repeat: no-repeat;
+  background-position: center center;
   z-index: 1;
 }
 </style>

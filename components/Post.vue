@@ -20,21 +20,22 @@
         >
           {{ post.author.name }}
         </nuxt-link>
-
-        <h1 class="pt-1">
-          <nuxt-link
-            class="title is-size-4-mobile"
-            :to="{ path: '/posts/' + post.slug }"
-          >
-            {{ post.title || '' }}
-          </nuxt-link>
-        </h1>
+        <div class="pt-1">
+          <h2>
+            <nuxt-link class="title" :to="{ path: '/posts/' + post.slug }">
+              {{ post.title || '' }}
+            </nuxt-link>
+          </h2>
+        </div>
         <p>
           <small class="text-muted">{{
             $moment(post.date).format('MMMM Do YYYY')
           }}</small>
         </p>
-        <article v-html="getPostExcerpt(post.excerpt, 100)"></article>
+        <article
+          class="content"
+          v-html="getPostExcerpt(post.excerpt, 150)"
+        ></article>
       </div>
     </div>
   </div>
@@ -65,7 +66,7 @@ export default {
   methods: {
     getPostExcerpt(str, limit) {
       if (str.length > 0) {
-        return str.substring(0, limit) + ' [...]'
+        return str.substring(0, limit) + '...'
       }
     },
   },
@@ -82,10 +83,35 @@ export default {
   background-position: center;
 }
 
+.card {
+  height: 600px;
+  min-height: 300px;
+}
+
+.card .title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+.content {
+  margin-bottom: 25px;
+  flex-grow: 1;
+  font-size: 1.1rem;
+  line-height: 180%;
+}
+
 .b-block {
   /* padding: 5%; */
   width: 100%;
   height: auto;
   display: flex;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 992px) and (-webkit-min-device-pixel-ratio: 1) {
+  .card {
+    height: 800px;
+    min-height: 300px;
+  }
 }
 </style>

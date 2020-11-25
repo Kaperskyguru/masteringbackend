@@ -43,7 +43,7 @@
               <li class="nav-item quote-btn">
                 <nuxt-link
                   class="nav-link qbtn"
-                  to="posts/getting-started-with-backend-development"
+                  to="/posts/getting-started-with-backend-development"
                   >Start Backend Dev. Today</nuxt-link
                 >
               </li>

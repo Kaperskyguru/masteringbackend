@@ -10,7 +10,7 @@
         </a>
       </li>
       <li>
-        <a href="nashvilli-php.html">
+        <a href="#">
           <div>
             <strong>Thu, 02</strong>
             Nashville PHP South Lunch

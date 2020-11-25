@@ -9,7 +9,7 @@
     <div class="card-body">
       <p class="subtitle is-6">{{ stream.snippet.title }}</p>
 
-      <a class="title is-size-4-mobile" href="nashvilli-php.html">
+      <a class="title is-size-4-mobile" href="#">
         {{ stream.title }}
       </a>
       <p class="card-text">

@@ -14,6 +14,7 @@ export const state = () => ({
   recent_posts: [],
   category_posts: [],
   sticky_posts: [],
+  related_posts: [],
 })
 
 export const getters = {
@@ -35,6 +36,10 @@ export const getters = {
 
   getCategoryPosts: (state) => () => {
     return state.category_posts
+  },
+
+  getRelatedPosts: (state) => () => {
+    return state.related_posts
   },
 
   getPostsByAuthor: (state) => (author) => {
@@ -66,6 +71,12 @@ export const mutations = {
 
   setCategoryPosts(state, data) {
     state.category_posts = data.posts
+    state.total_post_pages = data.pages
+    state.postState = ENUM.LOADED
+  },
+
+  setRelatedPosts(state, data) {
+    state.related_posts = data.posts
     state.total_post_pages = data.pages
     state.postState = ENUM.LOADED
   },
@@ -128,12 +139,28 @@ export const actions = {
   async getStickyPosts({ commit }) {
     try {
       const response = await fetch(
-        `${process.env.BASE_ENDPOINT_URL}/get_sticky_posts?count=3`
+        `${process.env.BASE_ENDPOINT_URL}/get_sticky_posts`
       )
 
       const data = await response.json()
       if (data.posts) {
         commit('setStickyPosts', data)
+      }
+      return data.posts
+    } catch (error) {
+      commit('setPostState', ENUM.ERROR)
+    }
+  },
+
+  async getRelatedPosts({ commit }, postId) {
+    try {
+      const response = await fetch(
+        `${process.env.BASE_ENDPOINT_URL}/get_related_posts?post_id=${postId}&count=3`
+      )
+
+      const data = await response.json()
+      if (data.posts) {
+        commit('setRelatedPosts', data)
       }
       return data.posts
     } catch (error) {

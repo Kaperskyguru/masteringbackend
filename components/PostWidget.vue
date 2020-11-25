@@ -1,6 +1,6 @@
 <template>
   <div class="card mb-3">
-    <h5 class="card-header text-center text-uppercase text-white">
+    <h5 class="card-header text-uppercase">
       {{ title }}
     </h5>
     <div class="card-body">

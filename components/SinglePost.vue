@@ -14,7 +14,7 @@
       </nuxt-link>
     </div>
 
-    <div class="card-head p-3 d-flex">
+    <div class="card-head pl-3 pr-3 pt-3 d-flex">
       <a href="#">
         <div class="author d-flex pr-3">
           <div class="author profile mr-2"></div>
@@ -37,6 +37,9 @@
       </div>
     </div>
     <div class="card-body">
+      <div class="social-share mb-4">
+        <vue-goodshare />
+      </div>
       <h1 class="title">{{ post.title || '' }}</h1>
       <article v-highlight class="card-text" v-html="post.content"></article>
       <div class="card-line"></div>
@@ -64,6 +67,11 @@ import InlineNewsletter from './InlineNewsletter.vue'
 export default {
   // components: { InlineNewsletter },
   name: 'SinglePost',
+  data() {
+    return {
+      data: {},
+    }
+  },
   props: {
     post: {
       type: [Object, Array],
@@ -83,36 +91,54 @@ export default {
 
   methods: {
     displayNewsletterLaravel() {
-      const newsletters = document.querySelectorAll('.newsletter-laravel')
+      const newsletterLaravel = document.querySelectorAll('.newsletter-laravel')
+      const newsletterNode = document.querySelectorAll('.newsletter-node')
 
-      newsletters.forEach((newsletter) => {
-        if (newsletter != null) {
-          const mountNode = document.createElement('div')
-          mountNode.id = 'mount-node'
-          newsletter.appendChild(mountNode)
-          const ToastComp = Vue.extend(InlineNewsletter)
+      if (newsletterNode) {
+        this.data.title = 'Get free NODEJS tips straight to your inbox!'
+        this.data.subtitle =
+          'Get my free 10 NODEJS tips that make you more productive.'
+        this.data.tags = ['Node Tips']
+        newsletterNode.forEach((newsletter) => {
+          this.createNewsletter(newsletter, this.data)
+        })
+      }
+
+      if (newsletterLaravel) {
+        this.data.title = 'Get free LARAVEL tips straight to your inbox!'
+        this.data.subtitle =
+          'Get my free 10 LARAVEL tips that make you more productive.'
+        this.data.tags = ['Laravel Tips']
+        newsletterLaravel.forEach((newsletter) => {
+          this.createNewsletter(newsletter, this.data)
+        })
+      }
+    },
+
+    createNewsletter(newsletter, data = {}) {
+      if (newsletter != null) {
+        const mountNode = document.createElement('div')
+        mountNode.id = 'mount-node'
+        newsletter.appendChild(mountNode)
+        const ToastComp = Vue.extend(InlineNewsletter)
+        if (Object.keys(data).length !== 0) {
           new ToastComp({
             propsData: {
-              title: 'Get free LARAVEL tips straight to your inbox!',
-              subtitle:
-                'Get my free 10 LARAVEL tips that make you more productive.',
-              tags: ['laravel tips'],
+              title: data.title,
+              subtitle: data.subtitle,
+              tags: data.tags,
             },
           }).$mount('#mount-node')
+        } else {
+          new ToastComp().$mount('#mount-node')
         }
-      })
+      }
     },
 
     displayNewsletterBackend() {
       const newsletters = document.querySelectorAll('.article-newsletter')
       newsletters.forEach((newsletter) => {
-        if (newsletter != null) {
-          const mountNode = document.createElement('div')
-          mountNode.id = 'mount-node'
-          newsletter.appendChild(mountNode)
-          const ToastComp = Vue.extend(InlineNewsletter)
-          new ToastComp().$mount('#mount-node')
-        }
+        this.createNewsletter(newsletter)
       })
     },
   },

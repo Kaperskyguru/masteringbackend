@@ -1,6 +1,7 @@
 <template>
   <div>
     <banner />
+    <PillarPosts :posts="sticky_posts" />
     <Posts />
     <WorldPosts />
     <Jobs />
@@ -8,6 +9,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   layout: 'index',
   async asyncData({ store }) {
@@ -27,10 +29,35 @@ export default {
 
   async fetch() {
     try {
+      await this.dispatchStickyPostsAction()
       await this.$store.dispatch('post/getWorldPosts')
     } catch (error) {
       console.log(error)
     }
+  },
+
+  methods: {
+    async dispatchStickyPostsAction() {
+      try {
+        const getPosts = this.$store.getters['post/getStickyPosts']
+
+        const stickyPosts = getPosts()
+
+        if (!stickyPosts.length) {
+          await this.$store.dispatch('post/getStickyPosts')
+        }
+      } catch (error) {
+        console.log(error, 'error')
+      }
+    },
+  },
+
+  computed: {
+    ...mapState({
+      sticky_posts: (state) => {
+        return [...state.post.sticky_posts]
+      },
+    }),
   },
   async created() {
     // console.log(await this.$axios.get('/api/jobs'))
@@ -69,4 +96,10 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.nuxtLinkStyle {
+  text-decoration: none;
+  color: inherit !important;
+  cursor: pointer !important;
+}
+</style>

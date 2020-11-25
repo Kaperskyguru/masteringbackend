@@ -69,7 +69,17 @@ class GithubJobs {
     return jobURLs
   }
 
-  static async getGithubJobs() {
+  static async scrape() {
+    const jobs = await this.resolve()
+    await browser.close()
+    new DB().store(this.jobResolver(jobs))
+    return {
+      message: 'Scraped successfully',
+      status: 200,
+    }
+  }
+
+  static async getJobs() {
     const jobs = await this.resolve()
     await browser.close()
     const data = {}
