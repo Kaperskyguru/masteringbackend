@@ -56,7 +56,7 @@ export default {
   async asyncData({ store }) {
     const getJobs = store.getters['job/getJobs']
     const jobs = getJobs()
-    if (!jobs.length) await store.dispatch('job/getDiveJobs')
+    if (!jobs.length) await store.dispatch('job/getJobs')
   },
   data() {
     return {

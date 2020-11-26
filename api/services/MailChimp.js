@@ -1,41 +1,25 @@
-import MailChimp3 from 'mailchimp-api-v3'
-const client = require('@mailchimp/mailchimp_marketing')
+const Client = require('@mailchimp/mailchimp_marketing')
 import request from 'request'
 require('dotenv').config()
 
 let mailchimp
 class Mailchimp {
   constructor() {
-    client.setConfig({
+    Client.setConfig({
       apiKey: process.env.MAILCHIMP_KEY,
       server: process.env.MAILCHIMP_SERVER || 'us17',
     })
-    mailchimp = new MailChimp3(process.env.MAILCHIMP_KEY)
   }
 
-  // _init() {
-  //   mailchimp.setConfig({
-  //     apiKey: process.env.MAILCHIMP_KEY,
-  //     server: process.env.MAILCHIMP_SERVER,
-  //   })
-  // MAILCHIMP_LIST_ID
-  // }
-
   async getLists() {
-    // console.log(process.env.MAILCHIMP_KEY, process.env.MAILCHIMP_SERVER)
-    // client.setConfig({
-    //   apiKey: process.env.MAILCHIMP_KEY,
-    //   server: process.env.MAILCHIMP_SERVER, //|| 'us17',
-    // })
-    const response = await client.lists.getListMergeFields(
+    const response = await Client.lists.getListMergeFields(
       process.env.MAILCHIMP_LIST_ID
     )
-    console.log(response)
     return response
   }
 
   async subscribe(data) {
-    return await client.lists.addListMember(process.env.MAILCHIMP_LIST_ID, {
+    return await Client.lists.addListMember(process.env.MAILCHIMP_LIST_ID, {
       email_address: data.email,
       status: 'subscribed',
       merge_fields: {
@@ -66,9 +50,9 @@ class Mailchimp {
           dataType: 'jsonp',
         },
         function (err, httpResponse, body) {
-          console.log(err, httpResponse, body)
+          // console.log(err, httpResponse, body)
           if (err) {
-            console.log(err)
+            // console.log(err)
             reject(err)
           }
           body = JSON.parse(body)
@@ -77,7 +61,7 @@ class Mailchimp {
               'Success! Check &ldquo; ' +
               email +
               ' &rdquo; for an invite from Slack.'
-            console.log(body)
+            // console.log(body)
             resolve(message)
           } else {
             // let { error } = body

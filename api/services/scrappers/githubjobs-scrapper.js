@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer')
+import { dbJobResolver } from '../../../helpers/helpers'
 import DB from '../../db'
 const jobUrl =
   'https://jobs.github.com/positions?utf8=%E2%9C%93&description=backend&location='
@@ -72,7 +73,7 @@ class GithubJobs {
   static async scrape() {
     const jobs = await this.resolve()
     await browser.close()
-    new DB().store(this.jobResolver(jobs))
+    DB.store(this.jobResolver(jobs))
     return {
       message: 'Scraped successfully',
       status: 200,
@@ -85,24 +86,24 @@ class GithubJobs {
     const data = {}
     data.jobs = jobs
     data.total_jobs = jobs.length
-    new DB().store(this.jobResolver(jobs))
+    DB.store(dbJobResolver(jobs))
     return data
   }
 
-  static jobResolver(jobs) {
-    return jobs.map((job) => {
-      const resolvedJob = []
-      resolvedJob.push(
-        job.titleText,
-        job.titleDate,
-        job.titleDesc,
-        job.titleURLHost,
-        job.titleURL,
-        job.titleCompany
-      )
-      return resolvedJob
-    })
-  }
+  // static jobResolver(jobs) {
+  //   return jobs.map((job) => {
+  //     const resolvedJob = []
+  //     resolvedJob.push(
+  //       job.titleText,
+  //       job.titleDate,
+  //       job.titleDesc,
+  //       job.titleURLHost,
+  //       job.titleURL,
+  //       job.titleCompany
+  //     )
+  //     return resolvedJob
+  //   })
+  // }
 }
 
 export default GithubJobs

@@ -15,6 +15,19 @@ export function jobResolver(jobs) {
   return resolvedJob
 }
 
+export function dbJobResolver(jobs) {
+  return jobs.map((job) => {
+    const resolvedJob = {}
+    resolvedJob.title = job.titleText
+    resolvedJob.date = job.titleDate
+    resolvedJob.description = job.titleDesc
+    resolvedJob.website = job.titleURLHost
+    resolvedJob.url = job.titleURL.split('?')[0]
+    resolvedJob.company = job.titleCompany
+    return resolvedJob
+  })
+}
+
 export function sortDesc(arr) {
   return arr.sort((first, second) => {
     const dateA = new Date(first.date)

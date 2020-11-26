@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer')
+import { dbJobResolver } from '../../../helpers/helpers'
 import DB from '../../db'
 const jobUrl = `https://www.linkedin.com/jobs/search?keywords=%22Back%2BEnd%2BDeveloper%22&location=Worldwide&trk=public_jobs_jobs-search-bar_search-submit&f_TP=1&sortBy=DD&redirect=false`
 
@@ -80,7 +81,7 @@ class LinkedinJobs {
   static async scrape() {
     const jobs = await this.resolve()
     await browser.close()
-    new DB().store(this.jobResolver(jobs))
+    DB.store(this.jobResolver(jobs))
     return {
       message: 'Scraped successfully',
       status: 200,
@@ -94,23 +95,23 @@ class LinkedinJobs {
     const data = {}
     data.jobs = jobs
     // data.total_jobs = jobs.length
-    // new DB().store(this.jobResolver(jobs))
+    // DB.store(.dbJobResolver(jobs))
     return data
   }
-  static jobResolver(jobs) {
-    return jobs.map((job) => {
-      const resolvedJob = []
-      resolvedJob.push(
-        job.titleText,
-        job.titleDate,
-        job.titleDesc,
-        job.titleURLHost,
-        job.titleURL,
-        job.titleCompany
-      )
-      return resolvedJob
-    })
-  }
+  // static jobResolver(jobs) {
+  //   return jobs.map((job) => {
+  //     const resolvedJob = []
+  //     resolvedJob.push(
+  //       job.titleText,
+  //       job.titleDate,
+  //       job.titleDesc,
+  //       job.titleURLHost,
+  //       job.titleURL,
+  //       job.titleCompany
+  //     )
+  //     return resolvedJob
+  //   })
+  // }
 }
 
 export default LinkedinJobs

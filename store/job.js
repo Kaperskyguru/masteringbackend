@@ -16,9 +16,6 @@ export const mutations = {
   STORE_JOBS(state, payload) {
     state.jobs = jobResolver(payload.jobs)
     state.total_jobs = payload.total_jobs
-    // payload.jobs.forEach((job) => {
-    //   console.log(job.date)
-    // })
   },
 }
 
@@ -27,12 +24,19 @@ export const actions = {
   async getLinkedinJobs() {},
   async getStackoverflowJobs() {},
   async getIndeedJobs() {},
-  async getDiveJobs({ commit }) {
+  async getJobs({ commit }) {
     try {
-      const diveJobs = await this.$axios.get('/api/jobs')
-      if (diveJobs.data.total_jobs) commit('STORE_JOBS', diveJobs.data)
+      const response = await fetch(
+        `${process.env.BASE_ENDPOINT_URL}/get_jobs?page=20&count=9`
+      )
+
+      const data = await response.json()
+      if (data.jobs) {
+        commit('STORE_JOBS', data)
+      }
+      return data.jobs
     } catch (error) {
-      console.log(error)
+      // commit('setPostState', ENUM.ERROR)
     }
   },
 }
