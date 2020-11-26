@@ -1,4 +1,3 @@
-// import DiveJobs from '~/Services/Scrappers/dice-scrapper'
 import { jobResolver } from '~/helpers/helpers'
 
 export const state = () => ({
@@ -20,10 +19,6 @@ export const mutations = {
 }
 
 export const actions = {
-  async getGithubJobs() {},
-  async getLinkedinJobs() {},
-  async getStackoverflowJobs() {},
-  async getIndeedJobs() {},
   async getJobs({ commit }) {
     try {
       const response = await fetch(

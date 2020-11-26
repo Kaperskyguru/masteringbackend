@@ -13,12 +13,7 @@
         </div>
         <!-- first card -->
         <div class="row mt-5">
-          <!-- <span v-if="apiStateLoaded"> -->
           <Post v-for="(post, i) in posts" :key="i" :post="post" />
-          <!-- </span> -->
-          <!-- <span v-if="apiStateError"> -->
-          <!-- Loading Post -->
-          <!-- </span> -->
         </div>
       </div>
     </div>
@@ -50,8 +45,6 @@
 </template>
 
 <script>
-// import { mapGetters } from 'vuex'
-// import ENUM from '@/enums'
 import Loading from '~/components/Loading'
 export default {
   async asyncData({ params, store, query }) {

@@ -29,7 +29,6 @@
         <div class="col-md-2">
           <h5 class="footer-header mb-4">Ecosystem Links</h5>
           <ul class="footer-link list-unstyled">
-            <!-- <li><nuxt-link to="#">Parent Company</nuxt-link></li> -->
             <li>
               <a href="https://about.me/solomoneseme">Hire Me</a>
             </li>
