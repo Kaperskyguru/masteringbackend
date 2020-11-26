@@ -41,28 +41,35 @@ class GithubJobs {
 
       const cardLinks = []
       cardArr.map((card) => {
-        const cardTitle = card.querySelector('a:not([class])')
-        const cardDesc = card.querySelector('.location')
-        const cardCompany = card.querySelector('.company')
         const cardDate = card.querySelector('.when')
-        const { text } = cardTitle
-        const { host } = cardTitle
-        const { protocol } = cardTitle
-        const pathName = cardTitle.pathname
-        const query = cardTitle.search
-        const titleURL = protocol + '//' + host + pathName + query
-        const company = cardCompany ? cardCompany.textContent : 'none'
+        if (
+          cardDate.textContent.includes('hours') ||
+          cardDate.textContent.includes('hour')
+        ) {
+          const cardTitle = card.querySelector('a:not([class])')
+          const cardLocation = card.querySelector('.location')
+          const cardCompany = card.querySelector('.company')
+          const { text } = cardTitle
+          const { host } = cardTitle
+          const { protocol } = cardTitle
+          const pathName = cardTitle.pathname
+          const query = cardTitle.search
+          const titleURL = protocol + '//' + host + pathName + query
+          const company = cardCompany ? cardCompany.textContent : 'none'
 
-        cardLinks.push({
-          titleText: text,
-          titleURLHost: host,
-          titleURLPathname: pathName,
-          titleURLSearchQuery: query,
-          titleURL: titleURL,
-          titleDesc: cardDesc.innerHTML,
-          titleCompany: company,
-          titleDate: cardDate.textContent,
-        })
+          cardLinks.push({
+            titleText: text,
+            titleURLHost: host,
+            titleURLPathname: pathName,
+            titleURLSearchQuery: query,
+            titleURL: titleURL,
+            titleDesc: cardLocation.innerHTML,
+            titleCompany: company,
+            titleDate: cardDate.textContent,
+            titleLocation: cardLocation.innerHTML,
+            titleLang: '',
+          })
+        }
       })
       return cardLinks
     })
@@ -73,10 +80,11 @@ class GithubJobs {
   static async scrape() {
     const jobs = await this.resolve()
     await browser.close()
-    DB.store(this.jobResolver(jobs))
+    const data = await DB.store(dbJobResolver(jobs))
     return {
       message: 'Scraped successfully',
       status: 200,
+      data,
     }
   }
 

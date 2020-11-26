@@ -3,16 +3,19 @@
     <div class="card-header">
       <div class="card-title title">
         <h3>
-          <a class="title is-size-4-mobile" :href="job.url" target="_blank">
+          <nuxt-link
+            class="title is-size-4-mobile"
+            :to="{ path: '/jobs/' + job.slug }"
+          >
             {{ job.title }}
-          </a>
+          </nuxt-link>
         </h3>
       </div>
     </div>
     <div class="card-body">
       <small>{{ job.company }}</small>
       <small style="float: right"
-        >{{ $moment.unix(job.date).utc().fromNow() }}
+        >{{ $moment(job.created_at).utc().fromNow() }}
       </small>
       <p class="mt-3">
         {{ job.description }}
@@ -21,7 +24,9 @@
     <div style="clear: both"></div>
     <div class="card-footer">
       <div class="actions">
-        <a class="btn btn3" :href="job.url" target="_blank">Apply Now</a>
+        <nuxt-link class="btn btn3" :to="{ path: '/jobs/' + job.slug }"
+          >Read More</nuxt-link
+        >
         <small style="float: right">Source: {{ job.website }}</small>
       </div>
       <div style="clear: both"></div>

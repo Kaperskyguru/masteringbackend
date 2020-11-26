@@ -39,30 +39,42 @@ class StackoverflowJobs {
 
       const cardLinks = []
       cardArr.map((card) => {
-        const cardTitle = card.querySelector('.s-link')
-        const cardDesc = Array.from(card.querySelectorAll('.post-tag'))
-          .map((tag) => tag.text)
-          .join(', ')
-        const cardCompany = card.querySelector('span:not([class])')
         const cardDate = card.querySelector('.fc-orange-400')
-        const { text } = cardTitle
-        const { host } = cardTitle
-        const { protocol } = cardTitle
-        const pathName = cardTitle.pathname
-        const query = cardTitle.search
-        const titleURL = protocol + '//' + host + pathName + query
-        const company = cardCompany.textContent
 
-        cardLinks.push({
-          titleText: text,
-          titleURLHost: host,
-          titleURLPathname: pathName,
-          titleURLSearchQuery: query,
-          titleURL: titleURL,
-          titleDesc: cardDesc,
-          titleCompany: company,
-          titleDate: cardDate.textContent,
-        })
+        if (cardDate.textContent.includes('h')) {
+          const cardTitle = card.querySelector('.s-link')
+          const cardDesc = Array.from(card.querySelectorAll('.post-tag'))
+            .map((tag) => tag.text)
+            .join(', ')
+          const cardCompany = card.querySelector('span:not([class])')
+          const cardLocation = card.querySelector('span.fc-black-500') //-location
+
+          const { text } = cardTitle
+          const { host } = cardTitle
+          const { protocol } = cardTitle
+          const pathName = cardTitle.pathname
+          const query = cardTitle.search
+          const titleURL = protocol + '//' + host + pathName + query
+          const company = cardCompany.textContent
+          const location = cardLocation.textContent.includes(
+            'No office location'
+          )
+            ? 'Remote'
+            : cardLocation.textContent
+
+          cardLinks.push({
+            titleText: text,
+            titleURLHost: host,
+            titleURLPathname: pathName,
+            titleURLSearchQuery: query,
+            titleURL: titleURL,
+            titleDesc: cardDesc,
+            titleCompany: company,
+            titleDate: cardDate.textContent,
+            titleLocation: location,
+            titleLang: cardDesc,
+          })
+        }
       })
       return cardLinks
     })
@@ -73,10 +85,11 @@ class StackoverflowJobs {
   static async scrape() {
     const jobs = await this.resolve()
     await browser.close()
-    DB.store(this.jobResolver(jobs))
+    const data = await DB.store(dbJobResolver(jobs))
     return {
       message: 'Scraped successfully',
       status: 200,
+      data,
     }
   }
 
@@ -90,20 +103,6 @@ class StackoverflowJobs {
     DB.store(dbJobResolver(jobs))
     return data
   }
-  // static jobResolver(jobs) {
-  //   return jobs.map((job) => {
-  //     const resolvedJob = []
-  //     resolvedJob.push(
-  //       job.titleText,
-  //       job.titleDate,
-  //       job.titleDesc,
-  //       job.titleURLHost,
-  //       job.titleURL,
-  //       job.titleCompany
-  //     )
-  //     return resolvedJob
-  //   })
-  // }
 }
 
 export default StackoverflowJobs

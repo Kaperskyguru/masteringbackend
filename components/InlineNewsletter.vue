@@ -2,7 +2,7 @@
   <div class="ck_form ck_minimal ck_horizontal mt-5 mb-5">
     <div class="ck_form_fields">
       <h3 class="ck_form_title">{{ title }}</h3>
-      <div class="ck_description">
+      <div class="ck_description text-center">
         <p>
           {{ subtitle }}
         </p>
@@ -132,7 +132,7 @@ export default {
   color: #fa4c23;
 }
 .ck_form.ck_minimal h3.ck_form_title {
-  text-align: left !important;
+  text-align: center !important;
   letter-spacing: 0.01em;
   font-weight: bold;
   font-size: 28px;
@@ -141,7 +141,7 @@ export default {
   margin: 0px 0px 10px;
 }
 .ck_form.ck_minimal div.ck_description p {
-  text-align: left;
+  text-align: center;
   color: #686868;
   line-height: 1.5;
   font-size: 18px;

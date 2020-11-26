@@ -165,7 +165,7 @@ export default {
    */
   css: [
     '~/assets/css/main.css',
-    { src: '~/node_modules/highlight.js/styles/hopscotch.css', lang: 'css' },
+    // { src: '~/node_modules/highlight.js/styles/hopscotch.css', lang: 'css' },
   ],
   /*
    ** Plugins to load before mounting the App

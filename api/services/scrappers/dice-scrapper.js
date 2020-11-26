@@ -44,6 +44,8 @@ class DiveJobs {
         const cardCompany = card.querySelector(
           'a[data-cy="search-result-company-name"]'
         )
+        const cardLocation = card.querySelector('#searchResultLocation')
+
         const cardDate = card.querySelector('.posted-date')
         const { text } = cardTitle
         const { host } = cardTitle
@@ -52,6 +54,7 @@ class DiveJobs {
         const query = cardTitle.search
         const titleURL = protocol + '//' + host + pathName + query
         const company = cardCompany.textContent
+        const location = cardLocation ? cardLocation.textContent : ''
 
         cardLinks.push({
           titleText: text,
@@ -62,6 +65,8 @@ class DiveJobs {
           titleDesc: cardDesc.innerHTML,
           titleCompany: company,
           titleDate: cardDate.textContent,
+          titleLocation: location,
+          titleLang: '',
         })
       })
       return cardLinks
@@ -90,18 +95,6 @@ class DiveJobs {
     DB.store(dbJobResolver(jobs))
     return data
   }
-  // static jobResolver(jobs) {
-  //   return jobs.map((job) => {
-  //     const resolvedJob = {}
-  //     resolvedJob.title = job.titleText
-  //     resolvedJob.date = job.titleDate
-  //     resolvedJob.description = job.titleDesc
-  //     resolvedJob.website = job.titleURLHost
-  //     resolvedJob.url = job.titleURL.split('?')[0]
-  //     resolvedJob.company = job.titleCompany
-  //     return resolvedJob
-  //   })
-  // }
 }
 
 export default DiveJobs
