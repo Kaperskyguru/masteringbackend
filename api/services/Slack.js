@@ -1,50 +1,54 @@
 import axios from 'axios'
 import DB from '../db'
 
-const url = process.env.SLACK_WEBHOOK
-
 class Slack {
-  async dispatchJob() {
+  static async dispatchJob() {
     // Get Job and update
-    const job = await DB.getJob()
+    const res = await DB.getJob()
     // Send to Slack
-
-    if (job) {
-      return this.sendJobSlack(job)
+    if (res.jobs) {
+      const result = await this.sendJobSlack(res.jobs)
+      if (result === 'ok') {
+        // Update Job status
+        if (await DB.updateJob(res.jobs)) {
+          return {
+            message: 'updated successfully',
+            job: res.jobs,
+          }
+        }
+      }
+      return {
+        message: 'Slack Job failed',
+        job: res.jobs,
+      }
     }
-
-    return
+    return {
+      message: 'Could not retrieve job',
+    }
   }
 
-  sendPostSlack(post) {
-    //   const data = {
-    //     username: 'Post Notifier', // Title
-    //     icon_emoji: ':bangbang:',
+  static async dispatchPost() {
+    // Get Job and update
+    // const res = await DB.getJob()
+    // // Send to Slack
+    // if (res.jobs) {
+    //   const d = await this.sendJobSlack(res.jobs)
+    //   if (result === 'ok') {
+    //     // Update Job status
     //   }
-    //   data.text = post.excerpt // Description
+    //   return
+    // }
+    // return
+  }
 
-    //   data.attachments = []
-    //   data.attachments = [
-    //     {
-    //       color: '#eed140',
-
-    //       fields: [
-    //         {
-    //           title: 'Environment',
-    //           value: 'https://masteringbackend.com', // Title
-    //           short: true,
-    //         },
-    //       ],
-    //     },
-    //   ]
-
+  static sendPostSlack(post) {
     const block = {
       blocks: [
         {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: `</posts/${post.slug} |*${post.title}* >`,
+            text: `< ${process.env.BASE_URL}/posts/${post.slug} |*${post.title}* >`,
           },
         },
         {
@@ -69,99 +73,37 @@ class Slack {
                 text: 'Read More',
                 emoji: true,
               },
-              url: `/posts/${post.slug}`,
+              url: `${process.env.BASE_URL}/posts/${post.slug}`,
               style: 'danger',
               value: 'click_me_123',
               action_id: 'actionId-0',
             },
           ],
         },
-
-        //   {
-        //     type: 'divider',
-        //   },
-        //   {
-        //     type: 'input',
-        //     block_id: 'input123',
-        //     label: {
-        //       type: 'plain_text',
-        //       text: 'Never miss any post again',
-        //     },
-        //     element: {
-        //       type: 'plain_text_input',
-        //       action_id: 'plain_input',
-        //       placeholder: {
-        //         type: 'plain_text',
-        //         text: 'Input your best email',
-        //       },
-        //     },
-        //   },
-        //   {
-        //     type: 'actions',
-        //     elements: [
-        //       {
-        //         type: 'button',
-        //         text: {
-        //           type: 'plain_text',
-        //           text: 'Subscribe Now',
-        //           emoji: true,
-        //         },
-        //         value: 'click_me_123',
-        //         url: 'https://google.com',
-        //         style: 'primary',
-        //         action_id: 'actionId-0',
-        //       },
-        //     ],
-        //   },
       ],
     }
-
-    return this.postToSlack(data)
+    const url = process.env.SLACK_POST_WEBHOOK
+    return this.postToSlack(url, block)
   }
 
-  sendJobSlack(job) {
-    //   const data = {
-    //     username: 'Job Notifier',
-    //     icon_emoji: ':bangbang:',
-    //   }
-    //   data.text = job.title
-    //   //   if (payload.resource) {
-    //   //     data.text = payload.resource.message
-    //   //   }
-    //   data.attachments = []
-    //   data.attachments = [
-    //     {
-    //       color: '#eed140',
-
-    //       fields: [
-    //         {
-    //           title: 'Environment',
-    //           value: 'Development',
-    //           short: true,
-    //         },
-    //         {
-    //           title: 'StackTrace',
-    //           value: payload.fileName,
-    //           short: true,
-    //         },
-    //       ],
-    //     },
-    //   ]
-
+  static sendJobSlack(job) {
     const block = {
+      username: 'New-Articles',
+      icon_emoji: ':bangbang:',
+      text: job.title,
       blocks: [
         {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: `</jobs/${job.slug} |* ${job.title} *>`,
+            text: `<${process.env.BASE_URL}/jobs/${job.slug} |* ${job.title}*>`,
           },
         },
         {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: job.description,
+            text: '@channel \n\n' + job.description,
           },
           accessory: {
             type: 'button',
@@ -172,7 +114,7 @@ class Slack {
             },
             value: 'click_me_123',
             style: 'primary',
-            url: `/jobs/${job.slug}`,
+            url: `${process.env.BASE_URL}/jobs/${job.slug}`,
             action_id: 'button-action',
           },
         },
@@ -199,14 +141,14 @@ class Slack {
         },
       ],
     }
-
-    return this.postToSlack(data)
+    const url = process.env.SLACK_JOB_WEBHOOK
+    return this.postToSlack(url, block)
   }
 
-  postToSlack(message) {
-    axios
+  static postToSlack(url, message) {
+    return axios
       .post(url, JSON.stringify(message))
-      .then((result) => console.log(result))
+      .then((result) => result.data)
       .catch((error) => console.log(error))
   }
 }

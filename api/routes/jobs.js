@@ -38,4 +38,9 @@ router.get('/jobs/dispatch', async function (req, res) {
   return res.json(data)
 })
 
+router.get('/posts/dispatch', async function (req, res) {
+  const data = await Slack.dispatchPost()
+  return res.json(data)
+})
+
 module.exports = router

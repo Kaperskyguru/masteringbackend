@@ -63,5 +63,24 @@ class DB {
       )
     })
   }
+
+  static async updateJob(job) {
+    return new Promise(function (resolve, reject) {
+      request.post(
+        {
+          url: process.env.BASE_ENDPOINT_URL + '/update_job?id=' + job.id,
+          json: true,
+          dataType: 'jsonp',
+        },
+        function (err, httpResponse, body) {
+          if (err) {
+            // console.log(err)
+            reject(err)
+          }
+          resolve(body)
+        }
+      )
+    })
+  }
 }
 export default DB

@@ -1,11 +1,14 @@
 <template>
-  <img
-    data-not-lazy
-    src="/img/logo300.png"
-    alt="masteringbackend Logo"
-    class="img-fluid NuxtLogo"
-    :class="{ size: small }"
-  />
+  <span>
+    <img
+      data-not-lazy
+      src="/img/logo.png"
+      alt="masteringbackend Logo"
+      class="img-fluid NuxtLogo"
+      :class="{ size: small }"
+    />
+    <!-- Mastering Backend -->
+  </span>
 </template>
 
 <script>
