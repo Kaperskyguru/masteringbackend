@@ -72,7 +72,7 @@ export default {
   computed: {
     image() {
       if (this.post) {
-        if (this.post.thumbnail_images && this.post.thumbnail) {
+        if (this.post.thumbnail_images) {
           return this.post.thumbnail_images.full.url
         }
       }
