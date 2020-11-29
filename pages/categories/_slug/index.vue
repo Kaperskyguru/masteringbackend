@@ -4,16 +4,26 @@
       <div class="container inner-padding-top">
         <div class="row">
           <Title>
-            <template slot="title">Author: {{ posts[0].author.name }}</template>
+            <template slot="title"
+              >{{ 'Latest ' + $route.params.slug + ' Articles' }}
+            </template>
             <template slot="subtitle">
-              Latest Backend Dev. Articles curated daily by
-              {{ posts[0].author.name }}.
+              Latest {{ $route.params.slug }} Articles curated daily by the
+              community.
             </template>
           </Title>
         </div>
         <!-- first card -->
-        <div class="row mt-5">
+        <div v-if="posts.length !== 0" class="row mt-5">
+          <!-- <span v-if="apiStateLoaded"> -->
           <Post v-for="(post, i) in posts" :key="i" :post="post" />
+          <!-- </span> -->
+          <!-- <span v-if="apiStateError"> -->
+          <!-- Loading Post -->
+          <!-- </span> -->
+        </div>
+        <div v-else class="row mt-5">
+          <p class="text-center">No post found</p>
         </div>
       </div>
     </div>
@@ -22,6 +32,7 @@
       class="col-md-12 col-sm-12-col-xs-12 text-center mb-5"
     >
       <!-- Load more articles here -->
+      <!-- <Button link="/posts">More Articles</Button> -->
       <div class="text-center">
         <vue-paginate
           :page-count="post_count"
@@ -45,64 +56,85 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import ENUM from '@/enums'
 import Loading from '~/components/Loading'
 export default {
-  async asyncData({ params, store, query }) {
-    const getPosts = store.getters['post/getPostsByAuthor']
-    let posts = getPosts(params.slug)
-    if (!posts.length) {
-      const data = {}
-      data.page = query.page ? query.page : 1
-      await store.dispatch('post/getPosts', data)
-      const getPosts = store.getters['post/getPostsByAuthor']
-      posts = getPosts(params.slug)
-    }
-
-    return { posts }
+  async asyncData({ store, query, params }) {
+    try {
+      const getPosts = store.getters['post/getCategoryPosts']
+      const posts = getPosts()
+      if (!posts.length) {
+        const data = {}
+        data.page = query.page ? query.page : 1
+        data.slug = params.slug || 'backend'
+        await store.dispatch('post/getCategoryPosts', data)
+      }
+    } catch (error) {}
   },
   components: {
     Loading,
   },
   data() {
     return {
-      author: '',
+      show: false,
     }
+  },
+  computed: {
+    ...mapState({
+      posts: (state) => {
+        return [...state.post.category_posts]
+      },
+      post_count: (state) => {
+        return state.post.total_post_pages
+      },
+      apiStateLoaded: (state) => {
+        return state.post.postState === ENUM.LOADED
+      },
+      apiStateLoading: (state) => {
+        return (
+          state.post.postState === ENUM.LOADING ||
+          state.post.postState === ENUM.INIT
+        )
+      },
+      apiStateError: (state) => {
+        return state.post.postState === ENUM.ERROR
+      },
+    }),
   },
   methods: {
     async getPaginatedPosts(page) {
       this.show = true
-      this.$router.push('/posts?page=' + page)
+      this.$router.push('/categories/backend?page=' + page)
       const data = {}
       data.page = page
       data.count = 12
-      await this.$store.dispatch('post/getPosts', data)
+      data.slug = this.$route.params.slug || 'backend'
+      await this.$store.dispatch('post/getCategoryPosts', data)
       this.show = false
     },
   },
   head() {
     return {
-      title: this.posts[0].author.name,
+      title: 'Posts',
       meta: [
         {
           hid: 'description',
           name: 'description',
           content:
-            'latest backend development articles curated by ' +
-            this.posts[0].author.name,
+            'weekly backend development articles curated by backend developers',
         },
         {
           hid: 'og:title',
           property: 'og:title',
           content:
-            'latest backend development articles curated by ' +
-            this.posts[0].author.name,
+            'weekly backend development articles curated by the community',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'latest backend development articles curated by ' +
-            this.posts[0].author.name,
+            'weekly backend development articles curated by the community',
         },
         {
           hid: 'twitter:card',
@@ -112,11 +144,6 @@ export default {
       ],
     }
   },
-  // beforeRouteEnter(to, from, next) {
-  //   next((vm) => {
-  //     vm.author = to.params.slug
-  //   })
-  // },
 }
 </script>
 

@@ -20,14 +20,4 @@ export const actions = {
     const res = await SlackInviter.invite(payload)
     commit('STORE_SLACK', res)
   },
-
-  // async nuxtServerInit({ dispatch }) {
-  // try {
-  // await dispatch('post/getPosts')
-  // await dispatch('stream/getCompletedStreams')
-  // await dispatch('stream/getUpcomingStreams')
-  // await dispatch('job/getDiveJobs')
-  // await dispatch('event/getMeetupEvents')
-  // } catch (error) {}
-  // },
 }

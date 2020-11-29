@@ -13,6 +13,8 @@ export const state = () => ({
   total_post_pages: 0,
   recent_posts: [],
   category_posts: [],
+  sticky_posts: [],
+  related_posts: [],
 })
 
 export const getters = {
@@ -36,8 +38,15 @@ export const getters = {
     return state.category_posts
   },
 
+  getRelatedPosts: (state) => () => {
+    return state.related_posts
+  },
+
   getPostsByAuthor: (state) => (author) => {
     return state.posts.filter((post) => post.author.slug === author)
+  },
+  getStickyPosts: (state) => () => {
+    return state.sticky_posts
   },
 }
 
@@ -52,12 +61,22 @@ export const mutations = {
     state.total_post_pages = data.pages
     state.postState = ENUM.LOADED
   },
+  setStickyPosts(state, data) {
+    state.sticky_posts = data.posts
+    state.postState = ENUM.LOADED
+  },
   setPost(state, post) {
     state.post = post
   },
 
   setCategoryPosts(state, data) {
-    state.recent_posts = data.posts
+    state.category_posts = data.posts
+    state.total_post_pages = data.pages
+    state.postState = ENUM.LOADED
+  },
+
+  setRelatedPosts(state, data) {
+    state.related_posts = data.posts
     state.total_post_pages = data.pages
     state.postState = ENUM.LOADED
   },
@@ -117,10 +136,42 @@ export const actions = {
     }
   },
 
-  async getCategoryPosts({ commit }, slug) {
+  async getStickyPosts({ commit }) {
     try {
       const response = await fetch(
-        `${process.env.BASE_ENDPOINT_URL}/get_category_posts?slug=${slug}`
+        `${process.env.BASE_ENDPOINT_URL}/get_sticky_posts`
+      )
+
+      const data = await response.json()
+      if (data.posts) {
+        commit('setStickyPosts', data)
+      }
+      return data.posts
+    } catch (error) {
+      commit('setPostState', ENUM.ERROR)
+    }
+  },
+
+  async getRelatedPosts({ commit }, postId) {
+    try {
+      const response = await fetch(
+        `${process.env.BASE_ENDPOINT_URL}/get_related_posts?post_id=${postId}&count=3`
+      )
+
+      const data = await response.json()
+      if (data.posts) {
+        commit('setRelatedPosts', data)
+      }
+      return data.posts
+    } catch (error) {
+      commit('setPostState', ENUM.ERROR)
+    }
+  },
+
+  async getCategoryPosts({ commit }, { page, slug }) {
+    try {
+      const response = await fetch(
+        `${process.env.BASE_ENDPOINT_URL}/get_category_posts?slug=${slug}&page=${page}`
       )
 
       const data = await response.json()
@@ -141,8 +192,6 @@ export const actions = {
       const data = await response.json()
       if (data.post) {
         commit('setPost', data.post)
-        // } else {
-        //   commit('setPostState', ENUM.ERROR)
       }
       return data.post
     } catch (error) {

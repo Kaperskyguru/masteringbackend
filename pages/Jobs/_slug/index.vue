@@ -6,20 +6,18 @@
         <div class="container-fluid inner-padding-top pl-md-5 pr-md-5">
           <div class="row">
             <div class="col-md-8 mb-3">
-              <SinglePost v-if="post" :post="post" />
-              <p v-else class="text-center">Post not found</p>
+              <SingleJob v-if="job" :job="job" />
+              <p v-else class="text-center">Job not found</p>
 
-              <RelatedPosts :posts="related_posts" />
-
-              <div class="mt-5 card p-3">
+              <!-- <div class="mt-5 card p-3">
                 <h2>Comments</h2>
                 <div class="card-line"></div>
                 <div class="row">
                   <div class="col-md-12">
-                    <Comments v-if="post" />
+                    <Comments v-if="job" />
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="col-md-4">
               <div class="card-deck">
@@ -49,13 +47,13 @@ import { sortDesc } from '~/helpers/helpers'
 export default {
   async asyncData({ params, store }) {
     try {
-      const getPost = await store.getters['post/getPost']
-      let post = await getPost(params.slug)
-      if (post === undefined) {
-        post = await store.dispatch('post/getPost', params.slug)
-      }
+      const getJob = store.getters['job/getJob']
+      let job = getJob(params.slug)
 
-      return { post }
+      if (job === undefined) {
+        job = await store.dispatch('job/getJob', params.slug)
+      }
+      return { job }
     } catch (error) {
       console.log(error, 'error')
     }
@@ -80,27 +78,16 @@ export default {
         return [...state.post.related_posts].slice(0, 3)
       },
     }),
-    image() {
-      if (this.post) {
-        if (this.post.thumbnail_images) {
-          return this.post.thumbnail_images.full.url
-        }
-      }
-      return '/img/default_banner.webp'
-    },
   },
   mounted() {
     this.dispatchStickyPostsAction()
     this.dispatchRecentPostsAction()
-    if (this.post) this.dispatchRelatedPostsAction(this.post.id)
   },
   methods: {
     async dispatchStickyPostsAction() {
       try {
         const getPosts = this.$store.getters['post/getStickyPosts']
-
         const stickyPosts = getPosts()
-
         if (!stickyPosts.length) {
           await this.$store.dispatch('post/getStickyPosts')
         }
@@ -112,9 +99,7 @@ export default {
     async dispatchRecentPostsAction() {
       try {
         const getRecentPosts = this.$store.getters['post/getRecentPosts']
-
         const recentPosts = getRecentPosts()
-
         if (!recentPosts.length) {
           await this.$store.dispatch('post/getRecentPosts')
         }
@@ -122,50 +107,11 @@ export default {
         console.log(error, 'error')
       }
     },
-
-    async dispatchRelatedPostsAction(id) {
-      try {
-        await this.$store.dispatch('post/getRelatedPosts', id)
-      } catch (error) {
-        console.log(error, 'error')
-      }
-    },
-  },
-
-  jsonld() {
-    if (this.post !== undefined) {
-      return {
-        '@context': 'http://schema.org',
-        '@graph': [
-          {
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                item: {
-                  '@id': process.env.BASE_URL + '/posts/' + this.$route.path,
-                  name: this.$route.path,
-                },
-              },
-            ],
-          },
-          {
-            '@type': 'NewsArticle',
-            headline: this.post.title,
-            image: [this.image],
-            datePublished: this.post.date,
-            dateModified: this.post.modified,
-            description: this.post.excerpt,
-          },
-        ],
-      }
-    } else return {}
   },
   head() {
-    if (this.post !== undefined) {
+    if (this.job)
       return {
-        title: `${this.post.title}`,
+        title: `${this.job.title}`,
         meta: [
           {
             hid: 'keywords',
@@ -175,20 +121,19 @@ export default {
           {
             hid: 'description',
             name: 'description',
-            content: `${this.post.excerpt}`,
+            content: `${this.job.description}`,
           },
 
-          { hid: 'og:title', property: 'og:title', content: this.post.title },
+          { hid: 'og:title', property: 'og:title', content: this.job.title },
           {
             hid: 'og:description',
             property: 'og:description',
-            content: this.post.excerpt,
+            content: this.job.description,
           },
-          { hid: 'og:image', property: 'og:image', content: this.image },
           {
             hid: 'og:url',
             property: 'og:url',
-            content: `${process.env.BASE_URL}/posts/${this.post.slug}`,
+            content: `${process.env.BASE_URL}/jobs/${this.job.slug}`,
           },
           {
             hid: 'og:image:width',
@@ -201,28 +146,12 @@ export default {
             content: '800',
           },
           {
-            hid: 'og:type',
-            property: 'og:type',
-            content: 'article',
-          },
-          {
-            hid: 'article:published_time',
-            property: 'article:published_time',
-            content: this.post.date,
-          },
-          {
-            hid: 'article:modified_time',
-            property: 'article:modified_time',
-            content: this.post.modified,
-          },
-          {
             hid: 'twitter:card',
             name: 'twitter:card',
             content: 'summary_large_image',
           },
         ],
       }
-    }
   },
   beforeRouteEnter(to, from, next) {
     next((vm) => {
@@ -240,5 +169,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

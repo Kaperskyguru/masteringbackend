@@ -1,17 +1,37 @@
-const strtotime = require('locutus/php/datetime/strtotime')
+// const strtotime = require('locutus/php/datetime/strtotime')
 
 export function jobResolver(jobs) {
   const resolvedJob = jobs.map((job) => {
     const resolvedJob = {}
-    resolvedJob.title = job.titleText
-    resolvedJob.website = job.titleURLHost
-    resolvedJob.description = job.titleDesc
-    resolvedJob.url = job.titleURL
-    resolvedJob.company = job.titleCompany
-    resolvedJob.date = strtotime(job.titleDate)
+    resolvedJob.id = job.id
+    resolvedJob.title = job.title
+    resolvedJob.website = job.website
+    resolvedJob.description = job.description
+    resolvedJob.url = job.url
+    resolvedJob.company = job.company
+    resolvedJob.date = job.date
+    resolvedJob.slug = job.slug
+    resolvedJob.created_at = job.created_at
+    resolvedJob.location = job.location
+    resolvedJob.languages = job.languages
     return resolvedJob
   })
   return resolvedJob
+}
+
+export function dbJobResolver(jobs) {
+  return jobs.map((job) => {
+    const resolvedJob = {}
+    resolvedJob.title = job.titleText
+    resolvedJob.date = job.titleDate
+    resolvedJob.description = job.titleDesc
+    resolvedJob.website = job.titleURLHost
+    resolvedJob.url = job.titleURL.split('?')[0]
+    resolvedJob.company = job.titleCompany
+    resolvedJob.location = job.titleLocation
+    resolvedJob.languages = job.titleLang
+    return resolvedJob
+  })
 }
 
 export function sortDesc(arr) {

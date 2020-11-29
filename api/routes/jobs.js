@@ -1,25 +1,46 @@
 import DiceJobs from '../services/scrappers/dice-scrapper'
+import GithubJobs from '../services/scrappers/githubjobs-scrapper'
+import StackoverflowJobs from '../services/scrappers/stackoverflow-scrapper'
+import LinkedinJobs from '../services/scrappers/linkedin-scrapper'
+import Slack from '../services/Slack'
 const { Router } = require('express')
 
 const router = Router()
 
-// Mock jobs
-let jobs = []
-
-/* GET jobs listing. */
-router.get('/jobs', function (req, res, next) {
-  jobs = DiceJobs.getDiveJobs()
-  res.json(jobs)
+router.get('/jobs/scrape/github', async function (req, res) {
+  const data = await GithubJobs.scrape()
+  return res.json(data)
 })
 
-/* GET user by ID. */
-router.get('/jobs/:id', function (req, res, next) {
-  const id = parseInt(req.params.id)
-  if (id >= 0 && id < jobs.length) {
-    res.json(jobs[id])
-  } else {
-    res.sendStatus(404)
-  }
+router.get('/jobs/scrape/stackoverflow', async function (req, res) {
+  const data = await StackoverflowJobs.scrape()
+  return res.json(data)
+})
+
+router.get('/jobs/scrape/dive', async function (req, res) {
+  const data = await DiceJobs.scrape()
+  return res.json(data)
+})
+
+router.get('/jobs/scrape/all', async function (req, res) {
+  const dice = await DiceJobs.scrape()
+  const stackoverflow = await StackoverflowJobs.scrape()
+  const github = await GithubJobs.scrape()
+  return res.json({
+    githubJobs: github,
+    stackoverflow: stackoverflow,
+    dice: dice,
+  })
+})
+
+router.get('/jobs/dispatch', async function (req, res) {
+  const data = await Slack.dispatchJob()
+  return res.json(data)
+})
+
+router.get('/posts/dispatch', async function (req, res) {
+  const data = await Slack.dispatchPost()
+  return res.json(data)
 })
 
 module.exports = router

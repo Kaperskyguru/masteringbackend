@@ -13,7 +13,7 @@
           <h5 class="footer-header mb-4">General</h5>
           <ul class="footer-link list-unstyled">
             <li><nuxt-link to="/posts">Articles</nuxt-link></li>
-            <li><nuxt-link to="#">Jobs</nuxt-link></li>
+            <li><nuxt-link to="/jobs">Jobs</nuxt-link></li>
             <li><nuxt-link to="#">Events</nuxt-link></li>
             <li><nuxt-link to="/slack">Community</nuxt-link></li>
           </ul>
@@ -29,7 +29,6 @@
         <div class="col-md-2">
           <h5 class="footer-header mb-4">Ecosystem Links</h5>
           <ul class="footer-link list-unstyled">
-            <!-- <li><nuxt-link to="#">Parent Company</nuxt-link></li> -->
             <li>
               <a href="https://about.me/solomoneseme">Hire Me</a>
             </li>
@@ -68,7 +67,9 @@
             <ul>
               <nuxt-link to="#">Terms and Conditions</nuxt-link>
               |&nbsp;
-              <nuxt-link to="#">Privacy</nuxt-link>
+              <nuxt-link to="/privacy-policy">Privacy</nuxt-link>
+              |&nbsp;
+              <nuxt-link to="/disclaimer">Disclaimer</nuxt-link>
             </ul>
           </div>
           <div class="col-md-4">

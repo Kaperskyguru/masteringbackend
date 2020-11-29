@@ -11,6 +11,16 @@ export default {
   // beforeRouteEnter(to, from, next) {
   //   console.log(from, to)
   // },
+  head() {
+    return {
+      link: [
+        {
+          rel: 'canonical',
+          href: process.env.BASE_URL + this.$route.path,
+        },
+      ],
+    }
+  },
 }
 </script>
 

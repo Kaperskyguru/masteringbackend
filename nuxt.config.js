@@ -25,6 +25,52 @@ export default {
    */
   head: {
     titleTemplate: '%s - Mastering Backend Development',
+    script: [
+      {
+        type: 'application/ld+json',
+        json: {
+          '@context': 'http://schema.org',
+          '@graph': [
+            {
+              '@type': 'WebPage',
+              author: { '@id': '#identity' },
+              copyrightHolder: { '@id': '#identity' },
+              copyrightYear: new Date(),
+              creator: { '@id': '#creator' },
+              dateModified: new Date(),
+              datePublished: '2019-06-06T10:10:00-07:00',
+              description:
+                'The ultimate backend development blog for backend developers and engineers.',
+              headline: 'Mastering Backend Development',
+              image: {
+                '@type': 'ImageObject',
+                url: '/img/logo.png',
+              },
+              inLanguage: 'en-us',
+              mainEntityOfPage: 'https://masteringbackend.com/',
+              name: 'Mastering Backend development',
+              publisher: { '@id': '#creator' },
+              url: 'https://masteringbackend.com',
+            },
+            { '@id': '#identity', '@type': 'LocalBusiness', priceRange: '$' },
+            { '@id': '#creator', '@type': 'Organization' },
+            {
+              '@type': 'BreadcrumbList',
+              description: 'Breadcrumbs list',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  item: 'https://masteringbackend.com/',
+                  name: 'Homepage',
+                  position: 1,
+                },
+              ],
+              name: 'Breadcrumbs',
+            },
+          ],
+        },
+      },
+    ],
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -48,9 +94,24 @@ export default {
           'The ultimate backend development blog for backend developers and engineers.',
       },
       {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: 'Mastering Backend',
+      },
+      {
         hid: 'og:image',
         property: 'og:image',
         content: '/img/logo300.png',
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@officialbackend',
+      },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@officialbackend',
       },
       {
         hid: 'keywords',
@@ -165,16 +226,18 @@ export default {
    */
   css: [
     '~/assets/css/main.css',
-    { src: '~/node_modules/highlight.js/styles/hopscotch.css', lang: 'css' },
+    // { src: '~/node_modules/highlight.js/styles/hopscotch.css', lang: 'css' },
   ],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
+    '~/plugins/jsonld',
     // { src: '~/plugins/vue-full-loading', ssr: false },
     { src: '~/plugins/vue-pagination', ssr: false },
     { src: '~/plugins/disqus', ssr: false },
+
     // { src: '~/plugins/localStorage', ssr: false },
     { src: '~/plugins/countDown', ssr: false },
     // { src: '~/plugins/webWorker.js', ssr: false },
@@ -193,13 +256,17 @@ export default {
     '@nuxtjs/moment',
     '@nuxtjs/dotenv',
     'nuxt-goodshare',
-    [
-      '@nuxtjs/google-analytics',
-      {
-        id: process.env.GOOGLE_ANALYTICS_ID,
-      },
-    ],
+    // '@nuxtjs/google-analytics',
   ],
+
+  // googleAnalytics: {
+  //   id: 'UA-83271368-6',
+  //   // checkDuplicatedScript: true,
+  //   // dev: true,
+  //   debug: {
+  //     sendHitTask: process.env.NODE_ENV === 'development',
+  //   },
+  // },
   /*
    ** Nuxt.js modules
    */
@@ -212,7 +279,9 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    // '@nuxtjs/markdownit',
+    // '@nuxtjs/gtm',
+    '@nuxtjs/redirect-module',
+
     [
       'nuxt-highlightjs',
       {
@@ -222,10 +291,29 @@ export default {
     ],
     'vue-social-sharing/nuxt',
   ],
-  // markdownit: {
-  //   injected: true,
-  //   use: ['markdown-it-highlightjs'],
+  // gtm: {
+  //   enabled: true,
+  //   id: 'GTM-W6VP4LG', // Used as fallback if no runtime config is provided
   // },
+
+  // publicRuntimeConfig: {
+  //   gtm: {
+  //     id: process.env.GOOGLE_ANALYTICS_ID,
+  //   },
+  // },
+  redirect: [
+    // Redirect options here
+    {
+      from: '^/posts/introduction-to-backend-development?id=36',
+      to: '/posts/getting-started-with-backend-development',
+      statusCode: 301,
+    },
+    {
+      from: '^/category/*',
+      to: '/categories/*',
+      statusCode: 301,
+    },
+  ],
   feed: [
     {
       path: '/feed.xml', // The route to your feed.
@@ -245,6 +333,7 @@ export default {
             description: post.excerpt,
             content: post.content,
             date: new Date(post.date),
+            updated: new Date(post.modified),
             author: {
               name: post.author.name,
               link: 'https://masteringbackend.com/authors/' + post.author.slug,

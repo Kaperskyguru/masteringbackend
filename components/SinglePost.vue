@@ -1,12 +1,7 @@
 <template>
   <div class="card single">
     <figure class="block-image is-resized pl-3 pr-3 pt-3">
-      <img
-        v-lazy-load
-        :data-src="image"
-        class="card-img-top"
-        :alt="post.title"
-      />
+      <img data-not-lazy :src="image" class="card-img-top" :alt="post.title" />
     </figure>
 
     <div class="tags absolute">
@@ -19,7 +14,7 @@
       </nuxt-link>
     </div>
 
-    <div class="card-head p-3 d-flex">
+    <div class="card-head pl-3 pr-3 pt-3 d-flex">
       <a href="#">
         <div class="author d-flex pr-3">
           <div class="author profile mr-2"></div>
@@ -42,8 +37,13 @@
       </div>
     </div>
     <div class="card-body">
+      <div class="social-share mb-4">
+        <vue-goodshare />
+      </div>
       <h1 class="title">{{ post.title || '' }}</h1>
       <article v-highlight class="card-text" v-html="post.content"></article>
+      <div class="card-line"></div>
+      <inline-newsletter />
       <div class="card-line"></div>
       <h2 class="p-2">Sharing is caring :)</h2>
       <div class="social-share mb-4">
@@ -61,8 +61,17 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import InlineNewsletter from './InlineNewsletter.vue'
+
 export default {
+  // components: { InlineNewsletter },
   name: 'SinglePost',
+  data() {
+    return {
+      data: {},
+    }
+  },
   props: {
     post: {
       type: [Object, Array],
@@ -78,6 +87,64 @@ export default {
       }
       return '/img/default_banner.webp'
     },
+  },
+
+  methods: {
+    displayNewsletterLaravel() {
+      const newsletterLaravel = document.querySelectorAll('.newsletter-laravel')
+      const newsletterNode = document.querySelectorAll('.newsletter-node')
+
+      if (newsletterNode) {
+        this.data.title = 'Get free NODEJS tips straight to your inbox!'
+        this.data.subtitle =
+          'Get my free 10 NODEJS tips that make you more productive.'
+        this.data.tags = ['Node Tips']
+        newsletterNode.forEach((newsletter) => {
+          this.createNewsletter(newsletter, this.data)
+        })
+      }
+
+      if (newsletterLaravel) {
+        this.data.title = 'Get free LARAVEL tips straight to your inbox!'
+        this.data.subtitle =
+          'Get my free 10 LARAVEL tips that make you more productive.'
+        this.data.tags = ['Laravel Tips']
+        newsletterLaravel.forEach((newsletter) => {
+          this.createNewsletter(newsletter, this.data)
+        })
+      }
+    },
+
+    createNewsletter(newsletter, data = {}) {
+      if (newsletter != null) {
+        const mountNode = document.createElement('div')
+        mountNode.id = 'mount-node'
+        newsletter.appendChild(mountNode)
+        const ToastComp = Vue.extend(InlineNewsletter)
+        if (Object.keys(data).length !== 0) {
+          new ToastComp({
+            propsData: {
+              title: data.title,
+              subtitle: data.subtitle,
+              tags: data.tags,
+            },
+          }).$mount('#mount-node')
+        } else {
+          new ToastComp().$mount('#mount-node')
+        }
+      }
+    },
+
+    displayNewsletterBackend() {
+      const newsletters = document.querySelectorAll('.article-newsletter')
+      newsletters.forEach((newsletter) => {
+        this.createNewsletter(newsletter)
+      })
+    },
+  },
+  mounted() {
+    this.displayNewsletterBackend()
+    this.displayNewsletterLaravel()
   },
 }
 </script>
@@ -97,8 +164,8 @@ export default {
 .card-text h4,
 .card-text h5,
 .card-text h6 {
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  padding-bottom: 0.8rem;
+  padding-top: 0.8rem;
 }
 
 .card-text ul {

@@ -20,6 +20,14 @@
           <Button class="col m-1" link="/posts">Articles</Button>
           <Button class="col m-1" link="/slack">Community</Button>
         </div>
+        <div class="mt-4 row">
+          <Button
+            class="col d-md-none m-1"
+            link="posts/getting-started-with-backend-development"
+          >
+            Start Backend Dev. Today</Button
+          >
+        </div>
       </div>
     </div>
   </section>

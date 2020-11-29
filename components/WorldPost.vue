@@ -25,7 +25,7 @@
             {{ $moment(post.date).format('MMMM Do YYYY') }}
           </small>
         </p>
-        <p v-html="getPostExcerpt(post.content, 100)"></p>
+        <!-- <p v-html="getPostExcerpt(post.content, 100)"></p> -->
       </div>
     </div>
   </div>
@@ -73,5 +73,15 @@ export default {
 .card-img-top {
   width: 100%;
   height: 100%;
+}
+
+.card .title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+.card {
+  height: 400px;
 }
 </style>

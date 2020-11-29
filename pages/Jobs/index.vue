@@ -1,7 +1,7 @@
 <template>
   <section class="main">
     <div class="padding-top grey-color">
-      <div class="container inner-padding-top">
+      <div class="container-fluid pl-md-5 pr-md-5 inner-padding-top">
         <div class="row">
           <Title>
             <template slot="title">Latest Backend Dev. Careers</template>
@@ -27,48 +27,36 @@
       </div>
     </div>
     <div class="col-md-12 col-sm-12-col-xs-12 text-center mb-5">
-      <nav aria-label="Page navigation example">
-        <ul class="pagination" style="justify-content: space-evenly">
-          <div class="prev">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">Previous</a>
-            </li>
-          </div>
-          <li class="page-item active">
-            <a class="page-link" href="job.html">1</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="page-two.html">2</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="page-three.html">3</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="page-four.html">4</a>
-          </li>
-          <div class="next">
-            <li class="page-item">
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </div>
-        </ul>
-      </nav>
+      <div class="text-center">
+        <vue-paginate
+          :page-count="job_count"
+          :page-range="5"
+          :margin-pages="2"
+          :prev-text="'Prev'"
+          :next-text="'Next'"
+          :container-class="'pagination pagination-lg justify-content-center'"
+          :page-class="'page-item'"
+          :page-link-class="'page-link'"
+          :prev-link-class="'page-link'"
+          :next-link-class="'page-link'"
+          :click-handler="getPaginatedJobs"
+          :value="$route.query.page ? Number($route.query.page) : 1"
+        >
+        </vue-paginate>
+      </div>
     </div>
     <loading :show="show" />
   </section>
 </template>
 
 <script>
-// import { mapState } from 'vuex'
-// import { sortDesc } from '~/helpers/helpers'
+import { mapState } from 'vuex'
+import { sortDesc } from '~/helpers/helpers'
 export default {
   async asyncData({ store }) {
-    console.log('ajasjash')
     const getJobs = store.getters['job/getJobs']
     const jobs = getJobs()
-    if (!jobs.length) await store.dispatch('job/getDiveJobs')
-
-    return { jobs }
+    if (!jobs.length) await store.dispatch('job/getJobs')
   },
   data() {
     return {
@@ -76,11 +64,25 @@ export default {
     }
   },
   computed: {
-    // ...mapState({
-    //   jobs: (state) => {
-    //     return sortDesc([...state.job.jobs])
-    //   },
-    // }),
+    ...mapState({
+      jobs: (state) => {
+        return sortDesc([...state.job.jobs])
+      },
+      job_count: (state) => {
+        return state.job.total_jobs
+      },
+    }),
+  },
+  methods: {
+    async getPaginatedJobs(page) {
+      this.show = true
+      this.$router.push('/posts?page=' + page)
+      const data = {}
+      data.page = page
+      data.count = 12
+      await this.$store.dispatch('post/getPosts', data)
+      this.show = false
+    },
   },
   head() {
     return {
@@ -89,17 +91,17 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'weekly backend development jobs curated by the community',
+          content: 'Weekly backend development jobs curated by the community',
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'weekly backend development jobs curated by the community',
+          content: 'Weekly backend development jobs curated by the community',
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'weekly backend development jobs curated by the community',
+          content: 'Weekly backend development jobs curated by the community',
         },
         {
           hid: 'twitter:card',

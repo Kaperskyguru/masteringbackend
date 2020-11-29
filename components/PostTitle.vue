@@ -14,6 +14,7 @@
     </div>
     <div class="recent-post-title">
       <time
+        v-if="show_date"
         class="text-muted font-italic"
         :datetime="$moment(post.date).format('MMMM Do YYYY')"
         >{{ $moment(post.date).format('MMMM Do YYYY') }}</time
@@ -34,11 +35,15 @@ export default {
       type: [Array, Object],
       default: () => [],
     },
+    show_date: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     image() {
       if (this.post) {
-        if (this.post.thumbnail_images && this.post.thumbnail) {
+        if (this.post.thumbnail_images) {
           return this.post.thumbnail_images.full.url
         }
       }
@@ -61,18 +66,18 @@ export default {
 }
 
 .recent-img {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: none;
 }
 .recent-img img {
-  /* background-size: cover; */
-  width: 100%;
-  height: 100%;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  /* background-repeat: no-repeat; */
-  /* background-position: center center; */
+  background-repeat: no-repeat;
+  background-position: center center;
   z-index: 1;
 }
 </style>

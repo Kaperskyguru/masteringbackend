@@ -1,41 +1,33 @@
-import mailchimp from '@mailchimp/mailchimp_marketing'
+const Client = require('@mailchimp/mailchimp_marketing')
 import request from 'request'
 require('dotenv').config()
 
+let mailchimp
 class Mailchimp {
-  _init() {
-    mailchimp.setConfig({
+  constructor() {
+    Client.setConfig({
       apiKey: process.env.MAILCHIMP_KEY,
-      server: process.env.MAILCHIMP_SERVER,
-    })
-  }
-
-  static async getLists() {
-    console.log(process.env.MAILCHIMP_KEY)
-    mailchimp.setConfig({
-      apiKey:
-        process.env.MAILCHIMP_KEY || 'ec270c4ae2626a98b5f85955799e6a33-us17',
       server: process.env.MAILCHIMP_SERVER || 'us17',
     })
-    const response = await mailchimp.lists.getAllLists()
-    console.log(response)
   }
 
-  static async subscribe({ firstname, lastname, email }) {
-    this._init()
-    const url = `https://us17.api.mailchimp.com/3.0/`
+  async getLists() {
+    const response = await Client.lists.getListMergeFields(
+      process.env.MAILCHIMP_LIST_ID
+    )
+    return response
+  }
 
-    const data = []
-    data.LNAME = lastname || ''
-    data.FNAME = firstname || ''
-    data.EMAIL = email
-
-    const res = await fetch(url, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: data,
+  async subscribe(data) {
+    return await Client.lists.addListMember(process.env.MAILCHIMP_LIST_ID, {
+      email_address: data.email,
+      status: 'subscribed',
+      merge_fields: {
+        FNAME: data.firstname ? data.firstname : '',
+        LNAME: data.lastname ? data.lastname : '',
+      },
+      tags: data.tags ? data.tags : [],
     })
-    console.log(await res)
   }
 
   static sub({ firstname, lastname, email }) {
@@ -58,9 +50,9 @@ class Mailchimp {
           dataType: 'jsonp',
         },
         function (err, httpResponse, body) {
-          console.log(err, httpResponse, body)
+          // console.log(err, httpResponse, body)
           if (err) {
-            console.log(err)
+            // console.log(err)
             reject(err)
           }
           body = JSON.parse(body)
@@ -69,7 +61,7 @@ class Mailchimp {
               'Success! Check &ldquo; ' +
               email +
               ' &rdquo; for an invite from Slack.'
-            console.log(body)
+            // console.log(body)
             resolve(message)
           } else {
             // let { error } = body

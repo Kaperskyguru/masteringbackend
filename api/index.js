@@ -2,14 +2,23 @@ const express = require('express')
 
 // Create express instance
 const app = express()
-
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Methods', '*')
+  next()
+})
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+)
+app.use(express.json())
 // Require API routes
 const jobs = require('./routes/jobs')
-// const test = require('./routes/test')
+const mailchimp = require('./routes/mailchimp')
 
 // Import API Routes
 app.use(jobs)
-// app.use(test)
+app.use(mailchimp)
 
 // Export express app
 module.exports = app
