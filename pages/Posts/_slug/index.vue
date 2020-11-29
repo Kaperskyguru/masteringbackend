@@ -44,6 +44,7 @@
 </template>
 
 <script>
+require('dotenv').config()
 import { mapState } from 'vuex'
 import { sortDesc } from '~/helpers/helpers'
 export default {

@@ -9,6 +9,7 @@
 </template>
 
 <script>
+require('dotenv').config()
 import { mapState } from 'vuex'
 export default {
   // layout: 'index',

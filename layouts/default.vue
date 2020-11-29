@@ -7,6 +7,7 @@
 </template>
 
 <script>
+require('dotenv').config()
 export default {
   // beforeRouteEnter(to, from, next) {
   //   console.log(from, to)
