@@ -9,8 +9,8 @@
 </template>
 
 <script>
-require('dotenv').config()
 import { mapState } from 'vuex'
+require('dotenv').config()
 export default {
   // layout: 'index',
   async asyncData({ store }) {
