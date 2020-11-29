@@ -11,7 +11,7 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  layout: 'index',
+  // layout: 'index',
   async asyncData({ store }) {
     try {
       const getPosts = store.getters['post/getStickyPosts']
@@ -21,6 +21,45 @@ export default {
       }
     } catch (error) {
       console.log(error, 'error')
+    }
+  },
+
+  data() {
+    return {
+      breadcrumbs: [
+        {
+          url: '/',
+          text: 'Homepage',
+        },
+        {
+          url: '/posts',
+          text: 'post',
+        },
+        {
+          url: '/jobs',
+          text: 'jobs',
+        },
+        {
+          url: '/slack',
+          text: 'slack',
+        },
+      ],
+    }
+  },
+
+  jsonld() {
+    const items = this.breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@id': item.url,
+        name: item.text,
+      },
+    }))
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: items,
     }
   },
 

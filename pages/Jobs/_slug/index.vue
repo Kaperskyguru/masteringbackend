@@ -133,7 +133,17 @@ export default {
           {
             hid: 'og:url',
             property: 'og:url',
-            content: `/${this.job.slug}`,
+            content: `${process.env.BASE_URL}/jobs/${this.job.slug}`,
+          },
+          {
+            hid: 'og:image:width',
+            property: 'og:image:width',
+            content: '800',
+          },
+          {
+            hid: 'og:image:height',
+            property: 'og:image:height',
+            content: '800',
           },
           {
             hid: 'twitter:card',
@@ -159,5 +169,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

@@ -49,8 +49,8 @@ import { sortDesc } from '~/helpers/helpers'
 export default {
   async asyncData({ params, store }) {
     try {
-      const getPost = store.getters['post/getPost']
-      let post = getPost(params.slug)
+      const getPost = await store.getters['post/getPost']
+      let post = await getPost(params.slug)
       if (post === undefined) {
         post = await store.dispatch('post/getPost', params.slug)
       }
@@ -80,6 +80,14 @@ export default {
         return [...state.post.related_posts].slice(0, 3)
       },
     }),
+    image() {
+      if (this.post) {
+        if (this.post.thumbnail_images) {
+          return this.post.thumbnail_images.full.url
+        }
+      }
+      return '/img/default_banner.webp'
+    },
   },
   mounted() {
     this.dispatchStickyPostsAction()
@@ -123,8 +131,39 @@ export default {
       }
     },
   },
+
+  jsonld() {
+    if (this.post !== undefined) {
+      return {
+        '@context': 'http://schema.org',
+        '@graph': [
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                item: {
+                  '@id': process.env.BASE_URL + '/posts/' + this.$route.path,
+                  name: this.$route.path,
+                },
+              },
+            ],
+          },
+          {
+            '@type': 'NewsArticle',
+            headline: this.post.title,
+            image: [this.image],
+            datePublished: this.post.date,
+            dateModified: this.post.modified,
+            description: this.post.excerpt,
+          },
+        ],
+      }
+    } else return {}
+  },
   head() {
-    if (this.post)
+    if (this.post !== undefined) {
       return {
         title: `${this.post.title}`,
         meta: [
@@ -149,7 +188,32 @@ export default {
           {
             hid: 'og:url',
             property: 'og:url',
-            content: `/${this.post.slug}`,
+            content: `${process.env.BASE_URL}/posts/${this.post.slug}`,
+          },
+          {
+            hid: 'og:image:width',
+            property: 'og:image:width',
+            content: '800',
+          },
+          {
+            hid: 'og:image:height',
+            property: 'og:image:height',
+            content: '800',
+          },
+          {
+            hid: 'og:type',
+            property: 'og:type',
+            content: 'article',
+          },
+          {
+            hid: 'article:published_time',
+            property: 'article:published_time',
+            content: this.post.date,
+          },
+          {
+            hid: 'article:modified_time',
+            property: 'article:modified_time',
+            content: this.post.modified,
           },
           {
             hid: 'twitter:card',
@@ -158,6 +222,7 @@ export default {
           },
         ],
       }
+    }
   },
   beforeRouteEnter(to, from, next) {
     next((vm) => {
