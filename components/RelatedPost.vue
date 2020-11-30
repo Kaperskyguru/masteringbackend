@@ -2,18 +2,15 @@
   <div class="col-md-4 mb-3 col-sm-12">
     <div class="card similar-post">
       <div class="b-block">
-        <nuxt-link :to="{ path: '/posts/' + post.slug }">
+        <a :to="'/posts/' + post.slug">
           <img v-lazy-load :data-src="image" class="image" :alt="post.title" />
-        </nuxt-link>
+        </a>
       </div>
       <div class="card-body">
         <h6>
-          <nuxt-link
-            class="post-title font-weight-bold"
-            :to="{ path: '/posts/' + post.slug }"
-          >
+          <a class="post-title font-weight-bold" :href="'/posts/' + post.slug">
             {{ post.title || '' }}
-          </nuxt-link>
+          </a>
         </h6>
       </div>
     </div>

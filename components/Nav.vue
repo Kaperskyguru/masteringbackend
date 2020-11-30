@@ -41,10 +41,10 @@
                 <nuxt-link class="nav-link" to="#">Projects</nuxt-link>
               </li>
               <li class="nav-item quote-btn">
-                <nuxt-link
+                <a
                   class="nav-link qbtn"
                   to="/posts/getting-started-with-backend-development"
-                  >Start Backend Dev. Today</nuxt-link
+                  >Start Backend Dev. Today</a
                 >
               </li>
               <li class="nav-item quote-btn">
