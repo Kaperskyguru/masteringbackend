@@ -44,9 +44,9 @@
 </template>
 
 <script>
-require('dotenv').config()
 import { mapState } from 'vuex'
 import { sortDesc } from '~/helpers/helpers'
+require('dotenv').config()
 export default {
   async asyncData({ params, store }) {
     try {
@@ -145,7 +145,7 @@ export default {
                 '@type': 'ListItem',
                 position: 1,
                 item: {
-                  '@id': process.env.BASE_URL + '/posts/' + this.$route.path,
+                  '@id': process.env.BASE_URL + '/posts' + this.$route.path,
                   name: this.$route.path,
                 },
               },

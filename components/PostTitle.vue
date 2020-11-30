@@ -3,14 +3,14 @@
     class="d-flex justify-content-start align-items-center align-self-center clear"
   >
     <div class="recent-img mr-3">
-      <nuxt-link :to="{ path: '/posts/' + post.slug }">
+      <a :href="'/posts/' + post.slug">
         <img
           v-lazy-load
           :data-src="image"
           class="card-img-top"
           :alt="post.title"
         />
-      </nuxt-link>
+      </a>
     </div>
     <div class="recent-post-title">
       <time
@@ -20,9 +20,9 @@
         >{{ $moment(post.date).format('MMMM Do YYYY') }}</time
       >
       <h4>
-        <nuxt-link :to="{ path: '/posts/' + post.slug }">
+        <a :href="'/posts/' + post.slug">
           {{ post.title || '' }}
-        </nuxt-link>
+        </a>
       </h4>
     </div>
   </div>
