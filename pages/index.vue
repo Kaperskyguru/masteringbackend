@@ -48,21 +48,21 @@ export default {
     }
   },
 
-  jsonld() {
-    const items = this.breadcrumbs.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      item: {
-        '@id': item.url,
-        name: item.text,
-      },
-    }))
-    return {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: items,
-    }
-  },
+  // jsonld() {
+  //   const items = this.breadcrumbs.map((item, index) => ({
+  //     '@type': 'ListItem',
+  //     position: index + 1,
+  //     item: {
+  //       '@id': item.url,
+  //       name: item.text,
+  //     },
+  //   }))
+  //   return {
+  //     '@context': 'https://schema.org',
+  //     '@type': 'BreadcrumbList',
+  //     itemListElement: items,
+  //   }
+  // },
 
   async fetch() {
     try {
