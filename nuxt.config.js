@@ -304,13 +304,13 @@ export default {
   redirect: [
     // Redirect options here
     {
-      from: '^/posts/introduction-to-backend-development?id=36',
+      from: '^/posts/introduction-to-backend-development(.*)$',
       to: '/posts/getting-started-with-backend-development',
       statusCode: 301,
     },
     {
-      from: '^/category/*',
-      to: '/categories/*',
+      from: '^/category/(.*)$',
+      to: '/categories/$1',
       statusCode: 301,
     },
   ],
