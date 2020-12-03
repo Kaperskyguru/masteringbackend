@@ -34,7 +34,7 @@
         </p>
         <article
           class="content"
-          v-html="getPostExcerpt(post.excerpt, 150)"
+          v-html="getPostExcerpt(stripTags(post.excerpt), 150)"
         ></article>
       </div>
     </div>
@@ -67,6 +67,12 @@ export default {
     getPostExcerpt(str, limit) {
       if (str.length > 0) {
         return str.substring(0, limit) + '...'
+      }
+    },
+
+    stripTags(text) {
+      if (text) {
+        return text.replace(/(<([^>]+)>)/gi, '')
       }
     },
   },

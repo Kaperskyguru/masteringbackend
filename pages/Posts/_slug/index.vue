@@ -131,6 +131,11 @@ export default {
         console.log(error, 'error')
       }
     },
+    stripTags(text) {
+      if (text) {
+        return text.replace(/(<([^>]+)>)/gi, '')
+      }
+    },
   },
 
   jsonld() {
@@ -157,7 +162,7 @@ export default {
             image: [this.image],
             datePublished: this.post.date,
             dateModified: this.post.modified,
-            description: this.post.excerpt,
+            description: this.stripTags(this.post.excerpt),
           },
         ],
       }
@@ -176,14 +181,14 @@ export default {
           {
             hid: 'description',
             name: 'description',
-            content: `${this.post.excerpt}`,
+            content: `${this.stripTags(this.post.excerpt)}`,
           },
 
           { hid: 'og:title', property: 'og:title', content: this.post.title },
           {
             hid: 'og:description',
             property: 'og:description',
-            content: this.post.excerpt,
+            content: this.stripTags(this.post.excerpt),
           },
           { hid: 'og:image', property: 'og:image', content: this.image },
           {
