@@ -6,7 +6,7 @@
         <div class="container inner-padding-top">
           <div class="row">
             <div class="col-md-12 col-sm-12-col-xs-12 text-center">
-              <h1 class="lead-title text-uppercase">Privacy Policy</h1>
+              <h1 class="lead-title text-uppercase">Terms and Conditions</h1>
             </div>
           </div>
 

@@ -64,6 +64,25 @@ class DB {
     })
   }
 
+  static async getRandomPost() {
+    return new Promise(function (resolve, reject) {
+      request.get(
+        {
+          url: process.env.BASE_ENDPOINT_URL + '/get_random_post',
+          json: true,
+          dataType: 'jsonp',
+        },
+        function (err, httpResponse, body) {
+          if (err) {
+            // console.log(err)
+            reject(err)
+          }
+          resolve(body)
+        }
+      )
+    })
+  }
+
   static async updateJob(job) {
     return new Promise(function (resolve, reject) {
       request.post(

@@ -29,16 +29,22 @@ class Slack {
 
   static async dispatchPost() {
     // Get Job and update
-    // const res = await DB.getJob()
-    // // Send to Slack
-    // if (res.jobs) {
-    //   const d = await this.sendJobSlack(res.jobs)
-    //   if (result === 'ok') {
-    //     // Update Job status
-    //   }
-    //   return
-    // }
-    // return
+    const res = await DB.getRandomPost()
+    // Send to Slack
+    if (res.posts) {
+      const result = await this.sendPostSlack(res.posts[0])
+      if (result === 'ok') {
+        return {
+          message: 'Updated successfully',
+        }
+      }
+      return {
+        message: 'Slack Post failed',
+      }
+    }
+    return {
+      message: 'Could not retrieve post',
+    }
   }
 
   static sendPostSlack(post) {
@@ -48,18 +54,18 @@ class Slack {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: `< ${process.env.BASE_URL}/posts/${post.slug} |*${post.title}* >`,
+            text: `<${process.env.BASE_URL}/posts/${post.slug} |* ${post.title}*>`,
           },
         },
         {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: post.excerpt,
+            text: '@channel \n\n' + this.stripTags(post),
           },
           accessory: {
             type: 'image',
-            image_url: post.image,
+            image_url: this.image(post),
             alt_text: post.title,
           },
         },
@@ -143,6 +149,22 @@ class Slack {
     }
     const url = process.env.SLACK_JOB_WEBHOOK
     return this.postToSlack(url, block)
+  }
+
+  static image(post) {
+    if (post) {
+      if (post.thumbnail_images) {
+        return post.thumbnail_images.full.url
+      }
+    }
+    return '/img/default_banner.webp'
+  }
+
+  static stripTags(post) {
+    if (post) {
+      return post.excerpt.replace(/(<([^>]+)>)/gi, '')
+    }
+    return
   }
 
   static postToSlack(url, message) {
