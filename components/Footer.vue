@@ -65,7 +65,7 @@
         <div class="row pt-5 mt-2">
           <div class="col-md-8">
             <ul>
-              <nuxt-link to="#">Terms and Conditions</nuxt-link>
+              <nuxt-link to="/tc">Terms and Conditions</nuxt-link>
               |&nbsp;
               <nuxt-link to="/privacy-policy">Privacy</nuxt-link>
               |&nbsp;
@@ -74,7 +74,8 @@
           </div>
           <div class="col-md-4">
             <div id="copy">
-              ©{{ year }} Masteringbackend - By Backend Community
+              ©{{ year }} Masteringbackend - By
+              <nuxt-link to="/aboutus">Backend Community</nuxt-link>
             </div>
           </div>
         </div>
