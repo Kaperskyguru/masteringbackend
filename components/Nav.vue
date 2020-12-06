@@ -43,7 +43,7 @@
               <li class="nav-item quote-btn">
                 <a
                   class="nav-link qbtn"
-                  to="/posts/getting-started-with-backend-development"
+                  href="/posts/getting-started-with-backend-development"
                   >Start Backend Dev. Today</a
                 >
               </li>

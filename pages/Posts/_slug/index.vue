@@ -176,7 +176,9 @@ export default {
           {
             hid: 'keywords',
             name: 'keywords',
-            content: '',
+            content: Array.isArray(this.post.tags)
+              ? this.post.tags.toString()
+              : '',
           },
           {
             hid: 'description',

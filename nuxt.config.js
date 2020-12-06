@@ -120,11 +120,11 @@ export default {
           'backend,web development,backend development,laravel,backend developer,software development',
       },
       { hid: 'robots', name: 'robots', content: 'index, follow' },
-      {
-        hid: 'http-equiv',
-        'http-equiv': 'Content-Type',
-        content: 'text/html; charset=utf-8',
-      },
+      // {
+      //   hid: 'http-equiv',
+      //   'http-equiv': 'Content-Type',
+      //   content: 'text/html; charset=utf-8',
+      // },
       { hid: 'language', name: 'language', content: 'English' },
       { hid: 'revisit-after', name: 'revisit-after', content: '7 days' },
       { hid: 'author', name: 'author', content: 'Solomon Eseme' },
