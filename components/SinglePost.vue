@@ -15,17 +15,16 @@
     </div>
 
     <div class="card-head pl-3 pr-3 pt-3 d-flex">
-      <a href="#">
-        <div class="author d-flex pr-3">
-          <div class="author profile mr-2"></div>
-          <nuxt-link
-            :to="{ path: '/authors/' + post.author.slug }"
-            class="subtitle is-6"
-          >
-            <p>{{ post.author.name }}</p>
-          </nuxt-link>
-        </div>
-      </a>
+      <div class="author d-flex pr-3">
+        <div class="author profile mr-2"></div>
+        <nuxt-link
+          :to="{ path: '/authors/' + post.author.slug }"
+          class="subtitle is-6"
+        >
+          <p>{{ post.author.name }}</p>
+        </nuxt-link>
+      </div>
+
       <div class="date_created">
         <small class="text-muted">
           <li class="fa fa-calendar"></li>
@@ -38,7 +37,7 @@
     </div>
     <div class="card-body">
       <div class="social-share mb-4">
-        <vue-goodshare />
+        <vue-goodshare has_counter />
       </div>
       <h1 class="title">{{ post.title || '' }}</h1>
       <article v-highlight class="card-text" v-html="post.content"></article>
@@ -47,7 +46,7 @@
       <div class="card-line"></div>
       <h2 class="p-2">Sharing is caring :)</h2>
       <div class="social-share mb-4">
-        <vue-goodshare />
+        <vue-goodshare has_counter />
       </div>
       <div class="card-line"></div>
       <div class="tags mb-4" style="color: red">

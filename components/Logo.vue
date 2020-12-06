@@ -7,7 +7,7 @@
       class="img-fluid NuxtLogo"
       :class="{ size: small }"
     />
-    <!-- Mastering Backend -->
+    Mastering Backend
   </span>
 </template>
 
