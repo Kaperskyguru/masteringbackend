@@ -25,6 +25,9 @@ export default {
    */
   head: {
     titleTemplate: '%s - Mastering Backend Development',
+    htmlAttrs: {
+      lang: 'en',
+    },
     script: [
       {
         type: 'application/ld+json',
@@ -256,17 +259,7 @@ export default {
     '@nuxtjs/moment',
     '@nuxtjs/dotenv',
     'nuxt-goodshare',
-    // '@nuxtjs/google-analytics',
   ],
-
-  // googleAnalytics: {
-  //   id: 'UA-83271368-6',
-  //   // checkDuplicatedScript: true,
-  //   // dev: true,
-  //   debug: {
-  //     sendHitTask: process.env.NODE_ENV === 'development',
-  //   },
-  // },
   /*
    ** Nuxt.js modules
    */
@@ -279,7 +272,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    // '@nuxtjs/gtm',
+
     '@nuxtjs/redirect-module',
 
     [
@@ -291,16 +284,6 @@ export default {
     ],
     'vue-social-sharing/nuxt',
   ],
-  // gtm: {
-  //   enabled: true,
-  //   id: 'GTM-W6VP4LG', // Used as fallback if no runtime config is provided
-  // },
-
-  // publicRuntimeConfig: {
-  //   gtm: {
-  //     id: process.env.GOOGLE_ANALYTICS_ID,
-  //   },
-  // },
   redirect: [
     // Redirect options here
     {

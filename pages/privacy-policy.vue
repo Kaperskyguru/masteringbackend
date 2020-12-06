@@ -19,7 +19,7 @@
                       Privacy Policy
                     </h5>
                     <div class="card-body">
-                      <h1>Privacy Policy for Mastering Backend</h1>
+                      <h2>Privacy Policy for Mastering Backend</h2>
 
                       <p>
                         At Masteringbackend, accessible from
@@ -314,7 +314,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'Privacy Policy',
+    }
+  },
+}
 </script>
 
 <style>

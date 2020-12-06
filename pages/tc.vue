@@ -387,7 +387,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'Terms and Conditions',
+    }
+  },
+}
 </script>
 
 <style>

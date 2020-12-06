@@ -109,7 +109,11 @@ export default {
         console.log(error, 'error')
       }
     },
-
+    splitTags(tags) {
+      if (Array.isArray(tags)) {
+        return tags.map((tag) => tag.title).join(', ')
+      }
+    },
     async dispatchRecentPostsAction() {
       try {
         const getRecentPosts = this.$store.getters['post/getRecentPosts']
@@ -176,9 +180,7 @@ export default {
           {
             hid: 'keywords',
             name: 'keywords',
-            content: Array.isArray(this.post.tags)
-              ? this.post.tags.toString()
-              : '',
+            content: `${this.splitTags(this.post.tags)}`,
           },
           {
             hid: 'description',

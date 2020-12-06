@@ -4,12 +4,12 @@
       <div class="container inner-padding-top">
         <div class="row">
           <div class="col-md-12 col-sm-12-col-xs-12 text-center">
-            <h1 class="lead-title text-uppercase">
+            <h2 class="lead-title text-uppercase">
               Latest Backend Dev. Articles
-            </h1>
-            <h2 class="article-subtitle">
-              Latest Backend Dev. Articles curated daily by the community.
             </h2>
+            <h3 class="article-subtitle">
+              Latest Backend Dev. Articles curated daily by the community.
+            </h3>
           </div>
         </div>
         <div class="row mb-1 mt-5">

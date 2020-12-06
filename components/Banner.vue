@@ -2,12 +2,12 @@
   <section class="banner-section text-center">
     <div class="hero text-white">
       <div class="container">
-        <h1 class="container-title">
-          WELCOME TO BACKEND DEVELOPMENT COMMUNITY BLOG
+        <h1 class="container-title text-uppercase">
+          Start learning backend development now
         </h1>
         <h3 class="sub-title text-white mt-md-5 mt-3 mb-md-5">
           Chat and share with over
-          <a href="#" style="text-decoration: underline">
+          <a href="/slack" style="text-decoration: underline">
             <b>a thousand</b>
           </a>
           backend engineers worldwide. We have live discussions. We're building

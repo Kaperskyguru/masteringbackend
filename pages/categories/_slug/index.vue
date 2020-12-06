@@ -116,25 +116,22 @@ export default {
   },
   head() {
     return {
-      title: 'Posts',
+      title: this.$route.params.slug,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content:
-            'weekly backend development articles curated by backend developers',
+          content: `weekly ${this.$route.params.slug} articles curated by backend developers`,
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content:
-            'weekly backend development articles curated by the community',
+          content: `weekly ${this.$route.params.slug} articles curated by the community`,
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content:
-            'weekly backend development articles curated by the community',
+          content: `weekly ${this.$route.params.slug} articles curated by the community`,
         },
         {
           hid: 'twitter:card',
