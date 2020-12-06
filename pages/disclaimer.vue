@@ -20,8 +20,8 @@
                     </h5>
                     <div class="card-body">
                       <p>Last updated: November 20, 2020</p>
-                      <h1>Interpretation and Definitions</h1>
-                      <h2>Interpretation</h2>
+                      <h2>Interpretation and Definitions</h2>
+                      <h3>Interpretation</h3>
                       <p>
                         The words of which the initial letter is capitalized
                         have meanings defined under the following conditions.
@@ -29,7 +29,7 @@
                         regardless of whether they appear in singular or in
                         plural.
                       </p>
-                      <h2>Definitions</h2>
+                      <h3>Definitions</h3>
                       <p>For the purposes of this Disclaimer:</p>
                       <ul>
                         <li>
@@ -56,7 +56,7 @@
                           >
                         </li>
                       </ul>
-                      <h1>Disclaimer</h1>
+                      <h2>Disclaimer</h2>
                       <p>
                         The information contained on the Service is for general
                         information purposes only.
@@ -85,7 +85,7 @@
                         The Company does not warrant that the Service is free of
                         viruses or other harmful components.
                       </p>
-                      <h1>External Links Disclaimer</h1>
+                      <h2>External Links Disclaimer</h2>
                       <p>
                         The Service may contain links to external websites that
                         are not provided or maintained by or in any way
@@ -96,7 +96,7 @@
                         accuracy, relevance, timeliness, or completeness of any
                         information on these external websites.
                       </p>
-                      <h1>Errors and Omissions Disclaimer</h1>
+                      <h2>Errors and Omissions Disclaimer</h2>
                       <p>
                         The information given by the Service is for general
                         guidance on matters of interest only. Even if the
@@ -112,7 +112,7 @@
                         omissions, or for the results obtained from the use of
                         this information.
                       </p>
-                      <h1>Fair Use Disclaimer</h1>
+                      <h2>Fair Use Disclaimer</h2>
                       <p>
                         The Company may use copyrighted material which has not
                         always been specifically authorized by the copyright
@@ -130,7 +130,7 @@
                         for your own purposes that go beyond fair use, You must
                         obtain permission from the copyright owner.
                       </p>
-                      <h1>Views Expressed Disclaimer</h1>
+                      <h2>Views Expressed Disclaimer</h2>
                       <p>
                         The Service may contain views and opinions which are
                         those of the authors and do not necessarily reflect the
@@ -148,7 +148,7 @@
                         and reserve the right to delete any comment for any
                         reason whatsoever.
                       </p>
-                      <h1>No Responsibility Disclaimer</h1>
+                      <h2>No Responsibility Disclaimer</h2>
                       <p>
                         The information on the Service is provided with the
                         understanding that the Company is not herein engaged in
@@ -164,7 +164,7 @@
                         your access or use or inability to access or use the
                         Service.
                       </p>
-                      <h1>&quot;Use at Your Own Risk&quot; Disclaimer</h1>
+                      <h2>&quot;Use at Your Own Risk&quot; Disclaimer</h2>
                       <p>
                         All information in the Service is provided &quot;as
                         is&quot;, with no guarantee of completeness, accuracy,
@@ -181,7 +181,7 @@
                         consequential, special or similar damages, even if
                         advised of the possibility of such damages.
                       </p>
-                      <h1>Contact Us</h1>
+                      <h2>Contact Us</h2>
                       <p>
                         If you have any questions about this Disclaimer, You can
                         contact Us:
@@ -210,7 +210,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'Disclaimer',
+    }
+  },
+}
 </script>
 
 <style>

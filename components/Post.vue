@@ -55,7 +55,10 @@ export default {
   computed: {
     image() {
       if (this.post) {
-        if (this.post.thumbnail_images) {
+        if (
+          Array.isArray(this.post.thumbnail_images) &&
+          !this.post.thumbnail_images.length
+        ) {
           return this.post.thumbnail_images.full.url
         }
       }
