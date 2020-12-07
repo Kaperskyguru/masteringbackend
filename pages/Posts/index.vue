@@ -64,6 +64,7 @@ export default {
       if (!posts.length) {
         const data = {}
         data.page = query.page ? query.page : 1
+        data.count = 22
         await store.dispatch('post/getPosts', data)
       }
     } catch (error) {}
@@ -104,7 +105,7 @@ export default {
       this.$router.push('/posts?page=' + page)
       const data = {}
       data.page = page
-      data.count = 12
+      data.count = 22
       await this.$store.dispatch('post/getPosts', data)
       this.show = false
     },
