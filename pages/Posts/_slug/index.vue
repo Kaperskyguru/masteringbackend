@@ -56,10 +56,10 @@ export default {
         post = await store.dispatch('post/getPost', params.slug)
       }
 
-      const getPosts = this.$store.getters['post/getStickyPosts']
-      const stickyPosts = getPosts()
+      const getPosts = await store.getters['post/getStickyPosts']
+      const stickyPosts = await getPosts()
       if (!stickyPosts.length) {
-        await this.$store.dispatch('post/getStickyPosts')
+        await await store.dispatch('post/getStickyPosts')
       }
 
       return { post }
@@ -96,7 +96,7 @@ export default {
       return '/img/default_banner.webp'
     },
   },
-  async mounted() {
+  mounted() {
     this.dispatchRecentPostsAction()
     if (this.post) this.dispatchRelatedPostsAction(this.post.id)
   },
