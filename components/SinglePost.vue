@@ -41,6 +41,10 @@
       </div>
       <h1 class="title">{{ post.title || '' }}</h1>
       <article v-highlight class="card-text" v-html="post.content"></article>
+
+      <!-- Go to www.addthis.com/dashboard to customize your tools -->
+      <div class="addthis_inline_follow_toolbox"></div>
+
       <div class="card-line"></div>
       <inline-newsletter />
       <div class="card-line"></div>
