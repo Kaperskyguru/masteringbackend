@@ -71,6 +71,7 @@ export default {
   data() {
     return {
       path: '',
+      BASE_URL: this.BASE_URL || 'https://masteringbackend.com',
     }
   },
   computed: {
@@ -146,7 +147,7 @@ export default {
                 '@type': 'ListItem',
                 position: 1,
                 item: {
-                  '@id': process.env.BASE_URL + '/posts' + this.$route.path,
+                  '@id': this.BASE_URL + '/posts' + this.$route.path,
                   name: this.$route.path,
                 },
               },
@@ -190,7 +191,7 @@ export default {
           {
             hid: 'og:url',
             property: 'og:url',
-            content: `${process.env.BASE_URL}/posts/${this.post.slug}`,
+            content: `${this.BASE_URL}/posts/${this.post.slug}`,
           },
           {
             hid: 'og:image:width',
