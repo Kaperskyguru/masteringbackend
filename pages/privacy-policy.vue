@@ -23,10 +23,11 @@
 
                       <p>
                         At Masteringbackend, accessible from
-                        https://masteringbackend.com, one of our main priorities
-                        is the privacy of our visitors. This Privacy Policy
-                        document contains types of information that is collected
-                        and recorded by Masteringbackend and how we use it.
+                        <nuxt-link to="/">masteringbackend.com</nuxt-link> , one
+                        of our main priorities is the privacy of our visitors.
+                        This Privacy Policy document contains types of
+                        information that is collected and recorded by
+                        Masteringbackend and how we use it.
                       </p>
 
                       <p>

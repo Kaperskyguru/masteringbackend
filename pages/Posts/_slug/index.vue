@@ -56,6 +56,12 @@ export default {
         post = await store.dispatch('post/getPost', params.slug)
       }
 
+      const getPosts = this.$store.getters['post/getStickyPosts']
+      const stickyPosts = getPosts()
+      if (!stickyPosts.length) {
+        await this.$store.dispatch('post/getStickyPosts')
+      }
+
       return { post }
     } catch (error) {
       console.log(error, 'error')
@@ -90,25 +96,11 @@ export default {
       return '/img/default_banner.webp'
     },
   },
-  mounted() {
-    this.dispatchStickyPostsAction()
+  async mounted() {
     this.dispatchRecentPostsAction()
     if (this.post) this.dispatchRelatedPostsAction(this.post.id)
   },
   methods: {
-    async dispatchStickyPostsAction() {
-      try {
-        const getPosts = this.$store.getters['post/getStickyPosts']
-
-        const stickyPosts = getPosts()
-
-        if (!stickyPosts.length) {
-          await this.$store.dispatch('post/getStickyPosts')
-        }
-      } catch (error) {
-        console.log(error, 'error')
-      }
-    },
     splitTags(tags) {
       if (Array.isArray(tags)) {
         return tags.map((tag) => tag.title).join(', ')

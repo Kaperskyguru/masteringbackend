@@ -26,7 +26,8 @@
                       <p>
                         These terms and conditions outline the rules and
                         regulations for the use of Mastering Backend's Website,
-                        located at https://masteringbackend.com.
+                        located at
+                        <nuxt-link to="/">masteringbackend.com</nuxt-link>.
                       </p>
 
                       <p>
