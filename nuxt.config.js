@@ -338,7 +338,7 @@ export default {
   ],
 
   sitemap: {
-    // hostname: 'https://masteringbackend.com',
+    hostname: 'https://masteringbackend.com',
     exclude: ['/maintenance'],
     cacheTime: 1000 * 60 * 60 * 2,
     trailingSlash: true,
