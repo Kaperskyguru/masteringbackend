@@ -23,6 +23,7 @@
           <ul class="footer-link list-unstyled">
             <li><nuxt-link to="#">Code of Conduct</nuxt-link></li>
             <li><nuxt-link to="#">Partnership</nuxt-link></li>
+            <li><nuxt-link to="/contact">Contact us</nuxt-link></li>
             <li><nuxt-link to="/write-for-us">Write for us</nuxt-link></li>
           </ul>
         </div>
@@ -65,7 +66,9 @@
         <div class="row pt-5 mt-2">
           <div class="col-md-8">
             <ul>
-              <nuxt-link to="/tc">Terms and Conditions</nuxt-link>
+              <nuxt-link to="/terms-and-conditions"
+                >Terms and Conditions</nuxt-link
+              >
               |&nbsp;
               <nuxt-link to="/privacy-policy">Privacy</nuxt-link>
               |&nbsp;
