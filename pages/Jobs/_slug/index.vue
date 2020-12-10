@@ -1,6 +1,6 @@
 <template>
   <section class="main">
-    <Breadcrumb :paths="path" />
+    <!-- <Breadcrumb :paths="path" /> -->
     <section>
       <div class="padding-top grey-color">
         <div class="container-fluid inner-padding-top pl-md-5 pr-md-5">

@@ -54,5 +54,6 @@ export default {
 
 .similar-post .post-title {
   font-size: 1.3rem;
+  color: #002766;
 }
 </style>

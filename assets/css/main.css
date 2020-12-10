@@ -5,6 +5,13 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: 'Nunito';
+  src: url('/Nunito-Light.ttf');
+  font-display: swap;
+  font-weight: 400;
+}
+
 * {
   border: none;
   outline: none;
@@ -24,7 +31,7 @@ a:hover {
   color: #6f7d8c;
 }
 body {
-  font-family: 'Merriweather', Roboto !important;
+  font-family: 'Nunito', Roboto !important;
   background-color: #f7f7f7;
   font-weight: 400;
 }
@@ -120,7 +127,7 @@ body {
 }
 
 .card figure img {
-  max-width: 100%;
+  /* max-width: 100%; */
   height: auto;
   width: 100%;
   background-size: cover;
@@ -295,15 +302,23 @@ body {
   background: #77a0a9 !important;
 }
 
+.main-header .navbar-nav .text-link {
+  font-family: 'Nunito', 'Roboto' !important;
+  color: #f15d5d !important;
+  font-size: 1rem !important;
+  font-weight: 600;
+}
 /* job page */
 .card-header {
-  background: none;
-  color: #f15d5d;
+  color: #002766;
   border-radius: 5px 5px 0 0;
   padding-top: 20px;
-  padding-bottom: 0px;
-  font-size: 1rem;
+  padding-bottom: 1px;
+  font-size: 1.2rem;
+  font-weight: bold;
   border: none;
+  /* font-weight: 600; */
+  font-family: Nunito;
   justify-content: left;
 }
 .button {
@@ -427,11 +442,6 @@ p > code {
   background-color: #bababb !important;
   border-radius: 0.25rem;
   display: inline !important;
-}
-
-.card h2,
-.card h4 {
-  font-size: 1.5rem;
 }
 
 .card-text a {

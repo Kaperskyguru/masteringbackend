@@ -219,7 +219,13 @@ export default {
       // },
     ],
 
-    // script: [{ src: 'https://use.fontawesome.com/3889c7d65e.js', async:true, defer: true }],
+    script: [
+      {
+        src: 'https://use.fontawesome.com/3889c7d65e.js',
+        async: true,
+        defer: true,
+      },
+    ],
   },
   router: {
     middleware: 'maintenance',

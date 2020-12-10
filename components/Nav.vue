@@ -26,19 +26,27 @@
           >
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <nuxt-link class="nav-link" to="/posts">Articles</nuxt-link>
+                <nuxt-link class="nav-link text-link" to="/posts"
+                  >Articles</nuxt-link
+                >
               </li>
               <li class="nav-item">
-                <nuxt-link class="nav-link" to="/jobs">Jobs</nuxt-link>
+                <nuxt-link class="nav-link text-link" to="/jobs"
+                  >Jobs</nuxt-link
+                >
               </li>
               <li class="nav-item">
-                <nuxt-link class="nav-link" to="#">Events</nuxt-link>
+                <nuxt-link class="nav-link text-link" to="#">Events</nuxt-link>
               </li>
               <li class="nav-item">
-                <nuxt-link class="nav-link" to="/live">Live</nuxt-link>
+                <nuxt-link class="nav-link text-link" to="/live"
+                  >Live</nuxt-link
+                >
               </li>
               <li class="nav-item">
-                <nuxt-link class="nav-link" to="#">Projects</nuxt-link>
+                <nuxt-link class="nav-link text-link" to="#"
+                  >Projects</nuxt-link
+                >
               </li>
               <li class="nav-item quote-btn">
                 <a

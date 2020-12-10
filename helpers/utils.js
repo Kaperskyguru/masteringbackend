@@ -2,7 +2,7 @@ import axios from 'axios'
 export const getPosts = async () => {
   try {
     const response = await axios.get(
-      process.env.BASE_ENDPOINT_URL + '/get_posts/'
+      process.env.BASE_ENDPOINT_URL + '/get_posts/?count=1000'
     )
     if (response.data) {
       return response.data.posts
