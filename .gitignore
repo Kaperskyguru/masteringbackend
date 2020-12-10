@@ -8,6 +8,7 @@ yarn-debug.log*
 yarn-error.log*
 yarn.lock
 
+email.html
 app.html
 index.html
 viewport.txt
