@@ -3,7 +3,14 @@
     <div class="card similar-post">
       <div class="b-block">
         <a :to="'/posts/' + post.slug">
-          <img v-lazy-load :data-src="image" class="image" :alt="post.title" />
+          <img
+            v-lazy-load
+            :data-src="image"
+            width="100%"
+            height="auto"
+            class="image"
+            :alt="post.title"
+          />
         </a>
       </div>
       <div class="card-body">

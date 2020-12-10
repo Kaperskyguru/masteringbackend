@@ -153,7 +153,7 @@ export default {
   margin-bottom: 5px;
   margin-right: 5px;
   border-radius: 25px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', Roboto;
   font-weight: 600;
   letter-spacing: 0.5px;
   background-color: #fa4c23;

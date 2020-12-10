@@ -1,9 +1,8 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap'); */
-
 @font-face {
   font-family: 'Merriweather';
   src: url('/Merriweather-Light.ttf');
+  font-display: swap;
+  font-weight: 400;
 }
 
 * {
@@ -25,17 +24,16 @@ a:hover {
   color: #6f7d8c;
 }
 body {
-  font-family: Poppins, sans-serif;
+  font-family: 'Merriweather', Roboto !important;
   background-color: #f7f7f7;
+  font-weight: 400;
 }
 
 .hero {
   padding-bottom: 12rem;
   padding-top: 4rem;
 }
-.main-header {
-  transition: all ease-in-out 0.3s;
-}
+
 .stickyNavbar {
   top: 0;
   left: 0;
@@ -63,13 +61,13 @@ body {
 }
 .navbar-light .navbar-nav .nav-link {
   background: transparent;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto';
   font-size: 10px;
   font-weight: 400;
   padding: 14px 12px;
   color: #111;
   text-transform: uppercase;
-  transition: background 350ms, color 350ms, border-color 350ms;
+  /* transition: background 350ms, color 350ms, border-color 350ms; */
 }
 .navbar-light .navbar-nav .quote-btn .qbtn {
   background: #fa4c23;
@@ -391,7 +389,7 @@ body {
   height: 25px;
   display: inline-block;
   cursor: pointer;
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
 }
 
 .form-inline > * {
@@ -454,4 +452,7 @@ a {
   text-decoration: none;
   color: inherit !important;
   cursor: pointer !important;
+}
+.btn {
+  transition: none !important;
 }
