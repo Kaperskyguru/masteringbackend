@@ -3,7 +3,8 @@
     <img
       data-not-lazy
       src="/img/logo.png"
-      alt="masteringbackend Logo"
+      alt="Logo"
+      width="50"
       class="img-fluid NuxtLogo"
       :class="{ size: small }"
     />
