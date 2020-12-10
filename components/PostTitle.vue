@@ -6,6 +6,8 @@
       <a :href="'/posts/' + post.slug">
         <img
           v-lazy-load
+          width="50"
+          height="50"
           :data-src="image"
           class="card-img-top"
           :alt="post.title"
@@ -61,6 +63,11 @@ export default {
   font-family: Merriweather, roboto;
 }
 
+.recent-post-title {
+  height: 60px;
+  max-height: 60px;
+}
+
 .recent-post-title time {
   font-size: 13px;
 }
@@ -73,8 +80,8 @@ export default {
 }
 .recent-img img {
   background-size: cover;
-  width: 50px;
-  height: 50px;
+  width: 50px !important;
+  height: 50px !important;
   border-radius: 50%;
   background-repeat: no-repeat;
   background-position: center center;

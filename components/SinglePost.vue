@@ -1,8 +1,15 @@
 <template>
   <div class="card single">
-    <figure class="block-image is-resized pl-3 pr-3 pt-3">
-      <img data-not-lazy :src="image" class="card-img-top" :alt="post.title" />
-    </figure>
+    <div class="block-image">
+      <figure class="pl-3 pr-3 pt-3">
+        <img
+          data-not-lazy
+          :src="image"
+          class="card-img-top"
+          :alt="post.title"
+        />
+      </figure>
+    </div>
 
     <div class="tags absolute">
       <nuxt-link
@@ -151,7 +158,7 @@ export default {
 
 <style>
 .card-text {
-  font-family: Merriweather, roboto;
+  font-family: 'Merriweather', Roboto;
   font-weight: 400;
   line-height: 1.8;
   color: #222222;
@@ -176,6 +183,16 @@ export default {
   border-radius: 2%;
 }
 
+/* .block-image {
+  height: 600px !important;
+}
+
+@media only screen and (max-width: 800px) {
+  .block-image {
+    height: 450px;
+  }
+} */
+
 .card .absolute {
   position: absolute;
   left: 30px;
@@ -196,7 +213,7 @@ export default {
   margin-bottom: 5px;
   margin-right: 5px;
   border-radius: 25px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Merriweather', Roboto;
   font-weight: 600;
   letter-spacing: 0.5px;
   background-color: #fa4c23;
@@ -208,6 +225,11 @@ export default {
   border-radius: 50%;
   display: inline-block;
 }
+
+/* article img {
+  width: 100%;
+  height: auto;
+} */
 
 .single p {
   margin-bottom: 2rem;
