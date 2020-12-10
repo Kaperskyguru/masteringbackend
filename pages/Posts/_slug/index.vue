@@ -1,11 +1,11 @@
 <template>
   <section class="main">
-    <Breadcrumb :paths="path" />
+    <!-- <Breadcrumb :paths="path" /> -->
     <!-- <section> -->
     <div class="padding-top grey-color">
       <div class="container-fluid inner-padding-top pl-md-5 pr-md-5">
-        <div class="row">
-          <div class="col-md-8 mb-3">
+        <div class="row m-0">
+          <div class="col-md-8 mb-0">
             <SinglePost v-if="post" :post="post" />
             <p v-else class="text-center">Post not found</p>
 

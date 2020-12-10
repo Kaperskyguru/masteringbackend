@@ -26,9 +26,10 @@
         </div>
         <div class="form-group">
           <div class="text-center">
-            <button class="btn btn-block btn-success" type="submit">
-              Yes, I'm In!
-            </button>
+            <!-- <button class="btn  btn-success" type="submit">
+              
+            </button> -->
+            <Button class="btn-block" link="#">Yes, I'm In!</Button>
           </div>
         </div>
       </form>

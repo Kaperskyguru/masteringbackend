@@ -61,7 +61,7 @@ class Slack {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: '@channel \n\n' + this.stripTags(post),
+            text: '@here \n\n' + this.stripTags(post),
           },
           accessory: {
             type: 'image',
@@ -109,7 +109,7 @@ class Slack {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: '@channel \n\n' + job.description,
+            text: '@here \n\n' + job.description,
           },
           accessory: {
             type: 'button',

@@ -92,19 +92,24 @@ export default {
 .card {
   height: 600px;
   min-height: 300px;
+  color: #334c70;
 }
 
 .card .title {
   font-size: 1.3rem;
   font-weight: 700;
+  font-family: Nunito;
   line-height: 140%;
+  color: #002766;
 }
 
 .content {
   margin-bottom: 25px;
   flex-grow: 1;
+  font-family: Nunito;
   font-size: 1.1rem;
   line-height: 180%;
+  color: #334c70;
 }
 
 .b-block {

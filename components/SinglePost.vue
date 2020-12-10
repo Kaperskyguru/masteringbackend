@@ -1,7 +1,31 @@
 <template>
   <div class="card single">
+    <div class="card-head pl-3 pr-3 pt-3">
+      <h1 class="title">{{ post.title || '' }}</h1>
+      <div class="d-flex">
+        <div class="author d-flex pr-3 pb-4">
+          <div class="profile mr-2"></div>
+          <nuxt-link
+            :to="{ path: '/authors/' + post.author.slug }"
+            class="subtitle is-6"
+          >
+            {{ post.author.name }}
+          </nuxt-link>
+        </div>
+
+        <div class="date_created">
+          <small class="text-muted">
+            <li class="fa fa-calendar"></li>
+            <time
+              :datetime="$moment(post.date).format('MMMM Do YYYY, h:mm:ss a')"
+              >{{ $moment(post.date).format('MMMM Do YYYY') }}</time
+            >
+          </small>
+        </div>
+      </div>
+    </div>
     <div class="block-image">
-      <figure class="pl-3 pr-3 pt-3">
+      <figure class="pl-3 pr-3 pt-2">
         <img
           data-not-lazy
           :src="image"
@@ -21,32 +45,11 @@
       </nuxt-link>
     </div>
 
-    <div class="card-head pl-3 pr-3 pt-3 d-flex">
-      <div class="author d-flex pr-3">
-        <div class="author profile mr-2"></div>
-        <nuxt-link
-          :to="{ path: '/authors/' + post.author.slug }"
-          class="subtitle is-6"
-        >
-          <p>{{ post.author.name }}</p>
-        </nuxt-link>
-      </div>
-
-      <div class="date_created">
-        <small class="text-muted">
-          <li class="fa fa-calendar"></li>
-          <time
-            :datetime="$moment(post.date).format('MMMM Do YYYY, h:mm:ss a')"
-            >{{ $moment(post.date).format('MMMM Do YYYY') }}</time
-          >
-        </small>
-      </div>
-    </div>
     <div class="card-body">
-      <div class="social-share mb-4">
+      <p>Sharing is Caring... Show some love :)</p>
+      <div class="social-share mt-4">
         <vue-goodshare has_counter />
       </div>
-      <h1 class="title">{{ post.title || '' }}</h1>
       <article v-highlight class="card-text" v-html="post.content"></article>
 
       <div class="card-line"></div>
@@ -158,11 +161,19 @@ export default {
 
 <style>
 .card-text {
-  font-family: 'Merriweather', Roboto;
+  font-family: Nunito, Roboto;
   font-weight: 400;
   line-height: 1.8;
-  color: #222222;
-  font-size: 1.125rem;
+  color: #334c70;
+  font-size: 1.25rem;
+}
+
+h1.title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 47px;
+  line-height: 1.3em;
+  color: #002766;
 }
 
 .card-text h1,
@@ -175,6 +186,19 @@ export default {
   padding-top: 0.8rem;
 }
 
+.card-text h1,
+.card-text h2,
+.card-text h3,
+.card-text h4 {
+  color: #fa4c23;
+  font-weight: bold;
+}
+
+.card-text h1,
+.card-text h2 {
+  font-weight: bold;
+}
+
 .card-text ul {
   list-style: disc;
 }
@@ -182,25 +206,8 @@ export default {
 .block-image .card-img-top {
   border-radius: 2%;
 }
-
-/* .block-image {
-  height: 600px !important;
-}
-
-@media only screen and (max-width: 800px) {
-  .block-image {
-    height: 450px;
-  }
-} */
-
 .card .absolute {
-  position: absolute;
-  left: 30px;
-  top: 30px;
-  text-align: left;
-  right: 0;
-  width: 100%;
-  z-index: 10;
+  margin-left: 20px;
 }
 
 .absolute a {
@@ -213,7 +220,7 @@ export default {
   margin-bottom: 5px;
   margin-right: 5px;
   border-radius: 25px;
-  font-family: 'Merriweather', Roboto;
+  font-family: 'Open Sans', Roboto !important;
   font-weight: 600;
   letter-spacing: 0.5px;
   background-color: #fa4c23;
@@ -223,15 +230,11 @@ export default {
   width: 25px;
   background-color: #bbb;
   border-radius: 50%;
-  display: inline-block;
+  /* display: inline-flex; */
 }
 
-/* article img {
-  width: 100%;
-  height: auto;
-} */
-
 .single p {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  color: #002766;
 }
 </style>
