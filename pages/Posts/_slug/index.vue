@@ -97,9 +97,9 @@ export default {
       return '/img/default_banner.webp'
     },
   },
-  mounted() {
-    this.dispatchRecentPostsAction()
-    if (this.post) this.dispatchRelatedPostsAction(this.post.id)
+  async mounted() {
+    await this.dispatchRecentPostsAction()
+    if (this.post) await this.dispatchRelatedPostsAction(this.post.id)
   },
   methods: {
     splitTags(tags) {

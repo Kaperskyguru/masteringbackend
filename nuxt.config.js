@@ -211,12 +211,12 @@ export default {
         href: '/favicon/favicon-16x16.png',
       },
       { rel: 'manifest', href: '/favicon/manifest.json' },
-      {
-        rel: 'stylesheet',
-        // rel: 'preload',
-        href:
-          'https://fonts.googleapis.com/css2?family=Merriweather&display=swap',
-      },
+      // {
+      //   rel: 'stylesheet',
+      //   // rel: 'preload',
+      //   href:
+      //     'https://fonts.googleapis.com/css2?family=Merriweather&display=swap',
+      // },
     ],
 
     script: [{ src: 'https://use.fontawesome.com/3889c7d65e.js', defer: true }],
@@ -259,6 +259,17 @@ export default {
     '@nuxtjs/moment',
     '@nuxtjs/dotenv',
     'nuxt-goodshare',
+    [
+      'nuxt-compress',
+      {
+        gzip: {
+          cache: true,
+        },
+        brotli: {
+          threshold: 10240,
+        },
+      },
+    ],
   ],
   /*
    ** Nuxt.js modules
@@ -391,6 +402,12 @@ export default {
       }
       config.output.globalObject = 'this'
       return config
+    },
+  },
+
+  render: {
+    static: {
+      maxAge: 60 * 60 * 24 * 365 * 1000,
     },
   },
 }
