@@ -1,5 +1,6 @@
 import axios from 'axios'
 import DB from '../db'
+import moment from '@nuxtjs/moment'
 
 class Slack {
   static async dispatchJob() {
@@ -48,10 +49,19 @@ class Slack {
   }
 
   static sendPostSlack(post) {
+    // console.log(
+    //   // new Date(post.modified) < new Date(),
+    //   moment(post.modified),
+    //   new Date()
+    // )
+
+    const inputDate = new Date(post.modified)
+    const today = new Date()
     const content =
-      new Date(post.modified) < new Date()
+      inputDate.setHours(0, 0, 0, 0) == today.setHours(0, 0, 0, 0)
         ? '@here \n\n' + this.stripTags(post)
         : this.stripTags(post)
+
     const block = {
       blocks: [
         {
