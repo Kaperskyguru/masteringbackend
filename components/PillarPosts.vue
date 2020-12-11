@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       subtitle:
-        'We are going to help you start your backend develpment journey.',
+        'We are going to help you start your backend development journey.',
     }
   },
 
