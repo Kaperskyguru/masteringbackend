@@ -48,6 +48,10 @@ class Slack {
   }
 
   static sendPostSlack(post) {
+    const content =
+      new Date(post.modified) < new Date()
+        ? '@here \n\n' + this.stripTags(post)
+        : this.stripTags(post)
     const block = {
       blocks: [
         {
@@ -61,7 +65,7 @@ class Slack {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: '@here \n\n' + this.stripTags(post),
+            text: content,
           },
           accessory: {
             type: 'image',
