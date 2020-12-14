@@ -225,12 +225,19 @@ h1.title {
   letter-spacing: 0.5px;
   background-color: #fa4c23;
 }
+.author {
+  color: #fa4c23;
+}
 .author .profile {
   height: 25px;
   width: 25px;
   background-color: #bbb;
   border-radius: 50%;
   /* display: inline-flex; */
+}
+
+figure iframe {
+  width: 100%;
 }
 
 .single p {
