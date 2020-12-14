@@ -31,7 +31,7 @@ export default {
     ...mapState({
       posts: (state) => {
         // console.log(state.post.posts)
-        return [...state.post.posts].slice(0, 12)
+        return [...state.post.posts].slice(0, 22)
       },
       apiStateLoaded: (state) => {
         return state.post.postState === ENUM.LOADED
