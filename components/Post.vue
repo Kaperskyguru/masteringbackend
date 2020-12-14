@@ -27,11 +27,11 @@
             </nuxt-link>
           </h2>
         </div>
-        <p>
+        <!-- <p>
           <small class="text-muted">{{
             $moment(post.date).format('MMMM Do YYYY')
           }}</small>
-        </p>
+        </p> -->
         <article
           class="content"
           v-html="getPostExcerpt(stripTags(post.excerpt), 150)"
@@ -101,6 +101,10 @@ export default {
   font-family: Nunito;
   line-height: 140%;
   color: #002766;
+}
+
+.subtitle {
+  color: #fa4c23;
 }
 
 .content {
