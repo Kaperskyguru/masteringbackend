@@ -2,6 +2,7 @@ import DiceJobs from '../services/scrappers/dice-scrapper'
 import GithubJobs from '../services/scrappers/githubjobs-scrapper'
 import StackoverflowJobs from '../services/scrappers/stackoverflow-scrapper'
 import LinkedinJobs from '../services/scrappers/linkedin-scrapper'
+import Events from '../services/scrappers/event-scrapper'
 import Slack from '../services/Slack'
 const { Router } = require('express')
 
@@ -40,6 +41,11 @@ router.get('/jobs/dispatch', async function (req, res) {
 
 router.get('/posts/dispatch', async function (req, res) {
   const data = await Slack.dispatchPost()
+  return res.json(data)
+})
+
+router.get('/events', async function (req, res) {
+  const data = await Events.getEvents()
   return res.json(data)
 })
 

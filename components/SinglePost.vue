@@ -92,7 +92,7 @@ export default {
     image() {
       if (this.post) {
         if (this.post.thumbnail_images) {
-          return this.post.thumbnail_images.full.url
+          return this.post.thumbnail_images['post-thumbnail'].url
         }
       }
       return '/img/default_banner.webp'
