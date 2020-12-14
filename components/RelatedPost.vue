@@ -36,7 +36,7 @@ export default {
     image() {
       if (this.post) {
         if (this.post.thumbnail_images) {
-          return this.post.thumbnail_images.full.url
+          return this.post.thumbnail_images.medium.url
         }
       }
       return '/img/default_banner.webp'
@@ -49,6 +49,8 @@ export default {
 .similar-post .image {
   width: 100%;
   height: auto;
+  background-position: center;
+  background-size: cover;
   max-height: 160px !important;
 }
 

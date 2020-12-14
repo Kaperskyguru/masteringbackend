@@ -120,7 +120,7 @@ export default {
         hid: 'keywords',
         name: 'keywords',
         content:
-          'backend,web development,backend development,laravel,backend developer,software development',
+          'backend,backend development,backend developer,backend web development, backend developers',
       },
       { hid: 'robots', name: 'robots', content: 'index, follow' },
       // {

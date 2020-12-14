@@ -104,7 +104,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async getPosts({ commit }, { page, count = 9 }) {
+  async getPosts({ commit }, { page, count = 22 }) {
     try {
       const response = await fetch(
         `${process.env.BASE_ENDPOINT_URL}/get_posts?page=${page}&count=${count}`

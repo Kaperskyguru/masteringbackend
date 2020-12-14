@@ -4,10 +4,10 @@
       <div class="container inner-padding-top">
         <div class="row">
           <Title>
-            <template slot="title">Author: {{ posts[0].author.name }}</template>
+            <template slot="title">Author: {{ name }}</template>
             <template slot="subtitle">
               Latest Backend Dev. Articles curated daily by
-              {{ posts[0].author.name }}.
+              {{ name }}.
             </template>
           </Title>
         </div>
@@ -57,7 +57,6 @@ export default {
       const getPosts = store.getters['post/getPostsByAuthor']
       posts = getPosts(params.slug)
     }
-
     return { posts }
   },
   components: {
@@ -68,41 +67,46 @@ export default {
       author: '',
     }
   },
+  computed: {
+    name() {
+      if (this.posts.length) {
+        return this.posts[0].author.name
+      }
+      return ''
+    },
+  },
   methods: {
     async getPaginatedPosts(page) {
       this.show = true
       this.$router.push('/posts?page=' + page)
       const data = {}
       data.page = page
-      data.count = 12
+      data.count = 22
       await this.$store.dispatch('post/getPosts', data)
       this.show = false
     },
   },
   head() {
     return {
-      title: this.posts[0].author.name,
+      title: this.name,
       meta: [
         {
           hid: 'description',
           name: 'description',
           content:
-            'latest backend development articles curated by ' +
-            this.posts[0].author.name,
+            'latest backend development articles curated by ' + this.name,
         },
         {
           hid: 'og:title',
           property: 'og:title',
           content:
-            'latest backend development articles curated by ' +
-            this.posts[0].author.name,
+            'latest backend development articles curated by ' + this.name,
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            'latest backend development articles curated by ' +
-            this.posts[0].author.name,
+            'latest backend development articles curated by ' + this.name,
         },
         {
           hid: 'twitter:card',

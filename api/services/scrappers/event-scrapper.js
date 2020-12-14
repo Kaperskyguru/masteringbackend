@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer')
-const eventUrl = `https://www.meetup.com/find/?keywords=backend&dateRange=this-week`
-
+const eventUrl = `https://www.meetup.com/find/?keywords=backend`
+//&dateRange=this-week
 let page
 let browser
 let cardArr = []
@@ -9,6 +9,7 @@ class MeetupEvent {
     // console.log('Loading Page ...')
 
     browser = await puppeteer.launch({
+      headless: false,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -30,33 +31,35 @@ class MeetupEvent {
   static async resolve() {
     await this.init()
     const eventURLs = await page.evaluate(() => {
-      const cards = document.querySelectorAll('.css-eno0dx')
+      const cards = document.querySelectorAll('.css-1gl3lql')
       cardArr = Array.from(cards)
       const cardLinks = []
-      cardArr.map((card) => {
+      cardArr.forEach((card) => {
         const eventLink = card.querySelector('.css-2ne5m0')
-        const eventTitle = card.querySelector('.css-yom70g')
-        const eventGroupName = card.querySelector('.css-64e74s')
+        const eventTitle = card.querySelector('.css-1jy1jkx')
+        const eventGroupName = card.querySelector('.css-ycqk9')
         const eventImage = card.querySelector('img')
-        const eventDate = card.querySelector('.css-1jmqq6')
-        // const date = card.querySelector('.css-0').datetime
+        const eventDate = card.querySelector('.css-ai9mht')
         const { host } = eventLink
         const { protocol } = eventLink
         const pathName = eventLink.pathname
         const query = eventLink.search
         const eventURL = protocol + '//' + host + pathName + query
-        const eventGroup = eventGroupName.textContent.split('Group name:')[1]
+        const eventGroup =
+          eventGroupName !== null
+            ? eventGroupName.textContent.split('Group name:')[1]
+            : eventGroupName
 
         cardLinks.push({
-          eventText: eventTitle.textContent,
+          eventText: eventTitle !== null ? eventTitle.textContent : eventTitle,
           eventURLHost: host,
           eventURL: eventURL,
           eventGroup: eventGroup,
           eventImage: eventImage.src,
-          //   eventDate: eventDate.textContent,
-          date: eventDate.textContent,
+          date: eventDate !== null ? eventDate.textContent : eventDate,
         })
       })
+
       return cardLinks
     })
 
@@ -66,7 +69,6 @@ class MeetupEvent {
   static async scrape() {
     await this.resolve()
     await browser.close()
-    // new DB().store(this.jobResolver(jobs))
     return {
       message: 'Scraped successfully',
       status: 200,

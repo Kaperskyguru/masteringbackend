@@ -56,7 +56,7 @@ export default {
     image() {
       if (this.post) {
         if (this.post.thumbnail_images && !this.post.thumbnail_images.length) {
-          return this.post.thumbnail_images.full.url
+          return this.post.thumbnail_images.medium.url
         }
       }
       return '/img/default_banner.webp'
