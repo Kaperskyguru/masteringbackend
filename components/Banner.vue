@@ -16,7 +16,9 @@
             world. Come join the fun.
           </h3>
           <div class="text-left mt-5">
-            <button class="bl">Start Backend Dev</button>
+            <a href="/posts/getting-started-with-backend-development" class="bl"
+              >Start Backend Dev</a
+            >
           </div>
         </div>
         <div class="col-md-5">
