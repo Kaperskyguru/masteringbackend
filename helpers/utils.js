@@ -13,4 +13,18 @@ export const getPosts = async () => {
   }
 }
 
-export default { getPosts }
+export const getJobs = async () => {
+  try {
+    const response = await axios.get(
+      process.env.BASE_ENDPOINT_URL + '/get_jobs?page=20&count=9'
+    )
+    if (response.data) {
+      return response.data.jobs
+    }
+    return []
+  } catch (error) {
+    return []
+  }
+}
+
+export default { getPosts, getJobs }

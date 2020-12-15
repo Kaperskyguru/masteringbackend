@@ -352,6 +352,31 @@ export default {
       cacheTime: 1000 * 60 * 15, // How long should the feed be cached
       type: 'rss2', // Can be: rss2, atom1, json1
     },
+    {
+      path: '/jobs.xml', // The route to your feed.
+      async create(feed) {
+        feed.options = {
+          title: 'Mastering Backend Development',
+          link: 'https://masteringbackend.com/jobs.xml',
+          description: 'This is Mastering Backend Development Job feeds!',
+        }
+
+        const jobs = await Utils.getJobs()
+        jobs.forEach((job) => {
+          feed.addItem({
+            title: job.title,
+            id: `https://masteringbackend.com/jobs/${job.slug}`,
+            link: `https://masteringbackend.com/jobs/${job.slug}`,
+            description: job.location,
+            content: job.description,
+            date: new Date(job.created_at),
+            updated: new Date(job.created_at),
+          })
+        })
+      },
+      cacheTime: 1000 * 60 * 15, // How long should the feed be cached
+      type: 'rss2', // Can be: rss2, atom1, json1
+    },
   ],
 
   sitemap: {

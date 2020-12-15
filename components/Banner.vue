@@ -1,32 +1,28 @@
 <template>
-  <section class="banner-section text-center">
-    <div class="hero text-white">
-      <div class="container">
-        <h1 class="container-title text-uppercase">
-          Start learning backend development now
-        </h1>
-        <h3 class="sub-title text-white mt-md-5 mt-3 mb-md-5">
-          Chat and share with over
-          <a href="/slack" style="text-decoration: underline">
-            <b>a thousand</b>
-          </a>
-          backend engineers worldwide. We have live discussions. We're building
-          the biggest Backend Development virtual user group in the world. Come
-          join the fun.
-        </h3>
-        <div class="mt-4 row">
-          <Button class="col m-1" link="#">Jobs</Button>
-          <Button class="col m-1 d-none d-sm-block" link="#">Events</Button>
-          <Button class="col m-1" link="/posts">Articles</Button>
-          <Button class="col m-1" link="/slack">Community</Button>
+  <section class="banner-section">
+    <div class="container-fluid pl-md-4 pr-md-5 hero text-white">
+      <div class="row ml-3 mr-3">
+        <div class="banner-text col-md-7 p-4">
+          <h1 class="container-title text-uppercase">
+            Start learning backend development now
+          </h1>
+          <h3 class="sub-title text-white mt-md-4 mt-3">
+            Chat and share with over
+            <a href="/slack" style="text-decoration: underline">
+              <b>a thousand</b>
+            </a>
+            backend engineers worldwide. We have live discussions. We're
+            building the biggest Backend Development virtual user group in the
+            world. Come join the fun.
+          </h3>
+          <div class="text-left mt-5">
+            <button class="bl">Start Backend Dev</button>
+          </div>
         </div>
-        <div class="mt-4 row">
-          <Button
-            class="col d-md-none m-1"
-            link="posts/getting-started-with-backend-development"
-          >
-            Start Backend Dev. Today</Button
-          >
+        <div class="col-md-5">
+          <div class="row justify-content-center">
+            <img class="banner-image" src="/img/personal3.webp" />
+          </div>
         </div>
       </div>
     </div>
@@ -39,4 +35,22 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.bl {
+  color: #fff;
+  padding: 20px 2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background-color: #fa4c23; /*rgba(51, 51, 51, 1);*/
+  text-decoration: none;
+  display: inline;
+  text-align: center;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.banner-image {
+  max-width: 100%;
+}
+</style>
