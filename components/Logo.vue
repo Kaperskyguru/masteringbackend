@@ -5,10 +5,10 @@
       src="/img/logo.png"
       alt="Logo"
       width="50"
-      class="img-fluid NuxtLogo"
+      class="img-fluid"
       :class="{ size: small }"
     />
-    Mastering Backend
+    <!-- Mastering Backend -->
   </span>
 </template>
 

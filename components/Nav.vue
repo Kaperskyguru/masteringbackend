@@ -38,23 +38,17 @@
               <li class="nav-item">
                 <nuxt-link class="nav-link text-link" to="#">Events</nuxt-link>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <nuxt-link class="nav-link text-link" to="/live"
                   >Live</nuxt-link
                 >
-              </li>
+              </li> -->
               <li class="nav-item">
                 <nuxt-link class="nav-link text-link" to="#"
                   >Projects</nuxt-link
                 >
               </li>
-              <li class="nav-item quote-btn">
-                <a
-                  class="nav-link qbtn"
-                  href="/posts/getting-started-with-backend-development"
-                  >Start Backend Dev. Today</a
-                >
-              </li>
+
               <li class="nav-item quote-btn">
                 <nuxt-link class="nav-link qbtn" to="#">Post a Job</nuxt-link>
               </li>
