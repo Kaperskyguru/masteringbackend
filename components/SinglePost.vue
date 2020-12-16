@@ -5,10 +5,7 @@
       <div class="d-flex">
         <div class="author d-flex pr-3 pb-4">
           <div class="profile mr-2"></div>
-          <a
-            :href="{ path: '/authors/' + post.author.slug }"
-            class="subtitle is-6"
-          >
+          <a :href="'/authors/' + post.author.slug" class="subtitle is-6">
             {{ post.author.name }}
           </a>
         </div>
@@ -37,7 +34,7 @@
 
     <div class="tags absolute">
       <a
-        :href="{ path: '/categories/' + category.slug }"
+        :href="'/categories/' + category.slug"
         v-for="category in post.categories"
         :key="category.id"
       >

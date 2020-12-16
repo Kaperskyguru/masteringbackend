@@ -10,7 +10,7 @@
       <content class="pt-4">
         <ul>
           <li v-for="post in posts" :key="post.id">
-            <a :href="{ path: '/posts/' + post.slug }"
+            <a :href="'/posts/' + post.slug"
               ><i class="fa fa-book"></i> {{ post.title }}
             </a>
           </li>

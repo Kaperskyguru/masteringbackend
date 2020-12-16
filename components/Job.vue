@@ -3,10 +3,7 @@
     <div class="card-header">
       <div class="card-title title">
         <h3>
-          <a
-            class="title is-size-4-mobile"
-            :href="{ path: '/jobs/' + job.slug }"
-          >
+          <a class="title is-size-4-mobile" :href="'/jobs/' + job.slug">
             {{ job.title }}
           </a>
         </h3>
@@ -24,7 +21,7 @@
     <div style="clear: both"></div>
     <div class="card-footer">
       <div class="actions">
-        <a class="btn btn3" :to="{ path: '/jobs/' + job.slug }">Read More</a>
+        <a class="btn btn3" :href="'/jobs/' + job.slug">Read More</a>
         <small style="float: right">Source: {{ job.website }}</small>
       </div>
       <div style="clear: both"></div>
