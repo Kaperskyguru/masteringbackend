@@ -3,12 +3,12 @@
     <div class="card-header">
       <div class="card-title title">
         <h3>
-          <nuxt-link
+          <a
             class="title is-size-4-mobile"
-            :to="{ path: '/jobs/' + job.slug }"
+            :href="{ path: '/jobs/' + job.slug }"
           >
             {{ job.title }}
-          </nuxt-link>
+          </a>
         </h3>
       </div>
     </div>
@@ -24,9 +24,7 @@
     <div style="clear: both"></div>
     <div class="card-footer">
       <div class="actions">
-        <nuxt-link class="btn btn3" :to="{ path: '/jobs/' + job.slug }"
-          >Read More</nuxt-link
-        >
+        <a class="btn btn3" :to="{ path: '/jobs/' + job.slug }">Read More</a>
         <small style="float: right">Source: {{ job.website }}</small>
       </div>
       <div style="clear: both"></div>
