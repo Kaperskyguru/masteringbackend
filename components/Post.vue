@@ -3,7 +3,7 @@
     <div class="card">
       <div class="b-block">
         <div style="flex: calc(900 / 900)">
-          <a :href="{ path: '/posts/' + post.slug }">
+          <a :href="'/posts/' + post.slug">
             <img
               v-lazy-load
               :data-src="image"
@@ -14,12 +14,12 @@
         </div>
       </div>
       <div class="card-body">
-        <a :href="{ path: '/authors/' + post.author.slug }" class="subtitle">
+        <a :href="'/authors/' + post.author.slug" class="subtitle">
           {{ post.author.name }}
         </a>
         <div class="pt-1">
           <h2>
-            <a class="title" :href="{ path: '/posts/' + post.slug }">
+            <a class="title" :href="'/posts/' + post.slug">
               {{ post.title || '' }}
             </a>
           </h2>
