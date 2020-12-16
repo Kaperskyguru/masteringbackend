@@ -3,9 +3,9 @@
     <header class="main-header">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid pl-md-5 pr-md-5">
-          <nuxt-link class="navbar-brand" to="/">
+          <a class="navbar-brand" href="/">
             <Logo />
-          </nuxt-link>
+          </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -26,36 +26,28 @@
           >
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <nuxt-link class="nav-link text-link" to="/posts"
-                  >Articles</nuxt-link
-                >
+                <a class="nav-link text-link" href="/posts">Articles</a>
               </li>
               <li class="nav-item">
-                <nuxt-link class="nav-link text-link" to="/jobs"
-                  >Jobs</nuxt-link
-                >
+                <a class="nav-link text-link" href="/jobs">Jobs</a>
               </li>
               <li class="nav-item">
-                <nuxt-link class="nav-link text-link" to="#">Events</nuxt-link>
+                <a class="nav-link text-link" href="#">Events</a>
               </li>
               <!-- <li class="nav-item">
-                <nuxt-link class="nav-link text-link" to="/live"
-                  >Live</nuxt-link
+                <a class="nav-link text-link" href="/live"
+                  >Live</a
                 >
               </li> -->
               <li class="nav-item">
-                <nuxt-link class="nav-link text-link" to="#"
-                  >Projects</nuxt-link
-                >
+                <a class="nav-link text-link" href="#">Projects</a>
               </li>
 
               <li class="nav-item quote-btn">
-                <nuxt-link class="nav-link qbtn" to="#">Post a Job</nuxt-link>
+                <a class="nav-link qbtn" href="#">Post a Job</a>
               </li>
               <li class="nav-item quote-btn">
-                <nuxt-link class="nav-link qbtn" to="/slack"
-                  >Join Our Community</nuxt-link
-                >
+                <a class="nav-link qbtn" href="/slack">Join Our Community</a>
               </li>
             </ul>
           </div>

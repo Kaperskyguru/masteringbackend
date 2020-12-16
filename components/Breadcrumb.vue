@@ -4,7 +4,7 @@
       <ul class="navbar">
         <li class="nav-item"><a href="/">Home</a></li>
         <li v-for="(path, i) in computedPath" :key="i" class="nav-item active">
-          > <nuxt-link :to="path"> {{ path }} </nuxt-link>
+          > <a :href="path"> {{ path }} </a>
         </li>
       </ul>
     </div>

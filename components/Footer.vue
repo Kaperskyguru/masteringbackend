@@ -4,27 +4,27 @@
       <div class="row">
         <div class="col-md-3">
           <h2 class="footer-header mb-4 pr-5">
-            <nuxt-link class="navbar-brand mr-auto" to="/">
+            <a class="navbar-brand mr-auto" href="/">
               <Logo :small="true" />
-            </nuxt-link>
+            </a>
           </h2>
         </div>
         <div class="col-md-2">
           <h5 class="footer-header mb-4">General</h5>
           <ul class="footer-link list-unstyled">
-            <li><nuxt-link to="/posts">Articles</nuxt-link></li>
-            <li><nuxt-link to="/jobs">Jobs</nuxt-link></li>
-            <li><nuxt-link to="#">Events</nuxt-link></li>
-            <li><nuxt-link to="/slack">Community</nuxt-link></li>
+            <li><a href="/posts">Articles</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <!-- <li><a href="#">Events</a></li> -->
+            <li><a href="/slack">Community</a></li>
           </ul>
         </div>
         <div class="col-md-2">
           <h5 class="footer-header mb-4">Useful Links</h5>
           <ul class="footer-link list-unstyled">
-            <li><nuxt-link to="#">Code of Conduct</nuxt-link></li>
-            <li><nuxt-link to="#">Partnership</nuxt-link></li>
-            <li><nuxt-link to="/contact">Contact us</nuxt-link></li>
-            <li><nuxt-link to="/write-for-us">Write for us</nuxt-link></li>
+            <li><a href="#">Code of Conduct</a></li>
+            <li><a href="#">Partnership</a></li>
+            <li><a href="/contact">Contact us</a></li>
+            <li><a href="/write-for-us">Write for us</a></li>
           </ul>
         </div>
         <div class="col-md-2">
@@ -66,19 +66,17 @@
         <div class="row pt-5 mt-2">
           <div class="col-md-8">
             <ul>
-              <nuxt-link to="/terms-and-conditions"
-                >Terms and Conditions</nuxt-link
-              >
+              <a href="/terms-and-conditions">Terms and Conditions</a>
               |&nbsp;
-              <nuxt-link to="/privacy-policy">Privacy</nuxt-link>
+              <a href="/privacy-policy">Privacy</a>
               |&nbsp;
-              <nuxt-link to="/disclaimer">Disclaimer</nuxt-link>
+              <a href="/disclaimer">Disclaimer</a>
             </ul>
           </div>
           <div class="col-md-4">
             <div id="copy">
               ©{{ year }} Masteringbackend - By
-              <nuxt-link to="/aboutus">Backend Community</nuxt-link>
+              <a href="/aboutus">Backend Community</a>
             </div>
           </div>
         </div>

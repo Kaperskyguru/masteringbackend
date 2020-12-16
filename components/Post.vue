@@ -3,28 +3,25 @@
     <div class="card">
       <div class="b-block">
         <div style="flex: calc(900 / 900)">
-          <nuxt-link :to="{ path: '/posts/' + post.slug }">
+          <a :href="{ path: '/posts/' + post.slug }">
             <img
               v-lazy-load
               :data-src="image"
               class="card-img-top"
               :alt="post.title"
             />
-          </nuxt-link>
+          </a>
         </div>
       </div>
       <div class="card-body">
-        <nuxt-link
-          :to="{ path: '/authors/' + post.author.slug }"
-          class="subtitle"
-        >
+        <a :href="{ path: '/authors/' + post.author.slug }" class="subtitle">
           {{ post.author.name }}
-        </nuxt-link>
+        </a>
         <div class="pt-1">
           <h2>
-            <nuxt-link class="title" :to="{ path: '/posts/' + post.slug }">
+            <a class="title" :href="{ path: '/posts/' + post.slug }">
               {{ post.title || '' }}
-            </nuxt-link>
+            </a>
           </h2>
         </div>
         <!-- <p>

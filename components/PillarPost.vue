@@ -10,9 +10,9 @@
       <content class="pt-4">
         <ul>
           <li v-for="post in posts" :key="post.id">
-            <nuxt-link :to="{ path: '/posts/' + post.slug }"
+            <a :href="{ path: '/posts/' + post.slug }"
               ><i class="fa fa-book"></i> {{ post.title }}
-            </nuxt-link>
+            </a>
           </li>
         </ul>
       </content>

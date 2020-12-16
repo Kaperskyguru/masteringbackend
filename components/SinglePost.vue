@@ -5,12 +5,12 @@
       <div class="d-flex">
         <div class="author d-flex pr-3 pb-4">
           <div class="profile mr-2"></div>
-          <nuxt-link
-            :to="{ path: '/authors/' + post.author.slug }"
+          <a
+            :href="{ path: '/authors/' + post.author.slug }"
             class="subtitle is-6"
           >
             {{ post.author.name }}
-          </nuxt-link>
+          </a>
         </div>
 
         <div class="date_created">
@@ -36,13 +36,13 @@
     </div>
 
     <div class="tags absolute">
-      <nuxt-link
-        :to="{ path: '/categories/' + category.slug }"
+      <a
+        :href="{ path: '/categories/' + category.slug }"
         v-for="category in post.categories"
         :key="category.id"
       >
         {{ category.title }}
-      </nuxt-link>
+      </a>
     </div>
 
     <div class="card-body">
