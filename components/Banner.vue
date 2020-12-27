@@ -43,7 +43,7 @@ export default {
   padding: 20px 2rem;
   border-radius: 5px;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 14px;
   background-color: #fa4c23; /*rgba(51, 51, 51, 1);*/
   text-decoration: none;
   display: inline;

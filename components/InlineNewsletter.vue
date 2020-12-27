@@ -23,27 +23,26 @@
             </p>
           </div>
         </div>
-        <div class="ck_control_group ck_email_field_group">
-          <label class="ck_label" for="ck_emailField" style="display: none"
-            >Enter your email address</label
-          >
-          <input
-            type="email"
-            name="email"
-            class="ck_email_address"
-            id="ck_emailField"
-            placeholder="Enter your email address"
-            required
-          />
-        </div>
+        <div class="row p-4">
+          <div class="col-md-10 col-sm-12 m-0 p-0">
+            <input
+              type="email"
+              name="email"
+              class="ck_email_address d-sm-block"
+              id="ck_emailField"
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
 
-        <button
-          class="subscribe_button ck_subscribe_button fields"
-          id="ck_subscribe_button"
-          type="submit"
-        >
-          Get the tips!
-        </button>
+          <button
+            class="subscribe_button ck_subscribe_button btn-sm-block fields col-md-2 col-sm-12"
+            id="ck_subscribe_button"
+            type="submit"
+          >
+            Get the tips!
+          </button>
+        </div>
       </form>
 
       <span class="ck_guarantee">
@@ -111,7 +110,6 @@ export default {
   -moz-box-shadow: none;
   box-shadow: none;
   clear: both;
-  margin: 20px 1rem;
   text-align: center;
   background: #f1f1f1;
   border: 0;
@@ -127,7 +125,7 @@ export default {
   text-align: left !important;
   letter-spacing: 0.01em;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 30px;
   font-family: 'Open Sans', Arial, sans-serif;
   color: #fa4c23;
 }
@@ -144,7 +142,7 @@ export default {
   text-align: center;
   color: #686868;
   line-height: 1.5;
-  font-size: 18px;
+  font-size: 20px;
   font-family: 'Open Sans', Arial, sans-serif;
   margin: 10px 0 30px;
 }
@@ -165,36 +163,17 @@ export default {
 .ck_form.ck_minimal input[type='email'] {
   font-size: 18px;
   padding: 10px 8px;
-  width: 68%;
-  border: 1px solid #d6d6d6;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #fff;
-  margin-bottom: 5px;
-  height: auto;
-  float: left;
-  margin: 0px;
-  margin-right: 2%;
-  height: 42px;
-}
-
-.ck_form.ck_minimal input[type='text'],
-.ck_form.ck_minimal input[type='email'] {
-  font-size: 18px;
-  padding: 10px 8px;
-  width: 68%;
+  width: 100%;
   border: none;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   background-color: #fff;
-  margin-bottom: 5px;
+  margin-bottom: 0.5em;
   height: auto;
   float: left;
-  margin: 0px;
-  margin-right: 2%;
-  height: 42px;
+
+  /* height: 42px; */
 }
 
 .ck_form.ck_minimal .ck_subscribe_button {
@@ -215,13 +194,12 @@ export default {
   -ms-transition: all 400ms ease-out;
   -o-transition: all 400ms ease-out;
   transition: all 400ms ease-out;
-  margin: 0px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   cursor: pointer;
   text-shadow: none;
-  width: 30%;
-  float: left;
+  /* width: 30%; */
+  /* float: left; */
   height: 50%;
 }
 

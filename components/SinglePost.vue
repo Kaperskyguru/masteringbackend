@@ -21,15 +21,13 @@
         </div>
       </div>
     </div>
-    <div class="block-image">
-      <figure class="pl-3 pr-3 pt-2">
-        <img
-          data-not-lazy
-          :src="image"
-          class="card-img-top"
-          :alt="post.title"
-        />
-      </figure>
+    <div class="block-image pl-3 pr-3 pt-2 mb-3">
+      <img
+        :data-src="image"
+        class="card-img-top img-fluid"
+        :alt="post.title"
+        v-lazy-load
+      />
     </div>
 
     <div class="tags absolute">
@@ -206,6 +204,19 @@ h1.title {
 
 .block-image .card-img-top {
   border-radius: 2%;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+.block-image {
+  height: 500px;
+  max-height: 500px;
+}
+
+@media (max-width: 576px) {
+  .block-image {
+    height: 250px;
+  }
 }
 .card .absolute {
   margin-left: 20px;
