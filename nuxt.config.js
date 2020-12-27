@@ -220,11 +220,11 @@ export default {
     ],
 
     script: [
-      {
-        src: 'https://use.fontawesome.com/3889c7d65e.js',
-        async: true,
-        defer: true,
-      },
+      // {
+      //   src: 'https://use.fontawesome.com/3889c7d65e.js',
+      //   async: true,
+      //   defer: true,
+      // },
     ],
   },
   router: {
@@ -371,6 +371,10 @@ export default {
             content: job.description,
             date: new Date(job.created_at),
             updated: new Date(job.created_at),
+            author: {
+              name: post.author.name,
+              link: 'https://masteringbackend.com/authors/' + post.author.slug,
+            },
           })
         })
       },
