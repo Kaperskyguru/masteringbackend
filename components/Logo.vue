@@ -2,9 +2,8 @@
   <span>
     <img
       data-not-lazy
-      src="~/assets/img/logo.png"
+      src="/img/logo.png"
       alt="Logo"
-      width="50"
       class="img-fluid"
       :class="{ size: small }"
     />

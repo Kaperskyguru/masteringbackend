@@ -217,4 +217,9 @@ export default {
   font-size: 0.6rem;
   font-style: italic;
 }
+
+.ck_form.ck_minimal .ck_subscribe_button:hover {
+  background-color: rgba(250, 76, 35, 0.8);
+  color: #fff;
+}
 </style>

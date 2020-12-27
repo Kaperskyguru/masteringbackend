@@ -21,7 +21,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 mt-3 mt-md-0">
             <div class="card-deck">
               <Newsletter />
             </div>
@@ -94,7 +94,7 @@ export default {
           return this.post.thumbnail_images.full.url
         }
       }
-      return '~/assets/img/default_banner.webp'
+      return '/img/default_banner.webp'
     },
   },
   async mounted() {

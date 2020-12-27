@@ -35,6 +35,7 @@
         :href="'/categories/' + category.slug"
         v-for="category in post.categories"
         :key="category.id"
+        class="btn-tag"
       >
         {{ category.title }}
       </a>
@@ -94,7 +95,7 @@ export default {
           }
         }
       }
-      return '~/assets/img/default_banner.webp'
+      return '/img/default_banner.webp'
     },
   },
 

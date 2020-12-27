@@ -39,7 +39,7 @@ export default {
           return this.post.thumbnail_images.medium.url
         }
       }
-      return '~/assets/img/default_banner.webp'
+      return '/img/default_banner.webp'
     },
   },
 }

@@ -78,9 +78,9 @@ export default {
       },
     }),
   },
-  async mounted() {
-    await this.$store.dispatch('post/getWorldPosts')
-    await this.dispatchJobsAction()
+  mounted() {
+    this.$store.dispatch('post/getWorldPosts')
+    this.dispatchJobsAction()
   },
   methods: {
     async dispatchJobsAction() {
