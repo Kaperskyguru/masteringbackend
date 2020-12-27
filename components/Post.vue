@@ -56,7 +56,7 @@ export default {
           return this.post.thumbnail_images.medium.url
         }
       }
-      return '/img/default_banner.webp'
+      return '~/assets/img/default_banner.webp'
     },
   },
 

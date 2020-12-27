@@ -171,7 +171,7 @@ class Slack {
         return post.thumbnail_images.full.url
       }
     }
-    return '/img/default_banner.webp'
+    return '~/assets/img/default_banner.webp'
   }
 
   static stripTags(post) {

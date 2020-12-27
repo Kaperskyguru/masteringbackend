@@ -94,7 +94,7 @@ export default {
           return this.post.thumbnail_images.full.url
         }
       }
-      return '/img/default_banner.webp'
+      return '~/assets/img/default_banner.webp'
     },
   },
   async mounted() {

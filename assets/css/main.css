@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: 'Merriweather';
   src: url('/Merriweather-Light.ttf');
   font-display: swap;
@@ -10,7 +10,7 @@
   src: url('/Nunito-Light.ttf');
   font-display: swap;
   font-weight: 400;
-}
+} */
 
 * {
   border: none;
@@ -96,7 +96,7 @@ body {
       rgba(242, 157, 18, 0.5),
       rgba(151, 96, 8, 0.5)
     ),
-    url('/img/banner5.jpg');
+    url('~assets/img/banner5.jpg');
   /* background-image: url('/img/banner5.jpg'); */
   background-color: rgba(38, 141, 200, 0.97);
   background-position: center;

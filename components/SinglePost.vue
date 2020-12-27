@@ -94,7 +94,7 @@ export default {
           }
         }
       }
-      return '/img/default_banner.webp'
+      return '~/assets/img/default_banner.webp'
     },
   },
 
@@ -160,7 +160,7 @@ export default {
 
 <style>
 .card-text {
-  font-family: Nunito, Roboto;
+  font-family: Nunito, 'Open Sans';
   font-weight: 400;
   line-height: 1.8;
   color: #334c70;
