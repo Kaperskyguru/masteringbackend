@@ -82,4 +82,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.qbtn:hover {
+  background-color: rgba(250, 76, 35, 0.8) !important;
+  color: #fff;
+}
+</style>

@@ -16,14 +16,16 @@
             world. Come join the fun.
           </h3>
           <div class="text-left mt-5">
-            <a href="/posts/getting-started-with-backend-development" class="bl"
+            <a
+              href="/posts/getting-started-with-backend-development"
+              class="bl qbtn"
               >Start Backend Dev</a
             >
           </div>
         </div>
         <div class="col-md-5">
           <div class="row justify-content-center">
-            <img class="banner-image" src="~/assets/img/personal3.webp" />
+            <img class="banner-image" src="/img/personal3.webp" />
           </div>
         </div>
       </div>

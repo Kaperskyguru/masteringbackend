@@ -47,7 +47,7 @@ export default {
               headline: 'Mastering Backend Development',
               image: {
                 '@type': 'ImageObject',
-                url: '~/assets/img/logo.png',
+                url: '/img/logo.png',
               },
               inLanguage: 'en-us',
               mainEntityOfPage: 'https://masteringbackend.com/',
@@ -104,7 +104,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: '~/assets/img/logo300.png',
+        content: '/img/logo300.png',
       },
       {
         hid: 'twitter:site',
@@ -289,7 +289,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    'nuxt-imagemin',
+    '@nuxtjs/imagemin',
     '@nuxtjs/redirect-module',
 
     [

@@ -96,7 +96,7 @@ body {
       rgba(242, 157, 18, 0.5),
       rgba(151, 96, 8, 0.5)
     ),
-    url('~assets/img/banner5.jpg');
+    url('/img/banner5.jpg');
   /* background-image: url('/img/banner5.jpg'); */
   background-color: rgba(38, 141, 200, 0.97);
   background-position: center;
@@ -212,8 +212,11 @@ body {
   border-radius: 5px;
   text-transform: capitalize;
 }
-.btn-style-one:hover {
-  background: dodgerblue;
+.btn-style-one:hover,
+li.quote-btn .qbtn:hover,
+.btn-tag:hover,
+.ck_subscribe_button:hover {
+  background-color: rgba(250, 76, 35, 0.8);
   color: #fff;
 }
 .main-banner-content > a {
