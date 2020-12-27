@@ -264,6 +264,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/moment',
     '@nuxtjs/dotenv',
+    '@nuxtjs/imagemin',
     'nuxt-goodshare',
     [
       'nuxt-compress',
@@ -289,7 +290,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    '@nuxtjs/imagemin',
+
     '@nuxtjs/redirect-module',
 
     [
