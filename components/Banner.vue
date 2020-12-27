@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-5">
           <div class="row justify-content-center">
-            <img class="banner-image" src="/img/personal3.webp" />
+            <img class="banner-image" src="~/assets/img/personal3.webp" />
           </div>
         </div>
       </div>

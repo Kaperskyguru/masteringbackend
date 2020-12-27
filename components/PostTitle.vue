@@ -49,7 +49,7 @@ export default {
           return this.post.thumbnail_images.thumbnail.url
         }
       }
-      return '/img/default_banner.webp'
+      return '~/assets/img/default_banner.webp'
     },
   },
 }

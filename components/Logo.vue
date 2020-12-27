@@ -2,7 +2,7 @@
   <span>
     <img
       data-not-lazy
-      src="/img/logo.png"
+      src="~/assets/img/logo.png"
       alt="Logo"
       width="50"
       class="img-fluid"

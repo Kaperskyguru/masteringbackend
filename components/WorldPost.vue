@@ -55,7 +55,7 @@ export default {
       if (this.post.image) {
         return this.post.image
       }
-      return '/img/default_banner.webp'
+      return '~/assets/img/default_banner.webp'
     },
   },
 

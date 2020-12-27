@@ -34,6 +34,7 @@
     "nuxt-compress": "^4.1.0",
     "nuxt-goodshare": "^2.0.0",
     "nuxt-highlightjs": "^1.0.1",
+    "nuxt-imagemin": "^1.0.0",
     "nuxt-jsonld": "^1.5.0",
     "nuxt-lazy-load": "^1.2.4",
     "puppeteer": "^5.3.1",
