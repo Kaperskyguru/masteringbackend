@@ -189,9 +189,20 @@ h1.title {
 .card-text h1,
 .card-text h2,
 .card-text h3,
-.card-text h4 {
+.card-text h4,
+.card-text h5,
+.card-text h6 {
   color: #fa4c23;
-  font-weight: bold;
+}
+
+.card-text h3,
+.card-text h4 {
+  font-weight: normal;
+}
+
+.card-text h5,
+.card-text h6 {
+  font-weight: lighter;
 }
 
 .card-text h1,
