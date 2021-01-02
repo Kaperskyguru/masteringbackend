@@ -372,10 +372,10 @@ export default {
             content: job.description,
             date: new Date(job.created_at),
             updated: new Date(job.created_at),
-            author: {
-              name: post.author.name,
-              link: 'https://masteringbackend.com/authors/' + post.author.slug,
-            },
+            // author: {
+            //   name: post.author.name,
+            //   link: 'https://masteringbackend.com/authors/' + post.author.slug,
+            // },
           })
         })
       },
