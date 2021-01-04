@@ -7,19 +7,17 @@
             Start learning backend development now
           </h1>
           <h3 class="sub-title text-white mt-md-4 mt-3">
-            Chat and share with over
-            <a href="/slack" style="text-decoration: underline">
-              <b>a thousand</b>
-            </a>
-            backend engineers worldwide. We have live discussions. We're
-            building the biggest Backend Development virtual user group in the
-            world. Come join the fun.
+            Starting Backend Development is a journey into a career that can
+            open many great opportunities from working on complex projects to
+            landing your
+            <a href="/jobs" style="text-decoration: underline">dream job</a> and
+            the best way to get the most out of it is to start now.
           </h3>
           <div class="text-left mt-5">
             <a
               href="/posts/getting-started-with-backend-development"
               class="bl qbtn"
-              >Start Backend Dev</a
+              >Start Backend Dev.</a
             >
           </div>
         </div>
@@ -56,5 +54,6 @@ export default {
 
 .banner-image {
   max-width: 100%;
+  height: 300px;
 }
 </style>
