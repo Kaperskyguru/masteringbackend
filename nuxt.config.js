@@ -310,6 +310,11 @@ export default {
       statusCode: 301,
     },
     {
+      from: '^posts/laravel-framework-the-ultimate-guide-2021$',
+      to: 'posts/laravel-framework-the-ultimate-guide$1',
+      statusCode: 301,
+    },
+    {
       from: '^/category/(.*)$',
       to: '/categories/$1',
       statusCode: 301,

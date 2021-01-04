@@ -5,11 +5,20 @@
       <div class="padding-top grey-color">
         <div class="container inner-padding-top">
           <div class="row">
-            <div class="col-md-12 col-sm-12-col-xs-12 text-center">
-              <h1 class="lead-title text-uppercase">
-                Join over a thousand Backend Dev. on Slack today!
-              </h1>
-            </div>
+            <Title>
+              <template slot="title"
+                >Join over a thousand Backend Dev. on Slack today!</template
+              >
+              <template slot="subtitle">
+                Chat and share with over
+                <a href="/slack" style="text-decoration: underline">
+                  <b>a thousand</b>
+                </a>
+                backend engineers worldwide. We have live discussions. We're
+                building the biggest Backend Development virtual user group in
+                the world. Come join the fun.
+              </template>
+            </Title>
           </div>
           <div class="row mt-5">
             <div class="card-group">
