@@ -311,7 +311,7 @@ export default {
     },
     {
       from: '^posts/laravel-framework-the-ultimate-guide-2021(.*)$',
-      to: 'posts/laravel-framework-the-ultimate-guide$1',
+      to: 'posts/laravel-framework-the-ultimate-guide',
       statusCode: 301,
     },
     {
