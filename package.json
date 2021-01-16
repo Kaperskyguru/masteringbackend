@@ -27,7 +27,6 @@
     "bootstrap-vue": "^2.17.3",
     "eslint-plugin-vue": "^6.2.2",
     "express": "^4.17.1",
-    "locutus": "^2.0.14",
     "markdown-it-highlightjs": "^3.3.0",
     "net": "^1.0.2",
     "nuxt": "^2.14.6",
@@ -38,17 +37,12 @@
     "nuxt-lazy-load": "^1.2.4",
     "puppeteer": "^5.3.1",
     "request": "^2.88.2",
-    "rss-to-json": "^1.1.1",
     "superagent": "^6.1.0",
     "tls": "0.0.1",
     "vue": "^2.6.12",
     "vue-disqus": "^4.0.1",
-    "vue-full-loading": "^1.2.1",
-    "vue-goodshare": "^1.5.1",
     "vue-social-sharing": "^3.0.2",
-    "vue-worker": "^1.2.1",
-    "vuejs-paginate": "^2.1.0",
-    "vuex-persistedstate": "^3.1.0"
+    "vuejs-paginate": "^2.1.0"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
@@ -67,8 +61,7 @@
     "node-sass": "^4.14.1",
     "prettier": "^2.1.2",
     "sass-loader": "^10.0.3",
-    "vue-jest": "^3.0.7",
-    "worker-loader": "^3.0.4"
+    "vue-jest": "^3.0.7"
   },
   "browser": {
     "fs": false,
