@@ -310,8 +310,8 @@ export default {
       statusCode: 301,
     },
     {
-      from: '^posts/laravel-framework-the-ultimate-guide-2021(.*)$',
-      to: 'posts/laravel-framework-the-ultimate-guide',
+      from: '^/posts/laravel-framework-the-ultimate-guide-2021(.*)$',
+      to: '/posts/laravel-framework-the-ultimate-guide',
       statusCode: 301,
     },
     {
@@ -418,7 +418,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-    extend(config, { isServer, isClient }) {
+    extend(config, { isServer }) {
       config.externals = config.externals || {}
       if (!isServer) {
         config.node = {
@@ -434,13 +434,6 @@ export default {
         }
       }
 
-      if (isClient) {
-        config.module.rules.push({
-          test: /\.worker\.js$/,
-          use: { loader: 'worker-loader' },
-          exclude: /(node_modules)/,
-        })
-      }
       config.output.globalObject = 'this'
       return config
     },
