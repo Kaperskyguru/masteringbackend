@@ -418,7 +418,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-    extend(config, { isServer }) {
+    extend(config, { isServer, isClient }) {
       config.externals = config.externals || {}
       if (!isServer) {
         config.node = {
@@ -432,6 +432,14 @@ export default {
         } else {
           config.externals.puppeteer = require('puppeteer')
         }
+      }
+
+      if (isClient) {
+        config.module.rules.push({
+          test: /\.worker\.js$/,
+          use: { loader: 'worker-loader' },
+          exclude: /(node_modules)/,
+        })
       }
 
       config.output.globalObject = 'this'

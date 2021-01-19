@@ -54,7 +54,6 @@
 
 <script>
 import { mapState } from 'vuex'
-import ENUM from '@/enums'
 import Loading from '~/components/Loading'
 export default {
   async asyncData({ store, query }) {
@@ -84,18 +83,6 @@ export default {
       },
       post_count: (state) => {
         return state.post.total_post_pages
-      },
-      apiStateLoaded: (state) => {
-        return state.post.postState === ENUM.LOADED
-      },
-      apiStateLoading: (state) => {
-        return (
-          state.post.postState === ENUM.LOADING ||
-          state.post.postState === ENUM.INIT
-        )
-      },
-      apiStateError: (state) => {
-        return state.post.postState === ENUM.ERROR
       },
     }),
   },
