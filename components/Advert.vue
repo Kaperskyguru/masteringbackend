@@ -1,12 +1,11 @@
 <template>
-  <div class="car mb-3">
+  <div class="card mb-3">
     <div>
       <adsbygoogle
         :adFullWidthResponsive="adFullWidthResponsive"
         :ad-slot="adslot"
         :ad-format="adformat"
-        :style="mystyle"
-        class="ads"
+        :ad-style="mystyle"
       />
     </div>
   </div>
@@ -19,9 +18,4 @@ export default {
 </script>
 
 <style >
-.ads {
-  min-width: 100% !important;
-  max-width: 100%;
-  min-height: auto;
-}
 </style>
