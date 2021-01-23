@@ -23,10 +23,10 @@
     </div>
     <div class="block-image pl-3 pr-3 pt-2 mb-3">
       <img
+        v-lazy-load
         :data-src="image"
         class="card-img-top img-fluid"
         :alt="post.title"
-        v-lazy-load
       />
     </div>
 
@@ -58,7 +58,7 @@
       <div class="card-line"></div>
       <div class="tags mb-4" style="color: red">
         <i class="fa fa-tag"></i>
-        <a href="#" v-for="tag in post.tags" :key="tag.id">
+        <a v-for="tag in post.tags" href="#" :key="tag.id">
           {{ tag.title }},
         </a>
       </div>
@@ -69,6 +69,7 @@
 <script>
 import Vue from 'vue'
 import InlineNewsletter from './InlineNewsletter.vue'
+import InlineAdvert from './InlineAdvert.vue'
 
 export default {
   // components: { InlineNewsletter },
@@ -100,6 +101,33 @@ export default {
   },
 
   methods: {
+    displayAds() {
+      const newNode = document.createElement('div')
+      newNode.id = 'advert_id'
+
+      const adSpaces = document.querySelectorAll('article h4:nth-child(even)')
+      if (adSpaces) {
+        adSpaces.forEach((adSpace) => {
+          // console.log(adSpace)
+          const firstPara = adSpace.nextElementSibling
+          const AdvertComp = Vue.extend(InlineAdvert)
+          if (firstPara) {
+            firstPara.insertAdjacentElement('afterend', newNode)
+            // if (Object.keys(data).length !== 0) {
+            new AdvertComp({
+              propsData: {
+                adLayoutKey: '-gw-3+1f-3d+2z',
+                adslot: '7567111590',
+                adformat: 'fluid',
+              },
+            }).$mount('#advert_id')
+            // } else {
+            //   new AdvertComp().$mount('#advert_id')
+            // }
+          }
+        })
+      }
+    },
     displayNewsletterLaravel() {
       const newsletterLaravel = document.querySelectorAll('.newsletter-laravel')
       const newsletterNode = document.querySelectorAll('.newsletter-node')
@@ -153,6 +181,7 @@ export default {
     },
   },
   mounted() {
+    this.displayAds()
     this.displayNewsletterBackend()
     this.displayNewsletterLaravel()
   },
@@ -262,6 +291,7 @@ h1.title {
 
 figure iframe {
   width: 100%;
+  height: 400px !important;
 }
 
 .single p {
