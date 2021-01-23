@@ -292,6 +292,7 @@ export default {
     '@nuxtjs/sitemap',
 
     '@nuxtjs/redirect-module',
+    ['@nuxtjs/google-adsense'],
 
     [
       'nuxt-highlightjs',
@@ -302,6 +303,10 @@ export default {
     ],
     'vue-social-sharing/nuxt',
   ],
+
+  'google-adsense': {
+    id: 'ca-pub-2753467155815816',
+  },
   redirect: [
     // Redirect options here
     {

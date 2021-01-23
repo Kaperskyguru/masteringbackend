@@ -32,6 +32,7 @@
                 :posts="sticky_posts"
               />
             </div>
+            <adsbygoogle ad-slot="8446445971" />
             <div class="card-deck mt-3">
               <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
             </div>
