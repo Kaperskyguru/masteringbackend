@@ -10,7 +10,7 @@
           height="50px"
           :data-src="image"
           class="card-img-top"
-          :alt="post.title"
+          alt=""
         />
       </a>
     </div>

@@ -104,7 +104,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: '/img/logo300.png',
+        content: '/img/logo.png',
       },
       {
         hid: 'twitter:site',
