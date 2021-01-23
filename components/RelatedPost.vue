@@ -9,7 +9,7 @@
             width="100%"
             height="auto"
             class="image"
-            :alt="post.title"
+            alt=""
           />
         </a>
       </div>

@@ -1,32 +1,29 @@
 <template>
-  <div class="card text-white mb-3">
-    <h5 class="card-header text-uppercase border-success">
-      Laravel/PHP Careers
-    </h5>
+  <div class="car text-white mb-3">
+    <h5 class="card-header text-uppercase border-success"></h5>
 
     <div class="card-body text-success">
-      <h4 class="card-a text-center card-title">
-        <a href="#">
-          Want your job here? Contact Us.
-        </a>
-      </h4>
-    </div>
-    <div class="card-footer border-success">
-      <form method="post" action="#">
-        <div class="field">
-          <div class="control text-center mt-4">
-            <button class="button btn2" type="submit">
-              Add a job?
-            </button>
-          </div>
-        </div>
-      </form>
+      <ins
+        class="adsbygoogle"
+        style="display: block"
+        data-ad-client="ca-pub-2753467155815816"
+        data-ad-slot="8446445971"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+      <script>
+        ;(adsbygoogle = window.adsbygoogle || []).push({})
+      </script>
     </div>
   </div>
 </template>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 <script>
-export default {}
+export default {
+  mounted() {},
+}
 </script>
 
 <style></style>
