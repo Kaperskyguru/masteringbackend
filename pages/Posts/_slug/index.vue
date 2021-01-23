@@ -25,6 +25,9 @@
             <div class="card-deck">
               <Newsletter />
             </div>
+            <div class="mt-3 card-deck">
+              <Advert adslot="8446445971" />
+            </div>
             <div class="card-deck mt-3">
               <PostWidget
                 title="Top 3 Must Reads"
@@ -32,9 +35,14 @@
                 :posts="sticky_posts"
               />
             </div>
-            <adsbygoogle ad-slot="8446445971" />
+            <div class="mt-3 card-deck">
+              <Advert adslot="8446445971" />
+            </div>
             <div class="card-deck mt-3">
               <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
+            </div>
+            <div class="mt-3 card-deck">
+              <Advert adslot="8446445971" />
             </div>
           </div>
         </div>
