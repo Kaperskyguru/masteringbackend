@@ -1,10 +1,11 @@
 <template>
-  <div class="card mb-3">
+  <div class="car mb-3">
     <div>
       <adsbygoogle
         :adFullWidthResponsive="adFullWidthResponsive"
         :ad-slot="adslot"
         :ad-format="adformat"
+        :style="mystyle"
         class="ads"
       />
     </div>
@@ -13,7 +14,7 @@
 
 <script>
 export default {
-  props: ['adFullWidthResponsive', 'adslot', 'adformat'],
+  props: ['adFullWidthResponsive', 'adslot', 'adformat', 'mystyle'],
 }
 </script>
 

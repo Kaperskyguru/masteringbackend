@@ -26,7 +26,7 @@
               <Newsletter />
             </div>
             <div class="mt-3 card-deck">
-              <Advert adslot="8446445971" />
+              <Advert adslot="8446445971" :adFullWidthResponsive="true" />
             </div>
             <div class="card-deck mt-3">
               <PostWidget
@@ -36,13 +36,20 @@
               />
             </div>
             <div class="mt-3 card-deck">
-              <Advert adslot="8446445971" />
+              <Advert adslot="8446445971" :adFullWidthResponsive="true" />
             </div>
             <div class="card-deck mt-3">
               <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
             </div>
             <div class="mt-3 card-deck">
-              <Advert adslot="8446445971" />
+              <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+            </div>
+
+            <div class="mt-3 card-deck">
+              <Advert
+                adslot="8407735767"
+                mystyle="display: inline-block; width: 400px; height: 450px"
+              />
             </div>
           </div>
         </div>
