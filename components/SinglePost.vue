@@ -102,30 +102,36 @@ export default {
 
   methods: {
     displayAds() {
+      const h4AdSpaces = document.querySelectorAll('article h4:nth-child(2n+1)')
+      if (h4AdSpaces) {
+        h4AdSpaces.forEach((adSpace) => {
+          const firstPara = adSpace.nextElementSibling
+          this.createAdvert(firstPara)
+        })
+      }
+
+      const h3AdSpaces = document.querySelectorAll('article h3:nth-child(2n+1)')
+      if (h3AdSpaces) {
+        h3AdSpaces.forEach((adSpace) => {
+          const firstPara = adSpace.nextElementSibling
+          this.createAdvert(firstPara)
+        })
+      }
+    },
+
+    createAdvert(el) {
       const newNode = document.createElement('div')
       newNode.id = 'advert_id'
-
-      const adSpaces = document.querySelectorAll('article h4:nth-child(even)')
-      if (adSpaces) {
-        adSpaces.forEach((adSpace) => {
-          // console.log(adSpace)
-          const firstPara = adSpace.nextElementSibling
-          const AdvertComp = Vue.extend(InlineAdvert)
-          if (firstPara) {
-            firstPara.insertAdjacentElement('afterend', newNode)
-            // if (Object.keys(data).length !== 0) {
-            new AdvertComp({
-              propsData: {
-                adLayoutKey: '-gw-3+1f-3d+2z',
-                adslot: '7567111590',
-                adformat: 'fluid',
-              },
-            }).$mount('#advert_id')
-            // } else {
-            //   new AdvertComp().$mount('#advert_id')
-            // }
-          }
-        })
+      const AdvertComp = Vue.extend(InlineAdvert)
+      if (el) {
+        el.insertAdjacentElement('afterend', newNode)
+        new AdvertComp({
+          propsData: {
+            adLayoutKey: '-gw-3+1f-3d+2z',
+            adslot: '7567111590',
+            adformat: 'fluid',
+          },
+        }).$mount('#advert_id')
       }
     },
     displayNewsletterLaravel() {
