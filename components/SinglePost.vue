@@ -121,8 +121,8 @@ export default {
           const firstPara = adSpace.nextElementSibling
           const data = {
             // adLayoutKey,
-            adLayout: 'in-article',
-            adslot: '4366233188',
+            adLayoutKey: '-fb+5w+4e-db+86',
+            adslot: '1058555324',
             adformat: 'fluid',
           }
           this.createAdvert(firstPara, data)
