@@ -106,7 +106,12 @@ export default {
       if (h4AdSpaces) {
         h4AdSpaces.forEach((adSpace) => {
           const firstPara = adSpace.nextElementSibling
-          this.createAdvert(firstPara)
+          const data = {
+            adLayoutKey: '-gw-3+1f-3d+2z',
+            adslot: '7567111590',
+            adformat: 'fluid',
+          }
+          this.createAdvert(firstPara, data)
         })
       }
 
@@ -114,23 +119,25 @@ export default {
       if (h3AdSpaces) {
         h3AdSpaces.forEach((adSpace) => {
           const firstPara = adSpace.nextElementSibling
-          this.createAdvert(firstPara)
+          const data = {
+            // adLayoutKey,
+            adLayout: 'in-article',
+            adslot: '4366233188',
+            adformat: 'fluid',
+          }
+          this.createAdvert(firstPara, data)
         })
       }
     },
 
-    createAdvert(el) {
+    createAdvert(el, data = {}) {
       const newNode = document.createElement('div')
       newNode.id = 'advert_id'
       const AdvertComp = Vue.extend(InlineAdvert)
       if (el) {
         el.insertAdjacentElement('afterend', newNode)
         new AdvertComp({
-          propsData: {
-            adLayoutKey: '-gw-3+1f-3d+2z',
-            adslot: '7567111590',
-            adformat: 'fluid',
-          },
+          propsData: data,
         }).$mount('#advert_id')
       }
     },
