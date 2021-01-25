@@ -18,10 +18,9 @@
               <div class="card-deck">
                 <Newsletter />
               </div>
-              <div class="card-deck">
-                <UdemyAd />
+              <div class="mt-3 card-deck">
+                <Advert adslot="8446445971" :adFullWidthResponsive="true" />
               </div>
-
               <div class="card-deck mt-3">
                 <PostWidget
                   title="Top 3 Must Reads"
@@ -30,13 +29,16 @@
                 />
               </div>
               <div class="card-deck">
+                <UdemyAd />
+              </div>
+              <div class="card-deck mt-3">
+                <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
+              </div>
+              <div class="card-deck">
                 <UdemyAd2
                   img="http://masteringbackend.solomoneseme.com/h30y"
                   link="http://masteringbackend.solomoneseme.com/udemyad"
                 />
-              </div>
-              <div class="card-deck mt-3">
-                <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
               </div>
             </div>
           </div>
