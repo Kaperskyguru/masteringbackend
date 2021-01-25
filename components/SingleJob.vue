@@ -13,6 +13,7 @@
           adLayoutKey="-gw-3+1f-3d+2z"
           adslot="7567111590"
           adformat="fluid"
+          style="height: 50px !important; width: 100%"
         />
       </div>
       <div class="card-line"></div>
@@ -38,8 +39,8 @@
           </div>
         </div>
         <InlineAdvert
-          adLayoutKey="-gw-3+1f-3d+2z"
-          adslot="7567111590"
+          adLayoutKey="-fb+5w+4e-db+86"
+          adslot="1058555324"
           adformat="fluid"
         />
       </div>
