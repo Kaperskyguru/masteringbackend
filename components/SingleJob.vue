@@ -1,8 +1,20 @@
 <template>
   <div class="card single">
     <div class="card-body">
-      <h1 class="title">{{ job.title || '' }}</h1>
-      <article v-highlight class="card-text" v-html="job.description"></article>
+      <div class="row meta p-3">
+        <h1 class="title">{{ job.title || '' }}</h1>
+        <article
+          v-highlight
+          class="card-text"
+          v-html="job.description"
+        ></article>
+
+        <InlineAdvert
+          adLayoutKey="-gw-3+1f-3d+2z"
+          adslot="7567111590"
+          adformat="fluid"
+        />
+      </div>
       <div class="card-line"></div>
       <div class="row meta">
         <div class="col-6">
@@ -25,12 +37,12 @@
             <p>{{ $moment(job.created_at).format('dddd, MMMM Do YYYY') }}</p>
           </div>
         </div>
+        <InlineAdvert
+          adLayoutKey="-gw-3+1f-3d+2z"
+          adslot="7567111590"
+          adformat="fluid"
+        />
       </div>
-      <InlineAdvert
-        adLayoutKey="-gw-3+1f-3d+2z"
-        adslot="7567111590"
-        adformat="fluid"
-      />
 
       <div class="card-line"></div>
       <!-- <inline-newsletter /> -->

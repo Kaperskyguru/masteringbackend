@@ -32,9 +32,30 @@
                       <SlackForm />
                     </div>
                   </div>
+
+                  <!-- <div class="mt-3 card-deck"> -->
+                  <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+                  <!-- </div> -->
                 </div>
                 <div class="col-md-5">
-                  <Newsletter />
+                  <div class="card-deck">
+                    <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+                  </div>
+
+                  <div class="card-deck mt-3">
+                    <PostWidget
+                      title="Top 3 Must Reads"
+                      :show_date="false"
+                      :posts="sticky_posts"
+                    />
+                  </div>
+
+                  <div class="card-deck">
+                    <UdemyAd2
+                      img="http://masteringbackend.solomoneseme.com/h30y"
+                      link="http://masteringbackend.solomoneseme.com/udemyad"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -46,11 +67,40 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
       path: '',
     }
+  },
+
+  mounted() {
+    this.dispatchStickyPostsAction()
+  },
+
+  methods: {
+    async dispatchStickyPostsAction() {
+      try {
+        const getPosts = this.$store.getters['post/getStickyPosts']
+        const stickyPosts = getPosts()
+        if (!stickyPosts.length) {
+          await this.$store.dispatch('post/getStickyPosts')
+        }
+      } catch (error) {
+        console.log(error, 'error')
+      }
+    },
+  },
+
+  computed: {
+    ...mapState({
+      sticky_posts: (state) => {
+        return [...state.post.sticky_posts]
+          .slice(0, 3)
+          .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
+      },
+    }),
   },
   head() {
     return {

@@ -1,6 +1,6 @@
 <template>
-  <div class="car mb-3">
-    <div>
+  <div class="car">
+    <div class="">
       <adsbygoogle
         :adFullWidthResponsive="adFullWidthResponsive"
         :ad-slot="adslot"
@@ -25,5 +25,5 @@ export default {
 }
 </script>
 
-<style >
+<style>
 </style>
