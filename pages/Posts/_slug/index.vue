@@ -11,6 +11,11 @@
 
             <RelatedPosts :posts="related_posts" />
 
+            <UdemyAd2
+              img="http://masteringbackend.solomoneseme.com/h30y"
+              link="http://masteringbackend.solomoneseme.com/udemyad"
+            />
+
             <div class="mt-5 card p-3">
               <h2>Comments</h2>
               <div class="card-line"></div>
@@ -28,6 +33,9 @@
             <div class="mt-3 card-deck">
               <Advert adslot="8446445971" :adFullWidthResponsive="true" />
             </div>
+            <div class="card-deck">
+              <UdemyAd />
+            </div>
             <div class="card-deck mt-3">
               <PostWidget
                 title="Top 3 Must Reads"
@@ -43,6 +51,13 @@
             </div>
             <div class="mt-3 card-deck">
               <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+            </div>
+
+            <div class="card-deck">
+              <UdemyAd2
+                img="http://masteringbackend.solomoneseme.com/h30y"
+                link="http://masteringbackend.solomoneseme.com/udemyad"
+              />
             </div>
 
             <div class="mt-3 card-deck">

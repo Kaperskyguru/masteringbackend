@@ -26,9 +26,20 @@
           </div>
         </div>
       </div>
+      <InlineAdvert
+        adLayoutKey="-gw-3+1f-3d+2z"
+        adslot="7567111590"
+        adformat="fluid"
+      />
+
       <div class="card-line"></div>
       <!-- <inline-newsletter /> -->
       <div class="newsletter-job"></div>
+      <InlineAdvert
+        adLayoutKey="-fb+5w+4e-db+86"
+        adslot="1058555324"
+        adformat="fluid"
+      />
       <div class="card-line"></div>
       <div class="actions">
         <a class="btn btn3 btn-lg" :href="job.url" target="_blank">Apply Now</a>

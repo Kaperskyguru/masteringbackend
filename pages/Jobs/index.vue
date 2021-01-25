@@ -19,7 +19,31 @@
               </div>
 
               <div class="col-md-4 mt-3">
-                <Newsletter />
+                <div class="mt-3 card-deck">
+                  <Newsletter />
+                </div>
+
+                <div class="mt-3 card-deck">
+                  <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+                </div>
+                <div class="card-deck">
+                  <UdemyAd />
+                </div>
+                <div class="mt-3 card-deck">
+                  <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+                </div>
+                <div class="card-deck">
+                  <UdemyAd2
+                    img="http://masteringbackend.solomoneseme.com/h30y"
+                    link="http://masteringbackend.solomoneseme.com/udemyad"
+                  />
+                </div>
+                <div class="mt-3 card-deck">
+                  <Advert
+                    adslot="8407735767"
+                    mystyle="display: inline-block; width: 400px; height: 450px"
+                  />
+                </div>
               </div>
             </div>
           </div>

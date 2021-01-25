@@ -9,25 +9,30 @@
               <SingleJob v-if="job" :job="job" />
               <p v-else class="text-center">Job not found</p>
 
-              <!-- <div class="mt-5 card p-3">
-                <h2>Comments</h2>
-                <div class="card-line"></div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <Comments v-if="job" />
-                  </div>
-                </div>
-              </div> -->
+              <UdemyAd2
+                img="http://masteringbackend.solomoneseme.com/h30y"
+                link="http://masteringbackend.solomoneseme.com/udemyad"
+              />
             </div>
             <div class="col-md-4">
               <div class="card-deck">
                 <Newsletter />
               </div>
+              <div class="card-deck">
+                <UdemyAd />
+              </div>
+
               <div class="card-deck mt-3">
                 <PostWidget
                   title="Top 3 Must Reads"
                   :show_date="false"
                   :posts="sticky_posts"
+                />
+              </div>
+              <div class="card-deck">
+                <UdemyAd2
+                  img="http://masteringbackend.solomoneseme.com/h30y"
+                  link="http://masteringbackend.solomoneseme.com/udemyad"
                 />
               </div>
               <div class="card-deck mt-3">
