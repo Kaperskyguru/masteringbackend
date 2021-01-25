@@ -66,14 +66,13 @@
         >By clicking Newsletter, you agree to receive our Weekly Mastering
         Backend emails. You can unsubscribe anytime.</small
       >
+      <InlineAdvert
+        adLayoutKey="-gw-3+1f-3d+2z"
+        adslot="7567111590"
+        adformat="fluid"
+        style="height: 50px !important; width: 100%"
+      />
       <div class="field">
-        <InlineAdvert
-          adLayoutKey="-gw-3+1f-3d+2z"
-          adslot="7567111590"
-          adformat="fluid"
-          style="height: 50px !important; width: 100%"
-        />
-
         <div v-if="slack" class="text-danger" v-html="slack"></div>
         <div class="control text-center mt-4">
           <button class="btn2 btn-block" type="submit">Submit</button>
