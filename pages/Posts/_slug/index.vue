@@ -31,7 +31,7 @@
               <div class="card-deck">
                 <Newsletter />
               </div>
-              <div class="mt-3 card-deck">
+              <div class="mt-3">
                 <Advert adslot="8446445971" :adFullWidthResponsive="true" />
               </div>
               <div class="card-deck">
@@ -44,7 +44,7 @@
                   :posts="sticky_posts"
                 />
               </div>
-              <div class="mt-3 card-deck">
+              <div class="mt-3">
                 <Advert adslot="8446445971" :adFullWidthResponsive="true" />
               </div>
               <div class="card-deck mt-3">
@@ -61,11 +61,8 @@
                 />
               </div>
 
-              <div class="mt-3 card-deck1">
-                <Advert
-                  adslot="8407735767"
-                  mystyle="display: inline-block; width: 100%; height: 450px"
-                />
+              <div class="mt-3">
+                <Advert adslot="8407735767" />
               </div>
             </div>
           </div>
@@ -284,25 +281,5 @@ export default {
   /* bottom: 10%; */
   width: 100%;
   height: 100%;
-
-  /* Position the items */
-
-  /* &:nth-child(3) {
-    top: 50%;
-  }
-  &:nth-child(4) {
-    top: 75%;
-  } */
 }
-/* .sidebar-item::nth-child(2) {
-  top: 25%;
-} */
-
-/* .card-deck1 {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-
-  padding: 0 15px;
-} */
 </style>
