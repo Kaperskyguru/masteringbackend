@@ -2,6 +2,7 @@
   <div class="card mb-3">
     <div class="ad card-body">
       <adsbygoogle
+        class="ad"
         :adFullWidthResponsive="adFullWidthResponsive"
         :ad-slot="adslot"
         :ad-format="adformat"
