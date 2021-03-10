@@ -1,6 +1,6 @@
 <template>
   <div class="card mb-3">
-    <div class="ad">
+    <div class="ad card-body">
       <adsbygoogle
         :adFullWidthResponsive="adFullWidthResponsive"
         :ad-slot="adslot"
