@@ -23,4 +23,10 @@ export default {
   height: 100%;
   width: 100%;
 }
+
+.ad::after {
+  content: '';
+  display: table;
+  clear: both;
+}
 </style>
