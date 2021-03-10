@@ -1,8 +1,7 @@
 <template>
   <div class="card mb-3">
-    <div class="ad card-body">
+    <div class="ad card-body clearfix">
       <adsbygoogle
-        class="ad"
         :adFullWidthResponsive="adFullWidthResponsive"
         :ad-slot="adslot"
         :ad-format="adformat"
@@ -18,15 +17,20 @@ export default {
 }
 </script>
 
-<style >
+<style>
 .ad {
   height: 100%;
-  width: 100%;
+  width: 100% !important;
 }
 
-.ad::after {
+.clearfix::after {
   content: '';
   display: table;
   clear: both;
+}
+
+.adsenseOnLeft {
+  float: left;
+  width: 100% !important;
 }
 </style>
