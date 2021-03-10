@@ -22,7 +22,7 @@
           <h5 class="footer-header mb-4">Useful Links</h5>
           <ul class="footer-link list-unstyled">
             <li><a href="#">Code of Conduct</a></li>
-            <li><a href="#">Partnership</a></li>
+            <li><a href="/advertisement">Partnership</a></li>
             <li><a href="/contact">Contact us</a></li>
             <li><a href="/write-for-us">Write for us</a></li>
           </ul>
@@ -33,6 +33,8 @@
             <li>
               <a href="https://about.me/solomoneseme">Hire Me</a>
             </li>
+            <li><a href="/advertisement">Advertise with us</a></li>
+            <li><a href="/advertisement">Sponsorship</a></li>
           </ul>
         </div>
         <div class="col-md-3">

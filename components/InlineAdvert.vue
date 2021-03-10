@@ -1,6 +1,6 @@
 <template>
   <div class="car">
-    <div class="">
+    <div class="mt-1 mb-1">
       <adsbygoogle
         :adFullWidthResponsive="adFullWidthResponsive"
         :ad-slot="adslot"

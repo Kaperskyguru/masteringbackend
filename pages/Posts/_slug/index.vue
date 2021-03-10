@@ -64,7 +64,7 @@
               <div class="mt-3 card-deck1">
                 <Advert
                   adslot="8407735767"
-                  mystyle="display: inline-block; width: 400px; height: 450px"
+                  mystyle="display: inline-block; width: 100%; height: 450px"
                 />
               </div>
             </div>

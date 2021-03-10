@@ -15,9 +15,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="card mb-3">
-                    <h5 class="card-header text-white text-uppercase">
-                      Contact Us
-                    </h5>
+                    <h5 class="card-header text-uppercase">Contact Us</h5>
                     <div class="card-body">
                       If you have any query or suggestion then fill the form
                       below I will be in touch with you shortly.
