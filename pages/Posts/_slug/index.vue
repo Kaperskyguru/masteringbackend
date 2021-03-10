@@ -27,44 +27,46 @@
             </div>
           </div>
           <div class="col-md-4 mt-3 mt-md-0">
-            <div class="card-deck">
-              <Newsletter />
-            </div>
-            <div class="mt-3 card-deck">
-              <Advert adslot="8446445971" :adFullWidthResponsive="true" />
-            </div>
-            <div class="card-deck">
-              <UdemyAd />
-            </div>
-            <div class="card-deck mt-3">
-              <PostWidget
-                title="Top 3 Must Reads"
-                :show_date="false"
-                :posts="sticky_posts"
-              />
-            </div>
-            <div class="mt-3 card-deck">
-              <Advert adslot="8446445971" :adFullWidthResponsive="true" />
-            </div>
-            <div class="card-deck mt-3">
-              <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
-            </div>
-            <div class="mt-3 card-deck">
-              <Advert adslot="8446445971" :adFullWidthResponsive="true" />
-            </div>
+            <div class="sidebar-item">
+              <div class="card-deck">
+                <Newsletter />
+              </div>
+              <div class="mt-3 card-deck">
+                <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+              </div>
+              <div class="card-deck">
+                <UdemyAd />
+              </div>
+              <div class="card-deck mt-3">
+                <PostWidget
+                  title="Top 3 Must Reads"
+                  :show_date="false"
+                  :posts="sticky_posts"
+                />
+              </div>
+              <div class="mt-3 card-deck">
+                <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+              </div>
+              <div class="card-deck mt-3">
+                <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
+              </div>
+              <div class="mt-3 card-deck">
+                <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+              </div>
 
-            <div class="card-deck">
-              <UdemyAd2
-                img="http://masteringbackend.solomoneseme.com/h30y"
-                link="http://masteringbackend.solomoneseme.com/udemyad"
-              />
-            </div>
+              <div class="card-deck">
+                <UdemyAd2
+                  img="http://masteringbackend.solomoneseme.com/h30y"
+                  link="http://masteringbackend.solomoneseme.com/udemyad"
+                />
+              </div>
 
-            <div class="mt-3 card-deck">
-              <Advert
-                adslot="8407735767"
-                mystyle="display: inline-block; width: 400px; height: 450px"
-              />
+              <div class="mt-3 card-deck1">
+                <Advert
+                  adslot="8407735767"
+                  mystyle="display: inline-block; width: 400px; height: 450px"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -274,5 +276,33 @@ export default {
 }
 </script>
 
-<style>
+<style scoped >
+.sidebar-item {
+  position: sticky;
+  top: -100%;
+  left: 0;
+  /* bottom: 10%; */
+  width: 100%;
+  height: 100%;
+
+  /* Position the items */
+
+  /* &:nth-child(3) {
+    top: 50%;
+  }
+  &:nth-child(4) {
+    top: 75%;
+  } */
+}
+/* .sidebar-item::nth-child(2) {
+  top: 25%;
+} */
+
+/* .card-deck1 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  padding: 0 15px;
+} */
 </style>

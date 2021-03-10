@@ -1,6 +1,6 @@
 <template>
   <div class="card mb-3">
-    <div class="ad">
+    <div class="ad card-body">
       <adsbygoogle
         :adFullWidthResponsive="adFullWidthResponsive"
         :ad-slot="adslot"
@@ -19,7 +19,7 @@ export default {
 
 <style >
 .ad {
-  widows: 100%;
   height: 100%;
+  width: 100%;
 }
 </style>
