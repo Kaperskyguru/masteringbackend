@@ -37,7 +37,7 @@
                         <strong>Product Review/Copywriting: </strong> We will
                         develop a compelling article using your product and
                         write a review on it and promote it across our
-                        audiences. The cost is <em>$200 per article</em>.
+                        audiences. The cost is <em>$350 per article</em>.
                       </p>
                       <p>
                         <strong>Sponsored Post: </strong>We can publish your
