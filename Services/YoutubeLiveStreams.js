@@ -16,7 +16,7 @@ class YoutubeLiveStreams {
       const data = await res.json()
       return data
     } catch (error) {
-      console.error(error)
+      // console.error(error)
     }
   }
 
@@ -27,7 +27,7 @@ class YoutubeLiveStreams {
       const data = await res.json()
       return data
     } catch (error) {
-      console.log(error)
+      // console.log(error)
     }
   }
 }

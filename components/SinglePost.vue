@@ -92,7 +92,10 @@ export default {
           if (this.post.thumbnail_images['post-thumbnail']) {
             return this.post.thumbnail_images['post-thumbnail'].url
           } else {
-            return '/img/default_banner.webp' //return this.post.thumbnail_images.full.url
+            if (this.post.thumbnail_images.full) {
+              return this.post.thumbnail_images.full.url
+            }
+            return '/img/default_banner.webp'
           }
         }
       }

@@ -121,7 +121,9 @@ export default {
     image() {
       if (this.post) {
         if (this.post.thumbnail_images) {
-          return '/img/default_banner.webp' //this.post.thumbnail_images.full.url
+          if (this.post.thumbnail_images.full)
+            return this.post.thumbnail_images.full.url
+          return '/img/default_banner.webp'
         }
       }
       return '/img/default_banner.webp'
@@ -147,7 +149,7 @@ export default {
           await this.$store.dispatch('post/getRecentPosts')
         }
       } catch (error) {
-        console.log(error, 'error')
+        // console.log(error, 'error')
       }
     },
 
@@ -155,7 +157,7 @@ export default {
       try {
         await this.$store.dispatch('post/getRelatedPosts', id)
       } catch (error) {
-        console.log(error, 'error')
+        // console.log(error, 'error')
       }
     },
     stripTags(text) {

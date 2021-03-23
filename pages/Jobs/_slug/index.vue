@@ -19,7 +19,7 @@
                 <Newsletter />
               </div>
               <div class="mt-3 card-deck">
-                <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+                <Advert adslot="8446445971" :ad-full-width-responsive="true" />
               </div>
               <div class="card-deck mt-3">
                 <PostWidget
@@ -62,7 +62,7 @@ export default {
       }
       return { job }
     } catch (error) {
-      console.log(error, 'error')
+      // console.log(error, 'error')
     }
   },
 
@@ -99,7 +99,7 @@ export default {
           await this.$store.dispatch('post/getStickyPosts')
         }
       } catch (error) {
-        console.log(error, 'error')
+        // console.log(error, 'error')
       }
     },
 
@@ -111,7 +111,7 @@ export default {
           await this.$store.dispatch('post/getRecentPosts')
         }
       } catch (error) {
-        console.log(error, 'error')
+        // console.log(error, 'error')
       }
     },
   },

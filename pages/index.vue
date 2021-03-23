@@ -12,6 +12,29 @@
 import { mapState } from 'vuex'
 require('dotenv').config()
 export default {
+  // jsonld() {
+  //   const items = this.breadcrumbs.map((item, index) => ({
+  //     '@type': 'ListItem',
+  //     position: index + 1,
+  //     item: {
+  //       '@id': item.url,
+  //       name: item.text,
+  //     },
+  //   }))
+  //   return {
+  //     '@context': 'https://schema.org',
+  //     '@type': 'BreadcrumbList',
+  //     itemListElement: items,
+  //   }
+  // },
+
+  async fetch() {
+    try {
+      await this.dispatchPostsAction()
+    } catch (error) {
+      // console.log(error)
+    }
+  },
   // layout: 'index',
   async asyncData({ store }) {
     try {
@@ -21,7 +44,7 @@ export default {
         await store.dispatch('post/getStickyPosts')
       }
     } catch (error) {
-      console.log(error, 'error')
+      // console.log(error, 'error')
     }
   },
 
@@ -45,30 +68,6 @@ export default {
           text: 'slack',
         },
       ],
-    }
-  },
-
-  // jsonld() {
-  //   const items = this.breadcrumbs.map((item, index) => ({
-  //     '@type': 'ListItem',
-  //     position: index + 1,
-  //     item: {
-  //       '@id': item.url,
-  //       name: item.text,
-  //     },
-  //   }))
-  //   return {
-  //     '@context': 'https://schema.org',
-  //     '@type': 'BreadcrumbList',
-  //     itemListElement: items,
-  //   }
-  // },
-
-  async fetch() {
-    try {
-      await this.dispatchPostsAction()
-    } catch (error) {
-      console.log(error)
     }
   },
   computed: {
@@ -99,11 +98,11 @@ export default {
             query.page = 1
             await this.$store.dispatch('post/getPosts', query)
           } catch (error) {
-            console.log(error)
+            // console.log(error)
           }
         }
       } catch (error) {
-        console.log(error, 'error')
+        // console.log(error, 'error')
       }
     },
   },
