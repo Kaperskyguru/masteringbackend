@@ -32,7 +32,7 @@
                 <Newsletter />
               </div>
               <div class="mt-3">
-                <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+                <Advert adslot="8446445971" :ad-full-width-responsive="true" />
               </div>
               <div class="card-deck">
                 <UdemyAd />
@@ -45,13 +45,13 @@
                 />
               </div>
               <div class="mt-3">
-                <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+                <Advert adslot="8446445971" :ad-full-width-responsive="true" />
               </div>
               <div class="card-deck mt-3">
                 <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
               </div>
               <div class="mt-3 card-deck">
-                <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+                <Advert adslot="8446445971" :ad-full-width-responsive="true" />
               </div>
 
               <div class="card-deck">
@@ -121,7 +121,7 @@ export default {
     image() {
       if (this.post) {
         if (this.post.thumbnail_images) {
-          return this.post.thumbnail_images.full.url
+          return '/img/default_banner.webp' //this.post.thumbnail_images.full.url
         }
       }
       return '/img/default_banner.webp'
