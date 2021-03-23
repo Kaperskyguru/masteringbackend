@@ -18,7 +18,7 @@ export default {
     }
   },
   head() {
-    console.log(`${process.env.BASE_URL}${this.$route.path}`)
+    // console.log(`${process.env.BASE_URL}${this.$route.path}`)
     return {
       link: [
         {

@@ -14,7 +14,7 @@ export const getters = {
   getJob: (state) => (slug) => {
     return state.jobs.find((job) => {
       if (job.slug === slug) {
-        console.log(job, slug)
+        // console.log(job, slug)
         return job
       }
     })
@@ -45,7 +45,7 @@ export const actions = {
       }
       return data.jobs
     } catch (error) {
-      console.log(error)
+      // console.log(error)
       // commit('setPostState', ENUM.ERROR)
     }
   },
@@ -62,7 +62,7 @@ export const actions = {
 
       return data.jobs
     } catch (error) {
-      console.log(error)
+      // console.log(error)
       // commit('setPostState', ENUM.ERROR)
     }
   },

@@ -46,7 +46,9 @@ export default {
     image() {
       if (this.post) {
         if (this.post.thumbnail_images) {
-          return '/img/default_banner.webp' //this.post.thumbnail_images.thumbnail.url
+          if (this.post.thumbnail_images.thumbnail)
+            return this.post.thumbnail_images.thumbnail.url
+          return '/img/default_banner.webp'
         }
       }
       return '/img/default_banner.webp'

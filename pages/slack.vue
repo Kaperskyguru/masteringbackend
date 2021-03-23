@@ -34,12 +34,18 @@
                   </div>
 
                   <!-- <div class="mt-3 card-deck"> -->
-                  <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+                  <Advert
+                    adslot="8446445971"
+                    :ad-full-width-responsive="true"
+                  />
                   <!-- </div> -->
                 </div>
                 <div class="col-md-5">
                   <div class="card-deck">
-                    <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+                    <Advert
+                      adslot="8446445971"
+                      :ad-full-width-responsive="true"
+                    />
                   </div>
 
                   <div class="card-deck mt-3">
@@ -74,7 +80,15 @@ export default {
       path: '',
     }
   },
-
+  computed: {
+    ...mapState({
+      sticky_posts: (state) => {
+        return [...state.post.sticky_posts]
+          .slice(0, 3)
+          .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
+      },
+    }),
+  },
   mounted() {
     this.dispatchStickyPostsAction()
   },
@@ -88,20 +102,11 @@ export default {
           await this.$store.dispatch('post/getStickyPosts')
         }
       } catch (error) {
-        console.log(error, 'error')
+        // console.log(error, 'error')
       }
     },
   },
 
-  computed: {
-    ...mapState({
-      sticky_posts: (state) => {
-        return [...state.post.sticky_posts]
-          .slice(0, 3)
-          .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
-      },
-    }),
-  },
   head() {
     return {
       title: 'Join our Community',

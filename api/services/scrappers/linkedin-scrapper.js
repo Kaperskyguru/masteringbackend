@@ -1,6 +1,6 @@
-const puppeteer = require('puppeteer')
-import { dbJobResolver } from '../../../helpers/helpers'
+// import { dbJobResolver } from '../../../helpers/helpers'
 import DB from '../../db'
+const puppeteer = require('puppeteer')
 const jobUrl = `https://www.linkedin.com/jobs/search?keywords=%22Back%2BEnd%2BDeveloper%22&location=Worldwide&trk=public_jobs_jobs-search-bar_search-submit&f_TP=1&sortBy=DD&redirect=false`
 
 let page
@@ -41,7 +41,7 @@ class LinkedinJobs {
       .evaluate(() => {
         const cards = document.querySelectorAll('.job-result-card')
         cardArr = Array.from(cards)
-        console.log(cardArr)
+        // console.log(cardArr)
 
         const cardLinks = []
         cardArr.map((card) => {
@@ -91,7 +91,7 @@ class LinkedinJobs {
   static async getJobs() {
     const jobs = await this.resolve()
     await browser.close()
-    console.log(jobs)
+    // console.log(jobs)
     const data = {}
     data.jobs = jobs
     // data.total_jobs = jobs.length

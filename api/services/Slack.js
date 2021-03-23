@@ -1,6 +1,6 @@
 import axios from 'axios'
+// import moment from '@nuxtjs/moment'
 import DB from '../db'
-import moment from '@nuxtjs/moment'
 
 class Slack {
   static async dispatchJob() {
@@ -168,7 +168,8 @@ class Slack {
   static image(post) {
     if (post) {
       if (post.thumbnail_images) {
-        return post.thumbnail_images.full.url
+        if (post.thumbnail_images.full) return post.thumbnail_images.full.url
+        return '/img/default_banner.webp'
       }
     }
     return '/img/default_banner.webp'
@@ -178,14 +179,15 @@ class Slack {
     if (post) {
       return post.excerpt.replace(/(<([^>]+)>)/gi, '')
     }
-    return
   }
 
   static postToSlack(url, message) {
     return axios
       .post(url, JSON.stringify(message))
       .then((result) => result.data)
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        console.log(error)
+      })
   }
 }
 export default Slack

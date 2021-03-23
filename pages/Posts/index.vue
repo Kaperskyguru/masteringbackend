@@ -56,6 +56,9 @@
 import { mapState } from 'vuex'
 import Loading from '~/components/Loading'
 export default {
+  components: {
+    Loading,
+  },
   async asyncData({ store, query }) {
     try {
       const getPosts = store.getters['post/getPosts']
@@ -67,9 +70,6 @@ export default {
         await store.dispatch('post/getPosts', data)
       }
     } catch (error) {}
-  },
-  components: {
-    Loading,
   },
   data() {
     return {
