@@ -32,9 +32,9 @@
 
     <div class="tags absolute">
       <a
-        :href="'/categories/' + category.slug"
         v-for="category in post.categories"
         :key="category.id"
+        :href="'/categories/' + category.slug"
         class="btn-tag"
       >
         {{ category.title }}
@@ -58,7 +58,7 @@
       <div class="card-line"></div>
       <div class="tags mb-4" style="color: red">
         <i class="fa fa-tag"></i>
-        <a v-for="tag in post.tags" href="#" :key="tag.id">
+        <a v-for="tag in post.tags" :key="tag.id" href="#">
           {{ tag.title }},
         </a>
       </div>
@@ -74,16 +74,16 @@ import InlineAdvert from './InlineAdvert.vue'
 export default {
   // components: { InlineNewsletter },
   name: 'SinglePost',
-  data() {
-    return {
-      data: {},
-    }
-  },
   props: {
     post: {
       type: [Object, Array],
       default: () => {},
     },
+  },
+  data() {
+    return {
+      data: {},
+    }
   },
   computed: {
     image() {
@@ -92,12 +92,17 @@ export default {
           if (this.post.thumbnail_images['post-thumbnail']) {
             return this.post.thumbnail_images['post-thumbnail'].url
           } else {
-            return this.post.thumbnail_images.full.url
+            return '/img/default_banner.webp' //return this.post.thumbnail_images.full.url
           }
         }
       }
       return '/img/default_banner.webp'
     },
+  },
+  mounted() {
+    this.displayAds()
+    this.displayNewsletterBackend()
+    this.displayNewsletterLaravel()
   },
 
   methods: {
@@ -192,11 +197,6 @@ export default {
         this.createNewsletter(newsletter)
       })
     },
-  },
-  mounted() {
-    this.displayAds()
-    this.displayNewsletterBackend()
-    this.displayNewsletterLaravel()
   },
 }
 </script>
