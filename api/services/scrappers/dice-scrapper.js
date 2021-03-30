@@ -1,6 +1,6 @@
-const puppeteer = require('puppeteer')
 import { dbJobResolver } from '../../../helpers/helpers'
 import DB from '../../db'
+const puppeteer = require('puppeteer')
 const jobUrl = `https://www.dice.com/jobs?q=backend&countryCode=US&radius=30&radiusUnit=mi&page=1&pageSize=20&filters.postedDate=ONE&filters.isRemote=true&language=en`
 
 let page
@@ -76,13 +76,17 @@ class DiveJobs {
   }
 
   static async scrape() {
-    const jobs = await this.resolve()
-    await browser.close()
-    const data = await DB.store(dbJobResolver(jobs))
-    return {
-      message: 'Scraped successfully',
-      status: 200,
-      data,
+    try {
+      const jobs = await this.resolve()
+      await browser.close()
+      const data = await DB.store(dbJobResolver(jobs))
+      return {
+        message: 'Scraped successfully',
+        status: 200,
+        data,
+      }
+    } catch (err) {
+      console.log(err)
     }
   }
 

@@ -1,7 +1,7 @@
 import DiceJobs from '../services/scrappers/dice-scrapper'
 import GithubJobs from '../services/scrappers/githubjobs-scrapper'
 import StackoverflowJobs from '../services/scrappers/stackoverflow-scrapper'
-import LinkedinJobs from '../services/scrappers/linkedin-scrapper'
+// import LinkedinJobs from '../services/scrappers/linkedin-scrapper'
 import Events from '../services/scrappers/event-scrapper'
 import Slack from '../services/Slack'
 const { Router } = require('express')

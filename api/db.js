@@ -1,7 +1,8 @@
 import request from 'request'
+require('dotenv').config()
 class DB {
   static async store(jobs) {
-    const res = await DB.get_nonce()
+    const res = await DB.getNonce()
     return new Promise(function (resolve, reject) {
       request.post(
         {
@@ -24,7 +25,7 @@ class DB {
     })
   }
 
-  static async get_nonce() {
+  static getNonce() {
     return new Promise(function (resolve, reject) {
       request.get(
         {
@@ -45,7 +46,7 @@ class DB {
     })
   }
 
-  static async getJob() {
+  static getJob() {
     return new Promise(function (resolve, reject) {
       request.get(
         {
@@ -64,7 +65,7 @@ class DB {
     })
   }
 
-  static async getRandomPost() {
+  static getRandomPost() {
     return new Promise(function (resolve, reject) {
       request.get(
         {
@@ -83,7 +84,8 @@ class DB {
     })
   }
 
-  static async updateJob(job) {
+  static updateJob(job) {
+    // console.log(process.env.BASE_ENDPOINT_URL, 'ajahskjahs')
     return new Promise(function (resolve, reject) {
       request.post(
         {
@@ -92,10 +94,12 @@ class DB {
           dataType: 'jsonp',
         },
         function (err, httpResponse, body) {
+          console.log(err, body)
           if (err) {
-            // console.log(err)
+            // console.log(err, 'error')
             reject(err)
           }
+          // console.log(body, 'body')
           resolve(body)
         }
       )

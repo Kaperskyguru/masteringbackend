@@ -5,11 +5,11 @@
     </h5>
 
     <div class="card-body text-success">
-      <a href="http://masteringbackend.solomoneseme.com/udemy" target="new"
+      <a href="http://masteringbackend.solomoneseme.com/2021webdev" target="new"
         ><img
           border="0"
-          alt="Learning for all. Savings for you. Courses from $11.99"
-          src="https://ad.linksynergy.com/fs-bin/show?id=CBswDrrlscQ&bids=507388.14450&subid=0&type=4&gridnum=0"
+          alt="The Complete 2021 Web Development Bootcamp. Now for as low as $10.99"
+          src="https://merchant.linksynergy.com/fs/banners/39197/39197_16262.png"
       /></a>
     </div>
   </div>

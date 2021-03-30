@@ -9,6 +9,7 @@ class Slack {
     // Send to Slack
     if (res.jobs) {
       const result = await this.sendJobSlack(res.jobs)
+      // console.log(result)
       if (result === 'ok') {
         // Update Job status
         if (await DB.updateJob(res.jobs)) {
@@ -123,7 +124,7 @@ class Slack {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: '@here \n\n' + job.description,
+            text: '' + job.description,
           },
           accessory: {
             type: 'button',
