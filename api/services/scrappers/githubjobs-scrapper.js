@@ -1,6 +1,6 @@
-const puppeteer = require('puppeteer')
 import { dbJobResolver } from '../../../helpers/helpers'
 import DB from '../../db'
+const puppeteer = require('puppeteer')
 const jobUrl =
   'https://jobs.github.com/positions?utf8=%E2%9C%93&description=backend&location='
 
