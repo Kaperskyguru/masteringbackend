@@ -59,7 +59,7 @@ class Slack {
     const inputDate = new Date(post.modified)
     const today = new Date()
     const content =
-      inputDate.setHours(0, 0, 0, 0) == today.setHours(0, 0, 0, 0)
+      inputDate.setHours(0, 0, 0, 0) === today.setHours(0, 0, 0, 0)
         ? '@here \n\n' + this.stripTags(post)
         : this.stripTags(post)
 
