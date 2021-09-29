@@ -162,7 +162,7 @@ export default {
           this.createNewsletter(newsletter, this.data)
         })
       }
-
+      // Build it in such a way that its automated from WordPress
       if (newsletterLaravel) {
         this.data.title = 'Get free LARAVEL tips straight to your inbox!'
         this.data.subtitle =

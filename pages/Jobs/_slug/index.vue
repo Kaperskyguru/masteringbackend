@@ -128,7 +128,9 @@ export default {
           {
             hid: 'description',
             name: 'description',
-            content: `${this.job.description}`,
+            content: `${
+              this.job.description ? this.job.title : this.job.description
+            }`,
           },
 
           { hid: 'og:title', property: 'og:title', content: this.job.title },
