@@ -35,6 +35,11 @@
             </li>
             <li><a href="/advertisement">Advertise with us</a></li>
             <li><a href="/advertisement">Sponsorship</a></li>
+            <li>
+              <a href="https://jooble.org/jobs-backend-software-developer"
+                >Other Jobs</a
+              >
+            </li>
           </ul>
         </div>
         <div class="col-md-3">

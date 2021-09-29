@@ -2,7 +2,9 @@
   <section class="bottom-header">
     <div class="container-fluid pl-md-5 pr-md-5">
       <ul class="navbar">
-        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item">
+          <i class="fas fa-play"></i><a href="/">Home</a>
+        </li>
         <li v-for="(path, i) in computedPath" :key="i" class="nav-item active">
           > <a :href="path"> {{ path }} </a>
         </li>
