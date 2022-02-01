@@ -44,7 +44,12 @@
               </li>
 
               <li class="nav-item quote-btn">
-                <a class="nav-link qbtn" href="#">Post a Job</a>
+                <a
+                  href="https://academy.masteringbackend.com"
+                  target="_blank"
+                  class="nav-link qbtn"
+                  >Join the Academy</a
+                >
               </li>
               <li class="nav-item quote-btn">
                 <a class="nav-link qbtn" href="/slack">Join Our Community</a>
