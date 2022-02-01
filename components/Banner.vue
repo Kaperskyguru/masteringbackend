@@ -15,9 +15,10 @@
           </h3>
           <div class="text-left mt-5">
             <a
-              href="/posts/getting-started-with-backend-development"
+              href="https://academy.masteringbackend.com"
+              target="_blank"
               class="bl qbtn"
-              >Start Backend Dev.</a
+              >Join the Academy</a
             >
           </div>
         </div>
