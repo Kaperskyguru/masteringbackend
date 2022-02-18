@@ -5,7 +5,7 @@
       method="post"
       action="https://masteringbackend.us17.list-manage.com/subscribe/post?u=39ffc375608455a6fe549290a&amp;id=e42cd7d4b3"
       class="form-slak"
-      @submit.prevent="Submit()"
+      @submit.prevent="Submit"
     >
       <div class="form-group">
         <label class="text-dark" for="text">
@@ -67,7 +67,7 @@
         Backend emails. You can unsubscribe anytime.</small
       >
       <InlineAdvert
-        adLayoutKey="-gw-3+1f-3d+2z"
+        ad-layout-key="-gw-3+1f-3d+2z"
         adslot="7567111590"
         adformat="fluid"
         style="height: 50px !important; width: 100%"
@@ -112,6 +112,7 @@ export default {
 
   methods: {
     Submit() {
+      console.log('adas')
       if (this.validateEmail(this.user.email)) {
         if (this.newsletter) {
           this.joinSlack()
