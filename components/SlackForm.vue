@@ -5,7 +5,7 @@
       method="post"
       action="https://masteringbackend.us17.list-manage.com/subscribe/post?u=39ffc375608455a6fe549290a&amp;id=e42cd7d4b3"
       class="form-slak"
-      @submit.prevent="Submit"
+      @submit.prevent="submit"
     >
       <div class="form-group">
         <label class="text-dark" for="text">
@@ -66,12 +66,12 @@
         >By clicking Newsletter, you agree to receive our Weekly Mastering
         Backend emails. You can unsubscribe anytime.</small
       >
-      <InlineAdvert
+      <!-- <InlineAdvert
         ad-layout-key="-gw-3+1f-3d+2z"
         adslot="7567111590"
         adformat="fluid"
         style="height: 50px !important; width: 100%"
-      />
+      /> -->
       <div class="field">
         <div v-if="slack" class="text-danger" v-html="slack"></div>
         <div class="control text-center mt-4">
@@ -111,7 +111,7 @@ export default {
   },
 
   methods: {
-    Submit() {
+    submit() {
       console.log('adas')
       if (this.validateEmail(this.user.email)) {
         if (this.newsletter) {

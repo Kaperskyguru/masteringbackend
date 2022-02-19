@@ -2,7 +2,7 @@
   <div class="car">
     <div class="mt-1 mb-1">
       <adsbygoogle
-        :adFullWidthResponsive="adFullWidthResponsive"
+        :ad-full-width-responsive="adFullWidthResponsive"
         :ad-slot="adslot"
         :ad-format="adformat"
         :ad-style="mystyle"
@@ -21,6 +21,7 @@ export default {
     'adformat',
     'mystyle',
     'adLayoutKey',
+    'adLayout',
   ],
 }
 </script>
