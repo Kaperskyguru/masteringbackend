@@ -45,7 +45,30 @@
                 />
               </div>
               <div class="mt-3">
-                <Advert adslot="8446445971" :ad-full-width-responsive="true" />
+                <!-- <Advert adslot="8446445971" :ad-full-width-responsive="true" /> -->
+                <div class="col-md-6 mb-4">
+                  <div class="card card-2 p-md-5 pt-3">
+                    <header class="text-center">
+                      <h2 class="text-uppercase">
+                        START LEARNING BACKEND DEVELOPMENT NOW
+                      </h2>
+                      <h6>
+                        Starting Backend Development is a journey into a career
+                        that can open many great opportunities from working on
+                        complex projects to landing your dream job and the best
+                        way to get the most out of it is to start now.
+                      </h6>
+                    </header>
+                    <content class="pt-4">
+                      <a
+                        href="https://academy.masteringbackend.com"
+                        target="_blank"
+                        class="nav-link qbtn"
+                        >Join the Academy</a
+                      >
+                    </content>
+                  </div>
+                </div>
               </div>
               <div class="card-deck mt-3">
                 <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
@@ -283,5 +306,35 @@ export default {
   /* bottom: 10%; */
   width: 100%;
   height: 100%;
+}
+.card-2 {
+  display: flex;
+  flex-direction: column !important;
+  height: 400px;
+  background-color: #fdf7f4;
+  border: none;
+}
+.card-2 ul li {
+  font-size: 20px;
+  font-style: italic;
+  align-self: center;
+  padding-left: 0px;
+  display: inline-block;
+  color: #201f1f;
+}
+
+.card-2 h2 {
+  color: #fa4c23;
+  line-height: 32px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 992px) and (-webkit-min-device-pixel-ratio: 1) {
+  .card-2 {
+    height: auto;
+    min-height: 300px;
+  }
 }
 </style>
