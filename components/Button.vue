@@ -1,7 +1,14 @@
 <template>
-  <NuxtLink :to="link" class="btn-style-one text-center qbtn"
+  <NuxtLink
+    v-if="!link.includes('http')"
+    :to="link"
+    class="btn-style-one text-center qbtn"
     ><slot
   /></NuxtLink>
+
+  <a v-else :href="link" target="_blank" class="btn-style-one text-center qbtn"
+    ><slot
+  /></a>
 </template>
 
 <script>
