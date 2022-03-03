@@ -14,8 +14,10 @@
           <small class="text-muted">
             <li class="fa fa-calendar"></li>
             <time
-              :datetime="$moment(post.date).format('MMMM Do YYYY, h:mm:ss a')"
-              >{{ $moment(post.date).format('MMMM Do YYYY') }}</time
+              :datetime="
+                $moment(post.modified).format('MMMM Do YYYY, h:mm:ss a')
+              "
+              >{{ $moment(post.modified).format('MMMM Do YYYY') }}</time
             >
           </small>
         </div>
@@ -103,7 +105,7 @@ export default {
     },
   },
   mounted() {
-    this.displayAds()
+    // this.displayAds()
     this.displayNewsletterBackend()
     this.displayNewsletterLaravel()
   },
