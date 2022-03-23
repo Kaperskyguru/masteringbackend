@@ -2,39 +2,107 @@
 <!--[if IE 9]><html lang="en-US" class="lt-ie9 ie9" {{ HTML_ATTRS }}><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html {{ HTML_ATTRS }}><!--<![endif]-->
   <head {{ HEAD_ATTRS }}>
+    <script>
+      !(function () {
+        var analytics = (window.analytics = window.analytics || [])
+        if (!analytics.initialize)
+          if (analytics.invoked)
+            window.console &&
+              console.error &&
+              console.error('Segment snippet included twice.')
+          else {
+            analytics.invoked = !0
+            analytics.methods = [
+              'trackSubmit',
+              'trackClick',
+              'trackLink',
+              'trackForm',
+              'pageview',
+              'identify',
+              'reset',
+              'group',
+              'track',
+              'ready',
+              'alias',
+              'debug',
+              'page',
+              'once',
+              'off',
+              'on',
+              'addSourceMiddleware',
+              'addIntegrationMiddleware',
+              'setAnonymousId',
+              'addDestinationMiddleware',
+            ]
+            analytics.factory = function (e) {
+              return function () {
+                var t = Array.prototype.slice.call(arguments)
+                t.unshift(e)
+                analytics.push(t)
+                return analytics
+              }
+            }
+            for (var e = 0; e < analytics.methods.length; e++) {
+              var key = analytics.methods[e]
+              analytics[key] = analytics.factory(key)
+            }
+            analytics.load = function (key, e) {
+              var t = document.createElement('script')
+              t.type = 'text/javascript'
+              t.async = !0
+              t.src =
+                'https://cdn.segment.com/analytics.js/v1/' +
+                key +
+                '/analytics.min.js'
+              var n = document.getElementsByTagName('script')[0]
+              n.parentNode.insertBefore(t, n)
+              analytics._loadOptions = e
+            }
+            analytics._writeKey = 'OsOuGUIkOCdEzDO4w7yNLrNShC3x1HRr'
+            analytics.SNIPPET_VERSION = '4.15.3'
+            analytics.load('OsOuGUIkOCdEzDO4w7yNLrNShC3x1HRr')
+            analytics.page()
+          }
+      })()
+    </script>
 
     <style>
       @font-face {
-  font-family: 'Merriweather';
-  src: url('/Merriweather-Light.ttf');
-  font-display: swap;
-  font-weight: 400;
-}
+        font-family: 'Merriweather';
+        src: url('/Merriweather-Light.ttf');
+        font-display: swap;
+        font-weight: 400;
+      }
 
-@font-face {
-  font-family: 'Nunito';
-  src: url('/Nunito-Light.ttf');
-  font-display: swap;
-  font-weight: 400;
-}
+      @font-face {
+        font-family: 'Nunito';
+        src: url('/Nunito-Light.ttf');
+        font-display: swap;
+        font-weight: 400;
+      }
     </style>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script defer src="https://www.googletagmanager.com/gtag/js?id=G-875DESWN4S"></script>
-<script >
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      defer
+      src="https://www.googletagmanager.com/gtag/js?id=G-875DESWN4S"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
 
-  gtag('config', 'G-875DESWN4S');
-</script>
-  <!-- End Google Tag Manager -->
-  <!-- <script data-ad-client="ca-pub-2753467155815816" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+      gtag('config', 'G-875DESWN4S')
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- <script data-ad-client="ca-pub-2753467155815816" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
     {{ HEAD }}
-    
-    <meta name="p:domain_verify" content="99a9e851fd033b906519f47c61ef67fa"/>
+
+    <meta name="p:domain_verify" content="99a9e851fd033b906519f47c61ef67fa" />
     <!-- Hotjar Tracking Code for www.masteringbackend.com -->
-<!-- <script>
+    <!-- <script>
   (function(h,o,t,j,a,r){
       h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
       h._hjSettings={hjid:2199949,hjsv:6};
@@ -45,15 +113,22 @@
   })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script> -->
 
-<!-- Clarity tracking code for https://masteringbackend.com/ -->
+    <!-- Clarity tracking code for https://masteringbackend.com/ -->
 
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "6577xvqgl1");
-</script>
+    <script type="text/javascript">
+      ;(function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            ;(c[a].q = c[a].q || []).push(arguments)
+          }
+        t = l.createElement(r)
+        t.async = 1
+        t.src = 'https://www.clarity.ms/tag/' + i
+        y = l.getElementsByTagName(r)[0]
+        y.parentNode.insertBefore(t, y)
+      })(window, document, 'clarity', 'script', '6577xvqgl1')
+    </script>
   </head>
   <body {{ BODY_ATTRS }}>
     {{ APP }}
@@ -69,10 +144,14 @@
       })(
         document,
         'script',
-        "https://chimpstatic.com/mcjs-connected/js/users/39ffc375608455a6fe549290a/e787de0d339b52ecac7806cb1.js"
+        'https://chimpstatic.com/mcjs-connected/js/users/39ffc375608455a6fe549290a/e787de0d339b52ecac7806cb1.js'
       )
     </script>
- <script defer type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fceac9f6c7f48c2"></script>
- <script defer src="https://use.fontawesome.com/3889c7d65e.js"></script>
+    <script
+      defer
+      type="text/javascript"
+      src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fceac9f6c7f48c2"
+    ></script>
+    <script defer src="https://use.fontawesome.com/3889c7d65e.js"></script>
   </body>
 </html>
