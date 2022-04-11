@@ -12,8 +12,9 @@
             <RelatedPosts :posts="related_posts" />
 
             <UdemyAd2
-              img="http://masteringbackend.solomoneseme.com/h30y"
-              link="http://masteringbackend.solomoneseme.com/udemyad"
+              img="/img/3.png"
+              title="Coding is not enough"
+              link="https://masteringbackend.solomoneseme.com/coding-is-not-enough"
             />
 
             <div class="mt-5 card p-3">
@@ -31,9 +32,7 @@
               <div class="card-deck">
                 <Newsletter />
               </div>
-              <div class="mt-3">
-                <Advert adslot="8446445971" :ad-full-width-responsive="true" />
-              </div>
+
               <div class="card-deck">
                 <UdemyAd />
               </div>
@@ -42,6 +41,14 @@
                   title="Top 3 Must Reads"
                   :show_date="false"
                   :posts="sticky_posts"
+                />
+              </div>
+              <div class="mt-3">
+                <!-- <Advert adslot="8446445971" :ad-full-width-responsive="true" /> -->
+                <UdemyAd2
+                  title="Coding is not enough"
+                  img="/img/1.png"
+                  link="https://masteringbackend.solomoneseme.com/coding-is-not-enough"
                 />
               </div>
               <div class="card-deck mt-3">
@@ -82,8 +89,8 @@
 
               <div class="card-deck">
                 <UdemyAd2
-                  img="http://masteringbackend.solomoneseme.com/h30y"
-                  link="http://masteringbackend.solomoneseme.com/udemyad"
+                  img="/img/2.png"
+                  link="https://masteringbackend.solomoneseme.com/coding-is-not-enough"
                 />
               </div>
 

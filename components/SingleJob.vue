@@ -9,12 +9,12 @@
           v-html="job.description"
         ></article>
 
-        <InlineAdvert
-          adLayoutKey="-gw-3+1f-3d+2z"
+        <!-- <InlineAdvert
+          ad-layout-key="-gw-3+1f-3d+2z"
           adslot="7567111590"
           adformat="fluid"
           style="height: 50px !important; width: 100%"
-        />
+        /> -->
       </div>
       <div class="card-line"></div>
       <div class="row meta">
@@ -38,21 +38,26 @@
             <p>{{ $moment(job.created_at).format('dddd, MMMM Do YYYY') }}</p>
           </div>
         </div>
-        <InlineAdvert
+        <!-- <InlineAdvert
           adLayoutKey="-fb+5w+4e-db+86"
           adslot="1058555324"
           adformat="fluid"
+        /> -->
+        <UdemyAd2
+          title="Coding is not enough"
+          img="/img/1.png"
+          link="https://masteringbackend.solomoneseme.com/coding-is-not-enough"
         />
       </div>
 
       <div class="card-line"></div>
       <!-- <inline-newsletter /> -->
       <div class="newsletter-job"></div>
-      <InlineAdvert
-        adLayoutKey="-fb+5w+4e-db+86"
+      <!-- <InlineAdvert
+        ad-layout-key="-fb+5w+4e-db+86"
         adslot="1058555324"
         adformat="fluid"
-      />
+      /> -->
       <div class="card-line"></div>
       <div class="actions">
         <a class="btn btn3 btn-lg" :href="job.url" target="_blank">Apply Now</a>
@@ -76,18 +81,21 @@ import InlineNewsletter from './InlineNewsletter.vue'
 
 export default {
   name: 'SingleJob',
-  data() {
-    return {
-      data: {},
-    }
-  },
   props: {
     job: {
       type: [Object, Array],
       default: () => {},
     },
   },
+  data() {
+    return {
+      data: {},
+    }
+  },
   computed: {},
+  mounted() {
+    this.displayNewsletterJob()
+  },
 
   methods: {
     displayNewsletterJob() {
@@ -123,9 +131,6 @@ export default {
         }
       }
     },
-  },
-  mounted() {
-    this.displayNewsletterJob()
   },
 }
 </script>
