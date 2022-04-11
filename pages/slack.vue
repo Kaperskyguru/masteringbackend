@@ -59,7 +59,7 @@
                   <div class="card-deck">
                     <UdemyAd2
                       img="http://masteringbackend.solomoneseme.com/h30y"
-                      link="http://masteringbackend.solomoneseme.com/udemyad"
+                      link="https://masteringbackend.solomoneseme.com/coding-is-not-enough"
                     />
                   </div>
                 </div>

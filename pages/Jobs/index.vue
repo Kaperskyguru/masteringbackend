@@ -24,18 +24,24 @@
                 </div>
 
                 <div class="mt-3 card-deck">
-                  <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+                  <Advert
+                    adslot="8446445971"
+                    :ad-full-width-responsive="true"
+                  />
                 </div>
                 <div class="card-deck">
                   <UdemyAd />
                 </div>
                 <div class="mt-3 card-deck">
-                  <Advert adslot="8446445971" :adFullWidthResponsive="true" />
+                  <Advert
+                    adslot="8446445971"
+                    :ad-full-width-responsive="true"
+                  />
                 </div>
                 <div class="card-deck">
                   <UdemyAd2
                     img="http://masteringbackend.solomoneseme.com/h30y"
-                    link="http://masteringbackend.solomoneseme.com/udemyad"
+                    link="https://masteringbackend.solomoneseme.com/coding-is-not-enough"
                   />
                 </div>
                 <div class="mt-3 card-deck">
