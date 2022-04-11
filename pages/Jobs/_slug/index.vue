@@ -11,7 +11,7 @@
 
               <UdemyAd2
                 title="Coding is not enough"
-                img="/img/3.png"
+                img="https://res.cloudinary.com/kaperskydisk/image/upload/v1649681177/masteringbackend/books/3.jpg"
                 link="https://masteringbackend.solomoneseme.com/coding-is-not-enough"
               />
             </div>
@@ -23,7 +23,7 @@
                 <!-- <Advert adslot="8446445971" :ad-full-width-responsive="true" /> -->
                 <UdemyAd2
                   title="Coding is not enough"
-                  img="/img/1.png"
+                  img="https://res.cloudinary.com/kaperskydisk/image/upload/v1649681197/masteringbackend/books/1.jpg"
                   link="https://masteringbackend.solomoneseme.com/coding-is-not-enough"
                 />
               </div>
@@ -43,7 +43,7 @@
               <div class="card-deck">
                 <UdemyAd2
                   title="Coding is not enough"
-                  img="/img/2.png"
+                  img="https://res.cloudinary.com/kaperskydisk/image/upload/v1649681189/masteringbackend/books/2.jpg"
                   link="https://masteringbackend.solomoneseme.com/coding-is-not-enough"
                 />
               </div>

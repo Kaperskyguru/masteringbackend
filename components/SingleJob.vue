@@ -45,7 +45,7 @@
         /> -->
         <UdemyAd2
           title="Coding is not enough"
-          img="/img/1.png"
+          img="https://res.cloudinary.com/kaperskydisk/image/upload/v1649681197/masteringbackend/books/1.jpg"
           link="https://masteringbackend.solomoneseme.com/coding-is-not-enough"
         />
       </div>
