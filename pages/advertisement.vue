@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-md-12 col-sm-12-col-xs-12 text-center">
               <h1 class="lead-title text-uppercase">
-                Reach out to our <em>30k+</em> and counting monthly readers
+                Reach out to our <em>30k+</em> monthly readers
               </h1>
             </div>
           </div>
@@ -53,8 +53,9 @@
                     <div class="card-footer">
                       <p>
                         Let's not waste your time with more text to read: Drop
-                        us a mail of what you need specifically, we will work
-                        something out together :)
+                        us a mail of what you need specifically with the mail
+                        subject containing "Advertising", we will work something
+                        out together :)
                       </p>
                       <Button class="btn-block" link="/contact"
                         >Contact Us!</Button
@@ -63,7 +64,22 @@
                   </div>
                 </div>
                 <div class="col-md-5">
-                  <Newsletter />
+                  <Newsletter class="mb-3" />
+
+                  <!-- <div class="card mb-3 b-none">
+                    <h5 class="card-header text-uppercase">
+                      Audience breakdown
+                    </h5>
+                    <div class="card-body">
+                      <ul>
+                        <li>Facebook Page => 1.1k+</li>
+                        <li>Facebook Group => 15K+</li>
+                        <li>Mail Newsletter => 2k+</li>
+                        <li>Monthly traffic => 10k - 15k+</li>
+                        <li>LinkedIn Page => 1.5k+</li>
+                      </ul>
+                    </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -128,5 +144,10 @@ export default {
 }
 em {
   color: red;
+}
+
+strong {
+  font-weight: bolder;
+  font-size: 2rem;
 }
 </style>
