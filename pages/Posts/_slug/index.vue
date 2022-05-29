@@ -84,7 +84,7 @@
                 <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
               </div>
               <div class="mt-3 card-deck">
-                <Advert adslot="8446445971" :ad-full-width-responsive="true" />
+                <!-- <Advert adslot="8446445971" :ad-full-width-responsive="true" /> -->
               </div>
 
               <div class="card-deck">
@@ -95,7 +95,7 @@
               </div>
 
               <div class="mt-3">
-                <Advert adslot="8407735767" />
+                <!-- <Advert adslot="8407735767" /> -->
               </div>
             </div>
           </div>

@@ -34,18 +34,18 @@
                   </div>
 
                   <!-- <div class="mt-3 card-deck"> -->
-                  <Advert
+                  <!-- <Advert
                     adslot="8446445971"
                     :ad-full-width-responsive="true"
-                  />
+                  /> -->
                   <!-- </div> -->
                 </div>
                 <div class="col-md-5">
                   <div class="card-deck">
-                    <Advert
+                    <!-- <Advert
                       adslot="8446445971"
                       :ad-full-width-responsive="true"
-                    />
+                    /> -->
                   </div>
 
                   <div class="card-deck mt-3">

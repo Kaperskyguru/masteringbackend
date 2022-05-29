@@ -24,19 +24,19 @@
                 </div>
 
                 <div class="mt-3 card-deck">
-                  <Advert
+                  <!-- <Advert
                     adslot="8446445971"
                     :ad-full-width-responsive="true"
-                  />
+                  /> -->
                 </div>
                 <div class="card-deck">
                   <UdemyAd />
                 </div>
                 <div class="mt-3 card-deck">
-                  <Advert
+                  <!-- <Advert
                     adslot="8446445971"
                     :ad-full-width-responsive="true"
-                  />
+                  /> -->
                 </div>
                 <div class="card-deck">
                   <UdemyAd2
@@ -45,10 +45,10 @@
                   />
                 </div>
                 <div class="mt-3 card-deck">
-                  <Advert
+                  <!-- <Advert
                     adslot="8407735767"
                     mystyle="display: inline-block; width: 400px; height: 450px"
-                  />
+                  /> -->
                 </div>
               </div>
             </div>
