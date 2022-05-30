@@ -9,12 +9,12 @@
           v-html="job.description"
         ></article>
 
-        <!-- <InlineAdvert
-          ad-layout-key="-gw-3+1f-3d+2z"
-          adslot="7567111590"
+        <InlineAdvert
+          ad-layout-key="in-article"
+          adslot="1427115161"
           adformat="fluid"
           style="height: 50px !important; width: 100%"
-        /> -->
+        />
       </div>
       <div class="card-line"></div>
       <div class="row meta">
@@ -38,11 +38,11 @@
             <p>{{ $moment(job.created_at).format('dddd, MMMM Do YYYY') }}</p>
           </div>
         </div>
-        <!-- <InlineAdvert
-          adLayoutKey="-fb+5w+4e-db+86"
-          adslot="1058555324"
+        <InlineAdvert
+          ad-layout-key="-fb+5w+4e-db+86"
+          adslot="1427115161"
           adformat="fluid"
-        /> -->
+        />
         <UdemyAd2
           title="Coding is not enough"
           img="https://res.cloudinary.com/kaperskydisk/image/upload/v1649681197/masteringbackend/books/1.jpg"
@@ -53,11 +53,11 @@
       <div class="card-line"></div>
       <!-- <inline-newsletter /> -->
       <div class="newsletter-job"></div>
-      <!-- <InlineAdvert
+      <InlineAdvert
         ad-layout-key="-fb+5w+4e-db+86"
-        adslot="1058555324"
+        adslot="1427115161"
         adformat="fluid"
-      /> -->
+      />
       <div class="card-line"></div>
       <div class="actions">
         <a class="btn btn3 btn-lg" :href="job.url" target="_blank">Apply Now</a>

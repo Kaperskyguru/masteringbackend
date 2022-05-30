@@ -13,7 +13,7 @@
         <!-- first card -->
         <div v-if="posts.length !== 0" class="row mt-5">
           <!-- <span v-if="apiStateLoaded"> -->
-          <Post v-for="(post, i) in posts" :key="i" :post="post" />
+          <Posts :posts="posts" />
           <!-- </span> -->
           <!-- <span v-if="apiStateError"> -->
           <!-- Loading Post -->

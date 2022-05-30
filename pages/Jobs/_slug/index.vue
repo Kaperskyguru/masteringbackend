@@ -20,7 +20,7 @@
                 <Newsletter />
               </div>
               <div class="mt-3 card-deck">
-                <!-- <Advert adslot="8446445971" :ad-full-width-responsive="true" /> -->
+                <Advert adslot="8029587508" :ad-full-width-responsive="true" />
                 <UdemyAd2
                   title="Coding is not enough"
                   img="https://res.cloudinary.com/kaperskydisk/image/upload/v1649681197/masteringbackend/books/1.jpg"

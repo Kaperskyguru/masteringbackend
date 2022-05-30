@@ -218,14 +218,6 @@ export default {
       //     'https://fonts.googleapis.com/css2?family=Merriweather&display=swap',
       // },
     ],
-
-    script: [
-      // {
-      //   src: 'https://use.fontawesome.com/3889c7d65e.js',
-      //   async: true,
-      //   defer: true,
-      // },
-    ],
   },
   router: {
     middleware: 'maintenance',
@@ -305,7 +297,7 @@ export default {
   ],
 
   'google-adsense': {
-    id: 'ca-pub-2753467155815816',
+    id: 'ca-pub-9150175073025711',
   },
   redirect: [
     // Redirect options here

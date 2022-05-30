@@ -43,8 +43,42 @@
                   :posts="sticky_posts"
                 />
               </div>
-              <div class="mt-3">
-                <!-- <Advert adslot="8446445971" :ad-full-width-responsive="true" /> -->
+
+              <div class="card-deck mt-3">
+                <Advert
+                  mystyle="display:block"
+                  adslot="1697743756"
+                  :ad-full-width-responsive="true"
+                />
+              </div>
+
+              <div class="card card-2 p-md-5 p-2 mb-3">
+                <header class="text-center">
+                  <h2 class="text-uppercase">
+                    START LEARNING BACKEND DEVELOPMENT NOW
+                  </h2>
+                  <h6 class="w-100">
+                    Starting Backend Development is a journey into a career that
+                    can open many great opportunities from working on complex
+                    projects to landing your dream job and the best way to get
+                    the most out of it is to start now.
+                  </h6>
+                </header>
+
+                <div class="card-body">
+                  <div class="form-group">
+                    <div class="text-center">
+                      <Button
+                        link="https://academy.masteringbackend.com"
+                        class="btn-block mt-4 text-uppercase"
+                        >Join the Academy</Button
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-deck mt-3">
                 <UdemyAd2
                   title="Coding is not enough"
                   img="https://res.cloudinary.com/kaperskydisk/image/upload/v1649681197/masteringbackend/books/1.jpg"
@@ -52,39 +86,22 @@
                 />
               </div>
               <div class="card-deck mt-3">
-                <!-- <Advert adslot="8446445971" :ad-full-width-responsive="true" /> -->
-
-                <div class="card card-2 p-md-5 p-2 mb-3">
-                  <header class="text-center">
-                    <h2 class="text-uppercase">
-                      START LEARNING BACKEND DEVELOPMENT NOW
-                    </h2>
-                    <h6 class="w-100">
-                      Starting Backend Development is a journey into a career
-                      that can open many great opportunities from working on
-                      complex projects to landing your dream job and the best
-                      way to get the most out of it is to start now.
-                    </h6>
-                  </header>
-
-                  <div class="card-body">
-                    <div class="form-group">
-                      <div class="text-center">
-                        <Button
-                          link="https://academy.masteringbackend.com"
-                          class="btn-block mt-4 text-uppercase"
-                          >Join the Academy</Button
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Advert
+                  mystyle="display:block"
+                  adslot="3127209644"
+                  :ad-full-width-responsive="true"
+                />
               </div>
+
               <div class="card-deck mt-3">
                 <PostWidget title="Top 6 Recent Posts" :posts="recent_posts" />
               </div>
               <div class="mt-3 card-deck">
-                <!-- <Advert adslot="8446445971" :ad-full-width-responsive="true" /> -->
+                <Advert
+                  mystyle="display:block"
+                  adslot="4146182810"
+                  :ad-full-width-responsive="true"
+                />
               </div>
 
               <div class="card-deck">
@@ -95,7 +112,11 @@
               </div>
 
               <div class="mt-3">
-                <!-- <Advert adslot="8407735767" /> -->
+                <Advert
+                  mystyle="display:block"
+                  adslot="2066814385"
+                  :ad-full-width-responsive="true"
+                />
               </div>
             </div>
           </div>

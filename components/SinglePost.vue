@@ -105,7 +105,7 @@ export default {
     },
   },
   mounted() {
-    // this.displayAds()
+    this.displayAds()
     this.displayNewsletterBackend()
     this.displayNewsletterLaravel()
   },
@@ -117,8 +117,9 @@ export default {
         h4AdSpaces.forEach((adSpace) => {
           const firstPara = adSpace.nextElementSibling
           const data = {
-            adLayoutKey: '-gw-3+1f-3d+2z',
-            adslot: '7567111590',
+            mystyle: 'display:block; text-align:center;',
+            adLayoutKey: 'in-article',
+            adslot: '2329133294',
             adformat: 'fluid',
           }
           this.createAdvert(firstPara, data)
@@ -131,9 +132,10 @@ export default {
           const firstPara = adSpace.nextElementSibling
           const data = {
             // adLayoutKey,
+            mystyle: 'display:block; text-align:center;',
             adLayoutKey: '-fb+5w+4e-db+86',
-            adslot: '1058555324',
-            adformat: 'fluid',
+            adslot: '1795351646',
+            adformat: 'auto',
           }
           this.createAdvert(firstPara, data)
         })
