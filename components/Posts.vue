@@ -1,8 +1,26 @@
 <template>
   <section>
-    <span v-for="(post, i) in posts" :key="i">
-      <Post :post="post" />
-    </span>
+    <div class="padding-top">
+      <div class="container inner-padding-top">
+        <div class="row">
+          <div class="col-md-12 col-sm-12-col-xs-12 text-center">
+            <h2 class="lead-title text-uppercase">
+              Latest Backend Dev. Articles
+            </h2>
+            <h3 class="article-subtitle">
+              Latest Backend Development Articles curated daily by the
+              community.
+            </h3>
+          </div>
+        </div>
+        <div class="row mb-1 mt-5">
+          <Post v-for="(post, i) in posts" :key="i" :post="post" />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-sm-12-col-xs-12 text-center mb-5">
+      <Button link="/posts" class="col p-3">More Articles</Button>
+    </div>
   </section>
 </template>
 
