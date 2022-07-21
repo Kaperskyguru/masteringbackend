@@ -138,6 +138,7 @@ export default {
       let post = await getPost(params.slug)
       if (post === undefined || !post || post === null) {
         post = await store.dispatch('post/getPost', params.slug)
+        console.log('HERERERE', post)
       }
 
       const getPosts = await store.getters['post/getStickyPosts']

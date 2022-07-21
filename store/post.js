@@ -110,12 +110,7 @@ export const actions = {
         `/get_posts?page=${page}&count=${count}`
       )
 
-      // const response = await fetch(
-      //   `${process.env.BASE_ENDPOINT_URL}/get_posts?page=${page}&count=${count}`
-      // )
-
       const { data } = res
-      console.log(data?.posts)
       if (data?.posts) {
         commit('setPosts', data)
       }
@@ -128,11 +123,12 @@ export const actions = {
 
   async getRecentPosts({ commit }) {
     try {
-      const response = await fetch(
+      const res = await this.$axios.get(
         `${process.env.BASE_ENDPOINT_URL}/get_posts?count=6`
       )
 
-      const data = await response.json()
+      const { data } = res
+
       if (data.posts) {
         commit('setRecentPosts', data)
       }
@@ -144,11 +140,11 @@ export const actions = {
 
   async getStickyPosts({ commit }) {
     try {
-      const response = await fetch(
+      const res = await this.$axios.get(
         `${process.env.BASE_ENDPOINT_URL}/get_sticky_posts`
       )
 
-      const data = await response.json()
+      const { data } = res
       if (data.posts) {
         commit('setStickyPosts', data)
       }
@@ -160,11 +156,12 @@ export const actions = {
 
   async getRelatedPosts({ commit }, postId) {
     try {
-      const response = await fetch(
+      const res = await this.$axios.get(
         `${process.env.BASE_ENDPOINT_URL}/get_related_posts?post_id=${postId}&count=3`
       )
 
-      const data = await response.json()
+      const { data } = res
+
       if (data.posts) {
         commit('setRelatedPosts', data)
       }
@@ -176,11 +173,12 @@ export const actions = {
 
   async getCategoryPosts({ commit }, { page, slug }) {
     try {
-      const response = await fetch(
+      const res = await this.$axios.get(
         `${process.env.BASE_ENDPOINT_URL}/get_category_posts?slug=${slug}&page=${page}`
       )
 
-      const data = await response.json()
+      const { data } = res
+
       if (data.posts) {
         commit('setCategoryPosts', data)
       }
@@ -192,10 +190,12 @@ export const actions = {
 
   async getPost({ commit }, slug) {
     try {
-      const response = await fetch(
+      const res = await this.$axios.get(
         `${process.env.BASE_ENDPOINT_URL}/get_post/?slug=${slug}`
       )
-      const data = await response.json()
+
+      const { data } = res
+
       if (data.post) {
         commit('setPost', data.post)
       }
