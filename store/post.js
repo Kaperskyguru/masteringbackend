@@ -109,13 +109,14 @@ export const actions = {
       const response = await fetch(
         `${process.env.BASE_ENDPOINT_URL}/get_posts?page=${page}&count=${count}`
       )
-
+      console.log(response, 'VUEX')
       const data = await response.json()
       if (data.posts) {
         commit('setPosts', data)
       }
       return data.posts
     } catch (error) {
+      console.log(error, 'ERROR')
       commit('setPostState', ENUM.ERROR)
     }
   },
