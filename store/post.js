@@ -106,12 +106,17 @@ export const mutations = {
 export const actions = {
   async getPosts({ commit }, { page, count = 22 }) {
     try {
-      const response = await fetch(
-        `${process.env.BASE_ENDPOINT_URL}/get_posts?page=${page}&count=${count}`
+      const res = await this.$axios.get(
+        `/get_posts?page=${page}&count=${count}`
       )
-      console.log(response, 'VUEX')
-      const data = await response.json()
-      if (data.posts) {
+
+      // const response = await fetch(
+      //   `${process.env.BASE_ENDPOINT_URL}/get_posts?page=${page}&count=${count}`
+      // )
+
+      const { data } = res
+      console.log(data?.posts)
+      if (data?.posts) {
         commit('setPosts', data)
       }
       return data.posts
