@@ -79,6 +79,7 @@ export default {
   computed: {
     ...mapState({
       posts: (state) => {
+        console.log([...state.post.posts], 'ALL_POSTS')
         return [...state.post.posts]
       },
       post_count: (state) => {

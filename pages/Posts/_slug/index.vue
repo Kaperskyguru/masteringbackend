@@ -136,7 +136,7 @@ export default {
     try {
       const getPost = await store.getters['post/getPost']
       let post = await getPost(params.slug)
-      if (post === undefined) {
+      if (post === undefined || !post || post === null) {
         post = await store.dispatch('post/getPost', params.slug)
       }
 
@@ -145,6 +145,8 @@ export default {
       if (!stickyPosts.length) {
         await await store.dispatch('post/getStickyPosts')
       }
+
+      console.log(post, 'Post_SLUG')
 
       return { post }
     } catch (error) {
