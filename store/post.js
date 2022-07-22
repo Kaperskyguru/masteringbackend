@@ -116,16 +116,13 @@ export const actions = {
       }
       return data.posts
     } catch (error) {
-      console.log(error, 'ERROR')
       commit('setPostState', ENUM.ERROR)
     }
   },
 
   async getRecentPosts({ commit }) {
     try {
-      const res = await this.$axios.get(
-        `${process.env.BASE_ENDPOINT_URL}/get_posts?count=6`
-      )
+      const res = await this.$axios.get(`/get_posts?count=6`)
 
       const { data } = res
 
@@ -140,9 +137,7 @@ export const actions = {
 
   async getStickyPosts({ commit }) {
     try {
-      const res = await this.$axios.get(
-        `${process.env.BASE_ENDPOINT_URL}/get_sticky_posts`
-      )
+      const res = await this.$axios.get(`/get_sticky_posts`)
 
       const { data } = res
       if (data.posts) {
@@ -157,7 +152,7 @@ export const actions = {
   async getRelatedPosts({ commit }, postId) {
     try {
       const res = await this.$axios.get(
-        `${process.env.BASE_ENDPOINT_URL}/get_related_posts?post_id=${postId}&count=3`
+        `/get_related_posts?post_id=${postId}&count=3`
       )
 
       const { data } = res
@@ -174,7 +169,7 @@ export const actions = {
   async getCategoryPosts({ commit }, { page, slug }) {
     try {
       const res = await this.$axios.get(
-        `${process.env.BASE_ENDPOINT_URL}/get_category_posts?slug=${slug}&page=${page}`
+        `/get_category_posts?slug=${slug}&page=${page}`
       )
 
       const { data } = res
@@ -190,9 +185,7 @@ export const actions = {
 
   async getPost({ commit }, slug) {
     try {
-      const res = await this.$axios.get(
-        `${process.env.BASE_ENDPOINT_URL}/get_post/?slug=${slug}`
-      )
+      const res = await this.$axios.get(`/get_post/?slug=${slug}`)
 
       const { data } = res
 
@@ -219,3 +212,5 @@ export const actions = {
 
   getLatestPosts({ commit }, page = 1, perPage = 3) {},
 }
+
+// http://172.19.78.154:35430/

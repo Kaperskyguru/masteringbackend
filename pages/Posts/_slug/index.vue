@@ -7,7 +7,11 @@
         <div class="row">
           <div class="col-md-8 mb-0">
             <SinglePost v-if="post" :post="post" />
-            <p v-else class="text-center">Post not found</p>
+            <p v-else class="text-center">
+              We are currently experiencing server issues after migration and
+              upgrading. We are working on it. Please refresh the page or check
+              again later. Thanks
+            </p>
 
             <RelatedPosts :posts="related_posts" />
 

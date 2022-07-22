@@ -2,10 +2,10 @@
   <div class="card mb-3">
     <div class="ad card-body clearfix">
       <adsbygoogle
-        :adFullWidthResponsive="adFullWidthResponsive"
-        :ad-slot="adslot"
-        :ad-format="adformat"
-        :ad-style="mystyle"
+        :ad-full-width-responsive="{ adFullWidthResponsive }"
+        :ad-slot="{ adslot }"
+        :ad-format="{ adformat }"
+        :ad-style="{ mystyle }"
       />
     </div>
   </div>

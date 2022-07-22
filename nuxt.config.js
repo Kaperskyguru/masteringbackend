@@ -411,6 +411,10 @@ export default {
    */
   axios: {
     baseURL: process.env.BASE_ENDPOINT_URL,
+    // Proxy: true,
+    headers: {
+      'Content-Type': 'application/json',
+    },
   },
   /*
    ** Build configuration

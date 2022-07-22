@@ -20,7 +20,11 @@
           <!-- </span> -->
         </div>
         <div v-else class="row mt-5">
-          <p class="text-center">No post found</p>
+          <p class="text-center">
+            We are currently experiencing server issues after migration and
+            upgrading. We are working on it. Please refresh the page or check
+            again later. Thanks
+          </p>
         </div>
       </div>
     </div>
