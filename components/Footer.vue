@@ -25,6 +25,11 @@
             <li><a href="/advertisement">Partnership</a></li>
             <li><a href="/contact">Contact us</a></li>
             <li><a href="/write-for-us">Write for us</a></li>
+            <li>
+              <a href="http://contentre.io/hiring?source=mb_hiring"
+                >Hire vetted technical writers</a
+              >
+            </li>
           </ul>
         </div>
         <div class="col-md-2">
@@ -35,11 +40,11 @@
             </li>
             <li><a href="/advertisement">Advertise with us</a></li>
             <li><a href="/advertisement">Sponsorship</a></li>
-            <li>
+            <!-- <li>
               <a href="https://jooble.org/jobs-backend-software-developer"
                 >Other Jobs</a
               >
-            </li>
+            </li> -->
           </ul>
         </div>
         <div class="col-md-3">
@@ -50,19 +55,19 @@
             </li>
             <li>
               <a
-                href="https://facebook.com/solomon.eseme"
+                href="https://facebook.com/masteringbackend"
                 class="fa fa-facebook"
               ></a>
             </li>
             <li>
               <a
-                href="https://twitter.com/officialbackend"
+                href="https://twitter.com/master_backend"
                 class="fa fa-twitter"
               ></a>
             </li>
             <li>
               <a
-                href="https://www.linkedin.com/company/back-end-developers/"
+                href="https://www.linkedin.com/company/masteringbackend"
                 class="fa fa-linkedin"
               ></a>
             </li>

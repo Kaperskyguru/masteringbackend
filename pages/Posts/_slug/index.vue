@@ -56,7 +56,51 @@
                 />
               </div>
 
-              <div class="card card-2 p-md-5 p-2 mb-3">
+              <div class="card-deck mt-3">
+                <div class="card mb-3">
+                  <h5 class="card-header text-uppercase">
+                    Grow your tech writing career
+                  </h5>
+                  <div class="card-body">
+                    <header>
+                      <div style="margin-bottom: 1rem">
+                        <img
+                          src="https://res.cloudinary.com/kaperskydisk/image/upload/v1656683600/contentre/assets/full-contentre.gif"
+                          alt=""
+                        />
+                      </div>
+                      <h6
+                        style="
+                          text-align: left;
+                          -webkit-font-smoothing: antialiased;
+                          font-size: 1.125rem;
+                          line-height: 2rem;
+                          font-weight: 550;
+                          color: rgb(16 42 39 / 1);
+                        "
+                      >
+                        Jumping from coding to finding, managing, and completing
+                        technical writing gigs is hard. Not anymore. Organize
+                        all your content, manage clients, share samples, and
+                        publish your work to various places, all on Contentre.
+                      </h6>
+                    </header>
+
+                    <div class="form-group">
+                      <div class="text-center">
+                        <Button
+                          link="https://masteringbackend.solomoneseme.com/contentre_"
+                          class="btn-block mt-4 text-uppercase add-btn"
+                          style="background-color: #286963; color: #ffffff"
+                          >Get Started. It's free</Button
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="card card-2 p-md-5 p-2 mb-3">
                 <header class="text-center">
                   <h2 class="text-uppercase">
                     START LEARNING BACKEND DEVELOPMENT NOW
@@ -80,7 +124,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <div class="card-deck mt-3">
                 <UdemyAd2
@@ -142,7 +186,6 @@ export default {
       let post = await getPost(params.slug)
       if (post === undefined || !post || post === null) {
         post = await store.dispatch('post/getPost', params.slug)
-        console.log('HERERERE', post)
       }
 
       const getPosts = await store.getters['post/getStickyPosts']
@@ -150,8 +193,6 @@ export default {
       if (!stickyPosts.length) {
         await await store.dispatch('post/getStickyPosts')
       }
-
-      console.log(post, 'Post_SLUG')
 
       return { post }
     } catch (error) {
@@ -348,6 +389,10 @@ export default {
 .card-2 {
   background-color: #fdf7f4;
   border: none;
+}
+
+.add-btn:hover {
+  background-color: #3c9a92 !important;
 }
 
 .card-2 h2 {
