@@ -36,7 +36,9 @@
           <h5 class="footer-header mb-4">Ecosystem Links</h5>
           <ul class="footer-link list-unstyled">
             <li>
-              <a href="https://about.me/solomoneseme">Hire Me</a>
+              <a href="https://contentre.io/kaperskyguru?source=mb_hire_me"
+                >Hire Me</a
+              >
             </li>
             <li><a href="/advertisement">Advertise with us</a></li>
             <li><a href="/advertisement">Sponsorship</a></li>
