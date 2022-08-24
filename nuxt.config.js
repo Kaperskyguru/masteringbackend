@@ -300,7 +300,12 @@ export default {
     id: 'ca-pub-9150175073025711',
   },
   redirect: [
-    // Redirect options here
+    // Redirect opt`ions here
+    {
+      from: '^/posts/backend-development-the-ultimate-guide(.*)$',
+      to: 'https://blog.boot.dev/backend/become-backend-developer',
+      statusCode: 301,
+    },
     {
       from: '^/posts/introduction-to-backend-development(.*)$',
       to: '/posts/getting-started-with-backend-development',
