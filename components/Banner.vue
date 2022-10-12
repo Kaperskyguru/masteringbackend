@@ -15,7 +15,7 @@
           </h3>
           <div class="text-left mt-5">
             <a
-              href="https://academy.masteringbackend.com"
+              href="https://masteringbackend.com/posts/why-choose-interview-kickstarts-back-end-engineering-course-includes-real-reviews/"
               target="_blank"
               class="bl qbtn"
               >Join the Academy</a

@@ -45,7 +45,7 @@
 
               <li class="nav-item quote-btn">
                 <a
-                  href="https://academy.masteringbackend.com"
+                  href="https://masteringbackend.com/posts/why-choose-interview-kickstarts-back-end-engineering-course-includes-real-reviews/"
                   target="_blank"
                   class="nav-link qbtn"
                   >Join the Academy</a
