@@ -73,7 +73,9 @@ export default {
         data.count = 22
         await store.dispatch('post/getPosts', data)
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
   },
   data() {
     return {

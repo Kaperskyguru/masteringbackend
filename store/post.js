@@ -1,9 +1,15 @@
 /* eslint-disable no-unused-vars */
 // const baseURl = 'http://masteringbackend.solomoneseme.com/api'
 
+import https from 'https'
 import ENUM from '@/enums'
 import DevtoPost from '~/Services/DevtoPosts'
 import LogRocketPosts from '~/Services/LogRocketPosts'
+
+// At request level
+const agent = new https.Agent({
+  rejectUnauthorized: false,
+})
 
 export const state = () => ({
   postState: ENUM.INIT,
@@ -107,7 +113,8 @@ export const actions = {
   async getPosts({ commit }, { page, count = 22 }) {
     try {
       const res = await this.$axios.get(
-        `/get_posts?page=${page}&count=${count}`
+        `/get_posts?page=${page}&count=${count}`,
+        { httpsAgent: agent }
       )
 
       const { data } = res
@@ -122,7 +129,9 @@ export const actions = {
 
   async getRecentPosts({ commit }) {
     try {
-      const res = await this.$axios.get(`/get_posts?count=6`)
+      const res = await this.$axios.get(`/get_posts?count=6`, {
+        httpsAgent: agent,
+      })
 
       const { data } = res
 
@@ -137,7 +146,9 @@ export const actions = {
 
   async getStickyPosts({ commit }) {
     try {
-      const res = await this.$axios.get(`/get_sticky_posts`)
+      const res = await this.$axios.get(`/get_sticky_posts`, {
+        httpsAgent: agent,
+      })
 
       const { data } = res
       if (data.posts) {
@@ -152,7 +163,8 @@ export const actions = {
   async getRelatedPosts({ commit }, postId) {
     try {
       const res = await this.$axios.get(
-        `/get_related_posts?post_id=${postId}&count=3`
+        `/get_related_posts?post_id=${postId}&count=3`,
+        { httpsAgent: agent }
       )
 
       const { data } = res
@@ -169,7 +181,8 @@ export const actions = {
   async getCategoryPosts({ commit }, { page, slug }) {
     try {
       const res = await this.$axios.get(
-        `/get_category_posts?slug=${slug}&page=${page}`
+        `/get_category_posts?slug=${slug}&page=${page}`,
+        { httpsAgent: agent }
       )
 
       const { data } = res
@@ -185,7 +198,9 @@ export const actions = {
 
   async getPost({ commit }, slug) {
     try {
-      const res = await this.$axios.get(`/get_post/?slug=${slug}`)
+      const res = await this.$axios.get(`/get_post/?slug=${slug}`, {
+        httpsAgent: agent,
+      })
 
       const { data } = res
 
