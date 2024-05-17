@@ -64,6 +64,7 @@ export default {
     Loading,
   },
   async asyncData({ store, query }) {
+    return []
     try {
       const getPosts = store.getters['post/getPosts']
       const posts = getPosts()

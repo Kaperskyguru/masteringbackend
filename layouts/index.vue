@@ -8,6 +8,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      baseURL: process.env.BASE_URL || 'https://masteringbackend.com',
+    }
+  },
   head() {
     return {
       link: [

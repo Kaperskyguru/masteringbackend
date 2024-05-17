@@ -307,6 +307,17 @@ export default {
       statusCode: 301,
     },
     {
+      from: '^/jobs/(.*)$',
+      to: 'https://getbackendjobs.com?ref=v1.masteringbackend',
+      statusCode: 301,
+    },
+
+    {
+      from: '^/jobs(.*)$',
+      to: 'https://getbackendjobs.com?ref=v1.masteringbackend',
+      statusCode: 301,
+    },
+    {
       from: '^/posts/introduction-to-backend-development(.*)$',
       to: '/posts/getting-started-with-backend-development',
       statusCode: 301,
