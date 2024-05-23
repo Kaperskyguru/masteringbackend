@@ -20,12 +20,12 @@ export default {
   head() {
     // console.log(`${process.env.BASE_URL}${this.$route.path}`)
     return {
-      link: [
-        {
-          rel: 'canonical',
-          href: `${this.baseURL}${this.$route.path}`,
-        },
-      ],
+      // link: [
+      //   {
+      //     rel: 'canonical',
+      //     href: `${this.baseURL}${this.$route.path}`,
+      //   },
+      // ],
     }
   },
 }

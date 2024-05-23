@@ -16,10 +16,10 @@ export default {
   head() {
     return {
       link: [
-        {
-          rel: 'canonical',
-          href: this.baseURL + this.$route.path,
-        },
+        // {
+        //   rel: 'canonical',
+        //   href: this.baseURL + this.$route.path,
+        // },
       ],
     }
   },
